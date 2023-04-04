@@ -1,0 +1,13 @@
+.iconItem {
+    display: grid;
+    grid-template-columns: 24px max-content;
+    font-size: 12px;
+    font-style: italic;
+    align-items: center;
+}
+  
+.icon {
+    display: flex;
+    background-color: var(--blueprint200);
+    border-radius: 2px;
+}

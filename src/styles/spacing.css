@@ -1,0 +1,15 @@
+#spacingWrapper {
+    display: flex;
+    flex-direction: column;
+}
+.spacingItem {
+    display: grid;
+    grid-template-columns: 20px auto;
+    font-size: 12px;
+    font-style: italic;
+    align-items: center;
+    gap: 8px;
+}
+.spacing {
+    background-color: var(--blueprint200);
+  }

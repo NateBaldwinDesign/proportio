@@ -1,0 +1,19 @@
+.textIconItem {
+    display: grid;
+    grid-template-columns: 24px auto;
+    align-items: center;
+}
+
+.typeIconPair {
+    display: flex;
+    flex-direction: row;
+}
+
+.typeIconPair .iconItem,
+.typeIconPair .typeItem {
+    display: flex;
+}
+
+.typeIconPair .icon {
+    background-color: transparent;
+}

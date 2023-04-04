@@ -1,0 +1,134 @@
+@media (prefers-color-scheme: light) {
+    /*
+    https://leonardocolor.io/theme?name=Untitled&config=%7B%22baseScale%22%3A%22blueprint%22%2C%22colorScales%22%3A%5B%7B%22name%22%3A%22blueprint%22%2C%22colorKeys%22%3A%5B%22%231f4b84%22%5D%2C%22colorspace%22%3A%22OKLCH%22%2C%22ratios%22%3A%5B%221%22%2C%221.5%22%2C%222%22%2C%223.02%22%2C%225%22%2C%228%22%5D%2C%22smooth%22%3Atrue%7D%5D%2C%22lightness%22%3A93%2C%22contrast%22%3A1%2C%22saturation%22%3A100%2C%22formula%22%3A%22wcag2%22%7D
+    */
+    :root {
+      --appBackground: #ffffff;
+      --fieldSetBackground: #f7f7f7;
+      --border100: #cacaca;
+      --border200: #9e9e9e;
+      --textColor: #000000;
+      --background: #e4ebf3;
+      --legendColor: #000000;
+      --legendTextColor: #ffffff;
+      --blueprint100: #e3eaf3;
+      --blueprint200: #afc3dd;
+      --blueprint300: #8ea9cd;
+      --blueprint400: #6588b8;
+      --blueprint500: #3b649c;
+      --blueprint600: #19447d;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    /*. 
+    https://leonardocolor.io/theme?name=Untitled&config=%7B%22baseScale%22%3A%22blueprint%22%2C%22colorScales%22%3A%5B%7B%22name%22%3A%22blueprint%22%2C%22colorKeys%22%3A%5B%22%231f4b84%22%5D%2C%22colorspace%22%3A%22OKLCH%22%2C%22ratios%22%3A%5B%221%22%2C%221.5%22%2C%222%22%2C%223.02%22%2C%225%22%2C%228%22%5D%2C%22smooth%22%3Atrue%7D%5D%2C%22lightness%22%3A12%2C%22contrast%22%3A1%2C%22saturation%22%3A70%2C%22formula%22%3A%22wcag2%22%7D
+    */
+    :root {
+      --appBackground: #181818;
+      --fieldSetBackground: #000000;
+      --border100: #373737;
+      --border200: #4c4c4c;
+      --textColor: #ffffff;
+      --legendColor: #323232;
+      --legendTextColor: #ffffff;
+      --background: #001e44;
+      --blueprint100: #0b1f39;
+      --blueprint200: #213d61;
+      --blueprint300: #335077;
+      --blueprint400: #4f6b91;
+      --blueprint500: #788faf;
+      --blueprint600: #a5b6cc;
+    }
+  }
+  html {
+    font-family: "Avenir Next", "Helvetica", sans-serif;
+    background-color: var(--appBackground);
+    color: var(--textColor);
+  }
+  
+  body {
+    margin: 24px;
+  }
+  input {
+    box-shadow: none;
+    outline: none;
+    background-color: var(--appBackground);
+    border: 1px solid var(--border200);
+    color: var(--textColor);
+  }
+  input[type=number] {
+    width: 56px;
+  }
+  
+  fieldset {
+    display: flex;
+    flex-direction: row;
+    flex-basis: fit-content;
+    flex-shrink: 0;
+    gap: 24px;
+    margin: 16px 0;
+    outline: none;
+    box-shadow: none;
+    background-color: var(--fieldSetBackground);
+    border: 1px solid var(--border100);
+    border-radius: 12px;
+    padding: 10px 28px 16px 20px;
+  }
+  fieldset.column {
+    flex-direction: column;
+    gap: 8px;
+  }
+  fieldset section {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+  }
+  legend {
+    background-color: var(--legendColor);
+    color: var(--legendTextColor);
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.825rem;
+  }
+  label {
+    font-size: 0.875rem;
+  }
+  fieldgroup {
+    display: flex;
+    flex-direction: column;
+    position:relative;
+  }
+  p {
+    margin: 0;
+  }
+  h1 {
+    margin-top: 1em;
+    margin-bottom: 0.125em;
+  }
+  h4 {
+    margin-top: 0.5em;
+    margin-bottom: 0;
+  }
+  h5 {
+    margin-bottom: 0;
+  }
+  
+  main {
+    padding: 24px 48px 48px 48px;
+    margin-top: 24px;
+    border-radius: 12px;
+  /*   width: 100%; */
+    background-color: var(--background);
+    color: var(--blueprint500);
+  }
+  
+  .row {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+  }

@@ -1,0 +1,16 @@
+#typography {
+    display: flex;
+    flex-direction: column;
+}
+
+.typeItem {
+    display: grid;
+    grid-template-columns: 24px max-content;
+    align-items: center;
+}
+
+.specs {
+    font-size: 12px;
+    font-style: italic;
+    align-items: center;
+}
