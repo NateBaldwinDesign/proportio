@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/proportional-design-tool/static/css/main.3abec726.css",
+    "main.js": "/proportional-design-tool/static/js/main.3d6bd51b.js",
+    "static/js/787.65b0b818.chunk.js": "/proportional-design-tool/static/js/787.65b0b818.chunk.js",
+    "index.html": "/proportional-design-tool/index.html",
+    "main.3abec726.css.map": "/proportional-design-tool/static/css/main.3abec726.css.map",
+    "main.3d6bd51b.js.map": "/proportional-design-tool/static/js/main.3d6bd51b.js.map",
+    "787.65b0b818.chunk.js.map": "/proportional-design-tool/static/js/787.65b0b818.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3abec726.css",
+    "static/js/main.3d6bd51b.js"
+  ]
+}
