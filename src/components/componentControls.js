@@ -1,9 +1,39 @@
 import React from "react";
+import capitalize from "../utilities/capitalize";
 
 const ComponentControls = (props) => {
     const baseSize = props.baseSize;
     const setBaseSize = props.setBaseSize;
-    
+    const baseIconSizeIndex = props.baseIconSizeIndex;
+    const setBaseIconSizeIndex = props.setBaseIconSizeIndex;
+    const baseComponentSize = props.baseComponentSize;
+    const setBaseComponentSize = props.setBaseComponentSize;
+    const componentLineHeight = props.componentLineHeight;
+    const setComponentLineHeight = props.setComponentLineHeight;
+    const componentSmallQuantity = props.componentSmallQuantity;
+    const setComponentSmallQuantity = props.setComponentSmallQuantity;
+    const componentLargeQuantity = props.componentLargeQuantity;
+    const setComponentLargeQuantity = props.setComponentLargeQuantity;
+    const componentScaleMethod = props.componentScaleMethod;
+    const setComponentScaleMethod = props.setComponentScaleMethod;
+
+    const componentScalingMethods = ['typeScale', 'spacingScale', 'customScale']
+    const inputs = componentScalingMethods.map((method) => {
+        return (
+            <div key={`${method}`}>
+                <input 
+                    type="radio" 
+                    id={`component${method}`} 
+                    name="componentScale_method" 
+                    value={method} 
+                    onClick={(e) => setComponentScaleMethod(e.target.value)}
+                    defaultChecked={ (method==='typeScale') ? true : false }
+                />
+                <label htmlFor={`component${method}`} >{capitalize(method)}</label>
+            </div>
+        )
+    })
+
     return (
         <>
         <fieldset>

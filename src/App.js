@@ -1,19 +1,10 @@
 import React, {useState} from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import "./styles/tabs.css";
 // import 'react-tabs/style/react-tabs.css';
 
 import './styles/app.css';
-import TypeControls from './components/typeControls';
-import Typography from './components/typography';
-import IconControls from './components/iconControls';
-import Iconography from './components/iconography';
-import BaseControls from './components/baseControls';
-import SpacingControls from './components/spacingControls';
-import Spacing from './components/spacing';
-import TypeIconPairing from './components/typeIconPairing';
-import TypeIconPairingControls from './components/typeIconPairingControls';
-import calculateScale from './utilities/calculateScale';
+import Foundations from './views/foundations';
+import Components from './views/components';
 
 function App() {
   const scaleMethods = ['linear', 'power'];
@@ -48,127 +39,86 @@ function App() {
   // Components
   const [baseIconSizeIndex, setBaseIconSizeIndex] = useState(1);
   const [baseComponentSize, setBaseComponentSize] = useState(1);
-  const [minComponentHeightIndex, setMinComponentHeightIndex] = useState(1);
   const [componentLineHeight, setComponentLineHeight] = useState(1.2);
   const [componentSmallQuantity, setComponentSmallQuantity] = useState(2);
-  const [componentLargeQuantity, setComponentLargeQuantity] = useState(3);
+  const [componentLargeQuantity, setComponentLargeQuantity] = useState(4);
   const [componentScaleMethod, setComponentScaleMethod] = useState(scaleMethods[2]);
+  const [componentPaddingMethod, setComponentPaddingMethod] = useState(spacingMethods[0]);
 
   const iconLineHeight = 1.375; /* Just to align icon examples with typography */
   const spacerLineHeight = iconLineHeight;
 
   return (
     <div className="App">
-      <BaseControls
-        baseSize={baseSize}
-        setBaseSize={setBaseSize}
-      />
-      <SpacingControls 
-        baseSize={baseSize}
-        spacingScale={spacingScale}
-        spacingSmallQuantity={spacingSmallQuantity}
-        spacingLargeQuantity={spacingLargeQuantity}
-        setSpacingScale={setSpacingScale}
-        scaleMethods={scaleMethods}
-        spacingScaleMethod={spacingScaleMethod}
-        setSpacingScaleMethod={setSpacingScaleMethod}
-        setSpacingLargeQuantity={setSpacingLargeQuantity}
-        setSpacingSmallQuantity={setSpacingSmallQuantity}
-      />
-      <TypeControls 
-        typeScale={typeScale}
-        typeSmallQuantity={typeSmallQuantity}
-        typeLargeQuantity={typeLargeQuantity}
-        setTypeScale={setTypeScale}
-        scaleMethods={scaleMethods}
-        setTypeScaleMethod={setTypeScaleMethod}
-        setTypeLargeQuantity={setTypeLargeQuantity}
-        setTypeSmallQuantity={setTypeSmallQuantity}
-      />
-      <IconControls 
-        iconScale={iconScale}
-        iconSmallQuantity={iconSmallQuantity}
-        iconLargeQuantity={iconLargeQuantity}
-        setIconScale={setIconScale}
-        scaleMethods={scaleMethods}
-        iconPadding={iconPadding}
-        setIconPadding={setIconPadding}
-        setIconScaleMethod={setIconScaleMethod}
-        setIconLargeQuantity={setIconLargeQuantity}
-        setIconSmallQuantity={setIconSmallQuantity}
-      />
-      <TypeIconPairingControls
-        scaleMethods={spacingMethods}
-        textIconGapIndex={textIconGapIndex}
-        setTextIconGapIndex={setTextIconGapIndex}
-        textIconGapScaleMethod={textIconGapScaleMethod}
-        setTextIconGapScaleMethod={setTextIconGapScaleMethod}
-        textIconIconSizeIndex={textIconIconSizeIndex}
-        setTextIconIconSizeIndex={setTextIconIconSizeIndex}
-      />
-
-      <main>
-        <Tabs>
-          <TabList>
-            <Tab>Elements</Tab>
-            <Tab>Typography</Tab>
-            <Tab>Components</Tab>
-          </TabList>
-
-          <TabPanel>
-            <Spacing
-              baseSize={baseSize}
-              spacingScale={spacingScale}
-              spacingSmallQuantity={spacingSmallQuantity}
-              spacingLargeQuantity={spacingLargeQuantity}
-              spacingScaleMethod={spacingScaleMethod}
-              spacerLineHeight={spacerLineHeight}
-            />
-            <Typography 
-              baseSize={baseSize}
-              typeScale={typeScale}
-              typeSmallQuantity={typeSmallQuantity}
-              typeLargeQuantity={typeLargeQuantity}
-              typeScaleMethod={typeScaleMethod}
-            />
-            <Iconography 
-              baseSize={baseSize}
-              iconScale={iconScale}
-              iconSmallQuantity={iconSmallQuantity}
-              iconLargeQuantity={iconLargeQuantity}
-              iconScaleMethod={iconScaleMethod}
-              iconLineHeight={iconLineHeight}
-              iconPadding={iconPadding}
-            />
-            <TypeIconPairing
-              baseSize={baseSize}
-              iconScale={iconScale}
-              iconSmallQuantity={iconSmallQuantity}
-              iconLargeQuantity={iconLargeQuantity}
-              iconScaleMethod={iconScaleMethod}
-              iconLineHeight={iconLineHeight}
-              iconPadding={iconPadding}
-              typeScale={typeScale}
-              typeSmallQuantity={typeSmallQuantity}
-              typeLargeQuantity={typeLargeQuantity}
-              typeScaleMethod={typeScaleMethod}
-              textIconGapIndex={textIconGapIndex}
-              textIconGapScaleMethod={textIconGapScaleMethod}
-              spacingScale={spacingScale}
-              spacingScaleMethod={spacingScaleMethod}
-              textIconIconSizeIndex={textIconIconSizeIndex}
-              />
-          </TabPanel>
-          <TabPanel>
-            <p>Typographic content, paragraphcs, headings margins using spacers, etc.</p>
-          </TabPanel>
-          <TabPanel>
-            <p>Component and compoennt specs</p>
-          </TabPanel>
-
-        </Tabs>
-        
-      </main>
+      <Tabs className="App_tabs">
+        <TabList className="App_tabsList">
+          <Tab className="App_tab">Foundations</Tab>
+          <Tab className="App_tab">Components</Tab>
+        </TabList>
+        <TabPanel className="App_tabPanel">
+          <Foundations 
+            scaleMethods = {scaleMethods}
+            spacingMethods = {spacingMethods}
+            baseSize = {baseSize}
+            setBaseSize = {setBaseSize}
+            spacingScale = {spacingScale}
+            setSpacingScale = {setSpacingScale}
+            spacingSmallQuantity = {spacingSmallQuantity}
+            setSpacingSmallQuantity = {setSpacingSmallQuantity}
+            spacingLargeQuantity = {spacingLargeQuantity}
+            setSpacingLargeQuantity = {setSpacingLargeQuantity}
+            spacingScaleMethod = {spacingScaleMethod}
+            setSpacingScaleMethod = {setSpacingScaleMethod}
+            typeScale = {typeScale}
+            setTypeScale = {setTypeScale}
+            typeSmallQuantity = {typeSmallQuantity}
+            setTypeSmallQuantity = {setTypeSmallQuantity}
+            typeLargeQuantity = {typeLargeQuantity}
+            setTypeLargeQuantity = {setTypeLargeQuantity}
+            typeScaleMethod = {typeScaleMethod}
+            setTypeScaleMethod = {setTypeScaleMethod}
+            iconScale = {iconScale}
+            setIconScale = {setIconScale}
+            iconPadding = {iconPadding}
+            setIconPadding = {setIconPadding}
+            iconSmallQuantity = {iconSmallQuantity}
+            setIconSmallQuantity = {setIconSmallQuantity}
+            iconLargeQuantity = {iconLargeQuantity}
+            setIconLargeQuantity = {setIconLargeQuantity}
+            iconScaleMethod = {iconScaleMethod}
+            setIconScaleMethod = {setIconScaleMethod}
+            textIconGapIndex = {textIconGapIndex}
+            setTextIconGapIndex = {setTextIconGapIndex}
+            textIconGapScaleMethod = {textIconGapScaleMethod}
+            setTextIconGapScaleMethod = {setTextIconGapScaleMethod}
+            textIconIconSizeIndex = {textIconIconSizeIndex}
+            setTextIconIconSizeIndex = {setTextIconIconSizeIndex}
+            iconLineHeight = {iconLineHeight}
+            spacerLineHeight = {spacerLineHeight}
+          />
+        </TabPanel>
+        <TabPanel className="App_tabPanel">
+          <Components
+            baseSize={baseSize}
+            baseIconSizeIndex={baseIconSizeIndex}
+            setBaseIconSizeIndex={setBaseIconSizeIndex}
+            baseComponentSize={baseComponentSize}
+            setBaseComponentSize={setBaseComponentSize}
+            componentLineHeight={componentLineHeight}
+            setComponentLineHeight={setComponentLineHeight}
+            componentSmallQuantity={componentSmallQuantity}
+            setComponentSmallQuantity={setComponentSmallQuantity}
+            componentLargeQuantity={componentLargeQuantity}
+            setComponentLargeQuantity={setComponentLargeQuantity}
+            componentScaleMethod={componentScaleMethod}
+            setComponentScaleMethod={setComponentScaleMethod}
+            componentPaddingMethod={componentPaddingMethod}
+            setComponentPaddingMethod={setComponentPaddingMethod}
+            typeScale={typeScale}
+            iconScale={iconScale}
+          />
+        </TabPanel>
+      </Tabs>
 
     </div>
   );
