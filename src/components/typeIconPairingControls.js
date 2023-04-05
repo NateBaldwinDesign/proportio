@@ -35,7 +35,9 @@ const TypeIconPairingControls = (props) => {
     return (
         <fieldset>
             <legend>Type-icon pairing</legend>
-            {inputs}
+            <div className="column">
+                {inputs}
+            </div>
             <div>
                 <label htmlFor="">{fieldLabel}</label>
                 <input

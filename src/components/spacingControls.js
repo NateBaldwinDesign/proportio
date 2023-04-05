@@ -37,7 +37,9 @@ const SpacingControls = (props) => {
     return (
         <fieldset>
             <legend>Spacing</legend>
-            {inputs}
+            <div className="column">
+                {inputs}
+            </div>
             <div>
                 <label htmlFor="">Spacing scale</label>
                 <input
@@ -48,29 +50,29 @@ const SpacingControls = (props) => {
                     defaultValue={spacingScale}
                 />
             </div>
-            
-            <div>
-                <label htmlFor="">Small sizes</label>
-                <input
-                    type="number"
-                    onInput={(e) => setSpacingSmallQuantity(Number(e.target.value))}
-                    step="1"
-                    min="0"
-                    defaultValue={spacingSmallQuantity}
-                />
+            <div className="column">
+                <div>
+                    <label htmlFor="">Small sizes</label>
+                    <input
+                        type="number"
+                        onInput={(e) => setSpacingSmallQuantity(Number(e.target.value))}
+                        step="1"
+                        min="0"
+                        defaultValue={spacingSmallQuantity}
+                    />
+                </div>
+                
+                <div>
+                    <label htmlFor="">Large sizes</label>
+                    <input
+                        type="number"
+                        onInput={(e) => setSpacingLargeQuantity(Number(e.target.value))}
+                        step="1"
+                        min="0"
+                        defaultValue={spacingLargeQuantity}
+                    />
+                </div>
             </div>
-            
-            <div>
-                <label htmlFor="">Large sizes</label>
-                <input
-                    type="number"
-                    onInput={(e) => setSpacingLargeQuantity(Number(e.target.value))}
-                    step="1"
-                    min="0"
-                    defaultValue={spacingLargeQuantity}
-                />
-            </div>
-            
         </fieldset>
 
     )

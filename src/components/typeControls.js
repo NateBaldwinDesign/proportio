@@ -31,7 +31,9 @@ const TypeControls = (props) => {
     return (
         <fieldset>
             <legend>Typography</legend>
-            {inputs}
+            <div className="column">
+                {inputs}
+            </div>
             <div>
                 <label htmlFor="">Type scale</label>
                 <input
@@ -43,28 +45,29 @@ const TypeControls = (props) => {
                 />
             </div>
             
-            <div>
-                <label htmlFor="">Small sizes</label>
-                <input
-                    type="number"
-                    onInput={(e) => setTypeSmallQuantity(Number(e.target.value))}
-                    step="1"
-                    min="0"
-                    defaultValue={typeSmallQuantity}
-                />
-            </div>
-            
-            <div>
-                <label htmlFor="">Large sizes</label>
-                <input
-                    type="number"
-                    onInput={(e) => setTypeLargeQuantity(Number(e.target.value))}
-                    step="1"
-                    min="0"
-                    defaultValue={typeLargeQuantity}
-                />
-            </div>
-            
+            <div className="column">
+                <div>
+                    <label htmlFor="">Small sizes</label>
+                    <input
+                        type="number"
+                        onInput={(e) => setTypeSmallQuantity(Number(e.target.value))}
+                        step="1"
+                        min="0"
+                        defaultValue={typeSmallQuantity}
+                    />
+                </div>
+                
+                <div>
+                    <label htmlFor="">Large sizes</label>
+                    <input
+                        type="number"
+                        onInput={(e) => setTypeLargeQuantity(Number(e.target.value))}
+                        step="1"
+                        min="0"
+                        defaultValue={typeLargeQuantity}
+                    />
+                </div>
+            </div>            
         </fieldset>
 
     )

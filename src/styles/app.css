@@ -66,7 +66,7 @@
     flex-basis: fit-content;
     flex-shrink: 0;
     gap: 24px;
-    margin: 16px 0;
+    margin: 8px 0;
     outline: none;
     box-shadow: none;
     background-color: var(--fieldSetBackground);
@@ -93,11 +93,7 @@
   label {
     font-size: 0.875rem;
   }
-  fieldgroup {
-    display: flex;
-    flex-direction: column;
-    position:relative;
-  }
+
   p {
     margin: 0;
   }
@@ -125,7 +121,8 @@
   .row {
     display: flex;
     flex-direction: row;
-    gap: 32px;
+    flex-wrap: wrap;
+    gap: 8px;
   }
   .column {
     display: flex;

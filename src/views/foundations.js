@@ -53,7 +53,8 @@ const Foundations = (props) => {
 
     return (
         <> 
-        <BaseControls
+        <div className="row">
+          <BaseControls
             baseSize={baseSize}
             setBaseSize={setBaseSize}
           />
@@ -100,6 +101,7 @@ const Foundations = (props) => {
             textIconIconSizeIndex={textIconIconSizeIndex}
             setTextIconIconSizeIndex={setTextIconIconSizeIndex}
           />
+          </div>
           <main>
             <Tabs>
               <TabList>

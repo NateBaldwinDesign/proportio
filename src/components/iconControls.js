@@ -33,51 +33,54 @@ const IconControls = (props) => {
     return (
         <fieldset>
             <legend>Iconography</legend>
-            {inputs}
-            <div>
-                <label htmlFor="">Icon scale</label>
-                <input
-                    type="number"
-                    onInput={(e) => setIconScale(Number(e.target.value))}
-                    step="0.01"
-                    min="0"
-                    defaultValue={iconScale}
-                />
+            <div className="column">
+                {inputs}
             </div>
-            
-            <div>
-                <label htmlFor="">Small sizes</label>
-                <input
-                    type="number"
-                    onInput={(e) => setIconSmallQuantity(Number(e.target.value))}
-                    step="1"
-                    min="0"
-                    defaultValue={iconSmallQuantity}
-                />
+            <div className="column">
+                <div>
+                    <label htmlFor="">Icon scale</label>
+                    <input
+                        type="number"
+                        onInput={(e) => setIconScale(Number(e.target.value))}
+                        step="0.01"
+                        min="0"
+                        defaultValue={iconScale}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="">Icon padding</label>
+                    <input
+                        type="number"
+                        onInput={(e) => setIconPadding(Number(e.target.value))}
+                        step="1"
+                        min="0"
+                        defaultValue={iconPadding}
+                    />
+                </div>
             </div>
-            
-            <div>
-                <label htmlFor="">Large sizes</label>
-                <input
-                    type="number"
-                    onInput={(e) => setIconLargeQuantity(Number(e.target.value))}
-                    step="1"
-                    min="0"
-                    defaultValue={iconLargeQuantity}
-                />
+            <div className="column">
+                <div>
+                    <label htmlFor="">Small sizes</label>
+                    <input
+                        type="number"
+                        onInput={(e) => setIconSmallQuantity(Number(e.target.value))}
+                        step="1"
+                        min="0"
+                        defaultValue={iconSmallQuantity}
+                    />
+                </div>
+                
+                <div>
+                    <label htmlFor="">Large sizes</label>
+                    <input
+                        type="number"
+                        onInput={(e) => setIconLargeQuantity(Number(e.target.value))}
+                        step="1"
+                        min="0"
+                        defaultValue={iconLargeQuantity}
+                    />
+                </div>
             </div>
-
-            <div>
-                <label htmlFor="">Icon padding</label>
-                <input
-                    type="number"
-                    onInput={(e) => setIconPadding(Number(e.target.value))}
-                    step="1"
-                    min="0"
-                    defaultValue={iconPadding}
-                />
-            </div>
-            
         </fieldset>
 
     )
