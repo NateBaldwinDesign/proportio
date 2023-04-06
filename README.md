@@ -1,4 +1,4 @@
-# proportional-design-tool
+# Midas
 Tool for creating proportional scales for typography, iconography, spacing, and components in design systems.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
