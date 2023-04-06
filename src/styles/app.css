@@ -42,12 +42,12 @@
     --legendColor: #323232;
     --legendTextColor: #ffffff;
     --background: #001e44;
-    --blueprint100: #0b1f39;
-    --blueprint200: #213d61;
-    --blueprint300: #335077;
-    --blueprint400: #4f6b91;
-    --blueprint500: #788faf;
-    --blueprint600: #a5b6cc;
+    --blueprint100: #011e46;
+    --blueprint200: #19457e;
+    --blueprint300: #325c95;
+    --blueprint400: #587db0;
+    --blueprint500: #8da8cd;
+    --blueprint600: #c8d5e8;
 
     --shadowColor: rgb(0 0 0 / 50%);
   }
@@ -93,10 +93,10 @@ fieldset {
   margin: 8px 0;
   outline: none;
   box-shadow: none;
-  background-color: var(--fieldSetBackground);
-  border: 1px solid var(--border100);
-  border-radius: 12px;
-  padding: 10px 28px 16px 20px;
+  border: 0;
+  border-bottom: 1px solid var(--border100);
+  border-radius: 0;
+  padding: 10px 0 24px 0;
   width: 280px;
   flex-wrap: wrap;
 }
@@ -110,11 +110,12 @@ fieldset section {
   gap: 24px;
 }
 legend {
-  background-color: var(--legendColor);
+  /* background-color: var(--legendColor);
   color: var(--legendTextColor);
   padding: 4px 8px;
-  border-radius: 6px;
+  border-radius: 6px; */
   font-size: 0.825rem;
+  font-weight: 700;
 }
 label {
   font-size: 0.875rem;
@@ -142,7 +143,6 @@ main {
 /*   width: 100%; */
   background-color: var(--background);
   color: var(--blueprint500);
-  overflow-x: auto;
 }
 
 .row {
