@@ -13,6 +13,8 @@ import "../styles/tabs.css";
 import Radius from "../components/radius";
 import RadiusControls from "../components/radiusControls";
 import Panel from "../components/panel";
+import ElevationControls from "../components/elevationControls";
+import Elevation from "../components/elevation";
 
 const Foundations = (props) => {
     const scaleMethods = props.scaleMethods;
@@ -63,6 +65,16 @@ const Foundations = (props) => {
     const setRadiusLargeQuantity = props.setRadiusLargeQuantity;
     const radiusScaleMethod = props.radiusScaleMethod;
     const setRadiusScaleMethod = props.setRadiusScaleMethod;
+    const baseElevationSize = props.baseElevationSize;
+    const setBaseElevationSize = props.setBaseElevationSize;
+    const elevationScaleFactor = props.elevationScaleFactor;
+    const setElevationScaleFactor = props.setElevationScaleFactor;
+    const elevationSmallQuantity = props.elevationSmallQuantity;
+    const setElevationSmallQuantity = props.setElevationSmallQuantity;
+    const elevationLargeQuantity = props.elevationLargeQuantity;
+    const setElevationLargeQuantity = props.setElevationLargeQuantity;
+    const elevationScaleMethod = props.elevationScaleMethod;
+    const setElevationScaleMethod = props.setElevationScaleMethod;
 
     return (
         <> 
@@ -127,6 +139,19 @@ const Foundations = (props) => {
             radiusScaleMethod={radiusScaleMethod}
             setRadiusScaleMethod={setRadiusScaleMethod}
           />
+          <ElevationControls
+            scaleMethods={scaleMethods}
+            baseElevationSize={baseElevationSize}
+            setBaseElevationSize={setBaseElevationSize}
+            elevationScaleFactor={elevationScaleFactor}
+            setElevationScaleFactor={setElevationScaleFactor}
+            elevationSmallQuantity={elevationSmallQuantity}
+            setElevationSmallQuantity={setElevationSmallQuantity}
+            elevationLargeQuantity={elevationLargeQuantity}
+            setElevationLargeQuantity={setElevationLargeQuantity}
+            elevationScaleMethod={elevationScaleMethod}
+            setElevationScaleMethod={setElevationScaleMethod}
+          />
           </Panel>
           <main>
             <Tabs>
@@ -184,6 +209,13 @@ const Foundations = (props) => {
                   radiusSmallQuantity={radiusSmallQuantity}
                   radiusLargeQuantity={radiusLargeQuantity}
                   radiusScaleMethod={radiusScaleMethod}
+                />
+                <Elevation
+                  baseElevationSize={baseElevationSize}
+                  elevationScaleFactor={elevationScaleFactor}
+                  elevationSmallQuantity={elevationSmallQuantity}
+                  elevationLargeQuantity={elevationLargeQuantity}
+                  elevationScaleMethod={elevationScaleMethod}
                 />
               </TabPanel>
               <TabPanel>

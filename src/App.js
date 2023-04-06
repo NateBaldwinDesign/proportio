@@ -46,6 +46,13 @@ function App() {
   const [radiusLargeQuantity, setRadiusLargeQuantity] = useState(3);
   const [radiusScaleMethod, setRadiusScaleMethod] = useState(scaleMethods[0]);
 
+  // Elevation
+  const [baseElevationSize, setBaseElevationSize] = useState(4);
+  const [elevationScaleFactor, setElevationScaleFactor] = useState(2);
+  const [elevationSmallQuantity, setElevationSmallQuantity] = useState(0);
+  const [elevationLargeQuantity, setElevationLargeQuantity] = useState(3);
+  const [elevationScaleMethod, setElevationScaleMethod] = useState(scaleMethods[1]);
+
   // Components
   const baseIconSizeIndex = textIconIconSizeIndex;
   const [baseComponentSize, setBaseComponentSize] = useState(1);
@@ -136,6 +143,16 @@ function App() {
                 setRadiusLargeQuantity={setRadiusLargeQuantity}
                 radiusScaleMethod={radiusScaleMethod}
                 setRadiusScaleMethod={setRadiusScaleMethod}
+                baseElevationSize={baseElevationSize}
+                setBaseElevationSize={setBaseElevationSize}
+                elevationScaleFactor={elevationScaleFactor}
+                setElevationScaleFactor={setElevationScaleFactor}
+                elevationSmallQuantity={elevationSmallQuantity}
+                setElevationSmallQuantity={setElevationSmallQuantity}
+                elevationLargeQuantity={elevationLargeQuantity}
+                setElevationLargeQuantity={setElevationLargeQuantity}
+                elevationScaleMethod={elevationScaleMethod}
+                setElevationScaleMethod={setElevationScaleMethod}
               />
             </TabPanel>
             <TabPanel className="App_tabPanel">
