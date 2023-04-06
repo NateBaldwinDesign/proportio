@@ -18,7 +18,7 @@ const ElevationControls = (props) => {
 
   const inputs = scaleMethods.map((method) => {
     return (
-      <div key={`elevation${method}`}>
+      <div className="radioGroup" key={`elevation${method}`}>
         <input
           type="radio"
           id={`Elevation${method}`}
@@ -35,7 +35,7 @@ const ElevationControls = (props) => {
   return (
     <fieldset>
       <legend>Elevation</legend>
-      <div className="column">{inputs}</div>
+      <div className="segmentedControl">{inputs}</div>
       <div className="column">
         <div className="formGroup">
           <label htmlFor="">Base elevation size</label>

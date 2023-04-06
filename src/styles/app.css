@@ -1,12 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap");
+
 @media (prefers-color-scheme: light) {
   /*
-  https://leonardocolor.io/theme?name=Untitled&config=%7B%22baseScale%22%3A%22Gray%22%2C%22colorScales%22%3A%5B%7B%22name%22%3A%22Gray%22%2C%22colorKeys%22%3A%5B%22%23000000%22%5D%2C%22colorspace%22%3A%22RGB%22%2C%22ratios%22%3A%5B%221.14%22%2C%221.87%22%2C%223.02%22%2C%225%22%2C%2210%22%2C%2221%22%5D%2C%22smooth%22%3Afalse%7D%2C%7B%22name%22%3A%22Gold%22%2C%22colorKeys%22%3A%5B%22%23e69d00%22%2C%22%23ffda8a%22%2C%22%235c3a00%22%5D%2C%22colorspace%22%3A%22RGB%22%2C%22ratios%22%3A%5B%221.14%22%2C%221.87%22%2C%223.02%22%2C%225%22%2C%2210%22%2C%2221%22%5D%2C%22smooth%22%3Afalse%7D%5D%2C%22lightness%22%3A100%2C%22contrast%22%3A1%2C%22saturation%22%3A100%2C%22formula%22%3A%22wcag2%22%7D
+  https://leonardocolor.io/theme?name=Untitled&config=%7B%22baseScale%22%3A%22Gray%22%2C%22colorScales%22%3A%5B%7B%22name%22%3A%22Gray%22%2C%22colorKeys%22%3A%5B%22%23000000%22%5D%2C%22colorspace%22%3A%22RGB%22%2C%22ratios%22%3A%5B%221.14%22%2C%221.68%22%2C%223.02%22%2C%225%22%2C%2210%22%2C%2221%22%5D%2C%22smooth%22%3Afalse%7D%2C%7B%22name%22%3A%22Gold%22%2C%22colorKeys%22%3A%5B%22%23e69d00%22%2C%22%23ffda8a%22%2C%22%235c3a00%22%5D%2C%22colorspace%22%3A%22RGB%22%2C%22ratios%22%3A%5B%221.14%22%2C%221.68%22%2C%223.02%22%2C%225%22%2C%2210%22%2C%2221%22%5D%2C%22smooth%22%3Afalse%7D%5D%2C%22lightness%22%3A100%2C%22contrast%22%3A1%2C%22saturation%22%3A100%2C%22formula%22%3A%22wcag2%22%7D
   https://leonardocolor.io/theme?name=Untitled&config=%7B%22baseScale%22%3A%22blueprint%22%2C%22colorScales%22%3A%5B%7B%22name%22%3A%22blueprint%22%2C%22colorKeys%22%3A%5B%22%231f4b84%22%5D%2C%22colorspace%22%3A%22OKLCH%22%2C%22ratios%22%3A%5B%221%22%2C%221.5%22%2C%222%22%2C%223.02%22%2C%225%22%2C%228%22%5D%2C%22smooth%22%3Atrue%7D%5D%2C%22lightness%22%3A93%2C%22contrast%22%3A1%2C%22saturation%22%3A100%2C%22formula%22%3A%22wcag2%22%7D
   */
   :root {
     --Gray100: #efefef;
-    --Gray200: #bdbdbd;
+    --Gray200: #c7c7c7;
     --Gray300: #949494;
     --Gray400: #6f6f6f;
     --Gray500: #424242;
@@ -72,10 +74,11 @@
 
 :root {
   --blueprint100: var(--Gray100);
-  --blueprint200: var(--Gray200);
+  --blueprint150: var(--Gray200);
+  --blueprint200: var(--Gray300);
   --blueprint300: var(--Gray300);
   --blueprint400: var(--Gray400);
-  --blueprint500: var(--Gray500);
+  --blueprint500: var(--Gray600);
   --blueprint600: var(--Gray600);
 
   --fieldSetBackground: var(--Gray100);
@@ -91,6 +94,8 @@
   --selectionIndicatorColor: var(--Gold300);
 
   --focusRing: 0 0 0 2px var(--appBackground), 0 0 0 4px var(--Gold300);
+  /* --fontFamily: "Inter", sans-serif; */
+  --fontFamily: "Outfit", sans-serif;
 }
 
 ::-moz-selection {
@@ -103,7 +108,7 @@
 }
 
 html {
-  font-family: "Inter", sans-serif;
+  font-family: var(--fontFamily);
   background-color: var(--Gray100);
   color: var(--textColor);
   margin: 0;
@@ -118,9 +123,27 @@ body {
 p {
   margin: 0;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+a,
+button,
+input,
+label,
+legend {
+  font-family: var(--fontFamily);
+}
 h1 {
   margin-top: 1em;
   margin-bottom: 0.125em;
+}
+h2 {
+  margin-bottom: 0.25em;
 }
 h4 {
   margin-top: 0.5em;
@@ -134,19 +157,65 @@ h5 {
   font-size: 0.76em;
 }
 
+h1.display1 {
+  font-size: 2.5em;
+}
+
+article p {
+  font-size: 1.125em;
+  margin-bottom: 0.5rem;
+}
+
+article li {
+  font-size: 1.125em;
+}
+
+p.body1 {
+  font-size: 1.5rem;
+}
+article {
+  text-wrap: balance;
+}
+article + article {
+  margin-top: 2rem;
+}
+
+.splitView {
+  display: grid;
+  grid-template-columns: 280px 100%;
+  grid-template-areas: "panel main";
+  gap: var(--appFrameMargin);
+  padding: var(--appFrameMargin) var(--appFrameMargin) 0 0;
+  height: calc(100% - var(--appFrameMargin));
+  overflow: hidden;
+}
+
 main {
   grid-area: main;
   display: flex;
   padding: 24px 48px 48px 48px;
   border-radius: var(--panelBorderRadius);
-  max-width: calc(100vw - 400px - var(--appFrameMargin));
   background-color: var(--appBackground);
   color: var(--blueprint500);
-  overflow-x: scroll;
+  margin: var(--appFrameMargin);
+  box-shadow: var(--panelShadow);
+}
+
+.splitView main {
+  margin: 0;
+  max-width: calc(100vw - 400px - var(--appFrameMargin));
   height: calc(
     100vh - var(--headerHeight) - var(--appFrameMargin) - var(--appFrameMargin)
   );
-  box-shadow: var(--panelShadow);
+  overflow-x: scroll;
+}
+
+.mainPageContent {
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  max-width: 800px;
+  margin: var(--appFrameMargin) auto;
 }
 
 .row {
@@ -234,14 +303,6 @@ main {
 }
 .App_tabPanel {
   grid-area: content;
-  display: grid;
-  grid-template-columns: 280px 100%;
-  grid-template-areas: "panel main";
-  gap: var(--appFrameMargin);
-  /* height: calc(100vh - var(--headerHeight) - var(--appFrameMargin)); */
-  /* height: 100%; */
-  /* overflow: hidden; */
-  margin: var(--appFrameMargin) var(--appFrameMargin) 0 0;
 }
 .App_tabPanel.react-tabs__tab-panel--selected {
   z-index: 10;

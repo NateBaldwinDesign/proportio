@@ -11,10 +11,21 @@ header {
 }
 
 .logo {
+  font-family: "Outfit", sans-serif;
   margin: 0;
   display: flex;
   line-height: 1.4;
   height: 100%;
   align-items: center;
+  font-weight: 800;
+  font-size: 1.25em;
   /* padding-top: 2px; */
+}
+
+.logoLockup {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  height: 100%;
+  align-items: center;
 }

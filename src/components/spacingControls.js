@@ -12,13 +12,13 @@ const SpacingControls = (props) => {
   const setSpacingSmallQuantity = props.setSpacingSmallQuantity;
   const spacingSmallQuantity = props.spacingSmallQuantity;
   const spacingLargeQuantity = props.spacingLargeQuantity;
-  // const spacingScaleMethod = props.spacingScaleMethod;
+  const spacingScaleMethod = props.spacingScaleMethod;
   // const setSpacingPadding = props.setSpacingPadding;
   // const spacingPadding = props.spacingPadding;
 
   const inputs = scaleMethods.map((method) => {
     return (
-      <div key={`spacing${method}`}>
+      <div className="radioGroup" key={`spacing${method}`}>
         <input
           type="radio"
           id={`Spacing${method}`}
@@ -35,14 +35,14 @@ const SpacingControls = (props) => {
   return (
     <fieldset>
       <legend>Spacing</legend>
-      <div className="column">{inputs}</div>
+      <div className="segmentedControl">{inputs}</div>
       <div className="column">
         <div className="formGroup">
           <label htmlFor="">Scale factor</label>
           <input
             type="number"
             onInput={(e) => setSpacingScale(Number(e.target.value))}
-            step="0.01"
+            step={spacingScaleMethod === "power" ? "0.01" : "1"}
             min="0"
             defaultValue={spacingScale}
           />

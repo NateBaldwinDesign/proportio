@@ -18,7 +18,7 @@ const RadiusControls = (props) => {
 
   const inputs = scaleMethods.map((method) => {
     return (
-      <div key={`radius${method}`}>
+      <div className="radioGroup" key={`radius${method}`}>
         <input
           type="radio"
           id={`Radius${method}`}
@@ -35,7 +35,7 @@ const RadiusControls = (props) => {
   return (
     <fieldset>
       <legend>Radius</legend>
-      <div className="column">{inputs}</div>
+      <div className="segmentedControl">{inputs}</div>
       <div className="column">
         <div className="formGroup">
           <label htmlFor="">Base radius size</label>

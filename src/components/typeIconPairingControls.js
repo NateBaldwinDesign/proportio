@@ -14,7 +14,7 @@ const TypeIconPairingControls = (props) => {
   console.log(textIconGapScaleMethod);
   const inputs = scaleMethods.map((method) => {
     return (
-      <div key={`typeIconPiar${method}`}>
+      <div className="radioGroup" key={`typeIconPiar${method}`}>
         <input
           type="radio"
           id={`gap${method}`}
@@ -35,7 +35,7 @@ const TypeIconPairingControls = (props) => {
   return (
     <fieldset>
       <legend>Type-icon pairing</legend>
-      <div className="column">{inputs}</div>
+      <div className="segmentedControl">{inputs}</div>
       <div className="column">
         <div className="formGroup">
           <label htmlFor="">{fieldLabel}</label>

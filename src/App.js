@@ -8,6 +8,7 @@ import "./styles/formElements.css";
 import Foundations from "./views/foundations";
 import Components from "./views/components";
 import Header from "./components/header";
+import Home from "./views/home";
 
 function App() {
   const scaleMethods = ["linear", "power"];
@@ -84,10 +85,15 @@ function App() {
       <Tabs className="App_tabs">
         <Header>
           <TabList className="App_tabsList">
+            <Tab className="App_tab">Home</Tab>
             <Tab className="App_tab">Foundations</Tab>
             <Tab className="App_tab">Components</Tab>
           </TabList>
         </Header>
+
+        <TabPanel className="App_tabPanel">
+          <Home />
+        </TabPanel>
 
         <TabPanel className="App_tabPanel">
           <Foundations

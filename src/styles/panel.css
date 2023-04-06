@@ -6,4 +6,5 @@
   overflow-y: auto;
   border-top-right-radius: var(--panelBorderRadius);
   box-shadow: var(--panelShadow);
+  margin-bottom: 48px;
 }

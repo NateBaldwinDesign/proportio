@@ -6,7 +6,7 @@
     ". spec00 spec0 ."
     "spec1 component component spec2 "
     ". spec3 spec4 .";
-  border: 1px dashed var(--blueprint200);
+  border: 1px dashed var(--Gold200);
   padding: 4px 16px;
   width: max-content;
 }
@@ -40,7 +40,7 @@
   font-weight: 500; /* Demi */
 }
 .paddingUnit {
-  background-color: var(--blueprint400);
+  background-color: var(--blueprint500);
   opacity: 0.5;
 }
 .padTop {
@@ -62,12 +62,12 @@
 }
 .componentTextSpec {
   grid-area: label;
-  background-color: var(--blueprint200);
+  background-color: var(--blueprint150);
 }
 .componentIconSpec {
   display: flex;
   grid-area: icon;
-  background-color: var(--blueprint200);
+  background-color: var(--blueprint150);
 }
 .componentText {
   grid-area: label;
@@ -83,12 +83,13 @@
   font-size: 12px;
   font-style: italic;
   line-height: 1.5;
+  color: var(--Gold400);
 }
 
 .specHeight {
   position: relative;
   grid-area: spec1;
-  border-right: 1px solid var(--blueprint400);
+  border-right: 1px solid var(--Gold400);
   height: 100%;
   margin-right: 10px;
 }
@@ -97,8 +98,8 @@
   display: block;
   width: 4px;
   height: calc(100% - 2px);
-  border-top: 1px solid var(--blueprint400);
-  border-bottom: 1px solid var(--blueprint400);
+  border-top: 1px solid var(--Gold400);
+  border-bottom: 1px solid var(--Gold400);
   right: -4px;
   position: absolute;
 }
@@ -114,7 +115,7 @@
   display: block;
   width: 16px;
   height: 1px;
-  border-top: 1px solid var(--blueprint400);
+  border-top: 1px solid var(--Gold400);
   left: -18px;
   position: absolute;
 }
@@ -133,7 +134,7 @@
   display: block;
   width: 1px;
   height: 10px;
-  border-left: 1px solid var(--blueprint400);
+  border-left: 1px solid var(--Gold400);
   bottom: -8px;
   left: 1ch;
   position: absolute;
@@ -154,7 +155,7 @@
   display: block;
   width: 1px;
   height: 32px;
-  border-left: 1px solid var(--blueprint400);
+  border-left: 1px solid var(--Gold400);
   bottom: -36px;
   position: absolute;
 }
@@ -171,7 +172,7 @@
   content: " ";
   display: block;
   height: 24px;
-  border-right: 1px solid var(--blueprint400);
+  border-right: 1px solid var(--Gold400);
   position: absolute;
   top: -24px;
   left: 12px;
@@ -190,7 +191,7 @@
   content: " ";
   display: block;
   height: 24px;
-  border-right: 1px solid var(--blueprint400);
+  border-right: 1px solid var(--Gold400);
   position: absolute;
   top: -24px;
   left: 12px;
