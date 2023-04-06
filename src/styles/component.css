@@ -1,192 +1,197 @@
-
 .componentSpecWrapper {
-    display: grid;
-    grid-template-columns: 92px max-content max-content 80px;
-    grid-template-rows: max-content;
-    grid-template-areas: '. spec00 spec0 .'
-      'spec1 component component spec2 '
-      '. spec3 spec4 .';
-    border: 1px dashed var(--blueprint200);
-    padding: 4px 16px;
-    width: max-content;
-  }
-  .componentWrapper {
-    display: flex;
-  }
-  .componentSpecItemWrapper {
-    grid-area: component;
-    display: flex;
-    align-items: center;
-  }
-  .component {
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    grid-template-areas: '. . padTop padTop . .'
-      'padLeft icon textIconGap label . padRight'
-      '. . padBottom padBottom . .';
-    grid-template-columns: max-content;
-    width: max-content;
-    height: max-content;
-    background-color: var(--blueprint300);
-    border-radius: 6px;
-    font-weight: 500; /* Demi */
-  }
-  .paddingUnit {
-    background-color: var(--blueprint400);
-    opacity: 0.5
-  }
-  .padTop {
-    grid-area: padTop;
-    margin-left: -18%;
-  }
-  .padBottom {
-    grid-area: padBottom;
-    margin-left: -18%;
-  }
-  .padLeft {
-    grid-area: padLeft;
-  }
-  .padRight {
-    grid-area: padRight;
-  }
-  .textIconGap {
-    grid-area: textIconGap;
-  }
-  .componentTextSpec {
-    grid-area: label;
-    background-color: var(--blueprint200);
-  }
-  .componentIconSpec {
-    display: flex;
-    grid-area: icon;
-    background-color: var(--blueprint200);
-  }
-  .componentText {
-    grid-area: label;
-  }
-  .componentIcon {
-    display: flex;
-    grid-area: icon;
-  }
-  
-  .specs {
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    font-style: italic;
-    line-height: 1.5;
-  }
-  
-  .specHeight {
-    position: relative;
-    grid-area: spec1;
-    border-right: 1px solid var(--blueprint400);
-    height: 100%;
-    margin-right: 10px;
-  }
-  .specHeight::after {
-    content: ' ';
-    display: block;
-    width: 4px;
-    height: calc(100% - 2px);
-    border-top: 1px solid var(--blueprint400);
-    border-bottom: 1px solid var(--blueprint400);
-    right: -4px;
-    position: absolute;
-  }
-  
-  .specPaddingX {
-    position: relative;
-    grid-area: spec2;
-    height: 100%;
-    margin-left: 16px;
-  }
-  .specPaddingX::before {
-    content: ' ';
-    display: block;
-    width: 16px;
-    height: 1px;
-    border-top: 1px solid var(--blueprint400);
-    left: -18px;
-    position: absolute;
-  }
-  
-  .specPaddingY {
-    position: relative;
-    display: flex;
-    justify-content: flex-start;
-    grid-area: spec0;
-    width: 100%;
-    text-aling: center;
-    margin-bottom: 8px;
-  }
-  .specPaddingY::after {
-    content: ' ';
-    display: block;
-    width: 1px;
-    height: 10px;
-    border-left: 1px solid var(--blueprint400);
-    bottom: -8px;
-    left: 1ch;
-    position: absolute;
-  }
-  
-  .specGap {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    grid-area: spec00;
-    width: 100%;
-    text-aling: center;
-    margin-bottom: 8px;
-    margin-left: 5%;
-  }
-  .specGap::after {
-    content: ' ';
-    display: block;
-    width: 1px;
-    height: 32px;
-    border-left: 1px solid var(--blueprint400);
-    bottom: -36px;
-    position: absolute;
-  }
-  
-  .specType {
-    position: relative;
-    grid-area: spec4;
-    width: max-content;
-    height: 18px;
-    margin-top: 8px;
-    margin-left: 8px;
-  }
-  .specType::after {
-    content: ' ';
-    display: block;
-    height: 24px;
-    border-right: 1px solid var(--blueprint400);
-    position: absolute;
-    top: -24px;
-    left: 12px;
-  }
-  
-  
-  .specIcon {
-    position: relative;
-    grid-area: spec3;
-    width: max-content;
-    height: 18px;
-    margin-left: 18%;
-    margin-right: 8px;
-    margin-top: 8px;
-  }
-  .specIcon::after {
-    content: ' ';
-    display: block;
-    height: 24px;
-    border-right: 1px solid var(--blueprint400);
-    position: absolute;
-    top: -24px;
-    left: 12px;
-  }
-  
+  display: grid;
+  grid-template-columns: 92px max-content max-content 80px;
+  grid-template-rows: max-content;
+  grid-template-areas:
+    ". spec00 spec0 ."
+    "spec1 component component spec2 "
+    ". spec3 spec4 .";
+  border: 1px dashed var(--blueprint200);
+  padding: 4px 16px;
+  width: max-content;
+}
+.specRowItem {
+  display: grid;
+  grid-template-columns: 56px max-content;
+  gap: 12px;
+  margin-bottom: var(--appFrameMargin);
+}
+.componentWrapper {
+  display: flex;
+}
+.componentSpecItemWrapper {
+  grid-area: component;
+  display: flex;
+  align-items: center;
+}
+.component {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-areas:
+    ". . padTop padTop . ."
+    "padLeft icon textIconGap label . padRight"
+    ". . padBottom padBottom . .";
+  grid-template-columns: max-content;
+  width: max-content;
+  height: max-content;
+  background-color: var(--blueprint300);
+  border-radius: 6px;
+  font-weight: 500; /* Demi */
+}
+.paddingUnit {
+  background-color: var(--blueprint400);
+  opacity: 0.5;
+}
+.padTop {
+  grid-area: padTop;
+  margin-left: -18%;
+}
+.padBottom {
+  grid-area: padBottom;
+  margin-left: -18%;
+}
+.padLeft {
+  grid-area: padLeft;
+}
+.padRight {
+  grid-area: padRight;
+}
+.textIconGap {
+  grid-area: textIconGap;
+}
+.componentTextSpec {
+  grid-area: label;
+  background-color: var(--blueprint200);
+}
+.componentIconSpec {
+  display: flex;
+  grid-area: icon;
+  background-color: var(--blueprint200);
+}
+.componentText {
+  grid-area: label;
+}
+.componentIcon {
+  display: flex;
+  grid-area: icon;
+}
+
+.specs {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.specHeight {
+  position: relative;
+  grid-area: spec1;
+  border-right: 1px solid var(--blueprint400);
+  height: 100%;
+  margin-right: 10px;
+}
+.specHeight::after {
+  content: " ";
+  display: block;
+  width: 4px;
+  height: calc(100% - 2px);
+  border-top: 1px solid var(--blueprint400);
+  border-bottom: 1px solid var(--blueprint400);
+  right: -4px;
+  position: absolute;
+}
+
+.specPaddingX {
+  position: relative;
+  grid-area: spec2;
+  height: 100%;
+  margin-left: 16px;
+}
+.specPaddingX::before {
+  content: " ";
+  display: block;
+  width: 16px;
+  height: 1px;
+  border-top: 1px solid var(--blueprint400);
+  left: -18px;
+  position: absolute;
+}
+
+.specPaddingY {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  grid-area: spec0;
+  width: 100%;
+  text-aling: center;
+  margin-bottom: 8px;
+}
+.specPaddingY::after {
+  content: " ";
+  display: block;
+  width: 1px;
+  height: 10px;
+  border-left: 1px solid var(--blueprint400);
+  bottom: -8px;
+  left: 1ch;
+  position: absolute;
+}
+
+.specGap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  grid-area: spec00;
+  width: 100%;
+  text-aling: center;
+  margin-bottom: 8px;
+  margin-left: 5%;
+}
+.specGap::after {
+  content: " ";
+  display: block;
+  width: 1px;
+  height: 32px;
+  border-left: 1px solid var(--blueprint400);
+  bottom: -36px;
+  position: absolute;
+}
+
+.specType {
+  position: relative;
+  grid-area: spec4;
+  width: max-content;
+  height: 18px;
+  margin-top: 8px;
+  margin-left: 8px;
+}
+.specType::after {
+  content: " ";
+  display: block;
+  height: 24px;
+  border-right: 1px solid var(--blueprint400);
+  position: absolute;
+  top: -24px;
+  left: 12px;
+}
+
+.specIcon {
+  position: relative;
+  grid-area: spec3;
+  width: max-content;
+  height: 18px;
+  margin-left: 18%;
+  margin-right: 8px;
+  margin-top: 8px;
+}
+.specIcon::after {
+  content: " ";
+  display: block;
+  height: 24px;
+  border-right: 1px solid var(--blueprint400);
+  position: absolute;
+  top: -24px;
+  left: 12px;
+}

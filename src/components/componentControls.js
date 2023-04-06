@@ -4,8 +4,8 @@ import capitalize from "../utilities/capitalize";
 const ComponentControls = (props) => {
   const baseSize = props.baseSize;
   const setBaseSize = props.setBaseSize;
-//   const baseIconSizeIndex = props.baseIconSizeIndex;
-//   const setBaseIconSizeIndex = props.setBaseIconSizeIndex;
+  //   const baseIconSizeIndex = props.baseIconSizeIndex;
+  //   const setBaseIconSizeIndex = props.setBaseIconSizeIndex;
   const baseComponentSize = props.baseComponentSize;
   const setBaseComponentSize = props.setBaseComponentSize;
   const componentLineHeight = props.componentLineHeight;
@@ -64,117 +64,154 @@ const ComponentControls = (props) => {
 
   return (
     <>
-      <fieldset className="row">
-        <legend>Component scale</legend>
-        <div className="column">
-          <h4>Default sizes</h4>
-          <section className="column">
-            {componentScalingMethodInputs}
-            <div>
-              <label>Min-height index</label>
-              <input
-                type="number"
-                value={baseComponentSize}
-                id="baseComponentSize"
-                onInput={(e) => {
-                  setBaseComponentSize(e.target.value);
-                }}
-              />
-              <span class="computedValue" id="componentComputedSize">{baseComponentSize}</span>
-            </div>
-            <div>
-              <label>Text-icon pair index</label>
-              <input
-                type="number"
-                value='1'
-                step="1"
-                onInput={(e) => {
-                  console.log(`Don't forget to make this update a state: ${e.target.value}`);
-                }}
-              />
-              <span class="computedValue" id="componentComputedIconSize"></span>
-            </div>
-            
-            <div>
-              <label>Line height</label>
-              <input
-                type="number"
-                id="componentLineHeight"
-                value={componentLineHeight}
-                step="0.1"
-                onInput={(e) => {
-                  setComponentLineHeight(e.target.value);
-                }}
-              />
-            </div>
-          </section>
+      <fieldset>
+        <legend>Default size</legend>
+        <div class="column">{componentScalingMethodInputs}</div>
+        <div class="column">
+          <div className="formGroup">
+            <label>Min-height index</label>
+            <input
+              type="number"
+              value={baseComponentSize}
+              id="baseComponentSize"
+              onInput={(e) => {
+                setBaseComponentSize(e.target.value);
+              }}
+            />
+            <span class="computedValue" id="componentComputedSize">
+              {baseComponentSize}
+            </span>
+          </div>
+          <div className="formGroup">
+            <label>Text-icon pair index</label>
+            <input
+              type="number"
+              value="1"
+              step="1"
+              onInput={(e) => {
+                console.log(
+                  `Don't forget to make this update a state: ${e.target.value}`
+                );
+              }}
+            />
+            <span class="computedValue" id="componentComputedIconSize"></span>
+          </div>
+          <div className="formGroup">
+            <label>Line height</label>
+            <input
+              type="number"
+              id="componentLineHeight"
+              value={componentLineHeight}
+              step="0.1"
+              onInput={(e) => {
+                setComponentLineHeight(e.target.value);
+              }}
+            />
+          </div>
         </div>
-
-        <div className="column">
-          <h4>Padding</h4>
-          <section className="column">
-            {componentPaddingMethodInputs}
-
-            <div>
-              <label>X padding index</label>
-              <input
-                type="number"
-                id="componentXPaddingScale"
-                value={baseComponentPaddingXIndex}
-                step="1"
-                onInput={(e) => {
-                  setBaseComponentPaddingXIndex(e.target.value);
-                }}
-              />
-              <span
-                class="computedValue"
-                id="componentXPaddingComputedSize"
-              ></span>
-            </div>
-            <div>
-              <label>Y padding index</label>
-              <input
-                type="number"
-                value={baseComponentPaddingYIndex}
-                step="1"
-                onInput={(e) => {
-                  setBaseComponentPaddingYIndex(e.target.value);
-                }}
-              />
-              <span
-                class="computedValue"
-                id="componentYPaddingComputedSize"
-              ></span>
-            </div>
-          </section>
+      </fieldset>
+      <fieldset>
+        <legend>Default padding</legend>
+        <div class="column">{componentPaddingMethodInputs}</div>
+        <div class="column">
+          <div className="formGroup">
+            <label>X padding index</label>
+            <input
+              type="number"
+              id="componentXPaddingScale"
+              value={baseComponentPaddingXIndex}
+              step="1"
+              onInput={(e) => {
+                setBaseComponentPaddingXIndex(e.target.value);
+              }}
+            />
+            <span
+              class="computedValue"
+              id="componentXPaddingComputedSize"
+            ></span>
+          </div>
+          <div className="formGroup">
+            <label>Y padding index</label>
+            <input
+              type="number"
+              value={baseComponentPaddingYIndex}
+              step="1"
+              onInput={(e) => {
+                setBaseComponentPaddingYIndex(e.target.value);
+              }}
+            />
+            <span
+              class="computedValue"
+              id="componentYPaddingComputedSize"
+            ></span>
+          </div>
         </div>
+      </fieldset>
+      <fieldset>
+        <legend>Component sizes</legend>
+        <div class="column">
+          <div className="formGroup">
+            <label>Small sizes</label>
+            <input
+              type="number"
+              value={componentSmallQuantity}
+              step="1"
+              onInput={(e) => {
+                setComponentSmallQuantity(e.target.value);
+              }}
+            />
+          </div>
+          <div className="formGroup">
+            <label>Large sizes</label>
+            <input
+              type="number"
+              value={componentLargeQuantity}
+              step="1"
+              onInput={(e) => {
+                setComponentLargeQuantity(e.target.value);
+              }}
+            />
+          </div>
+        </div>
+      </fieldset>
 
-        <div className="column">
-          <h4>Number of sizes</h4>
-          <section className="column">
-            <div>
-              <label>Small sizes</label>
-              <input
-                type="number"
-                value={componentSmallQuantity}
-                step="1"
-                onInput={(e) => {
-                  setComponentSmallQuantity(e.target.value);
-                }}
-              />
-            </div>
-            <div>
-              <label>Large sizes</label>
-              <input
-                type="number"
-                value={componentLargeQuantity}
-                step="1"
-                onInput={(e) => {
-                  setComponentLargeQuantity(e.target.value);
-                }}
-              />
-            </div>
-          </section>
+      <fieldset>
+        <legend>Densities</legend>
+        {/* {componentPaddingMethodInputs} */}
+        <div class="column">
+          <div className="formGroup">
+            <label>Scale factor</label>
+            <input
+              type="number"
+              value={componentSmallQuantity}
+              step="1"
+              // onInput={(e) => {
+              //   setComponentSmallQuantity(e.target.value);
+              // }}
+            />
+          </div>
+          <div className="formGroup">
+            <label>Small sizes</label>
+            <input
+              type="number"
+              value={componentSmallQuantity}
+              step="1"
+              // onInput={(e) => {
+              //   setComponentSmallQuantity(e.target.value);
+              // }}
+            />
+          </div>
+          <div className="formGroup">
+            <label>Large sizes</label>
+            <input
+              type="number"
+              value={componentLargeQuantity}
+              step="1"
+              // onInput={(e) => {
+              //   setComponentLargeQuantity(e.target.value);
+              // }}
+            />
+          </div>
         </div>
       </fieldset>
     </>

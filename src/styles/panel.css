@@ -1,9 +1,9 @@
 .panel {
-    padding: 16px 24px;
-    display: flex;
-    width: 260px;
-}
-
-.App_tabPanel .panel {
-    margin-top: 44px;
+  grid-area: panel;
+  background-color: var(--appBackground);
+  padding: 16px 24px;
+  display: flex;
+  overflow-y: auto;
+  border-top-right-radius: var(--panelBorderRadius);
+  box-shadow: var(--panelShadow);
 }

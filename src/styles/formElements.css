@@ -1,0 +1,61 @@
+input {
+  box-shadow: none;
+  outline: none;
+  background-color: var(--appBackground);
+  border: 1px solid var(--border200);
+  color: var(--textColor);
+  border-radius: 6px;
+  padding: 4px 6px;
+  font-size: 0.875rem;
+  font-family: var(--fontStack);
+  accent-color: var(--Gold400);
+}
+input[type="number"] {
+  width: 6ch;
+}
+input:focus {
+  box-shadow: var(--focusRing);
+}
+
+fieldset {
+  display: flex;
+  flex-direction: row;
+  flex-basis: fit-content;
+  flex-shrink: 0;
+  gap: 24px;
+  margin: 8px 0;
+  outline: none;
+  box-shadow: none;
+  border: 0;
+  border-bottom: 1px solid var(--border100);
+  border-radius: 0;
+  padding: 10px 0 16px 0;
+  flex-wrap: wrap;
+}
+fieldset.column {
+  flex-direction: column;
+  gap: 8px;
+}
+fieldset section {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+legend {
+  padding: 0;
+  font-size: 0.825rem;
+  font-weight: 700;
+  font-family: var(--fontStack);
+}
+label {
+  font-family: var(--fontStack);
+  font-size: 12px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 8px;
+}
