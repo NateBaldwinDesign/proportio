@@ -40,27 +40,27 @@ const RadiusControls = (props) => {
             <div className="column">
                 {inputs}
             </div>
-            <div>
-                <label htmlFor="">Base radius size</label>
-                <input
-                    type="number"
-                    onInput={(e) => setBaseRadiusSize(Number(e.target.value))}
-                    step="1"
-                    min="0"
-                    defaultValue={baseRadiusSize}
-                />
-            </div>
-            <div>
-                <label htmlFor="">Radius scale</label>
-                <input
-                    type="number"
-                    onInput={(e) => setRadiusScaleFactor(Number(e.target.value))}
-                    step={(radiusScaleMethod==='power') ? "0.1" : "1"}
-                    min="0"
-                    defaultValue={radiusScaleFactor}
-                />
-            </div>
             <div className="column">
+                <div>
+                    <label htmlFor="">Base radius size</label>
+                    <input
+                        type="number"
+                        onInput={(e) => setBaseRadiusSize(Number(e.target.value))}
+                        step="1"
+                        min="0"
+                        defaultValue={baseRadiusSize}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="">Radius scale</label>
+                    <input
+                        type="number"
+                        onInput={(e) => setRadiusScaleFactor(Number(e.target.value))}
+                        step={(radiusScaleMethod==='power') ? "0.1" : "1"}
+                        min="0"
+                        defaultValue={radiusScaleFactor}
+                    />
+                </div>
                 <div>
                     <label htmlFor="">Small sizes</label>
                     <input

@@ -38,28 +38,31 @@ const TypeIconPairingControls = (props) => {
             <div className="column">
                 {inputs}
             </div>
-            <div>
-                <label htmlFor="">{fieldLabel}</label>
-                <input
-                    type="number"
-                    onInput={(e) => setTextIconGapIndex(Number(e.target.value))}
-                    step="1"
-                    min={fieldMin}
-                    max={fieldMax}
-                    defaultValue={textIconGapIndex}
-                />
+            <div className="column">
+                <div>
+                    <label htmlFor="">{fieldLabel}</label>
+                    <input
+                        type="number"
+                        onInput={(e) => setTextIconGapIndex(Number(e.target.value))}
+                        step="1"
+                        min={fieldMin}
+                        max={fieldMax}
+                        defaultValue={textIconGapIndex}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="">Icon size index</label>
+                    <input
+                        type="number"
+                        onInput={(e) => setTextIconIconSizeIndex(Number(e.target.value))}
+                        step="1"
+                        min={fieldMin}
+                        max={fieldMax}
+                        defaultValue={textIconIconSizeIndex}
+                    />
+                </div>
             </div>
-            <div>
-                <label htmlFor="">Icon size index</label>
-                <input
-                    type="number"
-                    onInput={(e) => setTextIconIconSizeIndex(Number(e.target.value))}
-                    step="1"
-                    min={fieldMin}
-                    max={fieldMax}
-                    defaultValue={textIconIconSizeIndex}
-                />
-            </div>
+            
             
         </fieldset>
 

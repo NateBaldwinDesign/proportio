@@ -40,17 +40,17 @@ const SpacingControls = (props) => {
             <div className="column">
                 {inputs}
             </div>
-            <div>
-                <label htmlFor="">Spacing scale</label>
-                <input
-                    type="number"
-                    onInput={(e) => setSpacingScale(Number(e.target.value))}
-                    step="0.01"
-                    min="0"
-                    defaultValue={spacingScale}
-                />
-            </div>
             <div className="column">
+                <div>
+                    <label htmlFor="">Scale factor</label>
+                    <input
+                        type="number"
+                        onInput={(e) => setSpacingScale(Number(e.target.value))}
+                        step="0.01"
+                        min="0"
+                        defaultValue={spacingScale}
+                    />
+                </div>
                 <div>
                     <label htmlFor="">Small sizes</label>
                     <input

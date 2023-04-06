@@ -12,6 +12,7 @@ import TypeIconPairing from "../components/typeIconPairing";
 import "../styles/tabs.css";
 import Radius from "../components/radius";
 import RadiusControls from "../components/radiusControls";
+import Panel from "../components/panel";
 
 const Foundations = (props) => {
     const scaleMethods = props.scaleMethods;
@@ -65,7 +66,7 @@ const Foundations = (props) => {
 
     return (
         <> 
-        <div className="row">
+        <Panel direction="column">
           <BaseControls
             baseSize={baseSize}
             setBaseSize={setBaseSize}
@@ -126,7 +127,7 @@ const Foundations = (props) => {
             radiusScaleMethod={radiusScaleMethod}
             setRadiusScaleMethod={setRadiusScaleMethod}
           />
-          </div>
+          </Panel>
           <main>
             <Tabs>
               <TabList>

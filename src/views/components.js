@@ -3,6 +3,7 @@ import ComponentControls from "../components/componentControls";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import ComponentSpecs from "../components/componentSpecs";
 import "../styles/tabs.css";
+import Panel from "../components/panel";
 
 const Components = (props) => {
   const baseSize = props.baseSize;
@@ -10,7 +11,7 @@ const Components = (props) => {
 
   const baseIconSizeIndex = props.baseIconSizeIndex;
   const iconPadding = props.iconPadding;
-  
+
   const baseComponentTextSizeIndex = props.baseComponentTextSizeIndex;
   const setBaseComponentTextSizeIndex = props.setBaseComponentTextSizeIndex;
 
@@ -66,29 +67,32 @@ const Components = (props) => {
 
   return (
     <>
+    <Panel direction="column">
       <ComponentControls
-        baseSize={baseSize}
-        baseComponentSize={baseComponentSize}
-        setBaseComponentSize={setBaseComponentSize}
-        componentLineHeight={componentLineHeight}
-        setComponentLineHeight={setComponentLineHeight}
-        componentSmallQuantity={componentSmallQuantity}
-        setComponentSmallQuantity={setComponentSmallQuantity}
-        componentLargeQuantity={componentLargeQuantity}
-        setComponentLargeQuantity={setComponentLargeQuantity}
-        componentScaleMethod={componentScaleMethod}
-        scaleMethods={scaleMethods}
-        spacingMethods={spacingMethods}
-        setComponentScaleMethod={setComponentScaleMethod}
-        componentPaddingMethod={componentPaddingMethod}
-        setComponentPaddingMethod={setComponentPaddingMethod}
-        baseComponentTextSizeIndex={baseComponentTextSizeIndex}
-        setBaseComponentTextSizeIndex={setBaseComponentTextSizeIndex}
-        baseComponentPaddingXIndex={baseComponentPaddingXIndex}
-        setBaseComponentPaddingXIndex={setBaseComponentPaddingXIndex}
-        baseComponentPaddingYIndex={baseComponentPaddingYIndex}
-        setBaseComponentPaddingYIndex={setBaseComponentPaddingYIndex}
-      />
+          baseSize={baseSize}
+          baseComponentSize={baseComponentSize}
+          setBaseComponentSize={setBaseComponentSize}
+          componentLineHeight={componentLineHeight}
+          setComponentLineHeight={setComponentLineHeight}
+          componentSmallQuantity={componentSmallQuantity}
+          setComponentSmallQuantity={setComponentSmallQuantity}
+          componentLargeQuantity={componentLargeQuantity}
+          setComponentLargeQuantity={setComponentLargeQuantity}
+          componentScaleMethod={componentScaleMethod}
+          scaleMethods={scaleMethods}
+          spacingMethods={spacingMethods}
+          setComponentScaleMethod={setComponentScaleMethod}
+          componentPaddingMethod={componentPaddingMethod}
+          setComponentPaddingMethod={setComponentPaddingMethod}
+          baseComponentTextSizeIndex={baseComponentTextSizeIndex}
+          setBaseComponentTextSizeIndex={setBaseComponentTextSizeIndex}
+          baseComponentPaddingXIndex={baseComponentPaddingXIndex}
+          setBaseComponentPaddingXIndex={setBaseComponentPaddingXIndex}
+          baseComponentPaddingYIndex={baseComponentPaddingYIndex}
+          setBaseComponentPaddingYIndex={setBaseComponentPaddingYIndex}
+        />
+    </Panel>
+      
 
       <main>
         <Tabs>

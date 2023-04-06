@@ -38,7 +38,7 @@ const IconControls = (props) => {
             </div>
             <div className="column">
                 <div>
-                    <label htmlFor="">Icon scale</label>
+                    <label htmlFor="">Scale factor</label>
                     <input
                         type="number"
                         onInput={(e) => setIconScale(Number(e.target.value))}
@@ -57,8 +57,6 @@ const IconControls = (props) => {
                         defaultValue={iconPadding}
                     />
                 </div>
-            </div>
-            <div className="column">
                 <div>
                     <label htmlFor="">Small sizes</label>
                     <input

@@ -34,18 +34,18 @@ const TypeControls = (props) => {
             <div className="column">
                 {inputs}
             </div>
-            <div>
-                <label htmlFor="">Type scale</label>
-                <input
-                    type="number"
-                    onInput={(e) => setTypeScale(Number(e.target.value))}
-                    step="0.01"
-                    min="0"
-                    defaultValue={typeScale}
-                />
-            </div>
             
             <div className="column">
+                <div>
+                    <label htmlFor="">Scale factor</label>
+                    <input
+                        type="number"
+                        onInput={(e) => setTypeScale(Number(e.target.value))}
+                        step="0.01"
+                        min="0"
+                        defaultValue={typeScale}
+                    />
+                </div>
                 <div>
                     <label htmlFor="">Small sizes</label>
                     <input
