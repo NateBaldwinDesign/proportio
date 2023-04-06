@@ -9,6 +9,7 @@ const ComponentSpecs = (props) => {
   const baseSize = props.baseSize;
   const componentScaleMethod = props.componentScaleMethod;
   const baseIconSizeIndex = props.baseIconSizeIndex;
+  const iconPadding = props.iconPadding;
   const baseComponentSize = props.baseComponentSize;
   const componentLineHeight = props.componentLineHeight;
   const baseComponentTextSizeIndex = props.baseComponentTextSizeIndex;
@@ -23,6 +24,7 @@ const ComponentSpecs = (props) => {
   const sizeNamesIncrement = props.sizeNamesIncrement;
   const sizeNamesDecrement = props.sizeNamesDecrement;
   const typeScaleMethod = props.typeScaleMethod;
+  const iconScaleMethod = props.iconScaleMethod;
   const spacingScaleMethod = props.spacingScaleMethod;
 
   const componentPaddingMethod = props.componentPaddingMethod;
@@ -45,7 +47,7 @@ const ComponentSpecs = (props) => {
   /* Create array of size indexes to generate components */
   let sizeArray = buildArray(componentSmallQuantity, componentLargeQuantity);
 
-  /* Create array of padding indexes */
+  /* Create arrays of sub-element indexes */
   const paddingXIndexArray = buildShiftedArray(
     componentSmallQuantity,
     componentLargeQuantity,
@@ -61,8 +63,12 @@ const ComponentSpecs = (props) => {
     componentLargeQuantity,
     baseComponentTextSizeIndex
   );
+  const iconSizeIndexArray = buildShiftedArray(
+    componentSmallQuantity,
+    componentLargeQuantity,
+    baseIconSizeIndex
+  );
 
-  console.log("Map to component sizes...");
   /* Map size index array to calculate values and generate components */
   const sizedComponents = sizeArray.map((v, i) => {
     const paddingX = calculateScale(
@@ -85,22 +91,30 @@ const ComponentSpecs = (props) => {
       typeScaleMethod
     );
     const gapSize = props.gapSize;
-    const iconSize = 16;
+    const iconSize = calculateScale(
+      baseSize,
+      iconScale,
+      iconSizeIndexArray[i],
+      iconScaleMethod
+    );
     const componentLineHeight = props.componentLineHeight;
 
     const computedHeight =
       paddingY * 2 + Number(componentLineHeight) * typeSize;
 
+    const sizeName = v < 0 ? sizeNamesDecrement[i] : sizeNamesIncrement[v];
+
     return (
       <>
-        <h5>{v < 0 ? sizeNamesDecrement[i] : sizeNamesIncrement[v]} </h5>
+        <h5> {sizeName} </h5>
         <ComponentElement
-          key={`${sizeNamesDecrement[i] - i}`}
+          key={`component${sizeName}`}
           componentSize={computedHeight}
           paddingX={paddingX}
           paddingY={paddingY}
           typeSize={typeSize}
           iconSize={iconSize}
+          iconPadding={iconPadding}
           gapSize={gapSize}
           componentLineHeight={componentLineHeight}
           spec
@@ -111,21 +125,6 @@ const ComponentSpecs = (props) => {
 
   return (
     <div className="column">
-      {/* {baseSize}
-      <br />
-      {componentPaddingScale}
-      <br /> */}
-      {sizeArray}
-      <br />
-      {paddingXIndexArray.toString()}
-      <br />
-      {calculateScale(
-        baseSize,
-        componentPaddingScale,
-        paddingXIndexArray[0],
-        componentPaddingMethodFormula
-      )}
-      <br />
       {sizedComponents}
     </div>
   );

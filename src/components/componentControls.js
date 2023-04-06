@@ -4,8 +4,8 @@ import capitalize from "../utilities/capitalize";
 const ComponentControls = (props) => {
   const baseSize = props.baseSize;
   const setBaseSize = props.setBaseSize;
-  const baseIconSizeIndex = props.baseIconSizeIndex;
-  const setBaseIconSizeIndex = props.setBaseIconSizeIndex;
+//   const baseIconSizeIndex = props.baseIconSizeIndex;
+//   const setBaseIconSizeIndex = props.setBaseIconSizeIndex;
   const baseComponentSize = props.baseComponentSize;
   const setBaseComponentSize = props.setBaseComponentSize;
   const componentLineHeight = props.componentLineHeight;
@@ -80,32 +80,21 @@ const ComponentControls = (props) => {
                   setBaseComponentSize(e.target.value);
                 }}
               />
-              <span class="computedValue" id="componentComputedSize"></span>
+              <span class="computedValue" id="componentComputedSize">{baseComponentSize}</span>
             </div>
             <div>
-              <label>Icon size index</label>
+              <label>Text-icon pair index</label>
               <input
                 type="number"
-                value={baseIconSizeIndex}
+                value='1'
                 step="1"
                 onInput={(e) => {
-                  setBaseIconSizeIndex(e.target.value);
+                  console.log(`Don't forget to make this update a state: ${e.target.value}`);
                 }}
               />
               <span class="computedValue" id="componentComputedIconSize"></span>
             </div>
-            <div>
-              <label>Font-size index</label>
-              <input
-                type="number"
-                value={baseComponentTextSizeIndex}
-                step="1"
-                onInput={(e) => {
-                  setBaseComponentTextSizeIndex(e.target.value);
-                }}
-              />
-              <span class="computedValue" id="componentComputedTypeSize"></span>
-            </div>
+            
             <div>
               <label>Line height</label>
               <input

@@ -38,8 +38,15 @@ function App() {
   );
   const [textIconIconSizeIndex, setTextIconIconSizeIndex] = useState(0);
 
+  // Radius
+  const [baseRadiusSize, setBaseRadiusSize] = useState(4);
+  const [radiusScaleFactor, setRadiusScaleFactor] = useState(2);
+  const [radiusSmallQuantity, setRadiusSmallQuantity] = useState(1);
+  const [radiusLargeQuantity, setRadiusLargeQuantity] = useState(3);
+  const [radiusScaleMethod, setRadiusScaleMethod] = useState(scaleMethods[0]);
+
   // Components
-  const [baseIconSizeIndex, setBaseIconSizeIndex] = useState(1);
+  const baseIconSizeIndex = textIconIconSizeIndex;
   const [baseComponentSize, setBaseComponentSize] = useState(1);
   const [componentLineHeight, setComponentLineHeight] = useState(1.2);
   const [componentSmallQuantity, setComponentSmallQuantity] = useState(2);
@@ -107,14 +114,24 @@ function App() {
             setTextIconIconSizeIndex={setTextIconIconSizeIndex}
             iconLineHeight={iconLineHeight}
             spacerLineHeight={spacerLineHeight}
+            baseRadiusSize={baseRadiusSize}
+            setBaseRadiusSize={setBaseRadiusSize}
+            radiusScaleFactor={radiusScaleFactor}
+            setRadiusScaleFactor={setRadiusScaleFactor}
+            radiusSmallQuantity={radiusSmallQuantity}
+            setRadiusSmallQuantity={setRadiusSmallQuantity}
+            radiusLargeQuantity={radiusLargeQuantity}
+            setRadiusLargeQuantity={setRadiusLargeQuantity}
+            radiusScaleMethod={radiusScaleMethod}
+            setRadiusScaleMethod={setRadiusScaleMethod}
           />
         </TabPanel>
         <TabPanel className="App_tabPanel">
           <Components
             baseSize={baseSize}
+            iconPadding={iconPadding}
             scaleMethods={scaleMethods}
             baseIconSizeIndex={baseIconSizeIndex}
-            setBaseIconSizeIndex={setBaseIconSizeIndex}
             baseComponentSize={baseComponentSize}
             setBaseComponentSize={setBaseComponentSize}
             componentLineHeight={componentLineHeight}
@@ -133,6 +150,7 @@ function App() {
             spacingMethods={spacingMethods}
             typeScaleMethod={typeScaleMethod}
             spacingScaleMethod={spacingScaleMethod}
+            iconScaleMethod={iconScaleMethod}
             baseComponentTextSizeIndex={baseComponentTextSizeIndex}
             setBaseComponentTextSizeIndex={setBaseComponentTextSizeIndex}
             baseComponentPaddingXIndex={baseComponentPaddingXIndex}

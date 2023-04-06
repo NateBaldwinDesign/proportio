@@ -10,8 +10,9 @@ const ComponentElement = (props) => {
   const iconSize = props.iconSize;
   const gapSize = props.gapSize;
   const spec = props.spec;
+  const iconPadding = props.iconPadding;
   const componentLineHeight = props.componentLineHeight;
-
+  const componentLabel = "Component label"
   const computedHeight = paddingY * 2 + Number(componentLineHeight) * typeSize;
 
   const specAnnotations = (
@@ -20,13 +21,13 @@ const ComponentElement = (props) => {
         {" "}
         {`Height: ${Math.round(
           computedHeight
-        )} \n (Min: ${componentSize})`}{" "}
+        )} \n (Min: ${Math.round(componentSize)})`}{" "}
       </div>
-      <div className="specType specs"> {`Font: ${typeSize}`} </div>
-      <div className="specIcon specs"> {`Icon: ${iconSize}`} </div>
-      <div className="specPaddingX specs"> {`Pad-X: ${paddingX}`} </div>
-      <div className="specPaddingY specs"> {`Pad-Y: ${paddingY}`} </div>
-      <div className="specGap specs"> {`Gap: ${gapSize}`} </div>
+      <div className="specType specs"> {`Font: ${Math.round(typeSize)}`} </div>
+      <div className="specIcon specs"> {`Icon: ${Math.round(iconSize)}`} </div>
+      <div className="specPaddingX specs"> {`Pad-X: ${Math.round(paddingX)}`} </div>
+      <div className="specPaddingY specs"> {`Pad-Y: ${Math.round(paddingY)}`} </div>
+      <div className="specGap specs"> {`Gap: ${Math.round(gapSize)}`} </div>
     </>
   );
   const showSpecs = spec ? specAnnotations : "";
@@ -78,10 +79,10 @@ const ComponentElement = (props) => {
             }}
           ></div>
           <div className={spec ? "componentIconSpec" : "componentIcon"}>
-            {createSvgIcon(iconSize, iconSize)}
+            {createSvgIcon(iconSize, iconSize, iconPadding)}
           </div>
           <div className={spec ? "componentTextSpec" : "componentText"}>
-            Component text
+            {componentLabel}
           </div>
         </div>
       </div>

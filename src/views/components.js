@@ -9,8 +9,8 @@ const Components = (props) => {
   const scaleMethods = props.scaleMethods;
 
   const baseIconSizeIndex = props.baseIconSizeIndex;
-  const setBaseIconSizeIndex = props.setBaseIconSizeIndex;
-
+  const iconPadding = props.iconPadding;
+  
   const baseComponentTextSizeIndex = props.baseComponentTextSizeIndex;
   const setBaseComponentTextSizeIndex = props.setBaseComponentTextSizeIndex;
 
@@ -36,6 +36,7 @@ const Components = (props) => {
   const spacingMethods = props.spacingMethods;
   const typeScaleMethod = props.typeScaleMethod;
   const spacingScaleMethod = props.spacingScaleMethod;
+  const iconScaleMethod = props.iconScaleMethod;
 
   const componentSmallQuantity = props.componentSmallQuantity;
   const setComponentSmallQuantity = props.setComponentSmallQuantity;
@@ -67,8 +68,6 @@ const Components = (props) => {
     <>
       <ComponentControls
         baseSize={baseSize}
-        baseIconSizeIndex={baseIconSizeIndex}
-        setBaseIconSizeIndex={setBaseIconSizeIndex}
         baseComponentSize={baseComponentSize}
         setBaseComponentSize={setBaseComponentSize}
         componentLineHeight={componentLineHeight}
@@ -107,7 +106,8 @@ const Components = (props) => {
               paddingX={paddingX}
               paddingY={paddingY}
               typeSize={baseComponentTextSizeIndex}
-              iconSize={baseIconSizeIndex}
+              baseIconSizeIndex={baseIconSizeIndex}
+              iconPadding={iconPadding}
               gapSize={gapSize}
               minSizeScale={minSizeScale}
               componentPaddingMethod={componentPaddingMethod}
@@ -117,6 +117,7 @@ const Components = (props) => {
               iconScale={iconScale}
               spacingScale={spacingScale}
               typeScaleMethod={typeScaleMethod}
+              iconScaleMethod={iconScaleMethod}
               spacingScaleMethod={spacingScaleMethod}
               sizeNamesIncrement={sizeNamesIncrement}
               sizeNamesDecrement={sizeNamesDecrement}

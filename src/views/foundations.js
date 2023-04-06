@@ -10,6 +10,8 @@ import Typography from "../components/typography";
 import Iconography from "../components/iconography";
 import TypeIconPairing from "../components/typeIconPairing";
 import "../styles/tabs.css";
+import Radius from "../components/radius";
+import RadiusControls from "../components/radiusControls";
 
 const Foundations = (props) => {
     const scaleMethods = props.scaleMethods;
@@ -50,6 +52,16 @@ const Foundations = (props) => {
     const setTextIconIconSizeIndex = props.setTextIconIconSizeIndex;
     const iconLineHeight = props.iconLineHeight;
     const spacerLineHeight = props.spacerLineHeight;
+    const baseRadiusSize = props.baseRadiusSize;
+    const setBaseRadiusSize = props.setBaseRadiusSize;
+    const radiusScaleFactor = props.radiusScaleFactor;
+    const setRadiusScaleFactor = props.setRadiusScaleFactor;
+    const radiusSmallQuantity = props.radiusSmallQuantity;
+    const setRadiusSmallQuantity = props.setRadiusSmallQuantity;
+    const radiusLargeQuantity = props.radiusLargeQuantity;
+    const setRadiusLargeQuantity = props.setRadiusLargeQuantity;
+    const radiusScaleMethod = props.radiusScaleMethod;
+    const setRadiusScaleMethod = props.setRadiusScaleMethod;
 
     return (
         <> 
@@ -100,6 +112,19 @@ const Foundations = (props) => {
             setTextIconGapScaleMethod={setTextIconGapScaleMethod}
             textIconIconSizeIndex={textIconIconSizeIndex}
             setTextIconIconSizeIndex={setTextIconIconSizeIndex}
+          />
+          <RadiusControls
+            scaleMethods={scaleMethods}
+            baseRadiusSize={baseRadiusSize}
+            setBaseRadiusSize={setBaseRadiusSize}
+            radiusScaleFactor={radiusScaleFactor}
+            setRadiusScaleFactor={setRadiusScaleFactor}
+            radiusSmallQuantity={radiusSmallQuantity}
+            setRadiusSmallQuantity={setRadiusSmallQuantity}
+            radiusLargeQuantity={radiusLargeQuantity}
+            setRadiusLargeQuantity={setRadiusLargeQuantity}
+            radiusScaleMethod={radiusScaleMethod}
+            setRadiusScaleMethod={setRadiusScaleMethod}
           />
           </div>
           <main>
@@ -152,6 +177,13 @@ const Foundations = (props) => {
                   spacingScaleMethod={spacingScaleMethod}
                   textIconIconSizeIndex={textIconIconSizeIndex}
                   />
+                <Radius
+                  baseRadiusSize={baseRadiusSize}
+                  radiusScaleFactor={radiusScaleFactor}
+                  radiusSmallQuantity={radiusSmallQuantity}
+                  radiusLargeQuantity={radiusLargeQuantity}
+                  radiusScaleMethod={radiusScaleMethod}
+                />
               </TabPanel>
               <TabPanel>
                 <p>Typographic content, paragraphcs, headings margins using spacers, etc.</p>
