@@ -51,7 +51,7 @@ const TypeIconPairingControls = (props) => {
                     />
                 </div>
                 <div>
-                    <label htmlFor="">Icon size index</label>
+                    <label htmlFor="">Icon index</label>
                     <input
                         type="number"
                         onInput={(e) => setTextIconIconSizeIndex(Number(e.target.value))}
