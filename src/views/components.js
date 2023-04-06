@@ -4,6 +4,8 @@ import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import ComponentSpecs from "../components/componentSpecs";
 import "../styles/tabs.css";
 import Panel from "../components/panel";
+import TypeIconPairingControls from "../components/typeIconPairingControls";
+import TypeIconPairing from "../components/typeIconPairing";
 
 const Components = (props) => {
   const baseSize = props.baseSize;
@@ -39,6 +41,18 @@ const Components = (props) => {
   const spacingScaleMethod = props.spacingScaleMethod;
   const iconScaleMethod = props.iconScaleMethod;
 
+  // const textIconGapIndex = props.textIconGapIndex;
+  // const setTextIconGapIndex = props.setTextIconGapIndex;
+  // const textIconGapScaleMethod = props.textIconGapScaleMethod;
+  // const setTextIconGapScaleMethod = props.setTextIconGapScaleMethod;
+  // const textIconIconSizeIndex = props.textIconIconSizeIndex;
+  // const setTextIconIconSizeIndex = props.setTextIconIconSizeIndex;
+  // const iconSmallQuantity = props.iconSmallQuantity;
+  // const iconLargeQuantity = props.iconLargeQuantity;
+  // const iconLineHeight = props.iconLineHeight;
+  // const typeSmallQuantity = props.typeSmallQuantity;
+  // const typeLargeQuantity = props.typeLargeQuantity;
+
   const componentSmallQuantity = props.componentSmallQuantity;
   const setComponentSmallQuantity = props.setComponentSmallQuantity;
   const componentLargeQuantity = props.componentLargeQuantity;
@@ -67,8 +81,8 @@ const Components = (props) => {
 
   return (
     <>
-    <Panel direction="column">
-      <ComponentControls
+      <Panel direction="column">
+        <ComponentControls
           baseSize={baseSize}
           baseComponentSize={baseComponentSize}
           setBaseComponentSize={setBaseComponentSize}
@@ -91,8 +105,7 @@ const Components = (props) => {
           baseComponentPaddingYIndex={baseComponentPaddingYIndex}
           setBaseComponentPaddingYIndex={setBaseComponentPaddingYIndex}
         />
-    </Panel>
-      
+      </Panel>
 
       <main>
         <Tabs>

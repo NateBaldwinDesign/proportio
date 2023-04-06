@@ -3,6 +3,8 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 // import 'react-tabs/style/react-tabs.css';
 
 import "./styles/app.css";
+import "./styles/formElements.css";
+
 import Foundations from "./views/foundations";
 import Components from "./views/components";
 import Header from "./components/header";
@@ -51,7 +53,9 @@ function App() {
   const [elevationScaleFactor, setElevationScaleFactor] = useState(2);
   const [elevationSmallQuantity, setElevationSmallQuantity] = useState(0);
   const [elevationLargeQuantity, setElevationLargeQuantity] = useState(3);
-  const [elevationScaleMethod, setElevationScaleMethod] = useState(scaleMethods[1]);
+  const [elevationScaleMethod, setElevationScaleMethod] = useState(
+    scaleMethods[1]
+  );
 
   // Components
   const baseIconSizeIndex = textIconIconSizeIndex;
@@ -79,116 +83,117 @@ function App() {
     <div className="App">
       <Tabs className="App_tabs">
         <Header>
-          <h4 className="logo">Proportioner</h4>
           <TabList className="App_tabsList">
-            <Tab className="App_tab">Design</Tab>
-            <Tab className="App_tab">Use</Tab>
+            <Tab className="App_tab">Foundations</Tab>
+            <Tab className="App_tab">Components</Tab>
           </TabList>
         </Header>
 
         <TabPanel className="App_tabPanel">
-          <Tabs className="Panel_tabs">
-            <TabList className="Panel_tabsList">
-                <Tab className="Panel_tab">Foundations</Tab>
-                <Tab className="Panel_tab">Components</Tab>
-            </TabList>
-
-            <TabPanel className="App_tabPanel">
-              <Foundations
-                scaleMethods={scaleMethods}
-                spacingMethods={spacingMethods}
-                baseSize={baseSize}
-                setBaseSize={setBaseSize}
-                spacingScale={spacingScale}
-                setSpacingScale={setSpacingScale}
-                spacingSmallQuantity={spacingSmallQuantity}
-                setSpacingSmallQuantity={setSpacingSmallQuantity}
-                spacingLargeQuantity={spacingLargeQuantity}
-                setSpacingLargeQuantity={setSpacingLargeQuantity}
-                spacingScaleMethod={spacingScaleMethod}
-                setSpacingScaleMethod={setSpacingScaleMethod}
-                typeScale={typeScale}
-                setTypeScale={setTypeScale}
-                typeSmallQuantity={typeSmallQuantity}
-                setTypeSmallQuantity={setTypeSmallQuantity}
-                typeLargeQuantity={typeLargeQuantity}
-                setTypeLargeQuantity={setTypeLargeQuantity}
-                typeScaleMethod={typeScaleMethod}
-                setTypeScaleMethod={setTypeScaleMethod}
-                iconScale={iconScale}
-                setIconScale={setIconScale}
-                iconPadding={iconPadding}
-                setIconPadding={setIconPadding}
-                iconSmallQuantity={iconSmallQuantity}
-                setIconSmallQuantity={setIconSmallQuantity}
-                iconLargeQuantity={iconLargeQuantity}
-                setIconLargeQuantity={setIconLargeQuantity}
-                iconScaleMethod={iconScaleMethod}
-                setIconScaleMethod={setIconScaleMethod}
-                textIconGapIndex={textIconGapIndex}
-                setTextIconGapIndex={setTextIconGapIndex}
-                textIconGapScaleMethod={textIconGapScaleMethod}
-                setTextIconGapScaleMethod={setTextIconGapScaleMethod}
-                textIconIconSizeIndex={textIconIconSizeIndex}
-                setTextIconIconSizeIndex={setTextIconIconSizeIndex}
-                iconLineHeight={iconLineHeight}
-                spacerLineHeight={spacerLineHeight}
-                baseRadiusSize={baseRadiusSize}
-                setBaseRadiusSize={setBaseRadiusSize}
-                radiusScaleFactor={radiusScaleFactor}
-                setRadiusScaleFactor={setRadiusScaleFactor}
-                radiusSmallQuantity={radiusSmallQuantity}
-                setRadiusSmallQuantity={setRadiusSmallQuantity}
-                radiusLargeQuantity={radiusLargeQuantity}
-                setRadiusLargeQuantity={setRadiusLargeQuantity}
-                radiusScaleMethod={radiusScaleMethod}
-                setRadiusScaleMethod={setRadiusScaleMethod}
-                baseElevationSize={baseElevationSize}
-                setBaseElevationSize={setBaseElevationSize}
-                elevationScaleFactor={elevationScaleFactor}
-                setElevationScaleFactor={setElevationScaleFactor}
-                elevationSmallQuantity={elevationSmallQuantity}
-                setElevationSmallQuantity={setElevationSmallQuantity}
-                elevationLargeQuantity={elevationLargeQuantity}
-                setElevationLargeQuantity={setElevationLargeQuantity}
-                elevationScaleMethod={elevationScaleMethod}
-                setElevationScaleMethod={setElevationScaleMethod}
-              />
-            </TabPanel>
-            <TabPanel className="App_tabPanel">
-              <Components
-                baseSize={baseSize}
-                iconPadding={iconPadding}
-                scaleMethods={scaleMethods}
-                baseIconSizeIndex={baseIconSizeIndex}
-                baseComponentSize={baseComponentSize}
-                setBaseComponentSize={setBaseComponentSize}
-                componentLineHeight={componentLineHeight}
-                setComponentLineHeight={setComponentLineHeight}
-                componentSmallQuantity={componentSmallQuantity}
-                setComponentSmallQuantity={setComponentSmallQuantity}
-                componentLargeQuantity={componentLargeQuantity}
-                setComponentLargeQuantity={setComponentLargeQuantity}
-                componentScaleMethod={componentScaleMethod}
-                setComponentScaleMethod={setComponentScaleMethod}
-                componentPaddingMethod={componentPaddingMethod}
-                setComponentPaddingMethod={setComponentPaddingMethod}
-                typeScale={typeScale}
-                iconScale={iconScale}
-                spacingScale={spacingScale}
-                spacingMethods={spacingMethods}
-                typeScaleMethod={typeScaleMethod}
-                spacingScaleMethod={spacingScaleMethod}
-                iconScaleMethod={iconScaleMethod}
-                baseComponentTextSizeIndex={baseComponentTextSizeIndex}
-                setBaseComponentTextSizeIndex={setBaseComponentTextSizeIndex}
-                baseComponentPaddingXIndex={baseComponentPaddingXIndex}
-                setBaseComponentPaddingXIndex={setBaseComponentPaddingXIndex}
-                baseComponentPaddingYIndex={baseComponentPaddingYIndex}
-                setBaseComponentPaddingYIndex={setBaseComponentPaddingYIndex}
-              />
-            </TabPanel>
-          </Tabs>
+          <Foundations
+            scaleMethods={scaleMethods}
+            spacingMethods={spacingMethods}
+            baseSize={baseSize}
+            setBaseSize={setBaseSize}
+            spacingScale={spacingScale}
+            setSpacingScale={setSpacingScale}
+            spacingSmallQuantity={spacingSmallQuantity}
+            setSpacingSmallQuantity={setSpacingSmallQuantity}
+            spacingLargeQuantity={spacingLargeQuantity}
+            setSpacingLargeQuantity={setSpacingLargeQuantity}
+            spacingScaleMethod={spacingScaleMethod}
+            setSpacingScaleMethod={setSpacingScaleMethod}
+            typeScale={typeScale}
+            setTypeScale={setTypeScale}
+            typeSmallQuantity={typeSmallQuantity}
+            setTypeSmallQuantity={setTypeSmallQuantity}
+            typeLargeQuantity={typeLargeQuantity}
+            setTypeLargeQuantity={setTypeLargeQuantity}
+            typeScaleMethod={typeScaleMethod}
+            setTypeScaleMethod={setTypeScaleMethod}
+            iconScale={iconScale}
+            setIconScale={setIconScale}
+            iconPadding={iconPadding}
+            setIconPadding={setIconPadding}
+            iconSmallQuantity={iconSmallQuantity}
+            setIconSmallQuantity={setIconSmallQuantity}
+            iconLargeQuantity={iconLargeQuantity}
+            setIconLargeQuantity={setIconLargeQuantity}
+            iconScaleMethod={iconScaleMethod}
+            setIconScaleMethod={setIconScaleMethod}
+            textIconGapIndex={textIconGapIndex}
+            setTextIconGapIndex={setTextIconGapIndex}
+            textIconGapScaleMethod={textIconGapScaleMethod}
+            setTextIconGapScaleMethod={setTextIconGapScaleMethod}
+            textIconIconSizeIndex={textIconIconSizeIndex}
+            setTextIconIconSizeIndex={setTextIconIconSizeIndex}
+            iconLineHeight={iconLineHeight}
+            spacerLineHeight={spacerLineHeight}
+            baseRadiusSize={baseRadiusSize}
+            setBaseRadiusSize={setBaseRadiusSize}
+            radiusScaleFactor={radiusScaleFactor}
+            setRadiusScaleFactor={setRadiusScaleFactor}
+            radiusSmallQuantity={radiusSmallQuantity}
+            setRadiusSmallQuantity={setRadiusSmallQuantity}
+            radiusLargeQuantity={radiusLargeQuantity}
+            setRadiusLargeQuantity={setRadiusLargeQuantity}
+            radiusScaleMethod={radiusScaleMethod}
+            setRadiusScaleMethod={setRadiusScaleMethod}
+            baseElevationSize={baseElevationSize}
+            setBaseElevationSize={setBaseElevationSize}
+            elevationScaleFactor={elevationScaleFactor}
+            setElevationScaleFactor={setElevationScaleFactor}
+            elevationSmallQuantity={elevationSmallQuantity}
+            setElevationSmallQuantity={setElevationSmallQuantity}
+            elevationLargeQuantity={elevationLargeQuantity}
+            setElevationLargeQuantity={setElevationLargeQuantity}
+            elevationScaleMethod={elevationScaleMethod}
+            setElevationScaleMethod={setElevationScaleMethod}
+          />
+        </TabPanel>
+        <TabPanel className="App_tabPanel">
+          <Components
+            baseSize={baseSize}
+            iconPadding={iconPadding}
+            scaleMethods={scaleMethods}
+            baseIconSizeIndex={baseIconSizeIndex}
+            baseComponentSize={baseComponentSize}
+            setBaseComponentSize={setBaseComponentSize}
+            componentLineHeight={componentLineHeight}
+            setComponentLineHeight={setComponentLineHeight}
+            componentSmallQuantity={componentSmallQuantity}
+            setComponentSmallQuantity={setComponentSmallQuantity}
+            componentLargeQuantity={componentLargeQuantity}
+            setComponentLargeQuantity={setComponentLargeQuantity}
+            componentScaleMethod={componentScaleMethod}
+            setComponentScaleMethod={setComponentScaleMethod}
+            componentPaddingMethod={componentPaddingMethod}
+            setComponentPaddingMethod={setComponentPaddingMethod}
+            typeScale={typeScale}
+            iconScale={iconScale}
+            spacingScale={spacingScale}
+            spacingMethods={spacingMethods}
+            typeScaleMethod={typeScaleMethod}
+            spacingScaleMethod={spacingScaleMethod}
+            iconScaleMethod={iconScaleMethod}
+            baseComponentTextSizeIndex={baseComponentTextSizeIndex}
+            setBaseComponentTextSizeIndex={setBaseComponentTextSizeIndex}
+            baseComponentPaddingXIndex={baseComponentPaddingXIndex}
+            setBaseComponentPaddingXIndex={setBaseComponentPaddingXIndex}
+            baseComponentPaddingYIndex={baseComponentPaddingYIndex}
+            setBaseComponentPaddingYIndex={setBaseComponentPaddingYIndex}
+            textIconGapIndex={textIconGapIndex}
+            setTextIconGapIndex={setTextIconGapIndex}
+            textIconGapScaleMethod={textIconGapScaleMethod}
+            setTextIconGapScaleMethod={setTextIconGapScaleMethod}
+            textIconIconSizeIndex={textIconIconSizeIndex}
+            setTextIconIconSizeIndex={setTextIconIconSizeIndex}
+            iconSmallQuantity={iconSmallQuantity}
+            iconLargeQuantity={iconLargeQuantity}
+            iconLineHeight={iconLineHeight}
+            typeSmallQuantity={typeSmallQuantity}
+            typeLargeQuantity={typeLargeQuantity}
+          />
         </TabPanel>
       </Tabs>
     </div>

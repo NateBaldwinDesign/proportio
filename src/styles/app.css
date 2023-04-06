@@ -1,6 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 @media (prefers-color-scheme: light) {
   /*
-  https://leonardocolor.io/theme?name=Untitled&config=%7B%22baseScale%22%3A%22Gray%22%2C%22colorScales%22%3A%5B%7B%22name%22%3A%22Gray%22%2C%22colorKeys%22%3A%5B%22%23000000%22%5D%2C%22colorspace%22%3A%22RGB%22%2C%22ratios%22%3A%5B%221.14%22%2C%221.87%22%2C%223.02%22%2C%225%22%2C%2210%22%2C%2221%22%5D%2C%22smooth%22%3Afalse%7D%5D%2C%22lightness%22%3A100%2C%22contrast%22%3A1%2C%22saturation%22%3A100%2C%22formula%22%3A%22wcag2%22%7D
+  https://leonardocolor.io/theme?name=Untitled&config=%7B%22baseScale%22%3A%22Gray%22%2C%22colorScales%22%3A%5B%7B%22name%22%3A%22Gray%22%2C%22colorKeys%22%3A%5B%22%23000000%22%5D%2C%22colorspace%22%3A%22RGB%22%2C%22ratios%22%3A%5B%221.14%22%2C%221.87%22%2C%223.02%22%2C%225%22%2C%2210%22%2C%2221%22%5D%2C%22smooth%22%3Afalse%7D%2C%7B%22name%22%3A%22Gold%22%2C%22colorKeys%22%3A%5B%22%23e69d00%22%2C%22%23ffda8a%22%2C%22%235c3a00%22%5D%2C%22colorspace%22%3A%22RGB%22%2C%22ratios%22%3A%5B%221.14%22%2C%221.87%22%2C%223.02%22%2C%225%22%2C%2210%22%2C%2221%22%5D%2C%22smooth%22%3Afalse%7D%5D%2C%22lightness%22%3A100%2C%22contrast%22%3A1%2C%22saturation%22%3A100%2C%22formula%22%3A%22wcag2%22%7D
   https://leonardocolor.io/theme?name=Untitled&config=%7B%22baseScale%22%3A%22blueprint%22%2C%22colorScales%22%3A%5B%7B%22name%22%3A%22blueprint%22%2C%22colorKeys%22%3A%5B%22%231f4b84%22%5D%2C%22colorspace%22%3A%22OKLCH%22%2C%22ratios%22%3A%5B%221%22%2C%221.5%22%2C%222%22%2C%223.02%22%2C%225%22%2C%228%22%5D%2C%22smooth%22%3Atrue%7D%5D%2C%22lightness%22%3A93%2C%22contrast%22%3A1%2C%22saturation%22%3A100%2C%22formula%22%3A%22wcag2%22%7D
   */
   :root {
@@ -11,23 +12,31 @@
     --Gray500: #424242;
     --Gray600: #000000;
 
+    --Gold100: #ffefcd;
+    --Gold200: #efb332;
+    --Gold300: #c88700;
+    --Gold400: #986500;
+    --Gold500: #5d3b00;
+    --Gold600: #000000;
+
     --appBackground: #ffffff;
     --background: #e4ebf3;
     --legendColor: #000000;
     --legendTextColor: #ffffff;
-    --blueprint100: #e3eaf3;
+    /* --blueprint100: #e3eaf3;
     --blueprint200: #afc3dd;
     --blueprint300: #8ea9cd;
     --blueprint400: #6588b8;
     --blueprint500: #3b649c;
-    --blueprint600: #19447d;
+    --blueprint600: #19447d; */
 
-    --shadowColor: rgb(0 0 0 / 20%)
+    --shadowColor: rgb(0 0 0 / 8%);
+    --elevationDemoShadowColor: rgb(0 0 0 / 20%);
   }
 }
 @media (prefers-color-scheme: dark) {
   /*. 
-  https://leonardocolor.io/theme?name=Untitled&config=%7B%22baseScale%22%3A%22Gray%22%2C%22colorScales%22%3A%5B%7B%22name%22%3A%22Gray%22%2C%22colorKeys%22%3A%5B%22%23000000%22%5D%2C%22colorspace%22%3A%22RGB%22%2C%22ratios%22%3A%5B%221.14%22%2C%221.87%22%2C%223.02%22%2C%225%22%2C%2210%22%2C%2221%22%5D%2C%22smooth%22%3Afalse%7D%5D%2C%22lightness%22%3A8%2C%22contrast%22%3A1%2C%22saturation%22%3A100%2C%22formula%22%3A%22wcag2%22%7D
+  https://leonardocolor.io/theme?name=Untitled&config=%7B%22baseScale%22%3A%22Gray%22%2C%22colorScales%22%3A%5B%7B%22name%22%3A%22Gray%22%2C%22colorKeys%22%3A%5B%22%23000000%22%5D%2C%22colorspace%22%3A%22RGB%22%2C%22ratios%22%3A%5B%221.14%22%2C%221.87%22%2C%223.02%22%2C%225%22%2C%2210%22%2C%2221%22%5D%2C%22smooth%22%3Afalse%7D%2C%7B%22name%22%3A%22Gold%22%2C%22colorKeys%22%3A%5B%22%23e69d00%22%2C%22%23ffda8a%22%2C%22%235c3a00%22%5D%2C%22colorspace%22%3A%22RGB%22%2C%22ratios%22%3A%5B%221.14%22%2C%221.87%22%2C%223.02%22%2C%225%22%2C%2210%22%2C%2221%22%5D%2C%22smooth%22%3Afalse%7D%5D%2C%22lightness%22%3A8%2C%22contrast%22%3A1%2C%22saturation%22%3A100%2C%22formula%22%3A%22wcag2%22%7D
   https://leonardocolor.io/theme?name=Untitled&config=%7B%22baseScale%22%3A%22blueprint%22%2C%22colorScales%22%3A%5B%7B%22name%22%3A%22blueprint%22%2C%22colorKeys%22%3A%5B%22%231f4b84%22%5D%2C%22colorspace%22%3A%22OKLCH%22%2C%22ratios%22%3A%5B%221%22%2C%221.5%22%2C%222%22%2C%223.02%22%2C%225%22%2C%228%22%5D%2C%22smooth%22%3Atrue%7D%5D%2C%22lightness%22%3A12%2C%22contrast%22%3A1%2C%22saturation%22%3A70%2C%22formula%22%3A%22wcag2%22%7D
   */
   :root {
@@ -38,31 +47,64 @@
     --Gray500: #c1c1c1;
     --Gray600: #ffffff;
 
+    --Gold100: #332000;
+    --Gold200: #613e00;
+    --Gold300: #895b00;
+    --Gold400: #b77b00;
+    --Gold500: #f1b83e;
+    --Gold600: #ffffff;
+
     --appBackground: #171717;
     --legendColor: #323232;
     --legendTextColor: #ffffff;
     --background: #001e44;
-    --blueprint100: #011e46;
+    /* --blueprint100: #011e46;
     --blueprint200: #19457e;
     --blueprint300: #325c95;
     --blueprint400: #587db0;
     --blueprint500: #8da8cd;
-    --blueprint600: #c8d5e8;
+    --blueprint600: #c8d5e8; */
 
-    --shadowColor: rgb(0 0 0 / 50%);
+    --shadowColor: rgb(0 0 0 / 30%);
+    --elevationDemoShadowColor: rgb(0 0 0 / 50%);
   }
 }
 
 :root {
+  --blueprint100: var(--Gray100);
+  --blueprint200: var(--Gray200);
+  --blueprint300: var(--Gray300);
+  --blueprint400: var(--Gray400);
+  --blueprint500: var(--Gray500);
+  --blueprint600: var(--Gray600);
+
   --fieldSetBackground: var(--Gray100);
   --border100: var(--Gray200);
   --border200: var(--Gray300);
   --textColor: var(--Gray600);
+  --panelBorderRadius: 24px;
+  --panelShadow: 0 4px 8px 0 var(--shadowColor);
+  --appFrameMargin: 24px;
+  --headerHeight: 56px;
+  --fontStack: "Inter", sans-serif;
+
+  --selectionIndicatorColor: var(--Gold300);
+
+  --focusRing: 0 0 0 2px var(--appBackground), 0 0 0 4px var(--Gold300);
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  background: var(--Gold100);
+}
+
+::selection {
+  background: var(--Gold100);
 }
 
 html {
-  font-family: "Avenir Next", "Helvetica", sans-serif;
-  background-color: var(--appBackground);
+  font-family: "Inter", sans-serif;
+  background-color: var(--Gray100);
   color: var(--textColor);
   margin: 0;
   padding: 0;
@@ -71,54 +113,6 @@ html {
 body {
   margin: 0;
   padding: 0;
-}
-
-input {
-  box-shadow: none;
-  outline: none;
-  background-color: var(--appBackground);
-  border: 1px solid var(--border200);
-  color: var(--textColor);
-}
-input[type=number] {
-  width: 56px;
-}
-
-fieldset {
-  display: flex;
-  flex-direction: row;
-  flex-basis: fit-content;
-  flex-shrink: 0;
-  gap: 24px;
-  margin: 8px 0;
-  outline: none;
-  box-shadow: none;
-  border: 0;
-  border-bottom: 1px solid var(--border100);
-  border-radius: 0;
-  padding: 10px 0 24px 0;
-  width: 280px;
-  flex-wrap: wrap;
-}
-fieldset.column {
-  flex-direction: column;
-  gap: 8px;
-}
-fieldset section {
-  display: flex;
-  flex-direction: row;
-  gap: 24px;
-}
-legend {
-  /* background-color: var(--legendColor);
-  color: var(--legendTextColor);
-  padding: 4px 8px;
-  border-radius: 6px; */
-  font-size: 0.825rem;
-  font-weight: 700;
-}
-label {
-  font-size: 0.875rem;
 }
 
 p {
@@ -132,17 +126,27 @@ h4 {
   margin-top: 0.5em;
   margin-bottom: 0;
 }
+h3 {
+  margin-top: 0;
+}
 h5 {
   margin-bottom: 0;
+  font-size: 0.76em;
 }
 
 main {
+  grid-area: main;
+  display: flex;
   padding: 24px 48px 48px 48px;
-  margin-top: 24px;
-  border-radius: 12px;
-/*   width: 100%; */
-  background-color: var(--background);
+  border-radius: var(--panelBorderRadius);
+  max-width: calc(100vw - 400px - var(--appFrameMargin));
+  background-color: var(--appBackground);
   color: var(--blueprint500);
+  overflow-x: scroll;
+  height: calc(
+    100vh - var(--headerHeight) - var(--appFrameMargin) - var(--appFrameMargin)
+  );
+  box-shadow: var(--panelShadow);
 }
 
 .row {
@@ -156,6 +160,7 @@ main {
   flex-direction: column;
   gap: 0px;
   min-width: fit-content;
+  flex-grow: 1;
 }
 
 .Panel_tabs {
@@ -170,17 +175,74 @@ main {
   margin: 0;
   gap: 8px;
   color: var(--textColor);
-  position:absolute;
+  position: absolute;
   margin-top: 12px;
   font-size: 0.875rem;
 }
 
 .Panel_tab {
   padding: 8px 0px;
-  cursor:pointer;
+  cursor: pointer;
   border-bottom: 4px solid transparent;
 }
 
 .Panel_tab.react-tabs__tab--selected {
   border-color: var(--textColor);
+}
+
+.App_tabs {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: var(--headerHeight) calc(100vh - var(--headerHeight));
+  grid-template-areas:
+    "header"
+    "content";
+  /* overflow: hidden; */
+}
+.App_tabsList {
+  display: flex;
+  flex-direction: row;
+  appearance: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: var(--textColor);
+}
+.App_tab {
+  height: 24px;
+  display: flex;
+  line-height: 1.4;
+  align-items: baseline;
+  padding: 8px 10px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all ease-in-out 0.1s;
+  /* border-bottom: 4px solid transparent; */
+}
+.App_tab.react-tabs__tab--selected {
+  /* border-color: var(--selectionIndicatorColor); */
+  background-color: var(--selectionIndicatorColor);
+  color: var(--appBackground);
+  transition: all ease-in-out 0.3s;
+}
+.App-tab:focus-visible,
+.App-tab:focus {
+  outline: none;
+  box-shadow: var(--focusRing);
+  border-radius: 4px;
+}
+.App_tabPanel {
+  grid-area: content;
+  display: grid;
+  grid-template-columns: 280px 100%;
+  grid-template-areas: "panel main";
+  gap: var(--appFrameMargin);
+  /* height: calc(100vh - var(--headerHeight) - var(--appFrameMargin)); */
+  /* height: 100%; */
+  /* overflow: hidden; */
+  margin: var(--appFrameMargin) var(--appFrameMargin) 0 0;
+}
+.App_tabPanel.react-tabs__tab-panel--selected {
+  z-index: 10;
 }

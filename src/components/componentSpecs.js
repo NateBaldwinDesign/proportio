@@ -3,6 +3,7 @@ import "../styles/iconography.css";
 import buildArray from "../utilities/buildArray";
 import buildShiftedArray from "../utilities/buildShiftedArray";
 import calculateScale from "../utilities/calculateScale";
+import capitalize from "../utilities/capitalize";
 import ComponentElement from "./componentElement";
 
 const ComponentSpecs = (props) => {
@@ -105,8 +106,8 @@ const ComponentSpecs = (props) => {
     const sizeName = v < 0 ? sizeNamesDecrement[i] : sizeNamesIncrement[v];
 
     return (
-      <>
-        <h5> {sizeName} </h5>
+      <div class="specRowItem">
+        <h5> {capitalize(sizeName)} </h5>
         <ComponentElement
           key={`component${sizeName}`}
           componentSize={computedHeight}
@@ -119,12 +120,13 @@ const ComponentSpecs = (props) => {
           componentLineHeight={componentLineHeight}
           spec
         />
-      </>
+      </div>
     );
   });
 
   return (
     <div className="column">
+      <h3>Component size & density</h3>
       {sizedComponents}
     </div>
   );
