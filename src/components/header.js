@@ -1,10 +1,15 @@
 import React from "react";
+import Logo from "./logo";
+
 import "../styles/header.css";
 
 const Header = (props) => {
   return (
     <header>
-      <h4 className="logo">Midas</h4>
+      <div className="logoLockup">
+        <Logo color="var(--Gold400)" size="32" strokeWidth="2.5" />
+        <h4 className="logo">Midas</h4>
+      </div>
       {props.children}
     </header>
   );

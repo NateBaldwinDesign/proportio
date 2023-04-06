@@ -6,6 +6,7 @@
   margin: 0;
   padding: 0;
   color: var(--textColor);
+  margin-bottom: var(--appFrameMargin);
 }
 
 .react-tabs__tab {
@@ -29,6 +30,5 @@
   flex-direction: row;
   column-gap: calc(var(--appFrameMargin) * 3);
   row-gap: var(--appFrameMargin);
-  margin-top: var(--appFrameMargin);
   flex-wrap: wrap;
 }

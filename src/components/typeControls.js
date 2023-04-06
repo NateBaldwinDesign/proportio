@@ -12,10 +12,11 @@ const TypeControls = (props) => {
   const typeLargeQuantity = props.typeLargeQuantity;
   const setSampleText = props.setSampleText;
   const sampleText = props.sampleText;
+  const typeScaleMethod = props.typeScaleMethod;
 
   const inputs = scaleMethods.map((method) => {
     return (
-      <div key={`${method}`}>
+      <div className="radioGroup" key={`${method}`}>
         <input
           type="radio"
           id={`type${method}`}
@@ -32,7 +33,7 @@ const TypeControls = (props) => {
   return (
     <fieldset>
       <legend>Typography</legend>
-      <div className="column">{inputs}</div>
+      <div className="segmentedControl">{inputs}</div>
 
       <div className="column">
         <div className="formGroup">
@@ -40,7 +41,7 @@ const TypeControls = (props) => {
           <input
             type="number"
             onInput={(e) => setTypeScale(Number(e.target.value))}
-            step="0.01"
+            step={typeScaleMethod === "power" ? "0.01" : "1"}
             min="0"
             defaultValue={typeScale}
           />

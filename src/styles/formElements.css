@@ -7,7 +7,6 @@ input {
   border-radius: 6px;
   padding: 4px 6px;
   font-size: 0.875rem;
-  font-family: var(--fontStack);
   accent-color: var(--Gold400);
 }
 input[type="number"] {
@@ -15,6 +14,45 @@ input[type="number"] {
 }
 input:focus {
   box-shadow: var(--focusRing);
+}
+
+input[type="radio"] {
+  display: none;
+}
+input[type="radio"] + label {
+  padding: 4px 8px;
+  width: 100%;
+}
+.segmentedControl {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  gap: 0;
+  border-radius: 4px;
+}
+.radioGroup {
+  display: flex;
+  flex-grow: 1;
+  text-align: center;
+}
+.radioGroup input[type="radio"] + label {
+  border: 1px solid var(--border100);
+}
+.radioGroup + .radioGroup input[type="radio"] + label {
+  border-left: none;
+}
+.radioGroup:first-of-type input[type="radio"] + label {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.radioGroup:last-of-type input[type="radio"] + label {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+input[type="radio"]:checked + label {
+  background-color: var(--selectionIndicatorColor);
+  border-color: var(--selectionIndicatorColor);
+  color: var(--appBackground);
 }
 
 fieldset {
@@ -32,6 +70,9 @@ fieldset {
   padding: 10px 0 16px 0;
   flex-wrap: wrap;
 }
+fieldset:last-of-type {
+  border-bottom: 0;
+}
 fieldset.column {
   flex-direction: column;
   gap: 8px;
@@ -43,19 +84,18 @@ fieldset section {
 }
 legend {
   padding: 0;
-  font-size: 0.825rem;
-  font-weight: 700;
-  font-family: var(--fontStack);
+  font-size: 1rem;
+  font-weight: 600;
 }
 label {
-  font-family: var(--fontStack);
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 
 .formGroup {
   display: flex;
   flex-direction: row;
   align-items: baseline;
+  justify-content: space-between;
   gap: 8px;
   margin-bottom: 8px;
 }

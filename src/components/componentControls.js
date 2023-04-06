@@ -31,7 +31,7 @@ const ComponentControls = (props) => {
 
   const componentScalingMethodInputs = spacingMethods.map((method) => {
     return (
-      <div key={`${method}`}>
+      <div className="radioGroup" key={`${method}`}>
         <input
           type="radio"
           id={`component${method}`}
@@ -46,7 +46,7 @@ const ComponentControls = (props) => {
   });
   const componentPaddingMethodInputs = spacingMethods.map((method) => {
     return (
-      <div key={`${method}`}>
+      <div className="radioGroup" key={`${method}`}>
         <input
           type="radio"
           id={`componentPadding${method}`}
@@ -66,7 +66,7 @@ const ComponentControls = (props) => {
     <>
       <fieldset>
         <legend>Default size</legend>
-        <div class="column">{componentScalingMethodInputs}</div>
+        <div class="segmentedControl">{componentScalingMethodInputs}</div>
         <div class="column">
           <div className="formGroup">
             <label>Min-height index</label>
@@ -78,9 +78,9 @@ const ComponentControls = (props) => {
                 setBaseComponentSize(e.target.value);
               }}
             />
-            <span class="computedValue" id="componentComputedSize">
+            {/* <span class="computedValue" id="componentComputedSize">
               {baseComponentSize}
-            </span>
+            </span> */}
           </div>
           <div className="formGroup">
             <label>Text-icon pair index</label>
@@ -94,7 +94,7 @@ const ComponentControls = (props) => {
                 );
               }}
             />
-            <span class="computedValue" id="componentComputedIconSize"></span>
+            {/* <span class="computedValue" id="componentComputedIconSize"></span> */}
           </div>
           <div className="formGroup">
             <label>Line height</label>
@@ -112,7 +112,7 @@ const ComponentControls = (props) => {
       </fieldset>
       <fieldset>
         <legend>Default padding</legend>
-        <div class="column">{componentPaddingMethodInputs}</div>
+        <div class="segmentedControl">{componentPaddingMethodInputs}</div>
         <div class="column">
           <div className="formGroup">
             <label>X padding index</label>
@@ -125,10 +125,10 @@ const ComponentControls = (props) => {
                 setBaseComponentPaddingXIndex(e.target.value);
               }}
             />
-            <span
+            {/* <span
               class="computedValue"
               id="componentXPaddingComputedSize"
-            ></span>
+            ></span> */}
           </div>
           <div className="formGroup">
             <label>Y padding index</label>
@@ -140,10 +140,10 @@ const ComponentControls = (props) => {
                 setBaseComponentPaddingYIndex(e.target.value);
               }}
             />
-            <span
+            {/* <span
               class="computedValue"
               id="componentYPaddingComputedSize"
-            ></span>
+            ></span> */}
           </div>
         </div>
       </fieldset>

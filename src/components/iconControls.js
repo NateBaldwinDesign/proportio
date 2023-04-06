@@ -12,10 +12,11 @@ const IconControls = (props) => {
   const iconLargeQuantity = props.iconLargeQuantity;
   const setIconPadding = props.setIconPadding;
   const iconPadding = props.iconPadding;
+  const iconScaleMethod = props.iconScaleMethod;
 
   const inputs = scaleMethods.map((method) => {
     return (
-      <div key={`iconography${method}`}>
+      <div className="radioGroup" key={`iconography${method}`}>
         <input
           type="radio"
           id={`Icon${method}`}
@@ -32,14 +33,14 @@ const IconControls = (props) => {
   return (
     <fieldset>
       <legend>Iconography</legend>
-      <div className="column">{inputs}</div>
+      <div className="segmentedControl">{inputs}</div>
       <div className="column">
         <div className="formGroup">
           <label htmlFor="">Scale factor</label>
           <input
             type="number"
             onInput={(e) => setIconScale(Number(e.target.value))}
-            step="0.01"
+            step={iconScaleMethod === "power" ? "0.01" : "1"}
             min="0"
             defaultValue={iconScale}
           />

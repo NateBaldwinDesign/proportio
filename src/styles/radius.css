@@ -1,19 +1,19 @@
 #radiusWrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 .radiusItem {
-    display: grid;
-    grid-template-columns: 20px auto;
-    font-size: 12px;
-    font-style: italic;
-    align-items: center;
-    gap: 8px;
+  display: grid;
+  grid-template-columns: 20px auto;
+  font-size: 12px;
+  font-style: italic;
+  align-items: center;
+  gap: 8px;
 }
 .radius {
-    width: 80px;
-    height: 60px;
-    background-color: var(--blueprint200);
-    border: 1px solid var(--blueprint500);
+  width: 80px;
+  height: 60px;
+  background-color: var(--blueprint200);
+  /* border: 1px solid var(--blueprint500); */
 }
