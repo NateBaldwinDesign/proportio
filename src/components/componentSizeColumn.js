@@ -79,7 +79,7 @@ const ComponentSizeColumn = (props) => {
     if(sizeName===undefined) sizeName = "undefined"
 
     const radius = (scaleComponentRadius) ? scaledComponentRadius : componentRadiusNewIndexValue ;
-    console.log("hello")
+
     return (
         <div className="specRowItem"  key={`componenSpecItem${sizeName}${componentMinHeight}`}>
             <h5> {capitalize(sizeName)} </h5>
