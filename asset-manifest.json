@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/proportional-design-tool/static/css/main.0f4e8331.css",
-    "main.js": "/proportional-design-tool/static/js/main.064201a9.js",
-    "static/js/787.65b0b818.chunk.js": "/proportional-design-tool/static/js/787.65b0b818.chunk.js",
-    "index.html": "/proportional-design-tool/index.html",
-    "main.0f4e8331.css.map": "/proportional-design-tool/static/css/main.0f4e8331.css.map",
-    "main.064201a9.js.map": "/proportional-design-tool/static/js/main.064201a9.js.map",
-    "787.65b0b818.chunk.js.map": "/proportional-design-tool/static/js/787.65b0b818.chunk.js.map"
+    "main.css": "/midas/static/css/main.b175a969.css",
+    "main.js": "/midas/static/js/main.6a5446cb.js",
+    "static/js/787.74d010c3.chunk.js": "/midas/static/js/787.74d010c3.chunk.js",
+    "index.html": "/midas/index.html",
+    "main.b175a969.css.map": "/midas/static/css/main.b175a969.css.map",
+    "main.6a5446cb.js.map": "/midas/static/js/main.6a5446cb.js.map",
+    "787.74d010c3.chunk.js.map": "/midas/static/js/787.74d010c3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0f4e8331.css",
-    "static/js/main.064201a9.js"
+    "static/css/main.b175a969.css",
+    "static/js/main.6a5446cb.js"
   ]
 }
