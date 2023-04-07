@@ -5,7 +5,7 @@
   grid-template-areas:
     ". spec00 spec0 ."
     "spec1 component component spec2 "
-    ". spec3 spec4 .";
+    ". spec3 spec4 spec5";
   border: 1px dashed var(--Gold200);
   padding: 4px 16px;
   width: max-content;
@@ -31,13 +31,18 @@
   grid-template-areas:
     ". . padTop padTop . ."
     "padLeft icon textIconGap label . padRight"
-    ". . padBottom padBottom . .";
+    ". . padBottom padBottom . radius";
   grid-template-columns: max-content;
   width: max-content;
   height: max-content;
   background-color: var(--blueprint300);
   border-radius: 6px;
   font-weight: 500; /* Demi */
+}
+.compRadius {
+  grid-area: radius;
+  justify-self: flex-end;
+  align-self: flex-end;
 }
 .paddingUnit {
   background-color: var(--blueprint500);
@@ -195,4 +200,8 @@
   position: absolute;
   top: -24px;
   left: 12px;
+}
+
+.specRadius {
+  grid-area: spec5;
 }

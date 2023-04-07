@@ -57,12 +57,22 @@ const Components = (props) => {
   const setComponentSmallQuantity = props.setComponentSmallQuantity;
   const componentLargeQuantity = props.componentLargeQuantity;
   const setComponentLargeQuantity = props.setComponentLargeQuantity;
+  
+  const scaleComponentRadius = props.scaleComponentRadius;
+  const setScaleComponentRadius = props.setScaleComponentRadius;
+  const baseComponentRadius = props.baseComponentRadius;
+  const setBaseComponentRadius = props.setBaseComponentRadius;
+  const baseRadiusSize = props.baseRadiusSize;
+  const radiusScaleFactor = props.radiusScaleFactor;
+  const radiusScaleMethod = props.radiusScaleMethod;
+  
+  const [showSpecs, setShowSpecs] = useState(false);
 
   const paddingX = 8;
   const paddingY = 6;
   const gapSize = 1;
   const minSizeScale = 1;
-
+  /* These need to be named ascending, starting with default medium */
   const sizeNamesIncrement = [
     "medium (default)",
     "large",
@@ -70,13 +80,22 @@ const Components = (props) => {
     "xx-large",
     "xxx-large",
     "xiv-large",
+    "xv-large",
+    "xvi-large",
+    "xvii-large",
+    "xviii-large"
   ];
+  /* These need to be named descending */
   const sizeNamesDecrement = [
     "small",
     "x-small",
     "xx-small",
     "xxx-small",
     "xiv-small",
+    "xv-small",
+    "xvi-small",
+    "xvii-small",
+    "xviii-small"
   ];
 
   return (
@@ -105,18 +124,37 @@ const Components = (props) => {
             setBaseComponentPaddingXIndex={setBaseComponentPaddingXIndex}
             baseComponentPaddingYIndex={baseComponentPaddingYIndex}
             setBaseComponentPaddingYIndex={setBaseComponentPaddingYIndex}
+            scaleComponentRadius={scaleComponentRadius}
+            setScaleComponentRadius={setScaleComponentRadius}
+            baseComponentRadius={baseComponentRadius}
+            setBaseComponentRadius={setBaseComponentRadius}
           />
         </Panel>
 
         <main>
           <Tabs>
             <TabList>
-              <Tab>Specs</Tab>
-              <Tab>Examples</Tab>
+              <Tab>Desktop</Tab>
+              <Tab>Mobile</Tab>
+              <div className="tabs_action">
+                <div className="checkboxGroup" >
+                  <input
+                    type="checkbox"
+                    name="showComponentSpecs"
+                    id="showComponentSpecs"
+                    onClick={(e) => setShowSpecs(e.target.checked)}
+                    defaultChecked={showSpecs}
+                  />
+                  <label htmlFor="showComponentSpecs">
+                    Show component specs
+                  </label>
+                </div>
+              </div>
             </TabList>
 
             <TabPanel>
               <ComponentSpecs
+                showSpecs={showSpecs}
                 baseSize={baseSize}
                 componentScaleMethod={componentScaleMethod}
                 componentLineHeight={componentLineHeight}
@@ -142,6 +180,11 @@ const Components = (props) => {
                 baseComponentPaddingXIndex={baseComponentPaddingXIndex}
                 baseComponentPaddingYIndex={baseComponentPaddingYIndex}
                 baseComponentTextSizeIndex={baseComponentTextSizeIndex}
+                scaleComponentRadius={scaleComponentRadius}
+                baseComponentRadius={baseComponentRadius}
+                baseRadiusSize={baseRadiusSize}
+                radiusScaleFactor={radiusScaleFactor}
+                radiusScaleMethod={radiusScaleMethod}
               />
             </TabPanel>
             <TabPanel>

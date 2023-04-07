@@ -14,6 +14,8 @@ const ComponentElement = (props) => {
   const componentLineHeight = props.componentLineHeight;
   const componentLabel = "Component label"
   const computedHeight = paddingY * 2 + Number(componentLineHeight) * typeSize;
+  
+  const radius = props.radius;
 
   const specAnnotations = (
     <>
@@ -28,6 +30,7 @@ const ComponentElement = (props) => {
       <div className="specPaddingX specs"> {`Pad-X: ${Math.round(paddingX)}`} </div>
       <div className="specPaddingY specs"> {`Pad-Y: ${Math.round(paddingY)}`} </div>
       <div className="specGap specs"> {`Gap: ${Math.round(gapSize)}`} </div>
+      <div className="specRadius specs"> {`R: ${Math.round(radius)}`} </div>
     </>
   );
   const showSpecs = spec ? specAnnotations : "";
@@ -43,6 +46,7 @@ const ComponentElement = (props) => {
             minHeight: `${componentMinHeight}px`,
             fontSize: `${typeSize}px`,
             lineHeight: `${componentLineHeight}`,
+            borderRadius: `${radius}px`
           }}
           className="component"
         >
@@ -72,6 +76,14 @@ const ComponentElement = (props) => {
             style={{
               height: `${paddingElementFixedSize}px`,
               width: `${paddingX}px`,
+            }}
+          ></div>
+          <div
+            className={spec ? "paddingUnit compRadius" : "compRadius"}
+            style={{
+              height: `${radius * 2}px`,
+              width: `${radius * 2}px`,
+              borderRadius: `${radius}px`
             }}
           ></div>
           <div

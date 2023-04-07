@@ -29,6 +29,11 @@ const ComponentControls = (props) => {
 
   const spacingMethods = props.spacingMethods;
 
+  const scaleComponentRadius = props.scaleComponentRadius;
+  const setScaleComponentRadius = props.setScaleComponentRadius;
+  const baseComponentRadius = props.baseComponentRadius;
+  const setBaseComponentRadius = props.setBaseComponentRadius;
+
   const componentScalingMethodInputs = spacingMethods.map((method) => {
     return (
       <div className="radioGroup" key={`${method}`}>
@@ -78,24 +83,8 @@ const ComponentControls = (props) => {
                 setBaseComponentSize(e.target.value);
               }}
             />
-            {/* <span className="computedValue" id="componentComputedSize">
-              {baseComponentSize}
-            </span> */}
           </div>
-          <div className="formGroup">
-            <label>Text-icon pair index</label>
-            <input
-              type="number"
-              defaultValue="1"
-              step="1"
-              onInput={(e) => {
-                console.log(
-                  `Don't forget to make this update a state: ${e.target.value}`
-                );
-              }}
-            />
-            {/* <span className="computedValue" id="componentComputedIconSize"></span> */}
-          </div>
+
           <div className="formGroup">
             <label>Line height</label>
             <input
@@ -148,6 +137,41 @@ const ComponentControls = (props) => {
         </div>
       </fieldset>
       <fieldset>
+        <legend>Radius</legend>
+        <div className="column">
+          <div className="formGroup">
+            <div className="checkboxGroup" >
+              <input
+                type="checkbox"
+                name="scaleRadius"
+                id="scaleRadius"
+                onClick={(e) => setScaleComponentRadius(e.target.checked)}
+                defaultChecked={scaleComponentRadius}
+              />
+              <label htmlFor="scaleRadius">
+                Scale border radius
+              </label>
+            </div>
+          </div>
+          <div className="formGroup">
+            <label>Radius index</label>
+            <input
+              type="number"
+              defaultValue={baseComponentRadius}
+              id="baseComponentRadius"
+              onInput={(e) => {
+                setBaseComponentRadius(e.target.value);
+              }}
+            />
+            {/* <span className="computedValue" id="componentComputedSize">
+              {baseComponentSize}
+            </span> */}
+          </div>
+        </div>
+      </fieldset>
+      
+      
+      <fieldset>
         <legend>Component sizes</legend>
         <div className="column">
           <div className="formGroup">
@@ -156,6 +180,7 @@ const ComponentControls = (props) => {
               type="number"
               defaultValue={componentSmallQuantity}
               step="1"
+              min="0"
               onInput={(e) => {
                 setComponentSmallQuantity(e.target.value);
               }}
@@ -167,6 +192,7 @@ const ComponentControls = (props) => {
               type="number"
               defaultValue={componentLargeQuantity}
               step="1"
+              min="1"
               onInput={(e) => {
                 setComponentLargeQuantity(e.target.value);
               }}
@@ -196,6 +222,7 @@ const ComponentControls = (props) => {
               type="number"
               defaultValue={componentSmallQuantity}
               step="1"
+              min="0"
               // onInput={(e) => {
               //   setComponentSmallQuantity(e.target.value);
               // }}
@@ -207,6 +234,7 @@ const ComponentControls = (props) => {
               type="number"
               defaultValue={componentLargeQuantity}
               step="1"
+              min="1"
               onInput={(e) => {
                 console.log(e.target.value);
               }}
