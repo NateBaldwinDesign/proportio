@@ -15,7 +15,8 @@ const ComponentElement = (props) => {
   const componentLabel = "Component label"
   const computedHeight = paddingY * 2 + Number(componentLineHeight) * typeSize;
   
-  const radius = props.radius;
+  const biggestHeight = (computedHeight > componentMinHeight) ? computedHeight : componentMinHeight;
+  const radius = (props.radius > (biggestHeight / 2)) ? (biggestHeight / 2) : props.radius;
 
   const specAnnotations = (
     <>
