@@ -1,7 +1,7 @@
 ![logo](https://raw.githubusercontent.com/NateBaldwinDesign/midas/main/logolockup.png)
 
-# Midas proportional design app
-Tool for creating proportional scales for typography, iconography, spacing, and components in design systems.
+
+*__Tool for creating proportional scales for typography, iconography, spacing, and components in design systems.__*
 
 ## Purpose
 Making systematic design faster and easier by use of generative, parametric design. Midas enables designers to use proportional scales to create:
