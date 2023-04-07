@@ -11,7 +11,6 @@ const TypeIconPairingControls = (props) => {
   const textIconIconSizeIndex = props.textIconIconSizeIndex;
   const setTextIconIconSizeIndex = props.setTextIconIconSizeIndex;
 
-  console.log(textIconGapScaleMethod);
   const inputs = scaleMethods.map((method) => {
     return (
       <div className="radioGroup" key={`typeIconPiar${method}`}>

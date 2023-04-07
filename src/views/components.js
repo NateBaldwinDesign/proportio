@@ -120,7 +120,7 @@ const Components = (props) => {
                 baseSize={baseSize}
                 componentScaleMethod={componentScaleMethod}
                 componentLineHeight={componentLineHeight}
-                componentSize={baseComponentSize}
+                baseComponentSize={baseComponentSize}
                 paddingX={paddingX}
                 paddingY={paddingY}
                 typeSize={baseComponentTextSizeIndex}
