@@ -7,7 +7,7 @@ const Header = (props) => {
   return (
     <header>
       <div className="logoLockup">
-        <Logo color="var(--Gold400)" size="32" strokeWidth="2.5" />
+        <Logo color="var(--logoColor)" size="32" strokeWidth="2.5" />
         <h4 className="logo">Midas</h4>
       </div>
       {props.children}

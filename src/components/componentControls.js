@@ -36,7 +36,7 @@ const ComponentControls = (props) => {
           type="radio"
           id={`component${method}`}
           name="componentScale_method"
-          value={method}
+          defaultValue={method}
           onClick={(e) => setComponentScaleMethod(e.target.value)}
           defaultChecked={method === componentScaleMethod ? true : false}
         />
@@ -51,7 +51,7 @@ const ComponentControls = (props) => {
           type="radio"
           id={`componentPadding${method}`}
           name="componentPaddingScale_method"
-          value={method}
+          defaultValue={method}
           onClick={(e) => setComponentPaddingMethod(e.target.value)}
           defaultChecked={method === componentPaddingMethod ? true : false}
         />
@@ -66,19 +66,19 @@ const ComponentControls = (props) => {
     <>
       <fieldset>
         <legend>Default size</legend>
-        <div class="segmentedControl">{componentScalingMethodInputs}</div>
-        <div class="column">
+        <div className="segmentedControl">{componentScalingMethodInputs}</div>
+        <div className="column">
           <div className="formGroup">
             <label>Min-height index</label>
             <input
               type="number"
-              value={baseComponentSize}
+              defaultValue={baseComponentSize}
               id="baseComponentSize"
               onInput={(e) => {
                 setBaseComponentSize(e.target.value);
               }}
             />
-            {/* <span class="computedValue" id="componentComputedSize">
+            {/* <span className="computedValue" id="componentComputedSize">
               {baseComponentSize}
             </span> */}
           </div>
@@ -86,7 +86,7 @@ const ComponentControls = (props) => {
             <label>Text-icon pair index</label>
             <input
               type="number"
-              value="1"
+              defaultValue="1"
               step="1"
               onInput={(e) => {
                 console.log(
@@ -94,14 +94,14 @@ const ComponentControls = (props) => {
                 );
               }}
             />
-            {/* <span class="computedValue" id="componentComputedIconSize"></span> */}
+            {/* <span className="computedValue" id="componentComputedIconSize"></span> */}
           </div>
           <div className="formGroup">
             <label>Line height</label>
             <input
               type="number"
               id="componentLineHeight"
-              value={componentLineHeight}
+              defaultValue={componentLineHeight}
               step="0.1"
               onInput={(e) => {
                 setComponentLineHeight(e.target.value);
@@ -112,21 +112,21 @@ const ComponentControls = (props) => {
       </fieldset>
       <fieldset>
         <legend>Default padding</legend>
-        <div class="segmentedControl">{componentPaddingMethodInputs}</div>
-        <div class="column">
+        <div className="segmentedControl">{componentPaddingMethodInputs}</div>
+        <div className="column">
           <div className="formGroup">
             <label>X padding index</label>
             <input
               type="number"
               id="componentXPaddingScale"
-              value={baseComponentPaddingXIndex}
+              defaultValue={baseComponentPaddingXIndex}
               step="1"
               onInput={(e) => {
                 setBaseComponentPaddingXIndex(e.target.value);
               }}
             />
             {/* <span
-              class="computedValue"
+              className="computedValue"
               id="componentXPaddingComputedSize"
             ></span> */}
           </div>
@@ -134,14 +134,14 @@ const ComponentControls = (props) => {
             <label>Y padding index</label>
             <input
               type="number"
-              value={baseComponentPaddingYIndex}
+              defaultValue={baseComponentPaddingYIndex}
               step="1"
               onInput={(e) => {
                 setBaseComponentPaddingYIndex(e.target.value);
               }}
             />
             {/* <span
-              class="computedValue"
+              className="computedValue"
               id="componentYPaddingComputedSize"
             ></span> */}
           </div>
@@ -149,12 +149,12 @@ const ComponentControls = (props) => {
       </fieldset>
       <fieldset>
         <legend>Component sizes</legend>
-        <div class="column">
+        <div className="column">
           <div className="formGroup">
             <label>Small sizes</label>
             <input
               type="number"
-              value={componentSmallQuantity}
+              defaultValue={componentSmallQuantity}
               step="1"
               onInput={(e) => {
                 setComponentSmallQuantity(e.target.value);
@@ -165,7 +165,7 @@ const ComponentControls = (props) => {
             <label>Large sizes</label>
             <input
               type="number"
-              value={componentLargeQuantity}
+              defaultValue={componentLargeQuantity}
               step="1"
               onInput={(e) => {
                 setComponentLargeQuantity(e.target.value);
@@ -178,23 +178,23 @@ const ComponentControls = (props) => {
       <fieldset>
         <legend>Densities</legend>
         {/* {componentPaddingMethodInputs} */}
-        <div class="column">
+        <div className="column">
           <div className="formGroup">
             <label>Scale factor</label>
             <input
               type="number"
-              value={componentSmallQuantity}
+              defaultValue={componentSmallQuantity}
               step="1"
-              // onInput={(e) => {
-              //   setComponentSmallQuantity(e.target.value);
-              // }}
+              onInput={(e) => {
+                console.log(e.target.value);
+              }}
             />
           </div>
           <div className="formGroup">
             <label>Small sizes</label>
             <input
               type="number"
-              value={componentSmallQuantity}
+              defaultValue={componentSmallQuantity}
               step="1"
               // onInput={(e) => {
               //   setComponentSmallQuantity(e.target.value);
@@ -205,11 +205,11 @@ const ComponentControls = (props) => {
             <label>Large sizes</label>
             <input
               type="number"
-              value={componentLargeQuantity}
+              defaultValue={componentLargeQuantity}
               step="1"
-              // onInput={(e) => {
-              //   setComponentLargeQuantity(e.target.value);
-              // }}
+              onInput={(e) => {
+                console.log(e.target.value);
+              }}
             />
           </div>
         </div>

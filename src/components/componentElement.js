@@ -3,7 +3,7 @@ import createSvgIcon from "../utilities/createSvgIcon";
 import "../styles/component.css";
 
 const ComponentElement = (props) => {
-  const componentSize = props.componentSize;
+  const componentMinHeight = props.componentMinHeight;
   const paddingX = props.paddingX;
   const paddingY = props.paddingY;
   const typeSize = props.typeSize;
@@ -21,7 +21,7 @@ const ComponentElement = (props) => {
         {" "}
         {`Height: ${Math.round(
           computedHeight
-        )} \n (Min: ${Math.round(componentSize)})`}{" "}
+        )} \n (Min: ${Math.round(componentMinHeight)})`}{" "}
       </div>
       <div className="specType specs"> {`Font: ${Math.round(typeSize)}`} </div>
       <div className="specIcon specs"> {`Icon: ${Math.round(iconSize)}`} </div>
@@ -32,12 +32,15 @@ const ComponentElement = (props) => {
   );
   const showSpecs = spec ? specAnnotations : "";
 
+  const paddingElementFixedSize = '10';
+
   return (
     <div className={spec ? "componentSpecWrapper" : "componentWrapper"}>
       <div className={spec ? "componentSpecItemWrapper" : ""}>
         <div
           style={{
-            minWidth: `${componentSize}px`,
+            minWidth: `${componentMinHeight}px`,
+            minHeight: `${componentMinHeight}px`,
             fontSize: `${typeSize}px`,
             lineHeight: `${componentLineHeight}`,
           }}
@@ -47,27 +50,27 @@ const ComponentElement = (props) => {
             className={spec ? "paddingUnit padTop" : "padTop"}
             style={{
               height: `${paddingY}px`,
-              width: `${paddingY / 2}px`,
+              width: `${paddingElementFixedSize}px`,
             }}
           ></div>
           <div
             className={spec ? "paddingUnit padBottom" : "padBottom"}
             style={{
               height: `${paddingY}px`,
-              width: `${paddingY / 2}px`,
+              width: `${paddingElementFixedSize}px`,
             }}
           ></div>
           <div
             className={spec ? "paddingUnit padLeft" : "padLeft"}
             style={{
-              height: `${paddingX / 2}px`,
+              height: `${paddingElementFixedSize}px`,
               width: `${paddingX}px`,
             }}
           ></div>
           <div
             className={spec ? "paddingUnit padRight" : "padRight"}
             style={{
-              height: `${paddingX / 2}px`,
+              height: `${paddingElementFixedSize}px`,
               width: `${paddingX}px`,
             }}
           ></div>

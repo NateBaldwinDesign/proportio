@@ -15,8 +15,6 @@ const Radius = (props) => {
     const sizes = sizeArray.map((i) => {
         return calculateScale(baseRadiusSize, radiusScaleFactor, i, radiusScaleMethod);
     })
-    console.log(sizeArray)
-    console.log(sizes.toString())
 
     const radiusElements = sizes.map((size, i) => {
         return (

@@ -15,8 +15,6 @@ const Elevation = (props) => {
     const sizes = sizeArray.map((i) => {
         return calculateScale(baseElevationSize, elevationScaleFactor, i, elevationScaleMethod);
     })
-    console.log(sizeArray)
-    console.log(sizes.toString())
 
     const elevationElements = sizes.map((size, i) => {
         return (

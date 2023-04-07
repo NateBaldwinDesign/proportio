@@ -22,6 +22,7 @@
     --Gold600: #000000;
 
     --appBackground: #ffffff;
+    --appBackgroundDepressed: var(--Gray100);
     --background: #e4ebf3;
     --legendColor: #000000;
     --legendTextColor: #ffffff;
@@ -34,6 +35,8 @@
 
     --shadowColor: rgb(0 0 0 / 8%);
     --elevationDemoShadowColor: rgb(0 0 0 / 20%);
+    --selectionIndicatorColor: var(--Gold300);
+    --logoColor: var(--Gold400)
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -56,7 +59,8 @@
     --Gold500: #f1b83e;
     --Gold600: #ffffff;
 
-    --appBackground: #171717;
+    --appBackground: var(--Gray100);
+    --appBackgroundDepressed: #171717;
     --legendColor: #323232;
     --legendTextColor: #ffffff;
     --background: #001e44;
@@ -67,8 +71,10 @@
     --blueprint500: #8da8cd;
     --blueprint600: #c8d5e8; */
 
-    --shadowColor: rgb(0 0 0 / 30%);
+    --shadowColor: rgb(0 0 0 / 50%);
     --elevationDemoShadowColor: rgb(0 0 0 / 50%);
+    --selectionIndicatorColor: var(--Gold500);
+    --logoColor: var(--Gold500)
   }
 }
 
@@ -91,8 +97,6 @@
   --headerHeight: 56px;
   --fontStack: "Inter", sans-serif;
 
-  --selectionIndicatorColor: var(--Gold300);
-
   --focusRing: 0 0 0 2px var(--appBackground), 0 0 0 4px var(--Gold300);
   /* --fontFamily: "Inter", sans-serif; */
   --fontFamily: "Outfit", sans-serif;
@@ -109,7 +113,7 @@
 
 html {
   font-family: var(--fontFamily);
-  background-color: var(--Gray100);
+  background-color: var(--appBackgroundDepressed);
   color: var(--textColor);
   margin: 0;
   padding: 0;

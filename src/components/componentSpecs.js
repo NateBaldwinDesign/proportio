@@ -41,6 +41,18 @@ const ComponentSpecs = (props) => {
       : componentPaddingMethod === "spacingScale"
       ? spacingScaleMethod
       : undefined;
+  const componentScale =
+    componentScaleMethod === "typeScale"
+        ? typeScale
+        : componentScaleMethod === "spacingScale"
+        ? spacingScale
+        : 1;
+  const componentScaleMethodFormula =
+    componentScaleMethod === "typeScale"
+      ? typeScaleMethod
+      : componentScaleMethod === "spacingScale"
+      ? spacingScaleMethod
+      : undefined;
 
   const baseComponentPaddingXIndex = props.baseComponentPaddingXIndex;
   const baseComponentPaddingYIndex = props.baseComponentPaddingYIndex;
@@ -68,6 +80,11 @@ const ComponentSpecs = (props) => {
     componentSmallQuantity,
     componentLargeQuantity,
     baseIconSizeIndex
+  );
+  const componentMinHeightIndexArray = buildShiftedArray(
+    componentSmallQuantity,
+    componentLargeQuantity,
+    baseComponentSize
   );
 
   /* Map size index array to calculate values and generate components */
@@ -100,17 +117,23 @@ const ComponentSpecs = (props) => {
     );
     const componentLineHeight = props.componentLineHeight;
 
-    const computedHeight =
-      paddingY * 2 + Number(componentLineHeight) * typeSize;
+    const componentMinHeight = calculateScale(
+      baseSize,
+      componentScale,
+      componentMinHeightIndexArray[i],
+      componentScaleMethodFormula
+    );
+    // const computedHeight =
+    //   paddingY * 2 + Number(componentLineHeight) * typeSize;
 
     const sizeName = v < 0 ? sizeNamesDecrement[i] : sizeNamesIncrement[v];
 
     return (
-      <div class="specRowItem">
+      <div className="specRowItem"  key={`componenSpecItem${sizeName}${componentMinHeight}`}>
         <h5> {capitalize(sizeName)} </h5>
         <ComponentElement
-          key={`component${sizeName}`}
-          componentSize={computedHeight}
+          key={`component${sizeName}${componentMinHeight}`}
+          componentMinHeight={componentMinHeight}
           paddingX={paddingX}
           paddingY={paddingY}
           typeSize={typeSize}
