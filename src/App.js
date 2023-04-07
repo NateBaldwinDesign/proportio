@@ -76,6 +76,8 @@ function App() {
     useState(0);
   const [baseComponentPaddingYIndex, setBaseComponentPaddingYIndex] =
     useState(0);
+  const [scaleComponentRadius, setScaleComponentRadius] = useState(false);
+  const [baseComponentRadius, setBaseComponentRadius] = useState(0);
 
   const iconLineHeight = 1.375; /* Just to align icon examples with typography */
   const spacerLineHeight = iconLineHeight;
@@ -199,6 +201,13 @@ function App() {
             iconLineHeight={iconLineHeight}
             typeSmallQuantity={typeSmallQuantity}
             typeLargeQuantity={typeLargeQuantity}
+            scaleComponentRadius={scaleComponentRadius}
+            setScaleComponentRadius={setScaleComponentRadius}
+            baseComponentRadius={baseComponentRadius}
+            setBaseComponentRadius={setBaseComponentRadius}
+            baseRadiusSize={baseRadiusSize}
+            radiusScaleFactor={radiusScaleFactor}
+            radiusScaleMethod={radiusScaleMethod}
           />
         </TabPanel>
       </Tabs>

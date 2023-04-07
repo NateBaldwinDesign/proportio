@@ -1,15 +1,21 @@
 import React from "react";
+import "../styles/hero.css";
 
 const Home = (props) => {
   return (
     <>
+      <div className="hero">
+        <div className="hero_content">
+          <h1 className="hero_title">Proportional scaling and balance for your entire design system.</h1>
+        </div>
+      </div>
       <main className="mainPageContent">
-        <article>
+        {/* <article>
           <h1 className="display1">Give your system the Midas' touch.</h1>
           <p className="body1">
             Proportional systems-design tool for mature design systems.
           </p>
-        </article>
+        </article> */}
         <article>
           <h2>Proportional, generative design</h2>
           <p>

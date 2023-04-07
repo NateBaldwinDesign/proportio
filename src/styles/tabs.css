@@ -1,4 +1,9 @@
+.react-tabs {
+  width: 100%;  
+}
+
 .react-tabs__tab-list {
+  width: 100%;  
   display: flex;
   flex-direction: row;
   appearance: none;
@@ -31,4 +36,12 @@
   column-gap: calc(var(--appFrameMargin) * 3);
   row-gap: var(--appFrameMargin);
   flex-wrap: wrap;
+}
+
+.tabs_action {
+  height: 36px;
+  padding-bottom: 4px;
+  display: flex;
+  align-items: center;
+  margin-left: var(--appFrameMargin);
 }

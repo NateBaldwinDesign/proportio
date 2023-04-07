@@ -5,6 +5,7 @@ import buildShiftedArray from "../utilities/buildShiftedArray";
 import calculateScale from "../utilities/calculateScale";
 import capitalize from "../utilities/capitalize";
 import ComponentElement from "./componentElement";
+import ComponentSizeColumn from "./componentSizeColumn";
 
 const ComponentSpecs = (props) => {
   const baseSize = props.baseSize;
@@ -27,6 +28,13 @@ const ComponentSpecs = (props) => {
   const typeScaleMethod = props.typeScaleMethod;
   const iconScaleMethod = props.iconScaleMethod;
   const spacingScaleMethod = props.spacingScaleMethod;
+  const showSpecs = props.showSpecs;
+  
+  const scaleComponentRadius = props.scaleComponentRadius;
+  const baseRadiusSize = props.baseRadiusSize;
+  const baseComponentRadius = props.baseComponentRadius;
+  const radiusScaleFactor = props.radiusScaleFactor;
+  const radiusScaleMethod = props.radiusScaleMethod;
 
   const componentPaddingMethod = props.componentPaddingMethod;
   const componentPaddingScale =
@@ -86,65 +94,50 @@ const ComponentSpecs = (props) => {
     componentLargeQuantity,
     baseComponentSize
   );
+  const componentRadiusIndexArray = buildShiftedArray(
+    componentSmallQuantity,
+    componentLargeQuantity,
+    baseComponentRadius
+  );
+  
+  const componentRadiusNewIndexValue = calculateScale(
+      baseRadiusSize,
+      radiusScaleFactor,
+      baseComponentRadius,
+      radiusScaleMethod
+    );
 
   /* Map size index array to calculate values and generate components */
-  const sizedComponents = sizeArray.map((v, i) => {
-    const paddingX = calculateScale(
-      baseSize,
-      componentPaddingScale,
-      paddingXIndexArray[i],
-      componentPaddingMethodFormula
-    );
-    const paddingY = calculateScale(
-      baseSize,
-      componentPaddingScale,
-      paddingYIndexArray[i],
-      componentPaddingMethodFormula
-    );
-
-    const typeSize = calculateScale(
-      baseSize,
-      typeScale,
-      textSizeIndexArray[i],
-      typeScaleMethod
-    );
-    const gapSize = props.gapSize;
-    const iconSize = calculateScale(
-      baseSize,
-      iconScale,
-      iconSizeIndexArray[i],
-      iconScaleMethod
-    );
-    const componentLineHeight = props.componentLineHeight;
-
-    const componentMinHeight = calculateScale(
-      baseSize,
-      componentScale,
-      componentMinHeightIndexArray[i],
-      componentScaleMethodFormula
-    );
-    // const computedHeight =
-    //   paddingY * 2 + Number(componentLineHeight) * typeSize;
-
-    const sizeName = v < 0 ? sizeNamesDecrement[i] : sizeNamesIncrement[v];
-
-    return (
-      <div className="specRowItem"  key={`componenSpecItem${sizeName}${componentMinHeight}`}>
-        <h5> {capitalize(sizeName)} </h5>
-        <ComponentElement
-          key={`component${sizeName}${componentMinHeight}`}
-          componentMinHeight={componentMinHeight}
-          paddingX={paddingX}
-          paddingY={paddingY}
-          typeSize={typeSize}
-          iconSize={iconSize}
-          iconPadding={iconPadding}
-          gapSize={gapSize}
-          componentLineHeight={componentLineHeight}
-          spec
-        />
-      </div>
-    );
+  const sizedComponents = sizeArray.map((size, increment) => {
+    return <ComponentSizeColumn
+      size={size}
+      increment={increment}
+      baseSize={baseSize}
+      componentPaddingScale={componentPaddingScale}
+      paddingXIndexArray={paddingXIndexArray}
+      componentPaddingMethodFormula={componentPaddingMethodFormula}
+      paddingYIndexArray={paddingYIndexArray}
+      typeScale={typeScale}
+      textSizeIndexArray={textSizeIndexArray}
+      typeScaleMethod={typeScaleMethod}
+      iconScale={iconScale}
+      iconSizeIndexArray={iconSizeIndexArray}
+      iconScaleMethod={iconScaleMethod}
+      componentScale={componentScale}
+      componentMinHeightIndexArray={componentMinHeightIndexArray}
+      componentScaleMethodFormula={componentScaleMethodFormula}
+      baseRadiusSize={baseRadiusSize}
+      radiusScaleFactor={radiusScaleFactor}
+      componentRadiusIndexArray={componentRadiusIndexArray}
+      radiusScaleMethod={radiusScaleMethod}
+      sizeNamesDecrement={sizeNamesDecrement}
+      sizeNamesIncrement={sizeNamesIncrement}
+      componentLineHeight={componentLineHeight}
+      componentRadiusNewIndexValue={componentRadiusNewIndexValue}
+      scaleComponentRadius={scaleComponentRadius}
+      iconPadding={iconPadding}
+      showSpecs={showSpecs}
+    />
   });
 
   return (
