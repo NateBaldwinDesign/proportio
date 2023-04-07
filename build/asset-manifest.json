@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/proportional-design-tool/static/css/main.0f4e8331.css",
-    "main.js": "/proportional-design-tool/static/js/main.064201a9.js",
-    "static/js/787.65b0b818.chunk.js": "/proportional-design-tool/static/js/787.65b0b818.chunk.js",
-    "index.html": "/proportional-design-tool/index.html",
-    "main.0f4e8331.css.map": "/proportional-design-tool/static/css/main.0f4e8331.css.map",
-    "main.064201a9.js.map": "/proportional-design-tool/static/js/main.064201a9.js.map",
-    "787.65b0b818.chunk.js.map": "/proportional-design-tool/static/js/787.65b0b818.chunk.js.map"
+    "main.css": "/static/css/main.9e58db89.css",
+    "main.js": "/static/js/main.7022ffea.js",
+    "static/js/787.74d010c3.chunk.js": "/static/js/787.74d010c3.chunk.js",
+    "index.html": "/index.html",
+    "main.9e58db89.css.map": "/static/css/main.9e58db89.css.map",
+    "main.7022ffea.js.map": "/static/js/main.7022ffea.js.map",
+    "787.74d010c3.chunk.js.map": "/static/js/787.74d010c3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0f4e8331.css",
-    "static/js/main.064201a9.js"
+    "static/css/main.9e58db89.css",
+    "static/js/main.7022ffea.js"
   ]
 }
