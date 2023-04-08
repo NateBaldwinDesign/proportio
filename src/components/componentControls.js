@@ -2,6 +2,7 @@ import React from "react";
 import { useRecoilState } from 'recoil';
 import capitalize from "../utilities/capitalize";
 import {baseSizeState} from '../states/base';
+import scaleMethodOptions from "../utilities/scaleMethodOptions";
 
 const ComponentControls = (props) => {
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
@@ -28,14 +29,13 @@ const ComponentControls = (props) => {
   const baseComponentPaddingYIndex = props.baseComponentPaddingYIndex;
   const setBaseComponentPaddingYIndex = props.setBaseComponentPaddingYIndex;
 
-  const spacingMethods = props.spacingMethods;
 
   const scaleComponentRadius = props.scaleComponentRadius;
   const setScaleComponentRadius = props.setScaleComponentRadius;
   const baseComponentRadius = props.baseComponentRadius;
   const setBaseComponentRadius = props.setBaseComponentRadius;
 
-  const componentScalingMethodInputs = spacingMethods.map((method) => {
+  const componentScalingMethodInputs = scaleMethodOptions.map((method) => {
     return (
       <div className="radioGroup" key={`${method}`}>
         <input

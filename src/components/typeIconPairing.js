@@ -13,12 +13,12 @@ import { spacingScaleFactorState } from "../states/spacing";
 const TypeIconPairing = (props) => {
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
   const [spacingScaleFactor, setSpacingScaleFactor] = useRecoilState(spacingScaleFactorState);
+  const [spacingFormula, setSpacingFormula] = useRecoilState(spacingFormulaState);
 
   const typeScale = props.typeScale;
   const smallerSizes = props.typeSmallQuantity;
   const largerSizes = props.typeLargeQuantity;
   const typeScaleMethod = props.typeScaleMethod;
-  const spacingScaleMethod = props.spacingScaleMethod;
   const textIconGapScaleMethod = props.textIconGapScaleMethod;
   const gap = props.textIconGapIndex;
   const textIconIconSizeIndex = props.textIconIconSizeIndex;
@@ -43,7 +43,7 @@ const TypeIconPairing = (props) => {
     textIconGapScaleMethod === "typeScale"
       ? typeScaleMethod
       : textIconGapScaleMethod === "spacingScale"
-      ? spacingScaleMethod
+      ? spacingFormula
       : "none";
 
   const smallSizes = smallSizeArray.map((e, i) => {
