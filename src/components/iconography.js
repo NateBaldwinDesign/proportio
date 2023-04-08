@@ -1,9 +1,11 @@
 import React from "react";
+import {
+    useRecoilState
+  } from 'recoil';
 import IconElement from "./iconElement";
 import '../styles/iconography.css'
 
 const Iconography = (props) => {
-    const baseSize = props.baseSize;
     const iconScale = props.iconScale;
     const smallerSizes = props.iconSmallQuantity
     const largerSizes = props.iconLargeQuantity;
@@ -17,7 +19,6 @@ const Iconography = (props) => {
     const smallSizes = smallSizeArray.map((e, i) => {
         return <IconElement
             key={`${iconScale}-neg${i}`}
-            baseSize={baseSize}
             scale={iconScale}
             i={(i+1) * -1}
             iconPadding={iconPadding}
@@ -31,7 +32,6 @@ const Iconography = (props) => {
     const largeSizes = largeSizeArray.map((e, i) => {
         return <IconElement
             key={`${iconScale}-${i}`}
-            baseSize={baseSize}
             scale={iconScale}
             i={i}
             iconPadding={iconPadding}

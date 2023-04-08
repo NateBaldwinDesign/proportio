@@ -1,4 +1,13 @@
 import React, { useState } from "react";
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from 'recoil';
+import baseSizeState from './states/base';
+
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 // import 'react-tabs/style/react-tabs.css';
 
@@ -14,10 +23,8 @@ function App() {
   const scaleMethods = ["linear", "power"];
   const spacingMethods = ["typeScale", "spacingScale"];
 
-  const [baseSize, setBaseSize] = useState(16);
-
   // Spacing
-  const [spacingScale, setSpacingScale] = useState(1.5);
+  // const [spacingScale, setSpacingScale] = useState(1.5);
   const [spacingSmallQuantity, setSpacingSmallQuantity] = useState(2);
   const [spacingLargeQuantity, setSpacingLargeQuantity] = useState(6);
   const [spacingScaleMethod, setSpacingScaleMethod] = useState(scaleMethods[1]);
@@ -83,6 +90,7 @@ function App() {
   const spacerLineHeight = iconLineHeight;
 
   return (
+    <RecoilRoot>
     <div className="App">
       <Tabs className="App_tabs">
         <Header>
@@ -101,10 +109,6 @@ function App() {
           <Foundations
             scaleMethods={scaleMethods}
             spacingMethods={spacingMethods}
-            baseSize={baseSize}
-            setBaseSize={setBaseSize}
-            spacingScale={spacingScale}
-            setSpacingScale={setSpacingScale}
             spacingSmallQuantity={spacingSmallQuantity}
             setSpacingSmallQuantity={setSpacingSmallQuantity}
             spacingLargeQuantity={spacingLargeQuantity}
@@ -161,7 +165,7 @@ function App() {
         </TabPanel>
         <TabPanel className="App_tabPanel">
           <Components
-            baseSize={baseSize}
+            
             iconPadding={iconPadding}
             scaleMethods={scaleMethods}
             baseIconSizeIndex={baseIconSizeIndex}
@@ -179,7 +183,6 @@ function App() {
             setComponentPaddingMethod={setComponentPaddingMethod}
             typeScale={typeScale}
             iconScale={iconScale}
-            spacingScale={spacingScale}
             spacingMethods={spacingMethods}
             typeScaleMethod={typeScaleMethod}
             spacingScaleMethod={spacingScaleMethod}
@@ -212,6 +215,7 @@ function App() {
         </TabPanel>
       </Tabs>
     </div>
+    </RecoilRoot>
   );
 }
 

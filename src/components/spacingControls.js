@@ -1,11 +1,13 @@
 import React from "react";
+import { useRecoilState } from 'recoil';
 import capitalize from "../utilities/capitalize";
 import calculateScale from "../utilities/calculateScale";
+import { spacingScaleFactorState } from "../states/spacing";
 
 const SpacingControls = (props) => {
-  // const baseSize = props.baseSize;
-  const setSpacingScale = props.setSpacingScale;
-  const spacingScale = props.spacingScale;
+  // const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
+  const [spacingScaleFactor, setSpacingScaleFactor] = useRecoilState(spacingScaleFactorState);
+
   const scaleMethods = props.scaleMethods;
   const setSpacingScaleMethod = props.setSpacingScaleMethod;
   const setSpacingLargeQuantity = props.setSpacingLargeQuantity;
@@ -41,10 +43,10 @@ const SpacingControls = (props) => {
           <label htmlFor="">Scale factor</label>
           <input
             type="number"
-            onInput={(e) => setSpacingScale(Number(e.target.value))}
+            onInput={(e) => setSpacingScaleFactor(Number(e.target.value))}
             step={spacingScaleMethod === "power" ? "0.01" : "1"}
             min="0"
-            defaultValue={spacingScale}
+            defaultValue={spacingScaleFactor}
           />
         </div>
         <div className="formGroup">

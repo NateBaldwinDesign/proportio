@@ -1,8 +1,12 @@
 import React from "react";
+import {
+  useRecoilState
+} from 'recoil';
+import {baseSizeState} from '../states/base';
 
 const BaseControls = (props) => {
-  const baseSize = props.baseSize;
-  const setBaseSize = props.setBaseSize;
+  const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
+  
   const baseTouchScaleFactor = 1.5;
 
   return (

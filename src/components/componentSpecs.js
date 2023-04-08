@@ -1,4 +1,7 @@
 import React from "react";
+import {
+  useRecoilState
+} from 'recoil';
 import "../styles/iconography.css";
 import buildArray from "../utilities/buildArray";
 import buildShiftedArray from "../utilities/buildShiftedArray";
@@ -6,9 +9,13 @@ import calculateScale from "../utilities/calculateScale";
 import capitalize from "../utilities/capitalize";
 import ComponentElement from "./componentElement";
 import ComponentSizeColumn from "./componentSizeColumn";
+import {baseSizeState} from '../states/base';
+import { spacingScaleFactorState } from "../states/spacing";
 
 const ComponentSpecs = (props) => {
-  const baseSize = props.baseSize;
+  const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
+  const [spacingScaleFactor, setSpacingScaleFactor] = useRecoilState(spacingScaleFactorState);
+
   const componentScaleMethod = props.componentScaleMethod;
   const baseIconSizeIndex = props.baseIconSizeIndex;
   const iconPadding = props.iconPadding;
@@ -22,7 +29,6 @@ const ComponentSpecs = (props) => {
   const componentLargeQuantity = props.componentLargeQuantity;
   const typeScale = props.typeScale;
   const iconScale = props.iconScale;
-  const spacingScale = props.spacingScale;
   const sizeNamesIncrement = props.sizeNamesIncrement;
   const sizeNamesDecrement = props.sizeNamesDecrement;
   const typeScaleMethod = props.typeScaleMethod;
@@ -41,7 +47,7 @@ const ComponentSpecs = (props) => {
     componentPaddingMethod === "typeScale"
       ? typeScale
       : componentPaddingMethod === "spacingScale"
-      ? spacingScale
+      ? spacingScaleFactor
       : 1;
   const componentPaddingMethodFormula =
     componentPaddingMethod === "typeScale"
@@ -53,7 +59,7 @@ const ComponentSpecs = (props) => {
     componentScaleMethod === "typeScale"
         ? typeScale
         : componentScaleMethod === "spacingScale"
-        ? spacingScale
+        ? spacingScaleFactor
         : 1;
   const componentScaleMethodFormula =
     componentScaleMethod === "typeScale"
@@ -112,7 +118,7 @@ const ComponentSpecs = (props) => {
     return <ComponentSizeColumn
       size={size}
       increment={increment}
-      baseSize={baseSize}
+      
       componentPaddingScale={componentPaddingScale}
       paddingXIndexArray={paddingXIndexArray}
       componentPaddingMethodFormula={componentPaddingMethodFormula}

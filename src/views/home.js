@@ -1,4 +1,5 @@
 import React from "react";
+import { useRecoilState } from 'recoil';
 import "../styles/hero.css";
 
 const Home = (props) => {

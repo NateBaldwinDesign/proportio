@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRecoilState } from 'recoil';
 import BaseControls from "../components/baseControls";
 import SpacingControls from "../components/spacingControls";
 import TypeControls from "../components/typeControls";
@@ -15,13 +16,12 @@ import RadiusControls from "../components/radiusControls";
 import Panel from "../components/panel";
 import ElevationControls from "../components/elevationControls";
 import Elevation from "../components/elevation";
+import {baseSizeState} from '../states/base';
 
 const Foundations = (props) => {
   const scaleMethods = props.scaleMethods;
   const spacingMethods = props.spacingMethods;
-  const baseSize = props.baseSize;
-  const setBaseSize = props.setBaseSize;
-  const spacingScale = props.spacingScale;
+  const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
   const setSpacingScale = props.setSpacingScale;
   const spacingSmallQuantity = props.spacingSmallQuantity;
   const setSpacingSmallQuantity = props.setSpacingSmallQuantity;
@@ -82,10 +82,8 @@ const Foundations = (props) => {
     <>
       <div className="splitView">
         <Panel direction="column">
-          <BaseControls baseSize={baseSize} setBaseSize={setBaseSize} />
+          <BaseControls   />
           <SpacingControls
-            baseSize={baseSize}
-            spacingScale={spacingScale}
             spacingSmallQuantity={spacingSmallQuantity}
             spacingLargeQuantity={spacingLargeQuantity}
             setSpacingScale={setSpacingScale}
@@ -167,15 +165,13 @@ const Foundations = (props) => {
             <TabPanel>
               {/* <div className="react-tabs__tab-panel"> */}
               <Spacing
-                baseSize={baseSize}
-                spacingScale={spacingScale}
                 spacingSmallQuantity={spacingSmallQuantity}
                 spacingLargeQuantity={spacingLargeQuantity}
                 spacingScaleMethod={spacingScaleMethod}
                 spacerLineHeight={spacerLineHeight}
               />
               <Typography
-                baseSize={baseSize}
+                
                 typeScale={typeScale}
                 typeSmallQuantity={typeSmallQuantity}
                 typeLargeQuantity={typeLargeQuantity}
@@ -183,7 +179,6 @@ const Foundations = (props) => {
                 sampleText={sampleText}
               />
               <Iconography
-                baseSize={baseSize}
                 iconScale={iconScale}
                 iconSmallQuantity={iconSmallQuantity}
                 iconLargeQuantity={iconLargeQuantity}
@@ -192,7 +187,6 @@ const Foundations = (props) => {
                 iconPadding={iconPadding}
               />
               <TypeIconPairing
-                baseSize={baseSize}
                 iconScale={iconScale}
                 iconSmallQuantity={iconSmallQuantity}
                 iconLargeQuantity={iconLargeQuantity}
@@ -205,7 +199,6 @@ const Foundations = (props) => {
                 typeScaleMethod={typeScaleMethod}
                 textIconGapIndex={textIconGapIndex}
                 textIconGapScaleMethod={textIconGapScaleMethod}
-                spacingScale={spacingScale}
                 spacingScaleMethod={spacingScaleMethod}
                 textIconIconSizeIndex={textIconIconSizeIndex}
                 sampleText={sampleText}
@@ -228,15 +221,13 @@ const Foundations = (props) => {
             </TabPanel>
             <TabPanel>
               <Spacing
-                baseSize={baseSize}
-                spacingScale={spacingScale}
                 spacingSmallQuantity={spacingSmallQuantity}
                 spacingLargeQuantity={spacingLargeQuantity}
                 spacingScaleMethod={spacingScaleMethod}
                 spacerLineHeight={spacerLineHeight}
               />
               <Typography
-                baseSize={baseSize}
+                
                 typeScale={typeScale}
                 typeSmallQuantity={typeSmallQuantity}
                 typeLargeQuantity={typeLargeQuantity}
@@ -244,7 +235,7 @@ const Foundations = (props) => {
                 sampleText={sampleText}
               />
               <Iconography
-                baseSize={baseSize}
+                
                 iconScale={iconScale}
                 iconSmallQuantity={iconSmallQuantity}
                 iconLargeQuantity={iconLargeQuantity}
@@ -253,7 +244,7 @@ const Foundations = (props) => {
                 iconPadding={iconPadding}
               />
               <TypeIconPairing
-                baseSize={baseSize}
+                
                 iconScale={iconScale}
                 iconSmallQuantity={iconSmallQuantity}
                 iconLargeQuantity={iconLargeQuantity}
@@ -266,7 +257,6 @@ const Foundations = (props) => {
                 typeScaleMethod={typeScaleMethod}
                 textIconGapIndex={textIconGapIndex}
                 textIconGapScaleMethod={textIconGapScaleMethod}
-                spacingScale={spacingScale}
                 spacingScaleMethod={spacingScaleMethod}
                 textIconIconSizeIndex={textIconIconSizeIndex}
                 sampleText={sampleText}

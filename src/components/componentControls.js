@@ -1,9 +1,10 @@
 import React from "react";
+import { useRecoilState } from 'recoil';
 import capitalize from "../utilities/capitalize";
+import {baseSizeState} from '../states/base';
 
 const ComponentControls = (props) => {
-  const baseSize = props.baseSize;
-  const setBaseSize = props.setBaseSize;
+  const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
   //   const baseIconSizeIndex = props.baseIconSizeIndex;
   //   const setBaseIconSizeIndex = props.setBaseIconSizeIndex;
   const baseComponentSize = props.baseComponentSize;

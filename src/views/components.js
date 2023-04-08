@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRecoilState } from 'recoil';
 import ComponentControls from "../components/componentControls";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import ComponentSpecs from "../components/componentSpecs";
@@ -6,9 +7,10 @@ import "../styles/tabs.css";
 import Panel from "../components/panel";
 import TypeIconPairingControls from "../components/typeIconPairingControls";
 import TypeIconPairing from "../components/typeIconPairing";
+import {baseSizeState} from '../states/base';
 
 const Components = (props) => {
-  const baseSize = props.baseSize;
+  const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
   const scaleMethods = props.scaleMethods;
 
   const baseIconSizeIndex = props.baseIconSizeIndex;
@@ -35,7 +37,6 @@ const Components = (props) => {
 
   const typeScale = props.typeScale;
   const iconScale = props.iconScale;
-  const spacingScale = props.spacingScale;
   const spacingMethods = props.spacingMethods;
   const typeScaleMethod = props.typeScaleMethod;
   const spacingScaleMethod = props.spacingScaleMethod;
@@ -103,7 +104,7 @@ const Components = (props) => {
       <div className="splitView">
         <Panel direction="column">
           <ComponentControls
-            baseSize={baseSize}
+            
             baseComponentSize={baseComponentSize}
             setBaseComponentSize={setBaseComponentSize}
             componentLineHeight={componentLineHeight}
@@ -155,7 +156,7 @@ const Components = (props) => {
             <TabPanel>
               <ComponentSpecs
                 showSpecs={showSpecs}
-                baseSize={baseSize}
+                
                 componentScaleMethod={componentScaleMethod}
                 componentLineHeight={componentLineHeight}
                 baseComponentSize={baseComponentSize}
@@ -171,7 +172,6 @@ const Components = (props) => {
                 componentLargeQuantity={componentLargeQuantity}
                 typeScale={typeScale}
                 iconScale={iconScale}
-                spacingScale={spacingScale}
                 typeScaleMethod={typeScaleMethod}
                 iconScaleMethod={iconScaleMethod}
                 spacingScaleMethod={spacingScaleMethod}

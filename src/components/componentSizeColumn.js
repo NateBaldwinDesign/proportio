@@ -2,9 +2,13 @@ import React from 'react';
 import calculateScale from '../utilities/calculateScale';
 import capitalize from '../utilities/capitalize';
 import ComponentElement from './componentElement';
+import {
+    useRecoilState
+} from 'recoil';
+import {baseSizeState} from '../states/base';
 
 const ComponentSizeColumn = (props) => {
-    const baseSize = props.baseSize;
+    const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
     const componentPaddingScale = props.componentPaddingScale;
     const paddingXIndexArray = props.paddingXIndexArray;
     const componentPaddingMethodFormula = props.componentPaddingMethodFormula;

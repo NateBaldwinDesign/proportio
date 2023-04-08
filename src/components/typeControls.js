@@ -1,4 +1,5 @@
 import React from "react";
+import { useRecoilState } from 'recoil';
 import capitalize from "../utilities/capitalize";
 
 const TypeControls = (props) => {

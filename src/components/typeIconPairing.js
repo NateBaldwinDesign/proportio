@@ -1,15 +1,20 @@
 import React from "react";
+import { useRecoilState } from 'recoil';
 import TypeElement from "./typeElement";
 import IconElement from "./iconElement";
 import "../styles/typography.css";
 import "../styles/iconography.css";
 import "../styles/typeIconPair.css";
 import calculateScale from "../utilities/calculateScale";
+import {baseSizeState} from '../states/base';
+import { spacingScaleFactorState } from "../states/spacing";
+
 
 const TypeIconPairing = (props) => {
-  const baseSize = props.baseSize;
+  const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
+  const [spacingScaleFactor, setSpacingScaleFactor] = useRecoilState(spacingScaleFactorState);
+
   const typeScale = props.typeScale;
-  const spacingScale = props.spacingScale;
   const smallerSizes = props.typeSmallQuantity;
   const largerSizes = props.typeLargeQuantity;
   const typeScaleMethod = props.typeScaleMethod;
@@ -32,7 +37,7 @@ const TypeIconPairing = (props) => {
     textIconGapScaleMethod === "typeScale"
       ? typeScale
       : textIconGapScaleMethod === "spacingScale"
-      ? spacingScale
+      ? spacingScaleFactor
       : "none";
   const method =
     textIconGapScaleMethod === "typeScale"

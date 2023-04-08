@@ -1,9 +1,10 @@
 import React from "react";
 import TypeElement from "./typeElement";
 import "../styles/typography.css";
+import { useRecoilState } from 'recoil';
+
 
 const Typography = (props) => {
-  const baseSize = props.baseSize;
   const typeScale = props.typeScale;
   const smallerSizes = props.typeSmallQuantity;
   const largerSizes = props.typeLargeQuantity;
@@ -17,7 +18,6 @@ const Typography = (props) => {
     return (
       <TypeElement
         key={`${typeScale}-neg${i}`}
-        baseSize={baseSize}
         scale={typeScale}
         i={(i + 1) * -1}
         content={sampleText}
@@ -32,7 +32,6 @@ const Typography = (props) => {
     return (
       <TypeElement
         key={`${typeScale}-${i}`}
-        baseSize={baseSize}
         scale={typeScale}
         i={i}
         content={sampleText}
