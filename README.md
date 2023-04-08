@@ -31,6 +31,7 @@ and more.
 - [ ] Clean up code
 - [ ] Typescript?
 - [ ] Documentation 
+- [ ] iconography for menus and mobile friendly design (maybe use these: https://css.gg/)
 
 
 ## Development
