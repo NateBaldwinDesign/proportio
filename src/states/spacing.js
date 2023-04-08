@@ -20,9 +20,6 @@ const spacingFormulaState = atom({
     key: 'spacingFormula',
     default: scaleFormulas[1]
 });
-// const [spacingSmallQuantity, setSpacingSmallQuantity] = useState(2);
-// const [spacingLargeQuantity, setSpacingLargeQuantity] = useState(6);
-// const [spacingScaleMethod, setSpacingScaleMethod] = useState(scaleMethods[1]);
 
 export {
     spacingScaleFactorState,
