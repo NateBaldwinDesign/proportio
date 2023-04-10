@@ -27,7 +27,10 @@ const Foundations = (props) => {
         <Panel direction="column">
           <BaseControls   />
           <SpacingControls />
-          <TypeControls />
+          <TypeControls
+            sampleText={sampleText}
+            setSampleText={setSampleText}
+          />
           <IconControls />
           <TypeIconPairingControls />
           <RadiusControls />
@@ -60,6 +63,7 @@ const Foundations = (props) => {
               <Spacing />
               <Typography
                 sampleText={sampleText}
+                setSampleText={setSampleText}
               />
               <Iconography />
               <TypeIconPairing
