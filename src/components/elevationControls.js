@@ -2,22 +2,23 @@ import React from "react";
 import { useRecoilState } from 'recoil';
 import capitalize from "../utilities/capitalize";
 import calculateScale from "../utilities/calculateScale";
+import {
+  baseElevationSizeState,
+  elevationScaleFactorState,
+  elevationSmallQuantityState,
+  elevationLargeQuantityState,
+  elevationScaleFormulaState
+} from "../states/elevation"
+import scaleMethodOptions from "../utilities/scaleFormulas"
 
 const ElevationControls = (props) => {
-  const scaleMethods = props.scaleMethods;
+  const [baseElevationSize, setBaseElevationSize] = useRecoilState(baseElevationSizeState)
+  const [elevationScaleFactor, setElevationScaleFactor] = useRecoilState(elevationScaleFactorState)
+  const [elevationSmallQuantity, setElevationSmallQuantity] = useRecoilState(elevationSmallQuantityState)
+  const [elevationLargeQuantity, setElevationLargeQuantity] = useRecoilState(elevationLargeQuantityState)
+  const [elevationScaleFormula, setElevationScaleFormula] = useRecoilState(elevationScaleFormulaState)
 
-  const baseElevationSize = props.baseElevationSize;
-  const setBaseElevationSize = props.setBaseElevationSize;
-  const elevationScaleFactor = props.elevationScaleFactor;
-  const setElevationScaleFactor = props.setElevationScaleFactor;
-  const elevationSmallQuantity = props.elevationSmallQuantity;
-  const setElevationSmallQuantity = props.setElevationSmallQuantity;
-  const elevationLargeQuantity = props.elevationLargeQuantity;
-  const setElevationLargeQuantity = props.setElevationLargeQuantity;
-  const elevationScaleMethod = props.elevationScaleMethod;
-  const setElevationScaleMethod = props.setElevationScaleMethod;
-
-  const inputs = scaleMethods.map((method) => {
+  const inputs = scaleMethodOptions.map((method) => {
     return (
       <div className="radioGroup" key={`elevation${method}`}>
         <input
@@ -25,8 +26,8 @@ const ElevationControls = (props) => {
           id={`Elevation${method}`}
           name="ElevationScale_method"
           value={method}
-          onClick={(e) => setElevationScaleMethod(e.target.value)}
-          defaultChecked={method === elevationScaleMethod ? true : false}
+          onClick={(e) => setElevationScaleFormula(e.target.value)}
+          defaultChecked={method === elevationScaleFormula ? true : false}
         />
         <label htmlFor={`Elevation${method}`}>{capitalize(method)}</label>
       </div>
@@ -53,7 +54,7 @@ const ElevationControls = (props) => {
           <input
             type="number"
             onInput={(e) => setElevationScaleFactor(Number(e.target.value))}
-            step={elevationScaleMethod === "power" ? "0.1" : "1"}
+            step={elevationScaleFormula === "power" ? "0.1" : "1"}
             min="0"
             defaultValue={elevationScaleFactor}
           />

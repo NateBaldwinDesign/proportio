@@ -2,14 +2,17 @@ import {
     useRecoilState,
     atom
 } from 'recoil';
-import {textIconIconSizeIndexState} from './textIconPair';
 import scaleMethodOptions from '../utilities/scaleMethodOptions';
 
-const [textIconIconSizeIndex, setTextIconIconSizeIndex] = useRecoilState(textIconIconSizeIndexState);
 
+/** TODO: 
+ *  Remove baseIconSizeIndexState and baseComponentTextSizeIndexState
+ *  and simply reference textIconIconSizeIndex etc in the components
+ */
 const baseIconSizeIndexState = atom({
     key: 'baseIconSizeIndex',
-    default: textIconIconSizeIndex
+    // default: textIconIconSizeIndex
+    default: 0
 })
 const baseComponentSizeIndexState = atom({
     key: 'baseComponentSizeIndex',

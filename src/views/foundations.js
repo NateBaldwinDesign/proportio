@@ -19,6 +19,7 @@ import Elevation from "../components/elevation";
 
 const Foundations = (props) => {
   const [sampleText, setSampleText] = useState("Text");
+  const spacerLineHeight = 8;
 
   return (
     <>

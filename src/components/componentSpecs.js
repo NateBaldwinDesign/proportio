@@ -15,9 +15,13 @@ import {
 } from "../utilities/names"
 import {baseSizeState} from '../states/base';
 import {
-  typeScaleFormlaState
+  typeScaleFormlaState,
+  typeScaleState
 } from '../states/typography'
-import {spacingFormulaState} from '../states/spacing'
+import {
+  spacingFormulaState,
+  spacingScaleFactorState
+} from '../states/spacing'
 import {
   componentMinHeightMethodOptionState,
   componentSmallQuantityState,
@@ -27,7 +31,8 @@ import {
   baseComponentSizeIndexState,
   scaleComponentRadiusState,
   baseComponentRadiusState,
-  componentLineHeightState
+  componentLineHeightState,
+  componentPaddingMethodOptionState
 } from "../states/components"
 import {
   baseRadiusSizeState,
@@ -40,13 +45,11 @@ import {
   iconPaddingState
 } from '../states/iconography'
 
-const ComponentSpecs = (props) => {
-  const showSpecs = props.showSpecs;
-  
+const ComponentSpecs = (props) => {  
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
-  const [componentPaddingMethodOption, setComponentPaddingMethodOption] = useRecoilState(componentPaddingMethodOption)
-  const [typeScale, setTypeScale] = useRecoilState(typeScale);
-  const [spacingScaleFactor, setSpacingScaleFactor] = useRecoilState(spacingScaleFactor);
+  const [componentPaddingMethodOption, setComponentPaddingMethodOption] = useRecoilState(componentPaddingMethodOptionState)
+  const [typeScale, setTypeScale] = useRecoilState(typeScaleState);
+  const [spacingScaleFactor, setSpacingScaleFactor] = useRecoilState(spacingScaleFactorState);
   const [spacingFormula, setSpacingFormula] = useRecoilState(spacingFormulaState);
   const [typeScaleFormla, setTypeScaleFormla] = useRecoilState(typeScaleFormlaState)
   const [componentMinHeightMethodOption, setComponentMinHeightMethodOption] = useRecoilState(componentMinHeightMethodOptionState)
@@ -69,6 +72,7 @@ const ComponentSpecs = (props) => {
   const [iconScaleFormla, setIconScaleFormla] = useRecoilState(iconScaleFormlaState)
   const [iconPadding, setIconPadding] = useRecoilState(iconPaddingState)
   
+  const showSpecs = props.showSpecs;
 
   const componentPaddingScale =
     componentPaddingMethodOption === "typeScale"
