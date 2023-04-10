@@ -1,21 +1,24 @@
 import React from "react";
 import { useRecoilState } from 'recoil';
 import capitalize from "../utilities/capitalize";
+import {
+  typeScaleState,
+  typeSmallQuantityState,
+  typeLargeQuantityState,
+  typeScaleFormlaState
+} from '../states/typography'
+import scaleMethodOptions from "../utilities/scaleFormulas"
 
 const TypeControls = (props) => {
-  const setTypeScale = props.setTypeScale;
-  const typeScale = props.typeScale;
-  const scaleMethods = props.scaleMethods;
-  const setTypeScaleMethod = props.setTypeScaleMethod;
-  const setTypeLargeQuantity = props.setTypeLargeQuantity;
-  const setTypeSmallQuantity = props.setTypeSmallQuantity;
-  const typeSmallQuantity = props.typeSmallQuantity;
-  const typeLargeQuantity = props.typeLargeQuantity;
+  const [typeScale, setTypeScale] = useRecoilState(typeScaleState)
+  const [typeSmallQuantity, setTypeSmallQuantity] = useRecoilState(typeSmallQuantityState)
+  const [typeLargeQuantity, setTypeLargeQuantity] = useRecoilState(typeLargeQuantityState)
+  const [typeScaleFormla, setTypeScaleFormla] = useRecoilState(typeScaleFormlaState)
+
   const setSampleText = props.setSampleText;
   const sampleText = props.sampleText;
-  const typeScaleMethod = props.typeScaleMethod;
 
-  const inputs = scaleMethods.map((method) => {
+  const inputs = scaleMethodOptions.map((method) => {
     return (
       <div className="radioGroup" key={`${method}`}>
         <input
@@ -23,7 +26,7 @@ const TypeControls = (props) => {
           id={`type${method}`}
           name="typeScale_method"
           value={method}
-          onClick={(e) => setTypeScaleMethod(e.target.value)}
+          onClick={(e) => setTypeScaleFormla(e.target.value)}
           defaultChecked={method === "power" ? true : false}
         />
         <label htmlFor={`type${method}`}>{capitalize(method)}</label>
@@ -42,7 +45,7 @@ const TypeControls = (props) => {
           <input
             type="number"
             onInput={(e) => setTypeScale(Number(e.target.value))}
-            step={typeScaleMethod === "power" ? "0.01" : "1"}
+            step={typeScaleFormla === "power" ? "0.01" : "1"}
             min="0"
             defaultValue={typeScale}
           />

@@ -3,7 +3,8 @@ import { useRecoilState } from 'recoil';
 
 const SpacingElement = (props) => {
     const size = props.size;
-    const spacerLineHeight = props.spacerLineHeight;
+    /* Just to align icon examples with typography */
+    const spacerLineHeight = 1.375;
 
     return (
         <div className="spacingItem" style={{marginBottom: `${(size * spacerLineHeight) - size}px`}}>

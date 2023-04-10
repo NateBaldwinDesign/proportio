@@ -4,26 +4,28 @@ import {
   } from 'recoil';
 import IconElement from "./iconElement";
 import '../styles/iconography.css'
+import {
+    iconScaleState,
+    iconSmallQuantityState,
+    iconLargeQuantityState,
+    iconScaleFormlaState,
+    iconPaddingState
+} from '../states/iconography'
 
 const Iconography = (props) => {
-    const iconScale = props.iconScale;
-    const smallerSizes = props.iconSmallQuantity
-    const largerSizes = props.iconLargeQuantity;
-    const iconScaleMethod = props.iconScaleMethod;
-    const iconPadding = props.iconPadding;
-    const iconLineHeight = props.iconLineHeight;
+    const [iconScale, setIconScale] = useRecoilState(iconScaleState)
+    const [iconSmallQuantity, setIconSmallQuantity] = useRecoilState(iconSmallQuantityState)
+    const [iconLargeQuantity, setIconLargeQuantity] = useRecoilState(iconLargeQuantityState)
+    const [iconScaleFormla, setIconScaleFormla] = useRecoilState(iconScaleFormlaState)
+    const [iconPadding, setIconPadding] = useRecoilState(iconPaddingState)
 
-    let smallSizeArray = new Array(smallerSizes).fill(0);
-    let largeSizeArray = new Array(largerSizes).fill(0);
+    let smallSizeArray = new Array(iconSmallQuantity).fill(0); 
+    let largeSizeArray = new Array(iconLargeQuantity).fill(0);
 
     const smallSizes = smallSizeArray.map((e, i) => {
         return <IconElement
             key={`${iconScale}-neg${i}`}
-            scale={iconScale}
             i={(i+1) * -1}
-            iconPadding={iconPadding}
-            iconLineHeight = {iconLineHeight}
-            scaleMethod={iconScaleMethod} 
             showValue 
             />
     })
@@ -32,11 +34,7 @@ const Iconography = (props) => {
     const largeSizes = largeSizeArray.map((e, i) => {
         return <IconElement
             key={`${iconScale}-${i}`}
-            scale={iconScale}
             i={i}
-            iconPadding={iconPadding}
-            iconLineHeight = {iconLineHeight}
-            scaleMethod={iconScaleMethod} 
             showValue 
             />
     })

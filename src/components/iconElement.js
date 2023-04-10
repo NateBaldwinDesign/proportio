@@ -3,13 +3,18 @@ import { useRecoilState } from 'recoil';
 import calculateScale from "../utilities/calculateScale";
 import createSvgIcon from "../utilities/createSvgIcon";
 import {baseSizeState} from '../states/base';
+import {
+    iconPaddingState
+} from '../states/iconography'
 
 const IconElement = (props) => {
     const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
-    
+    const [iconPadding, setIconPadding] = useRecoilState(iconPaddingState)
+
     const size = calculateScale(baseSize, props.scale, props.i, props.scaleMethod);
-    const iconLineHeight = props.iconLineHeight;
-    const iconPadding = props.iconPadding;
+    /* Just to align icon examples with typography */
+    const iconLineHeight = 1.375;
+
     const showValue = (props.showValue) ? <span className="specs"> {Math.round(size)} </span> : '' ;
     const margin = (props.showValue) ? `${(size * iconLineHeight) - size}px` : '0px' ;
 
