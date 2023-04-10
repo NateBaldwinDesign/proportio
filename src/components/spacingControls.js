@@ -22,7 +22,7 @@ const SpacingControls = (props) => {
           id={`Spacing${formula}`}
           name="SpacingScale_formula"
           value={formula}
-          onClick={(e) => setSpacingScaleMethod(e.target.value)}
+          onClick={(e) => setSpacingScaleFactor(e.target.value)}
           defaultChecked={formula === "power" ? true : false}
         />
         <label htmlFor={`Spacing${formula}`}>{capitalize(formula)}</label>
@@ -40,7 +40,7 @@ const SpacingControls = (props) => {
           <input
             type="number"
             onInput={(e) => setSpacingScaleFactor(Number(e.target.value))}
-            step={spacingScaleMethod === "power" ? "0.01" : "1"}
+            step={spacingScaleFactor === "power" ? "0.01" : "1"}
             min="0"
             defaultValue={spacingScaleFactor}
           />

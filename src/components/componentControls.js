@@ -49,7 +49,7 @@ const ComponentControls = (props) => {
       </div>
     );
   });
-  const componentPaddingMethodInputs = spacingMethods.map((method) => {
+  const componentPaddingMethodInputs = scaleMethodOptions.map((method) => {
     return (
       <div className="radioGroup" key={`${method}`}>
         <input

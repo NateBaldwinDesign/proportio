@@ -7,7 +7,10 @@ import "../styles/iconography.css";
 import "../styles/typeIconPair.css";
 import calculateScale from "../utilities/calculateScale";
 import {baseSizeState} from '../states/base';
-import { spacingScaleFactorState } from "../states/spacing";
+import { 
+  spacingScaleFactorState,
+  spacingFormulaState
+ } from "../states/spacing";
 
 
 const TypeIconPairing = (props) => {
