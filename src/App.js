@@ -17,6 +17,7 @@ import Foundations from "./views/foundations";
 import Components from "./views/components";
 import Header from "./components/header";
 import Home from "./views/home";
+import Docs from './views/docs';
 
 function App() {
 
@@ -29,15 +30,16 @@ function App() {
         <Tabs className="App_tabs">
           <Header>
             <TabList className="App_tabsList">
-              <Tab className="App_tab">Home</Tab>
+              {/* <Tab className="App_tab">Home</Tab> */}
               <Tab className="App_tab">Foundations</Tab>
               <Tab className="App_tab">Components</Tab>
+              <Tab className="App_tab">Docs</Tab>
             </TabList>
           </Header>
 
-          <TabPanel className="App_tabPanel">
+          {/* <TabPanel className="App_tabPanel">
             <Home />
-          </TabPanel>
+          </TabPanel> */}
 
           <TabPanel className="App_tabPanel">
             <Foundations
@@ -49,6 +51,9 @@ function App() {
             <Components
               iconLineHeight={iconLineHeight}
             />
+          </TabPanel>
+          <TabPanel className="App_tabPanel">
+            <Docs/>
           </TabPanel>
         </Tabs>
       </div>

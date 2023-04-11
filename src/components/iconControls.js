@@ -6,7 +6,7 @@ import {
   iconScaleState,
   iconSmallQuantityState,
   iconLargeQuantityState,
-  iconScaleFormlaState,
+  iconScaleFormulaState,
   iconPaddingState
 } from "../states/iconography"
 
@@ -14,7 +14,7 @@ const IconControls = (props) => {
   const [iconScale, setIconScale] = useRecoilState(iconScaleState)
   const [iconSmallQuantity, setIconSmallQuantity] = useRecoilState(iconSmallQuantityState)
   const [iconLargeQuantity, setIconLargeQuantity] = useRecoilState(iconLargeQuantityState)
-  const [iconScaleFormla, setIconScaleFormla] = useRecoilState(iconScaleFormlaState)
+  const [iconScaleFormula, setIconScaleFormula] = useRecoilState(iconScaleFormulaState)
   const [iconPadding, setIconPadding] = useRecoilState(iconPaddingState)
 
   const inputs = scaleMethodOptions.map((method) => {
@@ -25,8 +25,8 @@ const IconControls = (props) => {
           id={`Icon${method}`}
           name="IconScale_method"
           value={method}
-          onClick={(e) => setIconScaleFormla(e.target.value)}
-          defaultChecked={method === "power" ? true : false}
+          onClick={(e) => setIconScaleFormula(e.target.value)}
+          defaultChecked={method === iconScaleFormula ? true : false}
         />
         <label htmlFor={`Icon${method}`}>{capitalize(method)}</label>
       </div>
@@ -43,7 +43,7 @@ const IconControls = (props) => {
           <input
             type="number"
             onInput={(e) => setIconScale(Number(e.target.value))}
-            step={iconScaleFormla === "power" ? "0.01" : "1"}
+            step={iconScaleFormula === "power" ? "0.01" : "1"}
             min="0"
             defaultValue={iconScale}
           />

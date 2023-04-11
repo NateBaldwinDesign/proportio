@@ -15,7 +15,9 @@ import {
   baseComponentPaddingXIndexState,
   baseComponentPaddingYIndexState,
   scaleComponentRadiusState,
-  baseComponentRadiusState
+  baseComponentRadiusState,
+  componentDensitySmallQuantityState,
+  componentDensityLargeQuantityState
 } from "../states/components"
 
 const ComponentControls = (props) => {
@@ -33,7 +35,9 @@ const ComponentControls = (props) => {
   const [baseComponentPaddingYIndex, setBaseComponentPaddingYIndex] = useRecoilState(baseComponentPaddingYIndexState);
   const [scaleComponentRadius, setScaleComponentRadius] = useRecoilState(scaleComponentRadiusState);
   const [baseComponentRadius, setBaseComponentRadius] = useRecoilState(baseComponentRadiusState);
-
+  const [componentDensitySmallQuantity, setComponentDensitySmallQuantity] = useRecoilState(componentDensitySmallQuantityState);
+  const [componentDensityLargeQuantity, setComponentDensityLargeQuantity] = useRecoilState(componentDensityLargeQuantityState);
+  
   const componentScalingMethodInputs = scaleMethodOptions.map((method) => {
     return (
       <div className="radioGroup" key={`${method}`}>
@@ -99,12 +103,44 @@ const ComponentControls = (props) => {
           </div>
         </div>
       </fieldset>
+      
       <fieldset>
-        <legend>Default padding</legend>
+        <legend>Additional sizes</legend>
+        <div className="column">
+          <div className="formGroup">
+            <label>Small sizes</label>
+            <input
+              type="number"
+              defaultValue={componentSmallQuantity}
+              step="1"
+              min="0"
+              onInput={(e) => {
+                setComponentSmallQuantity(e.target.value);
+              }}
+            />
+          </div>
+          <div className="formGroup">
+            <label>Large sizes</label>
+            <input
+              type="number"
+              defaultValue={componentLargeQuantity}
+              step="1"
+              min="1"
+              onInput={(e) => {
+                setComponentLargeQuantity(e.target.value);
+              }}
+            />
+          </div>
+        </div>
+      </fieldset>
+
+      
+      <fieldset>
+        <legend>Default density (padding)</legend>
         <div className="segmentedControl">{componentPaddingMethodInputs}</div>
         <div className="column">
           <div className="formGroup">
-            <label>X padding index</label>
+            <label>Left/right index</label>
             <input
               type="number"
               id="componentXPaddingScale"
@@ -120,7 +156,7 @@ const ComponentControls = (props) => {
             ></span> */}
           </div>
           <div className="formGroup">
-            <label>Y padding index</label>
+            <label>Top/bottom index</label>
             <input
               type="number"
               defaultValue={baseComponentPaddingYIndex}
@@ -136,6 +172,49 @@ const ComponentControls = (props) => {
           </div>
         </div>
       </fieldset>
+      
+      <fieldset>
+        <legend>Additional densities</legend>
+        {/* {componentPaddingMethodInputs} */}
+        <div className="column">
+          <div className="formGroup">
+            <label>Scale factor</label>
+            <input
+              type="number"
+              defaultValue="1"
+              step="1"
+              onInput={(e) => {
+                console.log(e.target.value);
+              }}
+            />
+          </div>
+          <div className="formGroup">
+            <label>Small sizes</label>
+            <input
+              type="number"
+              defaultValue={componentDensitySmallQuantity}
+              step="1"
+              min="0"
+              onInput={(e) => {
+                setComponentDensitySmallQuantity(e.target.value);
+              }}
+            />
+          </div>
+          <div className="formGroup">
+            <label>Large sizes</label>
+            <input
+              type="number"
+              defaultValue={componentDensityLargeQuantity}
+              step="1"
+              min="1"
+              onInput={(e) => {
+                setComponentDensityLargeQuantity(e.target.value);
+              }}
+            />
+          </div>
+        </div>
+      </fieldset>
+      
       <fieldset>
         <legend>Radius</legend>
         <div className="column">
@@ -171,77 +250,6 @@ const ComponentControls = (props) => {
       </fieldset>
       
       
-      <fieldset>
-        <legend>Component sizes</legend>
-        <div className="column">
-          <div className="formGroup">
-            <label>Small sizes</label>
-            <input
-              type="number"
-              defaultValue={componentSmallQuantity}
-              step="1"
-              min="0"
-              onInput={(e) => {
-                setComponentSmallQuantity(e.target.value);
-              }}
-            />
-          </div>
-          <div className="formGroup">
-            <label>Large sizes</label>
-            <input
-              type="number"
-              defaultValue={componentLargeQuantity}
-              step="1"
-              min="1"
-              onInput={(e) => {
-                setComponentLargeQuantity(e.target.value);
-              }}
-            />
-          </div>
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>Densities</legend>
-        {/* {componentPaddingMethodInputs} */}
-        <div className="column">
-          <div className="formGroup">
-            <label>Scale factor</label>
-            <input
-              type="number"
-              defaultValue={componentSmallQuantity}
-              step="1"
-              onInput={(e) => {
-                console.log(e.target.value);
-              }}
-            />
-          </div>
-          <div className="formGroup">
-            <label>Small sizes</label>
-            <input
-              type="number"
-              defaultValue={componentSmallQuantity}
-              step="1"
-              min="0"
-              // onInput={(e) => {
-              //   setComponentSmallQuantity(e.target.value);
-              // }}
-            />
-          </div>
-          <div className="formGroup">
-            <label>Large sizes</label>
-            <input
-              type="number"
-              defaultValue={componentLargeQuantity}
-              step="1"
-              min="1"
-              onInput={(e) => {
-                console.log(e.target.value);
-              }}
-            />
-          </div>
-        </div>
-      </fieldset>
     </>
   );
 };

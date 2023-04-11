@@ -24,11 +24,19 @@ const componentLineHeightState = atom({
 })
 const componentSmallQuantityState = atom({
     key: 'componentSmallQuantity',
-    default: 2
+    default: 1
 })
 const componentLargeQuantityState = atom({
     key: 'componentLargeQuantity',
-    default: 4
+    default: 2
+})
+const componentDensitySmallQuantityState = atom({
+    key: 'componentDensitySmallQuantity',
+    default: 1
+})
+const componentDensityLargeQuantityState = atom({
+    key: 'componentDensityLargeQuantity',
+    default: 2
 })
 // was componentScaleMethod
 const componentMinHeightMethodOptionState = atom({
@@ -71,6 +79,8 @@ export {
     baseComponentTextSizeIndexState,
     baseComponentPaddingXIndexState,
     baseComponentPaddingYIndexState,
+    componentDensitySmallQuantityState,
+    componentDensityLargeQuantityState,
     scaleComponentRadiusState,
     baseComponentRadiusState
 }

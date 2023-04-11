@@ -25,7 +25,7 @@ const BaseControls = (props) => {
             defaultValue={baseSize}
           />
         </div>
-        <div className="formGroup">
+        {/* <div className="formGroup">
           <label htmlFor="">Touch scale factor</label>
           <input
             type="number"
@@ -34,7 +34,7 @@ const BaseControls = (props) => {
             min="1"
             defaultValue={baseMobileScaleFactor}
           />
-        </div>
+        </div> */}
       </div>
     </fieldset>
   );

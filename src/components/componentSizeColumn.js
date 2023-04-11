@@ -7,24 +7,37 @@ import {
 } from 'recoil';
 import {baseSizeState} from '../states/base';
 import { componentPaddingMethodOptionState } from '../states/components';
-import {typeScaleFormlaState} from '../states/typography'
+import {
+    typeScaleFormulaState,
+    typeScaleState
+} from '../states/typography'
+import {
+    iconScaleState
+} from '../states/iconography'
+import {
+    textIconGapIndexState,
+    textIconIconSizeIndexState,
+    textIconGapScaleFormulaState
+} from '../states/textIconPair'
 
 const ComponentSizeColumn = (props) => {
     const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
     const [componentPaddingMethodOption, setComponentPaddingMethodOption] = useRecoilState(componentPaddingMethodOptionState)
-    const [typeScaleFormla, setTypeScaleFormla] = useRecoilState(typeScaleFormlaState)
-
+    const [typeScaleFormula, setTypeScaleFormula] = useRecoilState(typeScaleFormulaState)
+    const [typeScale, setTypeScale] = useRecoilState(typeScaleState);
+    const [iconScale, setIconScale] = useRecoilState(iconScaleState)
+    const [textIconGapIndex, setTextIconGapIndex] = useRecoilState(textIconGapIndexState);
+    const [textIconIconSizeIndex, setTextIconIconSizeIndex] = useRecoilState(textIconIconSizeIndexState);
+    const [textIconGapScaleFormula, setTextIconGapScaleFormula] = useRecoilState(textIconGapScaleFormulaState);
     
     const componentPaddingScale = props.componentPaddingScale;
     const paddingXIndexArray = props.paddingXIndexArray;
     const increment = props.increment;
     const paddingYIndexArray = props.paddingYIndexArray;
     const componentPaddingMethodFormula = props.componentPaddingMethodFormula;
-    const typeScale = props.typeScale;
     const textSizeIndexArray = props.textSizeIndexArray;
-    const iconScale = props.iconScale;
     const iconSizeIndexArray = props.iconSizeIndexArray;
-    const iconScaleFormla = props.iconScaleFormla;
+    const iconScaleFormula = props.iconScaleFormula;
 
     const componentScale = props.componentScale;
     const componentMinHeightIndexArray = props.componentMinHeightIndexArray;
@@ -41,7 +54,17 @@ const ComponentSizeColumn = (props) => {
     const iconPadding = props.iconPadding;
     const showSpecs = props.showSpecs;
     const size = props.size;
-
+    
+    const componentGapScale = props.componentGapScale;
+    const componentGapMethod = props.componentGapMethod;
+    const gapIndexArray = props.gapIndexArray;
+    
+    const gapSize = calculateScale(
+        baseSize,
+        componentGapScale,
+        gapIndexArray[increment],
+        componentGapMethod
+    );
 
     const paddingX = calculateScale(
         baseSize,
@@ -60,14 +83,14 @@ const ComponentSizeColumn = (props) => {
         baseSize,
         typeScale,
         textSizeIndexArray[increment],
-        typeScaleFormla
+        typeScaleFormula
     );
-    const gapSize = props.gapSize;
+    
     const iconSize = calculateScale(
         baseSize,
         iconScale,
         iconSizeIndexArray[increment],
-        iconScaleFormla
+        iconScaleFormula
     );
 
     const componentMinHeight = calculateScale(

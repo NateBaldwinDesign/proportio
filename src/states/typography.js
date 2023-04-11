@@ -15,7 +15,7 @@ const typeLargeQuantityState = atom({
     key: 'typeLargeQuantity',
     default: 10
 })
-const typeScaleFormlaState = atom({
+const typeScaleFormulaState = atom({
     key: 'typeScaleFormula',
     default: scaleFormulas[1]
 })
@@ -24,5 +24,5 @@ export {
     typeScaleState,
     typeSmallQuantityState,
     typeLargeQuantityState,
-    typeScaleFormlaState
+    typeScaleFormulaState
 }

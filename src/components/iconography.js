@@ -8,7 +8,7 @@ import {
     iconScaleState,
     iconSmallQuantityState,
     iconLargeQuantityState,
-    iconScaleFormlaState,
+    iconScaleFormulaState,
     iconPaddingState
 } from '../states/iconography'
 
@@ -16,7 +16,7 @@ const Iconography = (props) => {
     const [iconScale, setIconScale] = useRecoilState(iconScaleState)
     const [iconSmallQuantity, setIconSmallQuantity] = useRecoilState(iconSmallQuantityState)
     const [iconLargeQuantity, setIconLargeQuantity] = useRecoilState(iconLargeQuantityState)
-    const [iconScaleFormla, setIconScaleFormla] = useRecoilState(iconScaleFormlaState)
+    const [iconScaleFormula, setIconScaleFormula] = useRecoilState(iconScaleFormulaState)
     const [iconPadding, setIconPadding] = useRecoilState(iconPaddingState)
 
     let smallSizeArray = new Array(iconSmallQuantity).fill(0); 

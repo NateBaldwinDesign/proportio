@@ -16,6 +16,10 @@
   gap: 12px;
   margin-bottom: var(--appFrameMargin);
 }
+
+.specRowItem h5 {
+  align-self: center;
+}
 .componentWrapper {
   display: flex;
 }
@@ -38,6 +42,10 @@
   background-color: var(--blueprint300);
   border-radius: 6px;
   font-weight: 500; /* Demi */
+}
+.componentColumn_Heading {
+  margin-left: 68px;
+  margin-bottom: 0.5em;
 }
 .compRadius {
   grid-area: radius;

@@ -6,6 +6,7 @@ import {
   spacingScaleFactorState,
   spacingSmallQuantityState,
   spacingLargeQuantityState,
+  spacingFormulaState
  } from "../states/spacing";
  import scaleFormulas from "../utilities/scaleFormulas";
 
@@ -13,7 +14,7 @@ const SpacingControls = (props) => {
   const [spacingScaleFactor, setSpacingScaleFactor] = useRecoilState(spacingScaleFactorState);
   const [spacingSmallQuantity, setSpacingSmallQuantity] = useRecoilState(spacingSmallQuantityState);
   const [spacingLargeQuantity, setSpacingLargeQuantity] = useRecoilState(spacingLargeQuantityState);
-
+  const [spacingFormula, setSpacingFormula] = useRecoilState(spacingFormulaState)
   const inputs = scaleFormulas.map((formula) => {
     return (
       <div className="radioGroup" key={`spacing${formula}`}>
@@ -22,8 +23,8 @@ const SpacingControls = (props) => {
           id={`Spacing${formula}`}
           name="SpacingScale_formula"
           value={formula}
-          onClick={(e) => setSpacingScaleFactor(e.target.value)}
-          defaultChecked={formula === "power" ? true : false}
+          onClick={(e) => setSpacingFormula(e.target.value)}
+          defaultChecked={formula === spacingFormula ? true : false}
         />
         <label htmlFor={`Spacing${formula}`}>{capitalize(formula)}</label>
       </div>

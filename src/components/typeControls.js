@@ -5,7 +5,7 @@ import {
   typeScaleState,
   typeSmallQuantityState,
   typeLargeQuantityState,
-  typeScaleFormlaState
+  typeScaleFormulaState
 } from '../states/typography'
 import scaleMethodOptions from "../utilities/scaleFormulas"
 
@@ -13,7 +13,7 @@ const TypeControls = (props) => {
   const [typeScale, setTypeScale] = useRecoilState(typeScaleState)
   const [typeSmallQuantity, setTypeSmallQuantity] = useRecoilState(typeSmallQuantityState)
   const [typeLargeQuantity, setTypeLargeQuantity] = useRecoilState(typeLargeQuantityState)
-  const [typeScaleFormla, setTypeScaleFormla] = useRecoilState(typeScaleFormlaState)
+  const [typeScaleFormula, setTypeScaleFormula] = useRecoilState(typeScaleFormulaState)
 
   const setSampleText = props.setSampleText;
   const sampleText = props.sampleText;
@@ -26,8 +26,8 @@ const TypeControls = (props) => {
           id={`type${method}`}
           name="typeScale_method"
           value={method}
-          onClick={(e) => setTypeScaleFormla(e.target.value)}
-          defaultChecked={method === "power" ? true : false}
+          onClick={(e) => setTypeScaleFormula(e.target.value)}
+          defaultChecked={method === typeScaleFormula ? true : false}
         />
         <label htmlFor={`type${method}`}>{capitalize(method)}</label>
       </div>
@@ -45,7 +45,7 @@ const TypeControls = (props) => {
           <input
             type="number"
             onInput={(e) => setTypeScale(Number(e.target.value))}
-            step={typeScaleFormla === "power" ? "0.01" : "1"}
+            step={typeScaleFormula === "power" ? "0.01" : "1"}
             min="0"
             defaultValue={typeScale}
           />

@@ -7,7 +7,7 @@ import "../styles/tabs.css";
 import Panel from "../components/panel";
 
 const Components = (props) => {
-  const [showSpecs, setShowSpecs] = useState(false);
+  const [showSpecs, setShowSpecs] = useState(true);
 
   return (
     <>
@@ -16,11 +16,11 @@ const Components = (props) => {
           <ComponentControls />
         </Panel>
 
-        <main>
-          <Tabs>
+        <main className="demoRow">
+          {/* <Tabs>
             <TabList>
               <Tab>Desktop</Tab>
-              <Tab>Mobile</Tab>
+              <Tab>Mobile</Tab> */}
               <div className="tabs_action">
                 <div className="checkboxGroup" >
                   <input
@@ -35,17 +35,17 @@ const Components = (props) => {
                   </label>
                 </div>
               </div>
-            </TabList>
+            {/* </TabList> */}
 
-            <TabPanel>
+            {/* <TabPanel> */}
               <ComponentSpecs
                 showSpecs={showSpecs}
               />
-            </TabPanel>
+            {/* </TabPanel>
             <TabPanel>
               <p>Component examples</p>
             </TabPanel>
-          </Tabs>
+          </Tabs> */}
         </main>
       </div>
     </>

@@ -36,14 +36,14 @@ const Foundations = (props) => {
           <RadiusControls />
           <ElevationControls />
         </Panel>
-        <main>
-          <Tabs>
-            <TabList>
+        <main className="demoRow">
+          {/* <Tabs> */}
+            {/* <TabList>
               <Tab>Desktop</Tab>
               <Tab>Mobile</Tab>
-            </TabList>
+            </TabList> */}
 
-            <TabPanel>
+            {/* <TabPanel> */}
               {/* <div className="react-tabs__tab-panel"> */}
               <Spacing
                 spacerLineHeight={spacerLineHeight}
@@ -58,21 +58,9 @@ const Foundations = (props) => {
               <Radius />
               <Elevation />
               {/* </div> */}
-            </TabPanel>
-            <TabPanel>
-              <Spacing />
-              <Typography
-                sampleText={sampleText}
-                setSampleText={setSampleText}
-              />
-              <Iconography />
-              <TypeIconPairing
-                sampleText={sampleText}
-              />
-              <Radius />
-              <Elevation />
-            </TabPanel>
-          </Tabs>
+            {/* </TabPanel> */}
+
+          {/* </Tabs> */}
         </main>
       </div>
     </>
