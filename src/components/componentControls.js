@@ -17,7 +17,8 @@ import {
   scaleComponentRadiusState,
   baseComponentRadiusState,
   componentDensitySmallQuantityState,
-  componentDensityLargeQuantityState
+  componentDensityLargeQuantityState,
+  componentDensityScaleFactorState
 } from "../states/components"
 
 const ComponentControls = (props) => {
@@ -37,7 +38,8 @@ const ComponentControls = (props) => {
   const [baseComponentRadius, setBaseComponentRadius] = useRecoilState(baseComponentRadiusState);
   const [componentDensitySmallQuantity, setComponentDensitySmallQuantity] = useRecoilState(componentDensitySmallQuantityState);
   const [componentDensityLargeQuantity, setComponentDensityLargeQuantity] = useRecoilState(componentDensityLargeQuantityState);
-  
+  const [componentDensityScaleFactor, setComponentDensityScaleFactor] = useRecoilState(componentDensityScaleFactorState);
+
   const componentScalingMethodInputs = scaleMethodOptions.map((method) => {
     return (
       <div className="radioGroup" key={`${method}`}>
@@ -125,7 +127,7 @@ const ComponentControls = (props) => {
               type="number"
               defaultValue={componentLargeQuantity}
               step="1"
-              min="1"
+              min="0"
               onInput={(e) => {
                 setComponentLargeQuantity(e.target.value);
               }}
@@ -181,10 +183,11 @@ const ComponentControls = (props) => {
             <label>Scale factor</label>
             <input
               type="number"
-              defaultValue="1"
+              defaultValue={componentDensityScaleFactor}
               step="1"
+              min="1"
               onInput={(e) => {
-                console.log(e.target.value);
+                setComponentDensityScaleFactor(Number(e.target.value));
               }}
             />
           </div>
@@ -206,7 +209,7 @@ const ComponentControls = (props) => {
               type="number"
               defaultValue={componentDensityLargeQuantity}
               step="1"
-              min="1"
+              min="0"
               onInput={(e) => {
                 setComponentDensityLargeQuantity(e.target.value);
               }}

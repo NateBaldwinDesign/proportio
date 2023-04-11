@@ -263,6 +263,9 @@ main.demoRow .tabs_action {
   flex-wrap: wrap;
   gap: 8px;
 }
+.row--spacious {
+  gap: 32px;
+}
 .column {
   display: flex;
   flex-direction: column;

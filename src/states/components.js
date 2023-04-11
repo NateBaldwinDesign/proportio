@@ -38,6 +38,10 @@ const componentDensityLargeQuantityState = atom({
     key: 'componentDensityLargeQuantity',
     default: 2
 })
+const componentDensityScaleFactorState = atom({
+    key: 'componentDensityScaleFactor',
+    default: 1
+})
 // was componentScaleMethod
 const componentMinHeightMethodOptionState = atom({
     key: 'componentMinHeightMethodOption',
@@ -81,6 +85,7 @@ export {
     baseComponentPaddingYIndexState,
     componentDensitySmallQuantityState,
     componentDensityLargeQuantityState,
+    componentDensityScaleFactorState,
     scaleComponentRadiusState,
     baseComponentRadiusState
 }

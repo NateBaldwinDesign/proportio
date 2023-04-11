@@ -24,7 +24,21 @@ const sizeNamesIncrement = [
     "xviii-small"
   ];
 
+const densityNamesIncrement = [
+  "comfortable (default)",
+  "roomy",
+  "spacious",
+  "airy"
+]
+const densityNamesDecrement = [
+  "cozy",
+  "compact",
+  "squished"
+]
+
   export {
     sizeNamesIncrement,
-    sizeNamesDecrement
+    sizeNamesDecrement,
+    densityNamesIncrement,
+    densityNamesDecrement
   }

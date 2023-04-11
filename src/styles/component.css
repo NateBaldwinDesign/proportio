@@ -29,6 +29,7 @@
   align-items: center;
 }
 .component {
+  position: relative;
   display: grid;
   align-items: center;
   justify-items: center;
