@@ -8,6 +8,7 @@ header {
   padding: 8px 24px;
   gap: 36px;
   box-shadow: var(--panelShadow);
+  z-index: 20;
 }
 
 .logo {

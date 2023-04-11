@@ -20,3 +20,8 @@
     height: calc(100% - 32px);
   }
 }
+
+.panel--fixed {
+  position: fixed;
+  width: 232px;
+}
