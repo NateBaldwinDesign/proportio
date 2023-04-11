@@ -246,7 +246,7 @@ main.demoRow .tabs_action {
 @media screen and (min-width: 900px) {
   .splitView main {
     max-width: calc(100vw - 400px - var(--appFrameMargin));
-    height: fit-content;
+    height: calc(100vh - 200px);
     margin: 0;
   }
 }
