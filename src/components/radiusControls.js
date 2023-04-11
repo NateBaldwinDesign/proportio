@@ -1,22 +1,24 @@
 import React from "react";
+import { useRecoilState } from 'recoil';
 import capitalize from "../utilities/capitalize";
 import calculateScale from "../utilities/calculateScale";
+import scaleMethodOptions from "../utilities/scaleFormulas"
+import {
+  baseRadiusSizeState,
+  radiusScaleFactorState,
+  radiusSmallQuantityState,
+  radiusLargeQuantityState,
+  radiusScaleFormulaState
+} from "../states/radius"
 
 const RadiusControls = (props) => {
-  const scaleMethods = props.scaleMethods;
+  const [baseRadiusSize, setBaseRadiusSize] = useRecoilState(baseRadiusSizeState)
+  const [radiusScaleFactor, setRadiusScaleFactor] = useRecoilState(radiusScaleFactorState)
+  const [radiusSmallQuantity, setRadiusSmallQuantity] = useRecoilState(radiusSmallQuantityState)
+  const [radiusLargeQuantity, setRadiusLargeQuantity] = useRecoilState(radiusLargeQuantityState)
+  const [radiusScaleFormula, setRadiusScaleFormula] = useRecoilState(radiusScaleFormulaState)
 
-  const baseRadiusSize = props.baseRadiusSize;
-  const setBaseRadiusSize = props.setBaseRadiusSize;
-  const radiusScaleFactor = props.radiusScaleFactor;
-  const setRadiusScaleFactor = props.setRadiusScaleFactor;
-  const radiusSmallQuantity = props.radiusSmallQuantity;
-  const setRadiusSmallQuantity = props.setRadiusSmallQuantity;
-  const radiusLargeQuantity = props.radiusLargeQuantity;
-  const setRadiusLargeQuantity = props.setRadiusLargeQuantity;
-  const radiusScaleMethod = props.radiusScaleMethod;
-  const setRadiusScaleMethod = props.setRadiusScaleMethod;
-
-  const inputs = scaleMethods.map((method) => {
+  const inputs = scaleMethodOptions.map((method) => {
     return (
       <div className="radioGroup" key={`radius${method}`}>
         <input
@@ -24,8 +26,8 @@ const RadiusControls = (props) => {
           id={`Radius${method}`}
           name="RadiusScale_method"
           value={method}
-          onClick={(e) => setRadiusScaleMethod(e.target.value)}
-          defaultChecked={method === radiusScaleMethod ? true : false}
+          onClick={(e) => setRadiusScaleFormula(e.target.value)}
+          defaultChecked={method === radiusScaleFormula ? true : false}
         />
         <label htmlFor={`Radius${method}`}>{capitalize(method)}</label>
       </div>
@@ -52,7 +54,7 @@ const RadiusControls = (props) => {
           <input
             type="number"
             onInput={(e) => setRadiusScaleFactor(Number(e.target.value))}
-            step={radiusScaleMethod === "power" ? "0.1" : "1"}
+            step={radiusScaleFormula === "power" ? "0.1" : "1"}
             min="0"
             defaultValue={radiusScaleFactor}
           />

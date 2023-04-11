@@ -1,4 +1,7 @@
 import React from "react";
+import {
+  useRecoilState
+} from 'recoil';
 import "../styles/iconography.css";
 import buildArray from "../utilities/buildArray";
 import buildShiftedArray from "../utilities/buildShiftedArray";
@@ -6,60 +9,94 @@ import calculateScale from "../utilities/calculateScale";
 import capitalize from "../utilities/capitalize";
 import ComponentElement from "./componentElement";
 import ComponentSizeColumn from "./componentSizeColumn";
+import {
+  sizeNamesIncrement,
+  sizeNamesDecrement
+} from "../utilities/names"
+import {baseSizeState} from '../states/base';
+import {
+  typeScaleFormlaState,
+  typeScaleState
+} from '../states/typography'
+import {
+  spacingFormulaState,
+  spacingScaleFactorState
+} from '../states/spacing'
+import {
+  componentMinHeightMethodOptionState,
+  componentSmallQuantityState,
+  componentLargeQuantityState,
+  baseComponentTextSizeIndexState,
+  baseIconSizeIndexState,
+  baseComponentSizeIndexState,
+  scaleComponentRadiusState,
+  baseComponentRadiusState,
+  componentLineHeightState,
+  componentPaddingMethodOptionState
+} from "../states/components"
+import {
+  baseRadiusSizeState,
+  radiusScaleFormulaState,
+  radiusScaleFactorState
+} from '../states/radius'
+import {
+  iconScaleState,
+  iconScaleFormlaState,
+  iconPaddingState
+} from '../states/iconography'
 
-const ComponentSpecs = (props) => {
-  const baseSize = props.baseSize;
-  const componentScaleMethod = props.componentScaleMethod;
-  const baseIconSizeIndex = props.baseIconSizeIndex;
-  const iconPadding = props.iconPadding;
-  const baseComponentSize = props.baseComponentSize;
-  const componentLineHeight = props.componentLineHeight;
-  const baseComponentTextSizeIndex = props.baseComponentTextSizeIndex;
-
-  const gapSize = props.gapSize;
-  const minSizeScale = props.minSizeScale;
-  const componentSmallQuantity = props.componentSmallQuantity;
-  const componentLargeQuantity = props.componentLargeQuantity;
-  const typeScale = props.typeScale;
-  const iconScale = props.iconScale;
-  const spacingScale = props.spacingScale;
-  const sizeNamesIncrement = props.sizeNamesIncrement;
-  const sizeNamesDecrement = props.sizeNamesDecrement;
-  const typeScaleMethod = props.typeScaleMethod;
-  const iconScaleMethod = props.iconScaleMethod;
-  const spacingScaleMethod = props.spacingScaleMethod;
-  const showSpecs = props.showSpecs;
+const ComponentSpecs = (props) => {  
+  const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
+  const [componentPaddingMethodOption, setComponentPaddingMethodOption] = useRecoilState(componentPaddingMethodOptionState)
+  const [typeScale, setTypeScale] = useRecoilState(typeScaleState);
+  const [spacingScaleFactor, setSpacingScaleFactor] = useRecoilState(spacingScaleFactorState);
+  const [spacingFormula, setSpacingFormula] = useRecoilState(spacingFormulaState);
+  const [typeScaleFormla, setTypeScaleFormla] = useRecoilState(typeScaleFormlaState)
+  const [componentMinHeightMethodOption, setComponentMinHeightMethodOption] = useRecoilState(componentMinHeightMethodOptionState)
+  const [componentSmallQuantity, setComponentSmallQuantity] = useRecoilState(componentSmallQuantityState);
+  const [componentLargeQuantity, setComponentLargeQuantity] = useRecoilState(componentLargeQuantityState);
+  // Should get rid of these two. Customizing adds unnecessary complexity
+  const [baseComponentTextSizeIndex, setBaseComponentTextSizeIndex] = useRecoilState(baseComponentTextSizeIndexState);
+  const [baseIconSizeIndex, setBaseIconSizeIndex] = useRecoilState(baseIconSizeIndexState);
   
-  const scaleComponentRadius = props.scaleComponentRadius;
-  const baseRadiusSize = props.baseRadiusSize;
-  const baseComponentRadius = props.baseComponentRadius;
-  const radiusScaleFactor = props.radiusScaleFactor;
-  const radiusScaleMethod = props.radiusScaleMethod;
+  const [baseComponentSizeIndex, setBaseComponentSizeIndex] = useRecoilState(baseComponentSizeIndexState)
+  const [scaleComponentRadius, setScaleComponentRadiusState] = useRecoilState(scaleComponentRadiusState)
+  const [baseComponentRadius, setBaseComponentRadiusState] = useRecoilState(baseComponentRadiusState)
+  const [componentLineHeight, setComponentLineHeightState] = useRecoilState(componentLineHeightState)
 
-  const componentPaddingMethod = props.componentPaddingMethod;
+  const [baseRadiusSize, setBaseRadiusSize] = useRecoilState(baseRadiusSizeState);
+  const [radiusScaleFormula, setRadiusScaleFormula] = useRecoilState(radiusScaleFormulaState)
+  const [radiusScaleFactor, setRadiusScaleFactor] = useRecoilState(radiusScaleFactorState)
+
+  const [iconScale, setIconScale] = useRecoilState(iconScaleState)
+  const [iconScaleFormla, setIconScaleFormla] = useRecoilState(iconScaleFormlaState)
+  const [iconPadding, setIconPadding] = useRecoilState(iconPaddingState)
+  
+  const showSpecs = props.showSpecs;
+
   const componentPaddingScale =
-    componentPaddingMethod === "typeScale"
+    componentPaddingMethodOption === "typeScale"
       ? typeScale
-      : componentPaddingMethod === "spacingScale"
-      ? spacingScale
+      : componentPaddingMethodOption === "spacingScale"
+      ? spacingScaleFactor
       : 1;
   const componentPaddingMethodFormula =
-    componentPaddingMethod === "typeScale"
-      ? typeScaleMethod
-      : componentPaddingMethod === "spacingScale"
-      ? spacingScaleMethod
+    componentPaddingMethodOption === "typeScale"
+      ? typeScaleFormla
+      : componentPaddingMethodOption === "spacingScale"
+      ? spacingFormula
       : undefined;
   const componentScale =
-    componentScaleMethod === "typeScale"
+  componentMinHeightMethodOption === "typeScale"
         ? typeScale
-        : componentScaleMethod === "spacingScale"
-        ? spacingScale
+        : componentMinHeightMethodOption === "spacingScale"
+        ? spacingScaleFactor
         : 1;
   const componentScaleMethodFormula =
-    componentScaleMethod === "typeScale"
-      ? typeScaleMethod
-      : componentScaleMethod === "spacingScale"
-      ? spacingScaleMethod
+  componentMinHeightMethodOption === "typeScale"
+      ? typeScaleFormla
+      : componentMinHeightMethodOption === "spacingScale"
+      ? spacingFormula
       : undefined;
 
   const baseComponentPaddingXIndex = props.baseComponentPaddingXIndex;
@@ -92,7 +129,7 @@ const ComponentSpecs = (props) => {
   const componentMinHeightIndexArray = buildShiftedArray(
     componentSmallQuantity,
     componentLargeQuantity,
-    baseComponentSize
+    baseComponentSizeIndex
   );
   const componentRadiusIndexArray = buildShiftedArray(
     componentSmallQuantity,
@@ -104,7 +141,7 @@ const ComponentSpecs = (props) => {
       baseRadiusSize,
       radiusScaleFactor,
       baseComponentRadius,
-      radiusScaleMethod
+      radiusScaleFormula
     );
 
   /* Map size index array to calculate values and generate components */
@@ -112,24 +149,22 @@ const ComponentSpecs = (props) => {
     return <ComponentSizeColumn
       size={size}
       increment={increment}
-      baseSize={baseSize}
       componentPaddingScale={componentPaddingScale}
       paddingXIndexArray={paddingXIndexArray}
       componentPaddingMethodFormula={componentPaddingMethodFormula}
       paddingYIndexArray={paddingYIndexArray}
       typeScale={typeScale}
       textSizeIndexArray={textSizeIndexArray}
-      typeScaleMethod={typeScaleMethod}
       iconScale={iconScale}
       iconSizeIndexArray={iconSizeIndexArray}
-      iconScaleMethod={iconScaleMethod}
+      iconScaleFormla={iconScaleFormla}
       componentScale={componentScale}
       componentMinHeightIndexArray={componentMinHeightIndexArray}
       componentScaleMethodFormula={componentScaleMethodFormula}
       baseRadiusSize={baseRadiusSize}
       radiusScaleFactor={radiusScaleFactor}
       componentRadiusIndexArray={componentRadiusIndexArray}
-      radiusScaleMethod={radiusScaleMethod}
+      radiusScaleFormula={radiusScaleFormula}
       sizeNamesDecrement={sizeNamesDecrement}
       sizeNamesIncrement={sizeNamesIncrement}
       componentLineHeight={componentLineHeight}

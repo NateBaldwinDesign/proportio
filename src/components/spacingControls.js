@@ -1,33 +1,31 @@
 import React from "react";
+import { useRecoilState } from 'recoil';
 import capitalize from "../utilities/capitalize";
 import calculateScale from "../utilities/calculateScale";
+import { 
+  spacingScaleFactorState,
+  spacingSmallQuantityState,
+  spacingLargeQuantityState,
+ } from "../states/spacing";
+ import scaleFormulas from "../utilities/scaleFormulas";
 
 const SpacingControls = (props) => {
-  // const baseSize = props.baseSize;
-  const setSpacingScale = props.setSpacingScale;
-  const spacingScale = props.spacingScale;
-  const scaleMethods = props.scaleMethods;
-  const setSpacingScaleMethod = props.setSpacingScaleMethod;
-  const setSpacingLargeQuantity = props.setSpacingLargeQuantity;
-  const setSpacingSmallQuantity = props.setSpacingSmallQuantity;
-  const spacingSmallQuantity = props.spacingSmallQuantity;
-  const spacingLargeQuantity = props.spacingLargeQuantity;
-  const spacingScaleMethod = props.spacingScaleMethod;
-  // const setSpacingPadding = props.setSpacingPadding;
-  // const spacingPadding = props.spacingPadding;
+  const [spacingScaleFactor, setSpacingScaleFactor] = useRecoilState(spacingScaleFactorState);
+  const [spacingSmallQuantity, setSpacingSmallQuantity] = useRecoilState(spacingSmallQuantityState);
+  const [spacingLargeQuantity, setSpacingLargeQuantity] = useRecoilState(spacingLargeQuantityState);
 
-  const inputs = scaleMethods.map((method) => {
+  const inputs = scaleFormulas.map((formula) => {
     return (
-      <div className="radioGroup" key={`spacing${method}`}>
+      <div className="radioGroup" key={`spacing${formula}`}>
         <input
           type="radio"
-          id={`Spacing${method}`}
-          name="SpacingScale_method"
-          value={method}
-          onClick={(e) => setSpacingScaleMethod(e.target.value)}
-          defaultChecked={method === "power" ? true : false}
+          id={`Spacing${formula}`}
+          name="SpacingScale_formula"
+          value={formula}
+          onClick={(e) => setSpacingScaleFactor(e.target.value)}
+          defaultChecked={formula === "power" ? true : false}
         />
-        <label htmlFor={`Spacing${method}`}>{capitalize(method)}</label>
+        <label htmlFor={`Spacing${formula}`}>{capitalize(formula)}</label>
       </div>
     );
   });
@@ -41,10 +39,10 @@ const SpacingControls = (props) => {
           <label htmlFor="">Scale factor</label>
           <input
             type="number"
-            onInput={(e) => setSpacingScale(Number(e.target.value))}
-            step={spacingScaleMethod === "power" ? "0.01" : "1"}
+            onInput={(e) => setSpacingScaleFactor(Number(e.target.value))}
+            step={spacingScaleFactor === "power" ? "0.01" : "1"}
             min="0"
-            defaultValue={spacingScale}
+            defaultValue={spacingScaleFactor}
           />
         </div>
         <div className="formGroup">

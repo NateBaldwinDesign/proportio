@@ -1,9 +1,13 @@
 import React from "react";
+import { useRecoilState } from 'recoil';
 import calculateScale from "../utilities/calculateScale";
 import '../styles/typography.css'
+import {baseSizeState} from '../states/base';
 
 const TypeElement = (props) => {
-    const size = calculateScale(props.baseSize, props.scale, props.i, props.scaleMethod);
+    const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
+
+    const size = calculateScale(baseSize, props.scale, props.i, props.scaleMethod);
     const content = (props.content) ? props.content : 'Ag';
     const showValue = (props.showValue) ? <span className="specs"> {Math.round(size)} </span> : '';
 

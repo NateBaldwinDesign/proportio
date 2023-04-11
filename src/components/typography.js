@@ -1,27 +1,33 @@
 import React from "react";
 import TypeElement from "./typeElement";
 import "../styles/typography.css";
+import { useRecoilState } from 'recoil';
+import {
+  typeScaleState,
+  typeSmallQuantityState,
+  typeLargeQuantityState,
+  typeScaleFormlaState
+} from '../states/typography'
 
 const Typography = (props) => {
-  const baseSize = props.baseSize;
-  const typeScale = props.typeScale;
-  const smallerSizes = props.typeSmallQuantity;
-  const largerSizes = props.typeLargeQuantity;
-  const typeScaleMethod = props.typeScaleMethod;
+  const [typeScale, setTypeScale] = useRecoilState(typeScaleState)
+  const [typeSmallQuantity, setTypeSmallQuantity] = useRecoilState(typeSmallQuantityState)
+  const [typeLargeQuantity, setTypeLargeQuantity] = useRecoilState(typeLargeQuantityState)
+  const [typeScaleFormla, setTypeScaleFormla] = useRecoilState(typeScaleFormlaState)
+
   const sampleText = props.sampleText;
 
-  let smallSizeArray = new Array(smallerSizes).fill(0);
-  let largeSizeArray = new Array(largerSizes).fill(0);
+  let smallSizeArray = new Array(typeSmallQuantity).fill(0);
+  let largeSizeArray = new Array(typeLargeQuantity).fill(0);
 
   const smallSizes = smallSizeArray.map((e, i) => {
     return (
       <TypeElement
         key={`${typeScale}-neg${i}`}
-        baseSize={baseSize}
         scale={typeScale}
         i={(i + 1) * -1}
         content={sampleText}
-        scaleMethod={typeScaleMethod}
+        scaleMethod={typeScaleFormla}
         showValue
       />
     );
@@ -32,11 +38,10 @@ const Typography = (props) => {
     return (
       <TypeElement
         key={`${typeScale}-${i}`}
-        baseSize={baseSize}
         scale={typeScale}
         i={i}
         content={sampleText}
-        scaleMethod={typeScaleMethod}
+        scaleMethod={typeScaleFormla}
         showValue
       />
     );

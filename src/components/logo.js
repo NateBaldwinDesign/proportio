@@ -1,4 +1,5 @@
 import React from "react";
+import { useRecoilState } from 'recoil';
 
 const Logo = (props) => {
   const color = props.color;

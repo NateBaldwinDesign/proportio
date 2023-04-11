@@ -1,40 +1,40 @@
 import React from "react";
+import { useRecoilState } from 'recoil';
 import capitalize from "../utilities/capitalize";
+import {baseSizeState} from '../states/base';
+import scaleMethodOptions from "../utilities/scaleMethodOptions";
+import {
+  baseIconSizeIndexState,
+  baseComponentSizeIndexState,
+  componentLineHeightState,
+  componentSmallQuantityState,
+  componentLargeQuantityState,
+  componentMinHeightMethodOptionState,
+  componentPaddingMethodOptionState,
+  baseComponentTextSizeIndexState,
+  baseComponentPaddingXIndexState,
+  baseComponentPaddingYIndexState,
+  scaleComponentRadiusState,
+  baseComponentRadiusState
+} from "../states/components"
 
 const ComponentControls = (props) => {
-  const baseSize = props.baseSize;
-  const setBaseSize = props.setBaseSize;
-  //   const baseIconSizeIndex = props.baseIconSizeIndex;
-  //   const setBaseIconSizeIndex = props.setBaseIconSizeIndex;
-  const baseComponentSize = props.baseComponentSize;
-  const setBaseComponentSize = props.setBaseComponentSize;
-  const componentLineHeight = props.componentLineHeight;
-  const setComponentLineHeight = props.setComponentLineHeight;
-  const componentSmallQuantity = props.componentSmallQuantity;
-  const setComponentSmallQuantity = props.setComponentSmallQuantity;
-  const componentLargeQuantity = props.componentLargeQuantity;
-  const setComponentLargeQuantity = props.setComponentLargeQuantity;
-  const componentScaleMethod = props.componentScaleMethod;
-  const setComponentScaleMethod = props.setComponentScaleMethod;
+  const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
 
-  const baseComponentTextSizeIndex = props.baseComponentTextSizeIndex;
-  const setBaseComponentTextSizeIndex = props.setBaseComponentTextSizeIndex;
+  const [baseIconSizeIndex, setBaseIconSizeIndex] = useRecoilState(baseIconSizeIndexState);
+  const [baseComponentSizeIndex, setBaseComponentSizeIndex] = useRecoilState(baseComponentSizeIndexState);
+  const [componentLineHeight, setComponentLineHeight] = useRecoilState(componentLineHeightState);
+  const [componentSmallQuantity, setComponentSmallQuantity] = useRecoilState(componentSmallQuantityState);
+  const [componentLargeQuantity, setComponentLargeQuantity] = useRecoilState(componentLargeQuantityState);
+  const [componentMinHeightMethodOption, setComponentMinHeightMethodOption] = useRecoilState(componentMinHeightMethodOptionState);
+  const [componentPaddingMethodOption, setComponentPaddingMethodOption] = useRecoilState(componentPaddingMethodOptionState);
+  const [baseComponentTextSizeIndex, setBaseComponentTextSizeIndex] = useRecoilState(baseComponentTextSizeIndexState);
+  const [baseComponentPaddingXIndex, setBaseComponentPaddingXIndex] = useRecoilState(baseComponentPaddingXIndexState);
+  const [baseComponentPaddingYIndex, setBaseComponentPaddingYIndex] = useRecoilState(baseComponentPaddingYIndexState);
+  const [scaleComponentRadius, setScaleComponentRadius] = useRecoilState(scaleComponentRadiusState);
+  const [baseComponentRadius, setBaseComponentRadius] = useRecoilState(baseComponentRadiusState);
 
-  const setComponentPaddingMethod = props.setComponentPaddingMethod;
-  const componentPaddingMethod = props.componentPaddingMethod;
-  const baseComponentPaddingXIndex = props.baseComponentPaddingXIndex;
-  const setBaseComponentPaddingXIndex = props.setBaseComponentPaddingXIndex;
-  const baseComponentPaddingYIndex = props.baseComponentPaddingYIndex;
-  const setBaseComponentPaddingYIndex = props.setBaseComponentPaddingYIndex;
-
-  const spacingMethods = props.spacingMethods;
-
-  const scaleComponentRadius = props.scaleComponentRadius;
-  const setScaleComponentRadius = props.setScaleComponentRadius;
-  const baseComponentRadius = props.baseComponentRadius;
-  const setBaseComponentRadius = props.setBaseComponentRadius;
-
-  const componentScalingMethodInputs = spacingMethods.map((method) => {
+  const componentScalingMethodInputs = scaleMethodOptions.map((method) => {
     return (
       <div className="radioGroup" key={`${method}`}>
         <input
@@ -42,14 +42,14 @@ const ComponentControls = (props) => {
           id={`component${method}`}
           name="componentScale_method"
           defaultValue={method}
-          onClick={(e) => setComponentScaleMethod(e.target.value)}
-          defaultChecked={method === componentScaleMethod ? true : false}
+          onClick={(e) => setComponentMinHeightMethodOption(e.target.value)}
+          defaultChecked={method === componentMinHeightMethodOption ? true : false}
         />
         <label htmlFor={`component${method}`}>{capitalize(method)}</label>
       </div>
     );
   });
-  const componentPaddingMethodInputs = spacingMethods.map((method) => {
+  const componentPaddingMethodInputs = scaleMethodOptions.map((method) => {
     return (
       <div className="radioGroup" key={`${method}`}>
         <input
@@ -57,8 +57,8 @@ const ComponentControls = (props) => {
           id={`componentPadding${method}`}
           name="componentPaddingScale_method"
           defaultValue={method}
-          onClick={(e) => setComponentPaddingMethod(e.target.value)}
-          defaultChecked={method === componentPaddingMethod ? true : false}
+          onClick={(e) => setComponentPaddingMethodOption(e.target.value)}
+          defaultChecked={method === componentPaddingMethodOption ? true : false}
         />
         <label htmlFor={`componentPadding${method}`}>
           {`${capitalize(method)}`}
@@ -77,10 +77,10 @@ const ComponentControls = (props) => {
             <label>Min-height index</label>
             <input
               type="number"
-              defaultValue={baseComponentSize}
+              defaultValue={baseComponentSizeIndex}
               id="baseComponentSize"
               onInput={(e) => {
-                setBaseComponentSize(e.target.value);
+                setBaseComponentSizeIndex(e.target.value);
               }}
             />
           </div>

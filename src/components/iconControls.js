@@ -1,20 +1,23 @@
 import React from "react";
+import { useRecoilState } from 'recoil';
 import capitalize from "../utilities/capitalize";
+import scaleMethodOptions from "../utilities/scaleFormulas"
+import {
+  iconScaleState,
+  iconSmallQuantityState,
+  iconLargeQuantityState,
+  iconScaleFormlaState,
+  iconPaddingState
+} from "../states/iconography"
 
 const IconControls = (props) => {
-  const setIconScale = props.setIconScale;
-  const iconScale = props.iconScale;
-  const scaleMethods = props.scaleMethods;
-  const setIconScaleMethod = props.setIconScaleMethod;
-  const setIconLargeQuantity = props.setIconLargeQuantity;
-  const setIconSmallQuantity = props.setIconSmallQuantity;
-  const iconSmallQuantity = props.iconSmallQuantity;
-  const iconLargeQuantity = props.iconLargeQuantity;
-  const setIconPadding = props.setIconPadding;
-  const iconPadding = props.iconPadding;
-  const iconScaleMethod = props.iconScaleMethod;
+  const [iconScale, setIconScale] = useRecoilState(iconScaleState)
+  const [iconSmallQuantity, setIconSmallQuantity] = useRecoilState(iconSmallQuantityState)
+  const [iconLargeQuantity, setIconLargeQuantity] = useRecoilState(iconLargeQuantityState)
+  const [iconScaleFormla, setIconScaleFormla] = useRecoilState(iconScaleFormlaState)
+  const [iconPadding, setIconPadding] = useRecoilState(iconPaddingState)
 
-  const inputs = scaleMethods.map((method) => {
+  const inputs = scaleMethodOptions.map((method) => {
     return (
       <div className="radioGroup" key={`iconography${method}`}>
         <input
@@ -22,7 +25,7 @@ const IconControls = (props) => {
           id={`Icon${method}`}
           name="IconScale_method"
           value={method}
-          onClick={(e) => setIconScaleMethod(e.target.value)}
+          onClick={(e) => setIconScaleFormla(e.target.value)}
           defaultChecked={method === "power" ? true : false}
         />
         <label htmlFor={`Icon${method}`}>{capitalize(method)}</label>
@@ -40,7 +43,7 @@ const IconControls = (props) => {
           <input
             type="number"
             onInput={(e) => setIconScale(Number(e.target.value))}
-            step={iconScaleMethod === "power" ? "0.01" : "1"}
+            step={iconScaleFormla === "power" ? "0.01" : "1"}
             min="0"
             defaultValue={iconScale}
           />
