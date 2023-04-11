@@ -3,8 +3,25 @@
   background-color: var(--appBackground);
   padding: 16px 24px;
   display: flex;
-  overflow-y: auto;
-  border-top-right-radius: var(--panelBorderRadius);
+  flex-direction: row;
   box-shadow: var(--panelShadow);
-  margin-bottom: 48px;
+  margin-bottom: 0;
+  z-index: 10;
+  overflow: auto;
+  gap: var(--appFrameMargin);
+}
+@media screen and (min-width: 900px) {
+  .panel {
+    border-top-right-radius: var(--panelBorderRadius);
+    overflow-y: auto;
+    flex-direction: column;
+    min-width: fit-content;
+    gap: 0;
+    height: calc(100% - 32px);
+  }
+}
+
+.panel--fixed {
+  position: fixed;
+  width: 232px;
 }

@@ -11,7 +11,9 @@ import ComponentElement from "./componentElement";
 import ComponentSizeColumn from "./componentSizeColumn";
 import {
   sizeNamesIncrement,
-  sizeNamesDecrement
+  sizeNamesDecrement,
+  densityNamesIncrement,
+  densityNamesDecrement
 } from "../utilities/names"
 import {baseSizeState} from '../states/base';
 import {
@@ -34,7 +36,10 @@ import {
   componentLineHeightState,
   componentPaddingMethodOptionState,
   baseComponentPaddingXIndexState,
-  baseComponentPaddingYIndexState
+  baseComponentPaddingYIndexState,
+  componentDensitySmallQuantityState,
+  componentDensityLargeQuantityState,
+  componentDensityScaleFactorState
 } from "../states/components"
 import {
   baseRadiusSizeState,
@@ -51,6 +56,75 @@ import {
   textIconIconSizeIndexState,
   textIconGapScaleFormulaState
 } from "../states/textIconPair"
+
+const Sizes = (props) => {
+  const densityName = props.densityName;
+  const sizeArray = props.sizeArray;
+  const componentPaddingScale = props.componentPaddingScale;
+  const paddingXIndexArray = props.paddingXIndexArray;
+  const componentPaddingMethodFormula = props.componentPaddingMethodFormula;
+  const paddingYIndexArray = props.paddingYIndexArray;
+  const textSizeIndexArray = props.textSizeIndexArray;
+  const iconSizeIndexArray = props.iconSizeIndexArray;
+  const iconScaleFormula = props.iconScaleFormula;
+  const componentScale = props.componentScale;
+  const componentMinHeightIndexArray = props.componentMinHeightIndexArray;
+  const componentScaleMethodFormula = props.componentScaleMethodFormula;
+  const baseRadiusSize = props.baseRadiusSize;
+  const radiusScaleFactor = props.radiusScaleFactor;
+  const componentRadiusIndexArray = props.componentRadiusIndexArray;
+  const radiusScaleFormula = props.radiusScaleFormula;
+  const sizeNamesDecrement = props.sizeNamesDecrement;
+  const sizeNamesIncrement = props.sizeNamesIncrement;
+  const componentLineHeight = props.componentLineHeight;
+  const componentRadiusNewIndexValue = props.componentRadiusNewIndexValue;
+  const scaleComponentRadius = props.scaleComponentRadius;
+  const iconPadding = props.iconPadding;
+  const showSpecs = props.showSpecs;
+  const componentGapScale = props.componentGapScale;
+  const componentGapMethod = props.componentGapMethod;
+  const gapIndexArray = props.gapIndexArray;
+
+  const sizedComponents = sizeArray.map((size, increment) => {
+    return <ComponentSizeColumn
+      size={size}
+      increment={increment}
+      componentPaddingScale={componentPaddingScale}
+      paddingXIndexArray={paddingXIndexArray}
+      componentPaddingMethodFormula={componentPaddingMethodFormula}
+      paddingYIndexArray={paddingYIndexArray}
+      textSizeIndexArray={textSizeIndexArray}
+      iconSizeIndexArray={iconSizeIndexArray}
+      iconScaleFormula={iconScaleFormula}
+      componentScale={componentScale}
+      componentMinHeightIndexArray={componentMinHeightIndexArray}
+      componentScaleMethodFormula={componentScaleMethodFormula}
+      baseRadiusSize={baseRadiusSize}
+      radiusScaleFactor={radiusScaleFactor}
+      componentRadiusIndexArray={componentRadiusIndexArray}
+      radiusScaleFormula={radiusScaleFormula}
+      sizeNamesDecrement={sizeNamesDecrement}
+      sizeNamesIncrement={sizeNamesIncrement}
+      componentLineHeight={componentLineHeight}
+      componentRadiusNewIndexValue={componentRadiusNewIndexValue}
+      scaleComponentRadius={scaleComponentRadius}
+      iconPadding={iconPadding}
+      showSpecs={showSpecs}
+      componentGapScale={componentGapScale}
+      componentGapMethod={componentGapMethod}
+      gapIndexArray={gapIndexArray}
+    />
+  }) 
+
+  return (
+    <div className="column column--fitContent">
+      <div className="componentColumn_Heading">
+        <h5>{capitalize(densityName)}</h5>
+      </div>
+      {sizedComponents}
+    </div>
+  )
+}
 
 const ComponentSpecs = (props) => {  
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
@@ -83,7 +157,10 @@ const ComponentSpecs = (props) => {
   const [textIconGapIndex, setTextIconGapIndex] = useRecoilState(textIconGapIndexState);
   const [textIconIconSizeIndex, setTextIconIconSizeIndex] = useRecoilState(textIconIconSizeIndexState);
   const [textIconGapScaleFormula, setTextIconGapScaleFormula] = useRecoilState(textIconGapScaleFormulaState);
-  
+  const [componentDensitySmallQuantity, setComponentDensitySmallQuantity] = useRecoilState(componentDensitySmallQuantityState);
+  const [componentDensityLargeQuantity, setComponentDensityLargeQuantity] = useRecoilState(componentDensityLargeQuantityState);
+  const [componentDensityScaleFactor, setComponentDensityScaleFactor] = useRecoilState(componentDensityScaleFactorState);
+
   const showSpecs = props.showSpecs;
 
   const componentPaddingScale =
@@ -125,23 +202,28 @@ const ComponentSpecs = (props) => {
 
   /* Create array of size indexes to generate components */
   let sizeArray = buildArray(componentSmallQuantity, componentLargeQuantity);
+  let densityArray = buildArray(componentDensitySmallQuantity, componentDensityLargeQuantity);
 
   /* Create arrays of sub-element indexes */
+  const densityPaddingXIndexArray = buildShiftedArray(
+    componentDensitySmallQuantity,
+    componentDensityLargeQuantity,
+    baseComponentPaddingXIndex,
+    componentDensityScaleFactor
+  );
+
+  const densityPaddingYIndexArray = buildShiftedArray(
+    componentDensitySmallQuantity,
+    componentDensityLargeQuantity,
+    baseComponentPaddingYIndex,
+    componentDensityScaleFactor
+  );
   const gapIndexArray = buildShiftedArray(
     componentSmallQuantity,
     componentLargeQuantity,
     textIconGapIndex
   );
-  const paddingXIndexArray = buildShiftedArray(
-    componentSmallQuantity,
-    componentLargeQuantity,
-    baseComponentPaddingXIndex
-  );
-  const paddingYIndexArray = buildShiftedArray(
-    componentSmallQuantity,
-    componentLargeQuantity,
-    baseComponentPaddingYIndex
-  );
+
   const textSizeIndexArray = buildShiftedArray(
     componentSmallQuantity,
     componentLargeQuantity,
@@ -170,46 +252,60 @@ const ComponentSpecs = (props) => {
       radiusScaleFormula
     );
   
+  /* Map each density */
+  const densityComponents = densityArray.map((density, densityIncrement) => {
+    const paddingXIndexArray = buildShiftedArray(
+      componentSmallQuantity,
+      componentLargeQuantity,
+      densityPaddingXIndexArray[densityIncrement]
+    );
+    const paddingYIndexArray = buildShiftedArray(
+      componentSmallQuantity,
+      componentLargeQuantity,
+      densityPaddingYIndexArray[densityIncrement]
+    );
 
-  /* Map size index array to calculate values and generate components */
-  const sizedComponents = sizeArray.map((size, increment) => {
-    return <ComponentSizeColumn
-      size={size}
-      increment={increment}
-      componentPaddingScale={componentPaddingScale}
-      paddingXIndexArray={paddingXIndexArray}
-      componentPaddingMethodFormula={componentPaddingMethodFormula}
-      paddingYIndexArray={paddingYIndexArray}
-      textSizeIndexArray={textSizeIndexArray}
-      iconSizeIndexArray={iconSizeIndexArray}
-      iconScaleFormula={iconScaleFormula}
-      componentScale={componentScale}
-      componentMinHeightIndexArray={componentMinHeightIndexArray}
-      componentScaleMethodFormula={componentScaleMethodFormula}
-      baseRadiusSize={baseRadiusSize}
-      radiusScaleFactor={radiusScaleFactor}
-      componentRadiusIndexArray={componentRadiusIndexArray}
-      radiusScaleFormula={radiusScaleFormula}
-      sizeNamesDecrement={sizeNamesDecrement}
-      sizeNamesIncrement={sizeNamesIncrement}
-      componentLineHeight={componentLineHeight}
-      componentRadiusNewIndexValue={componentRadiusNewIndexValue}
-      scaleComponentRadius={scaleComponentRadius}
-      iconPadding={iconPadding}
-      showSpecs={showSpecs}
-      componentGapScale={componentGapScale}
-      componentGapMethod={componentGapMethod}
-      gapIndexArray={gapIndexArray}
-    />
-  });
+    const decrementIndex = (density * -1) - 1;
+    let densityName = density < 0 ? densityNamesDecrement[decrementIndex] : densityNamesIncrement[density];
+    if(densityName===undefined) densityName = "undefined"
 
-  return (
-    <div className="column column--fitContent">
-      <div className="componentColumn_Heading">
-        <h5>Comfortable (default)</h5>
-      </div>
-      {sizedComponents}
-    </div>
+    
+    return <Sizes 
+        densityName={densityName}
+        sizeArray={sizeArray}
+        componentPaddingScale={componentPaddingScale}
+        paddingXIndexArray={paddingXIndexArray}
+        componentPaddingMethodFormula={componentPaddingMethodFormula}
+        paddingYIndexArray={paddingYIndexArray}
+        textSizeIndexArray={textSizeIndexArray}
+        iconSizeIndexArray={iconSizeIndexArray}
+        iconScaleFormula={iconScaleFormula}
+        componentScale={componentScale}
+        componentMinHeightIndexArray={componentMinHeightIndexArray}
+        componentScaleMethodFormula={componentScaleMethodFormula}
+        baseRadiusSize={baseRadiusSize}
+        radiusScaleFactor={radiusScaleFactor}
+        componentRadiusIndexArray={componentRadiusIndexArray}
+        radiusScaleFormula={radiusScaleFormula}
+        sizeNamesDecrement={sizeNamesDecrement}
+        sizeNamesIncrement={sizeNamesIncrement}
+        componentLineHeight={componentLineHeight}
+        componentRadiusNewIndexValue={componentRadiusNewIndexValue}
+        scaleComponentRadius={scaleComponentRadius}
+        iconPadding={iconPadding}
+        showSpecs={showSpecs}
+        componentGapScale={componentGapScale}
+        componentGapMethod={componentGapMethod}
+        gapIndexArray={gapIndexArray}
+      />
+  })
+
+
+  return ( <>
+    <div className="row row--spacious">
+      {densityComponents}
+    </div>  
+  </>
   );
 };
 

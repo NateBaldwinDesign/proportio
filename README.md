@@ -1,6 +1,4 @@
-![logo](https://raw.githubusercontent.com/NateBaldwinDesign/midas/main/logolockup.png)
-
-
+# Proportio.app
 *__Tool for creating proportional scales for typography, iconography, spacing, and components in design systems.__*
 
 ## Purpose
