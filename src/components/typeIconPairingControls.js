@@ -10,22 +10,21 @@ import {
   typeScaleState,
   typeSmallQuantityState,
   typeLargeQuantityState,
-  typeScaleFormlaState
+  typeScaleFormulaState
 } from '../states/typography'
 import {
   textIconGapIndexState,
   textIconIconSizeIndexState,
-  textIconGapPaddingState,
-  textIconGapScaleFormlaState
+  textIconGapScaleFormulaState
 } from "../states/textIconPair"
 import {
   iconScaleState,
   iconSmallQuantityState,
   iconLargeQuantityState,
-  iconScaleFormlaState,
+  iconScaleFormulaState,
   iconPaddingState
 } from '../states/iconography'
-import scaleMethodOptions from "../utilities/scaleFormulas"
+import scaleMethodOptions from "../utilities/scaleMethodOptions"
 
 const TypeIconPairingControls = (props) => {
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
@@ -35,19 +34,15 @@ const TypeIconPairingControls = (props) => {
   const [typeScale, setTypeScale] = useRecoilState(typeScaleState)
   const [typeSmallQuantity, setTypeSmallQuantity] = useRecoilState(typeSmallQuantityState)
   const [typeLargeQuantity, setTypeLargeQuantity] = useRecoilState(typeLargeQuantityState)
-  const [typeScaleFormla, setTypeScaleFormla] = useRecoilState(typeScaleFormlaState)
+  const [typeScaleFormula, setTypeScaleFormula] = useRecoilState(typeScaleFormulaState)
 
   const [textIconGapIndex, setTextIconGapIndex] = useRecoilState(textIconGapIndexState)
   const [textIconIconSizeIndex, setTextIconIconSizeIndex] = useRecoilState(textIconIconSizeIndexState)
-  const [textIconGapPadding, setTextIconGapPadding] = useRecoilState(textIconGapPaddingState)
-  const [textIconGapScaleFormla, setTextIconGapScaleFormla] = useRecoilState(textIconGapScaleFormlaState)
+  const [textIconGapScaleFormula, setTextIconGapScaleFormula] = useRecoilState(textIconGapScaleFormulaState)
 
   const [iconScale, setIconScale] = useRecoilState(iconScaleState)
-  const [iconScaleFormla, setIconScaleFormla] = useRecoilState(iconScaleFormlaState)
-
-  const textIconGapScaleMethod = props.textIconGapScaleMethod;
-  const setTextIconGapScaleMethod = props.setTextIconGapScaleMethod;
-
+  const [iconScaleFormula, setIconScaleFormula] = useRecoilState(iconScaleFormulaState)
+  
   const inputs = scaleMethodOptions.map((method) => {
     return (
       <div className="radioGroup" key={`typeIconPiar${method}`}>
@@ -56,8 +51,8 @@ const TypeIconPairingControls = (props) => {
           id={`gap${method}`}
           name="gap_method"
           value={method}
-          onClick={(e) => setTextIconGapScaleMethod(e.target.value)}
-          defaultChecked={textIconGapScaleMethod === "typeScale" ? true : false}
+          onClick={(e) => setTextIconGapScaleFormula(e.target.value)}
+          defaultChecked={(method === textIconGapScaleFormula) ? true : false}
         />
         <label htmlFor={`gap${method}`}>{capitalize(method)}</label>
       </div>

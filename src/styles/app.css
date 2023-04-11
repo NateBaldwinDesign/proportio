@@ -36,7 +36,7 @@
     --shadowColor: rgb(0 0 0 / 8%);
     --elevationDemoShadowColor: rgb(0 0 0 / 20%);
     --selectionIndicatorColor: var(--Gold300);
-    --logoColor: var(--Gold400)
+    --logoColor: var(--Gold300)
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -160,6 +160,7 @@ h4 {
 }
 h5 {
   margin-bottom: 0;
+  margin-top: 0;
   font-size: 0.76em;
 }
 
@@ -207,6 +208,19 @@ main {
   box-shadow: var(--panelShadow);
 }
 
+main.demoRow {
+  flex-direction: row;
+  column-gap: calc(var(--appFrameMargin) * 3);
+  row-gap: var(--appFrameMargin);
+  flex-wrap: wrap;
+  padding-top: 48px;
+  align-content: flex-start;
+}
+main.demoRow .tabs_action {
+  width: 100%;
+  margin: 0;
+}
+
 .splitView main {
   margin: 0;
   max-width: calc(100vw - 400px - var(--appFrameMargin));
@@ -238,6 +252,9 @@ main {
   gap: 0px;
   min-width: fit-content;
   flex-grow: 1;
+}
+.column--fitContent {
+  max-width: fit-content;
 }
 
 .Panel_tabs {

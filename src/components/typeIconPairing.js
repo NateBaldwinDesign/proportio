@@ -15,19 +15,18 @@ import {
   typeScaleState,
   typeSmallQuantityState,
   typeLargeQuantityState,
-  typeScaleFormlaState
+  typeScaleFormulaState
 } from '../states/typography'
 import {
   textIconGapIndexState,
   textIconIconSizeIndexState,
-  textIconGapPaddingState,
-  textIconGapScaleFormlaState
+  textIconGapScaleFormulaState
 } from "../states/textIconPair"
 import {
   iconScaleState,
   iconSmallQuantityState,
   iconLargeQuantityState,
-  iconScaleFormlaState,
+  iconScaleFormulaState,
   iconPaddingState
 } from '../states/iconography'
 
@@ -39,15 +38,14 @@ const TypeIconPairing = (props) => {
   const [typeScale, setTypeScale] = useRecoilState(typeScaleState)
   const [typeSmallQuantity, setTypeSmallQuantity] = useRecoilState(typeSmallQuantityState)
   const [typeLargeQuantity, setTypeLargeQuantity] = useRecoilState(typeLargeQuantityState)
-  const [typeScaleFormla, setTypeScaleFormla] = useRecoilState(typeScaleFormlaState)
+  const [typeScaleFormula, setTypeScaleFormula] = useRecoilState(typeScaleFormulaState)
 
   const [textIconGapIndex, setTextIconGapIndex] = useRecoilState(textIconGapIndexState)
   const [textIconIconSizeIndex, setTextIconIconSizeIndex] = useRecoilState(textIconIconSizeIndexState)
-  const [textIconGapPadding, setTextIconGapPadding] = useRecoilState(textIconGapPaddingState)
-  const [textIconGapScaleFormla, setTextIconGapScaleFormla] = useRecoilState(textIconGapScaleFormlaState)
+  const [textIconGapScaleFormula, setTextIconGapScaleFormula] = useRecoilState(textIconGapScaleFormulaState)
 
   const [iconScale, setIconScale] = useRecoilState(iconScaleState)
-  const [iconScaleFormla, setIconScaleFormla] = useRecoilState(iconScaleFormlaState)
+  const [iconScaleFormula, setIconScaleFormula] = useRecoilState(iconScaleFormulaState)
 
   let smallSizeArray = new Array(typeSmallQuantity).fill(0);
   let largeSizeArray = new Array(typeLargeQuantity).fill(0);
@@ -55,15 +53,15 @@ const TypeIconPairing = (props) => {
   const sampleText = props.sampleText;
 
   const scale =
-    textIconGapScaleFormla === "typeScale"
+    textIconGapScaleFormula === "typeScale"
       ? typeScale
-      : textIconGapScaleFormla === "spacingScale"
+      : textIconGapScaleFormula === "spacingScale"
       ? spacingScaleFactor
       : "none";
   const method =
-    textIconGapScaleFormla === "typeScale"
-      ? typeScaleFormla
-      : textIconGapScaleFormla === "spacingScale"
+    textIconGapScaleFormula === "typeScale"
+      ? typeScaleFormula
+      : textIconGapScaleFormula === "spacingScale"
       ? spacingFormula
       : "none";
 
@@ -117,7 +115,7 @@ const TypeIconPairing = (props) => {
             baseSize={baseSize}
             scale={iconScale}
             i={iconIncrement}
-            scaleMethod={iconScaleFormla}
+            scaleMethod={iconScaleFormula}
           />
           <span
             style={{
@@ -133,7 +131,7 @@ const TypeIconPairing = (props) => {
             scale={typeScale}
             i={i}
             content={sampleText}
-            scaleMethod={typeScaleFormla}
+            scaleMethod={typeScaleFormula}
           />
         </div>
       </div>

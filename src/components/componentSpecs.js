@@ -15,7 +15,7 @@ import {
 } from "../utilities/names"
 import {baseSizeState} from '../states/base';
 import {
-  typeScaleFormlaState,
+  typeScaleFormulaState,
   typeScaleState
 } from '../states/typography'
 import {
@@ -32,7 +32,9 @@ import {
   scaleComponentRadiusState,
   baseComponentRadiusState,
   componentLineHeightState,
-  componentPaddingMethodOptionState
+  componentPaddingMethodOptionState,
+  baseComponentPaddingXIndexState,
+  baseComponentPaddingYIndexState
 } from "../states/components"
 import {
   baseRadiusSizeState,
@@ -41,9 +43,14 @@ import {
 } from '../states/radius'
 import {
   iconScaleState,
-  iconScaleFormlaState,
+  iconScaleFormulaState,
   iconPaddingState
 } from '../states/iconography'
+import {
+  textIconGapIndexState,
+  textIconIconSizeIndexState,
+  textIconGapScaleFormulaState
+} from "../states/textIconPair"
 
 const ComponentSpecs = (props) => {  
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
@@ -51,10 +58,12 @@ const ComponentSpecs = (props) => {
   const [typeScale, setTypeScale] = useRecoilState(typeScaleState);
   const [spacingScaleFactor, setSpacingScaleFactor] = useRecoilState(spacingScaleFactorState);
   const [spacingFormula, setSpacingFormula] = useRecoilState(spacingFormulaState);
-  const [typeScaleFormla, setTypeScaleFormla] = useRecoilState(typeScaleFormlaState)
+  const [typeScaleFormula, setTypeScaleFormula] = useRecoilState(typeScaleFormulaState)
   const [componentMinHeightMethodOption, setComponentMinHeightMethodOption] = useRecoilState(componentMinHeightMethodOptionState)
   const [componentSmallQuantity, setComponentSmallQuantity] = useRecoilState(componentSmallQuantityState);
   const [componentLargeQuantity, setComponentLargeQuantity] = useRecoilState(componentLargeQuantityState);
+  const [baseComponentPaddingXIndex, setBaseComponentPaddingXIndex] = useRecoilState(baseComponentPaddingXIndexState);
+  const [baseComponentPaddingYIndex, setBaseComponentPaddingYIndex] = useRecoilState(baseComponentPaddingYIndexState);
   // Should get rid of these two. Customizing adds unnecessary complexity
   const [baseComponentTextSizeIndex, setBaseComponentTextSizeIndex] = useRecoilState(baseComponentTextSizeIndexState);
   const [baseIconSizeIndex, setBaseIconSizeIndex] = useRecoilState(baseIconSizeIndexState);
@@ -68,9 +77,12 @@ const ComponentSpecs = (props) => {
   const [radiusScaleFormula, setRadiusScaleFormula] = useRecoilState(radiusScaleFormulaState)
   const [radiusScaleFactor, setRadiusScaleFactor] = useRecoilState(radiusScaleFactorState)
 
-  const [iconScale, setIconScale] = useRecoilState(iconScaleState)
-  const [iconScaleFormla, setIconScaleFormla] = useRecoilState(iconScaleFormlaState)
+  const [iconScaleFormula, setIconScaleFormula] = useRecoilState(iconScaleFormulaState)
   const [iconPadding, setIconPadding] = useRecoilState(iconPaddingState)
+  
+  const [textIconGapIndex, setTextIconGapIndex] = useRecoilState(textIconGapIndexState);
+  const [textIconIconSizeIndex, setTextIconIconSizeIndex] = useRecoilState(textIconIconSizeIndexState);
+  const [textIconGapScaleFormula, setTextIconGapScaleFormula] = useRecoilState(textIconGapScaleFormulaState);
   
   const showSpecs = props.showSpecs;
 
@@ -82,7 +94,7 @@ const ComponentSpecs = (props) => {
       : 1;
   const componentPaddingMethodFormula =
     componentPaddingMethodOption === "typeScale"
-      ? typeScaleFormla
+      ? typeScaleFormula
       : componentPaddingMethodOption === "spacingScale"
       ? spacingFormula
       : undefined;
@@ -94,18 +106,32 @@ const ComponentSpecs = (props) => {
         : 1;
   const componentScaleMethodFormula =
   componentMinHeightMethodOption === "typeScale"
-      ? typeScaleFormla
+      ? typeScaleFormula
       : componentMinHeightMethodOption === "spacingScale"
       ? spacingFormula
       : undefined;
-
-  const baseComponentPaddingXIndex = props.baseComponentPaddingXIndex;
-  const baseComponentPaddingYIndex = props.baseComponentPaddingYIndex;
+  const componentGapScale =
+    textIconGapScaleFormula === "typeScale"
+      ? typeScale
+      : textIconGapScaleFormula === "spacingScale"
+      ? spacingScaleFactor
+      : "none";
+  const componentGapMethod =
+    textIconGapScaleFormula === "typeScale"
+      ? typeScaleFormula
+      : textIconGapScaleFormula === "spacingScale"
+      ? spacingFormula
+      : "none";
 
   /* Create array of size indexes to generate components */
   let sizeArray = buildArray(componentSmallQuantity, componentLargeQuantity);
 
   /* Create arrays of sub-element indexes */
+  const gapIndexArray = buildShiftedArray(
+    componentSmallQuantity,
+    componentLargeQuantity,
+    textIconGapIndex
+  );
   const paddingXIndexArray = buildShiftedArray(
     componentSmallQuantity,
     componentLargeQuantity,
@@ -143,6 +169,7 @@ const ComponentSpecs = (props) => {
       baseComponentRadius,
       radiusScaleFormula
     );
+  
 
   /* Map size index array to calculate values and generate components */
   const sizedComponents = sizeArray.map((size, increment) => {
@@ -153,11 +180,9 @@ const ComponentSpecs = (props) => {
       paddingXIndexArray={paddingXIndexArray}
       componentPaddingMethodFormula={componentPaddingMethodFormula}
       paddingYIndexArray={paddingYIndexArray}
-      typeScale={typeScale}
       textSizeIndexArray={textSizeIndexArray}
-      iconScale={iconScale}
       iconSizeIndexArray={iconSizeIndexArray}
-      iconScaleFormla={iconScaleFormla}
+      iconScaleFormula={iconScaleFormula}
       componentScale={componentScale}
       componentMinHeightIndexArray={componentMinHeightIndexArray}
       componentScaleMethodFormula={componentScaleMethodFormula}
@@ -172,12 +197,17 @@ const ComponentSpecs = (props) => {
       scaleComponentRadius={scaleComponentRadius}
       iconPadding={iconPadding}
       showSpecs={showSpecs}
+      componentGapScale={componentGapScale}
+      componentGapMethod={componentGapMethod}
+      gapIndexArray={gapIndexArray}
     />
   });
 
   return (
-    <div className="column">
-      <h3>Component size & density</h3>
+    <div className="column column--fitContent">
+      <div className="componentColumn_Heading">
+        <h5>Comfortable (default)</h5>
+      </div>
       {sizedComponents}
     </div>
   );

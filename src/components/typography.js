@@ -6,14 +6,14 @@ import {
   typeScaleState,
   typeSmallQuantityState,
   typeLargeQuantityState,
-  typeScaleFormlaState
+  typeScaleFormulaState
 } from '../states/typography'
 
 const Typography = (props) => {
   const [typeScale, setTypeScale] = useRecoilState(typeScaleState)
   const [typeSmallQuantity, setTypeSmallQuantity] = useRecoilState(typeSmallQuantityState)
   const [typeLargeQuantity, setTypeLargeQuantity] = useRecoilState(typeLargeQuantityState)
-  const [typeScaleFormla, setTypeScaleFormla] = useRecoilState(typeScaleFormlaState)
+  const [typeScaleFormula, setTypeScaleFormula] = useRecoilState(typeScaleFormulaState)
 
   const sampleText = props.sampleText;
 
@@ -27,7 +27,7 @@ const Typography = (props) => {
         scale={typeScale}
         i={(i + 1) * -1}
         content={sampleText}
-        scaleMethod={typeScaleFormla}
+        scaleMethod={typeScaleFormula}
         showValue
       />
     );
@@ -41,7 +41,7 @@ const Typography = (props) => {
         scale={typeScale}
         i={i}
         content={sampleText}
-        scaleMethod={typeScaleFormla}
+        scaleMethod={typeScaleFormula}
         showValue
       />
     );

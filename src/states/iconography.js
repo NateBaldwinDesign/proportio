@@ -19,7 +19,7 @@ const iconLargeQuantityState = atom({
     key: 'iconLargeQuantity',
     default: 10
 })
-const iconScaleFormlaState = atom({
+const iconScaleFormulaState = atom({
     key: 'iconScaleFormula',
     default: scaleFormulas[1]
 })
@@ -28,6 +28,6 @@ export {
     iconScaleState,
     iconSmallQuantityState,
     iconLargeQuantityState,
-    iconScaleFormlaState,
+    iconScaleFormulaState,
     iconPaddingState
 }
