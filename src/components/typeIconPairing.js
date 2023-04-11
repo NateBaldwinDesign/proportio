@@ -80,10 +80,7 @@ const TypeIconPairing = (props) => {
         <div className="typeIconPair" key={`typeIcon-neg${i}`}>
           <IconElement
             key={`typeIcon-icon-${iconScale}-neg${i}`}
-            baseSize={baseSize}
-            scale={iconScale}
             i={(iconIncrement + 1) * -1}
-            scaleMethod={iconScaleFormla}
           />
           <span
             style={{
@@ -95,11 +92,8 @@ const TypeIconPairing = (props) => {
           ></span>
           <TypeElement
             key={`typeIcon-text-${typeScale}-neg${i}`}
-            baseSize={baseSize}
-            scale={typeScale}
             i={(i + 1) * -1}
             content={sampleText}
-            scaleMethod={typeScaleFormla}
           />
         </div>
       </div>
