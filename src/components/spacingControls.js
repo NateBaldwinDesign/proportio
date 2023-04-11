@@ -41,7 +41,7 @@ const SpacingControls = (props) => {
           <input
             type="number"
             onInput={(e) => setSpacingScaleFactor(Number(e.target.value))}
-            step={spacingScaleFactor === "power" ? "0.01" : "1"}
+            step={spacingFormula === "power" ? "0.01" : "1"}
             min="0"
             defaultValue={spacingScaleFactor}
           />

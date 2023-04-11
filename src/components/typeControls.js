@@ -71,9 +71,9 @@ const TypeControls = (props) => {
             defaultValue={typeLargeQuantity}
           />
         </div>
-      </div>
-      <div className="row">
-        <div className="column">
+      {/* </div> */}
+      {/* <div className="row">
+        <div className="column"> */}
           <div className="formGroup">
             <label htmlFor="">Sample text</label>
             <input
@@ -83,7 +83,7 @@ const TypeControls = (props) => {
               defaultValue={sampleText}
             />
           </div>
-        </div>
+        {/* </div> */}
       </div>
     </fieldset>
   );
