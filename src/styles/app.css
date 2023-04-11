@@ -241,7 +241,7 @@ main.demoRow .tabs_action {
   .splitView main {
     max-width: calc(100vw - 400px - var(--appFrameMargin));
     height: calc(
-      100vh - var(--headerHeight) - var(--appFrameMargin) - var(--appFrameMargin)
+      100vh - 200px
     );
     margin: 0;
   }
@@ -305,6 +305,7 @@ main.demoRow .tabs_action {
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: var(--headerHeight) calc(100vh - var(--headerHeight));
+  overflow: auto;
   grid-template-areas:
     "header"
     "content";

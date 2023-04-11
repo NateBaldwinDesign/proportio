@@ -12,11 +12,11 @@
 }
 @media screen and (min-width: 900px) {
   .panel {
-    margin-bottom: 48px;
     border-top-right-radius: var(--panelBorderRadius);
     overflow-y: auto;
     flex-direction: column;
     min-width: fit-content;
     gap: 0;
+    height: calc(100% - 32px);
   }
 }
