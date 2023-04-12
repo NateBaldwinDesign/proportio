@@ -202,14 +202,16 @@ article + article {
   grid-template-rows: "auto auto";
   gap: var(--appFrameMargin);
   padding: 0;
-  height: calc(100% - var(--appFrameMargin));
+  height: 100%;
   overflow: auto;
+  overflow-x: hidden;
 }
 @media screen and (min-width: 900px) {
   .splitView {
     grid-template-areas: "panel main";
-    grid-template-columns: 280px 100%;
+    grid-template-columns: 280px auto;
     padding: var(--appFrameMargin) var(--appFrameMargin) 0 0;
+    height: calc(100% - var(--appFrameMargin));
   }
 }
 
@@ -240,7 +242,7 @@ main.demoRow .tabs_action {
 .splitView main {
   margin: 0;
   width: 100%;
-  height: 100%;
+  height: auto;
   overflow-x: scroll;
   margin: var(--appFrameMargin);
   max-width: calc(100vw - 144px);
