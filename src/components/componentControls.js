@@ -200,7 +200,7 @@ const ComponentControls = (props) => {
                 />
               </div>
               <div className="formGroup">
-                <label>Small sizes</label>
+                <label>Small densities</label>
                 <input
                   type="number"
                   defaultValue={componentDensitySmallQuantity}
@@ -212,7 +212,7 @@ const ComponentControls = (props) => {
                 />
               </div>
               <div className="formGroup">
-                <label>Large sizes</label>
+                <label>Large densities</label>
                 <input
                   type="number"
                   defaultValue={componentDensityLargeQuantity}

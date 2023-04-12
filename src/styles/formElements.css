@@ -89,7 +89,7 @@ fieldset:last-of-type {
   fieldset:last-of-type {
     border-right: 0;
   }
-  .panel .react-tabs .teact-tabs__tab-panel fieldset {
+  .panel .react-tabs .react-tabs__tab-panel fieldset {
     flex-grow: 1;
   }
 }
