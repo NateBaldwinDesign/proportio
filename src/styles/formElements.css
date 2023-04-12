@@ -85,10 +85,12 @@ fieldset:last-of-type {
     border-right: none;
     padding: 10px 0 16px 0;
     width: auto;
-    flex-grow: 1;
   }
   fieldset:last-of-type {
     border-right: 0;
+  }
+  .panel .react-tabs .teact-tabs__tab-panel fieldset {
+    flex-grow: 1;
   }
 }
 fieldset.column {

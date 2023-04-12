@@ -9,7 +9,7 @@ const Header = (props) => {
     <header>
       <div className="logoLockup">
         <Logo color="var(--logoColor)" size="32" strokeWidth="2.5" />
-        <h4 className="logo">Proportio.app</h4>
+        <h4 className="logo">Proportio</h4>
       </div>
       {props.children}
     </header>
