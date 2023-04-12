@@ -31,27 +31,24 @@ const Foundations = (props) => {
     <>
       <div className="splitView">
         <Panel direction="column">
-          <Tabs className="toolbar">
+          <BaseControls   />
+
+          <Tabs >
             <TabList>
               <Tab>
-                <ShapeHexagon size="24" color="currentColor"/>
+                {/* <ShapeSpacing size="24" color="currentColor"/> */}
+                Space
               </Tab>
               <Tab>
-                <ShapeSpacing size="24" color="currentColor"/>
+                {/* <ShapeText size="24" color="currentColor"/> */}
+                Type
               </Tab>
               <Tab>
-                <ShapeText size="24" color="currentColor"/>
-              </Tab>
-              <Tab>
-                <ShapeCircle size="24" color="currentColor"/>
-              </Tab>
-              <Tab>
-                <ShapeElevation size="24" color="currentColor"/>
+                {/* <ShapeCircle size="24" color="currentColor"/> */}
+                Shape
               </Tab>
             </TabList>
-            <TabPanel>
-              <BaseControls   />
-            </TabPanel>
+
             <TabPanel>
               <SpacingControls />
             </TabPanel>
@@ -65,8 +62,6 @@ const Foundations = (props) => {
             </TabPanel>
             <TabPanel> 
               <RadiusControls />
-            </TabPanel>
-            <TabPanel>
               <ElevationControls />
             </TabPanel>
           </Tabs>
