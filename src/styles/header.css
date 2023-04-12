@@ -6,6 +6,7 @@ header {
   align-items: center;
   /* box-shadow: 0 4px 16px var(--shadowColor); */
   padding: 8px 24px;
+  justify-content: space-between;
   gap: 36px;
   box-shadow: var(--panelShadow);
   z-index: 20;
@@ -28,5 +29,22 @@ header {
   flex-direction: row;
   gap: 4px;
   height: 100%;
+  align-items: center;
+}
+
+.header--left {
+  display: flex;
+  flex-direction: row;
+  gap: var(--appFrameMargin);
+  align-items: center;
+}
+
+.header--right {
+  justify-self: flex-end;
+  display: flex;
+  align-items: center;
+}
+.header--right a {
+  display: flex;
   align-items: center;
 }

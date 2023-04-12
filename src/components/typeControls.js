@@ -78,7 +78,7 @@ const TypeControls = (props) => {
             <label htmlFor="">Sample text</label>
             <input
               type="text"
-              style={{ width: "134px" }}
+              style={{ width: "74px" }}
               onInput={(e) => setSampleText(e.target.value)}
               defaultValue={sampleText}
             />
