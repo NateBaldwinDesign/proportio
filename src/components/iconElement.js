@@ -21,7 +21,7 @@ const IconElement = (props) => {
     /* Just to align icon examples with typography */
     const iconLineHeight = 1.375;
 
-    const showValue = (props.showValue) ? <span className="specs"> {Math.round(size)} </span> : '' ;
+    const showValue = (props.showValue) ? <span className="specs"> {Math.round(size)}px </span> : '' ;
     const margin = (props.showValue) ? `${(size * iconLineHeight) - size}px` : '0px' ;
 
     return (

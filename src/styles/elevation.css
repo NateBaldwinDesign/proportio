@@ -5,7 +5,7 @@
 }
 .elevationItem {
   display: grid;
-  grid-template-columns: 20px auto;
+  grid-template-columns: 32px auto;
   font-size: 12px;
   font-style: italic;
   align-items: center;
@@ -14,5 +14,5 @@
 .elevation {
   width: 80px;
   height: 60px;
-  background-color: var(--appBackground);
+  background-color: var(--elevationItemBackground);
 }

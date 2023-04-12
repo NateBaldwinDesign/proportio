@@ -6,7 +6,7 @@ const ElevationElement = (props) => {
   const margin = elevation > 0 ? elevation : 4;
   return (
     <div className="elevationItem">
-      <span className="specs"> {Math.round(elevation)} </span>
+      <span className="specs"> {Math.round(elevation)}px </span>
       <div
         className="elevation"
         style={{

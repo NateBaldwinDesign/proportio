@@ -25,14 +25,14 @@ const ComponentElement = (props) => {
         {" "}
         {`Height: ${Math.round(
           computedHeight
-        )} \n (Min: ${Math.round(componentMinHeight)})`}{" "}
+        )}px \n (Min: ${Math.round(componentMinHeight)})px`}{" "}
       </div>
-      <div className="specType specs"> {`Font: ${Math.round(typeSize)}`} </div>
-      <div className="specIcon specs"> {`Icon: ${Math.round(iconSize)}`} </div>
-      <div className="specPaddingX specs"> {`Pad-X: ${Math.round(paddingX)}`} </div>
-      <div className="specPaddingY specs"> {`Pad-Y: ${Math.round(paddingY)}`} </div>
-      <div className="specGap specs"> {`Gap: ${Math.round(gapSize)}`} </div>
-      <div className="specRadius specs"> {`R: ${Math.round(radius)}`} </div>
+      <div className="specType specs"> {`Font: ${Math.round(typeSize)}px`} </div>
+      <div className="specIcon specs"> {`Icon: ${Math.round(iconSize)}px`} </div>
+      <div className="specPaddingX specs"> {`Pad-X: ${Math.round(paddingX)}px`} </div>
+      <div className="specPaddingY specs"> {`Pad-Y: ${Math.round(paddingY)}px`} </div>
+      <div className="specGap specs"> {`Gap: ${Math.round(gapSize)}px`} </div>
+      <div className="specRadius specs"> {`R: ${Math.round(radius)}px`} </div>
     </>
   );
   const showSpecs = spec ? specAnnotations : "";

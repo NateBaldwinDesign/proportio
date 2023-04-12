@@ -5,7 +5,7 @@
 
 .typeItem {
     display: grid;
-    grid-template-columns: 24px max-content;
+    grid-template-columns: 32px max-content;
     align-items: center;
 }
 

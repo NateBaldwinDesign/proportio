@@ -6,7 +6,7 @@ const Logo = (props) => {
 
   return (
   <svg width={size} height={size} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width={size} height={size} fill="white"/>
+    <rect width={size} height={size} fill="transparent"/>
     <rect x="3.5" y="3.5" width="25" height="25" stroke={color} strokeWidth="3"/>
     <rect x="3.5" y="19.5" width="9" height="9" stroke={color} strokeWidth="3"/>
     <rect x="3.5" y="12.5" width="16" height="16" stroke={color} strokeWidth="3"/>

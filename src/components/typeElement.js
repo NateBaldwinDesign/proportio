@@ -9,7 +9,7 @@ const TypeElement = (props) => {
 
     const size = calculateScale(baseSize, props.scale, props.i, props.scaleMethod);
     const content = (props.content) ? props.content : 'Ag';
-    const showValue = (props.showValue) ? <span className="specs"> {Math.round(size)} </span> : '';
+    const showValue = (props.showValue) ? <span className="specs"> {Math.round(size)}px </span> : '';
 
     return (
         <div className="typeItem">

@@ -74,7 +74,7 @@ const TypeIconPairing = (props) => {
 
     return (
       <div className="textIconItem" key={`typeIconPair-${iconScale}-neg${i}`}>
-        <span className="specs"> {gapSize} </span>
+        <span className="specs"> {gapSize}px (gap) </span>
         <div className="typeIconPair" key={`typeIcon-neg${i}`}>
           <IconElement
             key={`typeIcon-icon-${iconScale}-neg${i}`}
@@ -108,7 +108,7 @@ const TypeIconPairing = (props) => {
 
     return (
       <div className="textIconItem" key={`typeIconPair-${iconScale}-${i}`}>
-        <span className="specs"> {gapSize} </span>
+        <span className="specs"> {gapSize}px (gap) </span>
         <div className="typeIconPair" key={`typeIcon-${i}`}>
           <IconElement
             key={`typeIcon-icon-${iconScale}-${i}`}

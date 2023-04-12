@@ -35,6 +35,7 @@
 
     --shadowColor: rgb(0 0 0 / 8%);
     --elevationDemoShadowColor: rgb(0 0 0 / 20%);
+    --elevationItemBackground: var(var(--appBackground));
     --selectionIndicatorColor: var(--Gold300);
     --logoColor: var(--Gold300)
   }
@@ -73,6 +74,7 @@
 
     --shadowColor: rgb(0 0 0 / 50%);
     --elevationDemoShadowColor: rgb(0 0 0 / 50%);
+    --elevationItemBackground: var(--Gray200);
     --selectionIndicatorColor: var(--Gold500);
     --logoColor: var(--Gold500)
   }

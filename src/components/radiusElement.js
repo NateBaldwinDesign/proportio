@@ -6,7 +6,7 @@ const RadiusElement = (props) => {
 
     return (
         <div className="radiusItem" >
-            <span className="specs"> {Math.round(radius)} </span>
+            <span className="specs"> {Math.round(radius)}px </span>
             <div 
                 className="radius"
                 style={{borderRadius: `${radius}px`}}
