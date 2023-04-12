@@ -1,0 +1,27 @@
+.toolbar {
+    display: flex;
+    flex-direction: row;
+}
+.toolbar .react-tabs__tab-list {
+    flex-direction: column;
+    width: 52px;
+    gap: 8px;
+}
+.toolbar .react-tabs__tab {
+    display: flex;
+    border-radius: 8px;
+    padding: 2px;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 0;
+    color: var(--Gray400)
+}
+.toolbar .react-tabs__tab--selected {
+    background-color: var(--selectionIndicatorColor);
+    color: var(--appBackground);
+}
+.toolbar .react-tabs__tab-panel--selected {
+    margin-left: 16px;
+}

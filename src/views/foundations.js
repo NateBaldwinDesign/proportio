@@ -16,6 +16,12 @@ import RadiusControls from "../components/radiusControls";
 import Panel from "../components/panel";
 import ElevationControls from "../components/elevationControls";
 import Elevation from "../components/elevation";
+import '../styles/toolbar.css';
+import ShapeHexagon from '../icons/shapeHexagon';
+import ShapeText from '../icons/shapeText';
+import ShapeSpacing from '../icons/shapeSpacing';
+import ShapeElevation from '../icons/shapeElevation';
+import ShapeCircle from '../icons/shapeCircle';
 
 const Foundations = (props) => {
   const [sampleText, setSampleText] = useState("Text");
@@ -25,42 +31,59 @@ const Foundations = (props) => {
     <>
       <div className="splitView">
         <Panel direction="column">
-          <BaseControls   />
-          <SpacingControls />
-          <TypeControls
-            sampleText={sampleText}
-            setSampleText={setSampleText}
-          />
-          <IconControls />
-          <TypeIconPairingControls />
-          <RadiusControls />
-          <ElevationControls />
+          <Tabs className="toolbar">
+            <TabList>
+              <Tab>
+                <ShapeHexagon size="24" color="currentColor"/>
+              </Tab>
+              <Tab>
+                <ShapeSpacing size="24" color="currentColor"/>
+              </Tab>
+              <Tab>
+                <ShapeText size="24" color="currentColor"/>
+              </Tab>
+              <Tab>
+                <ShapeCircle size="24" color="currentColor"/>
+              </Tab>
+              <Tab>
+                <ShapeElevation size="24" color="currentColor"/>
+              </Tab>
+            </TabList>
+            <TabPanel>
+              <BaseControls   />
+            </TabPanel>
+            <TabPanel>
+              <SpacingControls />
+            </TabPanel>
+            <TabPanel>
+              <TypeControls
+                sampleText={sampleText}
+                setSampleText={setSampleText}
+              />
+              <IconControls />
+              <TypeIconPairingControls />
+            </TabPanel>
+            <TabPanel> 
+              <RadiusControls />
+            </TabPanel>
+            <TabPanel>
+              <ElevationControls />
+            </TabPanel>
+          </Tabs>
         </Panel>
         <main className="demoRow">
-          {/* <Tabs> */}
-            {/* <TabList>
-              <Tab>Desktop</Tab>
-              <Tab>Mobile</Tab>
-            </TabList> */}
-
-            {/* <TabPanel> */}
-              {/* <div className="react-tabs__tab-panel"> */}
-              <Spacing
-                spacerLineHeight={spacerLineHeight}
-              />
-              <Typography
-                sampleText={sampleText}
-              />
-              <Iconography />
-              <TypeIconPairing
-                sampleText={sampleText}
-              />
-              <Radius />
-              <Elevation />
-              {/* </div> */}
-            {/* </TabPanel> */}
-
-          {/* </Tabs> */}
+          <Spacing
+            spacerLineHeight={spacerLineHeight}
+          />
+          <Typography
+            sampleText={sampleText}
+          />
+          <Iconography />
+          <TypeIconPairing
+            sampleText={sampleText}
+          />
+          <Radius />
+          <Elevation />
         </main>
       </div>
     </>
