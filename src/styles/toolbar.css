@@ -1,11 +1,11 @@
 .toolbar {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 .toolbar .react-tabs__tab-list {
-    flex-direction: column;
-    width: 52px;
+    flex-direction: row;
     gap: 8px;
+    margin-bottom: 8px;
 }
 .toolbar .react-tabs__tab {
     display: flex;
@@ -21,7 +21,4 @@
 .toolbar .react-tabs__tab--selected {
     background-color: var(--selectionIndicatorColor);
     color: var(--appBackground);
-}
-.toolbar .react-tabs__tab-panel--selected {
-    margin-left: 16px;
 }
