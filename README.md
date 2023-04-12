@@ -1,4 +1,4 @@
-# Proportio.app
+# Proportio
 *__Tool for creating proportional scales for typography, iconography, spacing, and components in design systems.__*
 
 ## Purpose
