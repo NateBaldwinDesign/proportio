@@ -42,6 +42,8 @@
   },
   "devDependencies": {
     "css.gg": "^2.0.0",
-    "gh-pages": "^5.0.0"
+    "gh-pages": "^5.0.0",
+    "pretty-print-json": "^2.0.0",
+    "react-json-pretty": "^2.2.0"
   }
 }
