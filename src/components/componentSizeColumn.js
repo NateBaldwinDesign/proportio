@@ -19,6 +19,7 @@ import {
     textIconIconSizeIndexState,
     textIconGapScaleFormulaState
 } from '../states/textIconPair'
+import tokens from '../utilities/tokens';
 
 const ComponentSizeColumn = (props) => {
     const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
@@ -30,6 +31,8 @@ const ComponentSizeColumn = (props) => {
     const [textIconIconSizeIndex, setTextIconIconSizeIndex] = useRecoilState(textIconIconSizeIndexState);
     const [textIconGapScaleFormula, setTextIconGapScaleFormula] = useRecoilState(textIconGapScaleFormulaState);
     
+    const sizeName = props.sizeName;
+    const newTokenNamePrefix = props.newTokenNamePrefix;
     const componentPaddingScale = props.componentPaddingScale;
     const paddingXIndexArray = props.paddingXIndexArray;
     const increment = props.increment;
@@ -46,8 +49,7 @@ const ComponentSizeColumn = (props) => {
     const radiusScaleFactor = props.radiusScaleFactor;
     const componentRadiusIndexArray = props.componentRadiusIndexArray;
     const radiusScaleFormula = props.radiusScaleFormula;
-    const sizeNamesDecrement = props.sizeNamesDecrement;
-    const sizeNamesIncrement = props.sizeNamesIncrement;
+
     const componentLineHeight = props.componentLineHeight;
     const componentRadiusNewIndexValue = props.componentRadiusNewIndexValue;
     const scaleComponentRadius = props.scaleComponentRadius;
@@ -108,11 +110,122 @@ const ComponentSizeColumn = (props) => {
 
     // const computedHeight =
     //   paddingY * 2 + Number(componentLineHeight) * typeSize;
-    const decrementIndex = (size * -1) - 1;
-    let sizeName = size < 0 ? sizeNamesDecrement[decrementIndex] : sizeNamesIncrement[size];
-    if(sizeName===undefined) sizeName = "undefined"
 
     const radius = (scaleComponentRadius) ? scaledComponentRadius : componentRadiusNewIndexValue ;
+
+    // Create some good ol' tokens
+    // const newTokens = {
+    //     [`${newTokenNamePrefix}-gap`]: {
+    //         'value': gapSize,
+    //         'type': null
+    //     },
+    //     [`${newTokenNamePrefix}-padding-left`]: {
+    //         'value': paddingX,
+    //         'type': null
+    //     },
+    //     [`${newTokenNamePrefix}-padding-right`]: {
+    //         'value': paddingX,
+    //         'type': null
+    //     },
+    //     [`${newTokenNamePrefix}-top`]: {
+    //         'value': paddingY,
+    //         'type': null
+    //     },
+    //     [`${newTokenNamePrefix}-bottom`]: {
+    //         'value': paddingY,
+    //         'type': null
+    //     },
+    //     [`${newTokenNamePrefix}-text-size`]: {
+    //         'value': typeSize,
+    //         'type': null
+    //     },
+    //     [`${newTokenNamePrefix}-icon-size`]: {
+    //         'value': iconSize,
+    //         'type': null
+    //     },
+    //     [`${newTokenNamePrefix}-min-height`]: {
+    //         'value': componentMinHeight,
+    //         'type': null
+    //     },
+    //     [`${newTokenNamePrefix}-radius`]: {
+    //         'value': scaledComponentRadius,
+    //         'type': null
+    //     }
+    // }
+    // tokens.component.push(newTokens)
+    
+    // tokens.component[`${newTokenNamePrefix}-gap`] = {
+    //         'value': gapSize,
+    //         'type': null
+    //     }
+    // tokens.component[`${newTokenNamePrefix}-padding-left`] = {
+    //         'value': paddingX,
+    //         'type': null
+    //     }
+    // tokens.component[`${newTokenNamePrefix}-padding-right`] = {
+    //         'value': paddingX,
+    //         'type': null
+    //     }
+    // tokens.component[`${newTokenNamePrefix}-top`] = {
+    //         'value': paddingY,
+    //         'type': null
+    //     }
+    // tokens.component[`${newTokenNamePrefix}-bottom`] = {
+    //         'value': paddingY,
+    //         'type': null
+    //     }
+    // tokens.component[`${newTokenNamePrefix}-text-size`] = {
+    //         'value': typeSize,
+    //         'type': null
+    //     }
+    // tokens.component[`${newTokenNamePrefix}-icon-size`] = {
+    //         'value': iconSize,
+    //         'type': null
+    //     }
+    // tokens.component[`${newTokenNamePrefix}-min-height`] = {
+    //         'value': componentMinHeight,
+    //         'type': null
+    //     }
+    // tokens.component[`${newTokenNamePrefix}-radius`] = {
+    //         'value': scaledComponentRadius,
+    //         'type': null
+    //     }
+    tokens.component.push({[`${newTokenNamePrefix}-gap`]: {
+        'value': `${Math.round(gapSize)}px`,
+        'type': "dimension"
+    }})
+    tokens.component.push({[`${newTokenNamePrefix}-padding-left`]: {
+        'value': `${Math.round(paddingX)}px`,
+        'type': "dimension"
+    }})
+    tokens.component.push({[`${newTokenNamePrefix}-padding-right`]: {
+        'value': `${Math.round(paddingX)}px`,
+        'type': "dimension"
+    }})
+    tokens.component.push({[`${newTokenNamePrefix}-top`]: {
+        'value': `${Math.round(paddingY)}px`,
+        'type': "dimension"
+    }})
+    tokens.component.push({[`${newTokenNamePrefix}-bottom`]: {
+        'value': `${Math.round(paddingY)}px`,
+        'type': "dimension"
+    }})
+    tokens.component.push({[`${newTokenNamePrefix}-text-size`]: {
+        'value': `${Math.round(typeSize)}px`,
+        'type': "dimension"
+    }})
+    tokens.component.push({[`${newTokenNamePrefix}-icon-size`]: {
+        'value': `${Math.round(iconSize)}px`,
+        'type': "dimension"
+    }})
+    tokens.component.push({[`${newTokenNamePrefix}-min-height`]: {
+        'value': `${Math.round(componentMinHeight)}px`,
+        'type': "dimension"
+    }})
+    tokens.component.push({[`${newTokenNamePrefix}-radius`]: {
+        'value': `${Math.round(scaledComponentRadius)}px`,
+        'type': "dimension"
+    }})
 
     return (
         <div className="specRowItem"  key={`componenSpecItem${sizeName}${componentMinHeight}`}>

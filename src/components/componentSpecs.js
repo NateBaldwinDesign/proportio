@@ -56,8 +56,10 @@ import {
   textIconIconSizeIndexState,
   textIconGapScaleFormulaState
 } from "../states/textIconPair"
+import tokens from "../utilities/tokens";
 
 const Sizes = (props) => {
+  const tokenNamePrefix = props.tokenNamePrefix;
   const densityName = props.densityName;
   const sizeArray = props.sizeArray;
   const componentPaddingScale = props.componentPaddingScale;
@@ -86,9 +88,18 @@ const Sizes = (props) => {
   const gapIndexArray = props.gapIndexArray;
 
   const sizedComponents = sizeArray.map((size, increment) => {
+    const decrementIndex = (size * -1) - 1;
+    let sizeName = size < 0 ? sizeNamesDecrement[decrementIndex] : sizeNamesIncrement[size];
+    if(sizeName===undefined) sizeName = "undefined"
+
+    const newTokenNamePrefix = `${tokenNamePrefix}-${sizeName.replace(' (default)', '')}`
+
     return <ComponentSizeColumn
+      key={`${newTokenNamePrefix}-${decrementIndex}`}
       size={size}
+      sizeName={sizeName}
       increment={increment}
+      newTokenNamePrefix={newTokenNamePrefix}
       componentPaddingScale={componentPaddingScale}
       paddingXIndexArray={paddingXIndexArray}
       componentPaddingMethodFormula={componentPaddingMethodFormula}
@@ -103,8 +114,6 @@ const Sizes = (props) => {
       radiusScaleFactor={radiusScaleFactor}
       componentRadiusIndexArray={componentRadiusIndexArray}
       radiusScaleFormula={radiusScaleFormula}
-      sizeNamesDecrement={sizeNamesDecrement}
-      sizeNamesIncrement={sizeNamesIncrement}
       componentLineHeight={componentLineHeight}
       componentRadiusNewIndexValue={componentRadiusNewIndexValue}
       scaleComponentRadius={scaleComponentRadius}
@@ -162,6 +171,8 @@ const ComponentSpecs = (props) => {
   const [componentDensityScaleFactor, setComponentDensityScaleFactor] = useRecoilState(componentDensityScaleFactorState);
 
   const showSpecs = props.showSpecs;
+  // Clear out component tokens
+  tokens.component = []
 
   const componentPaddingScale =
     componentPaddingMethodOption === "typeScale"
@@ -269,8 +280,10 @@ const ComponentSpecs = (props) => {
     let densityName = density < 0 ? densityNamesDecrement[decrementIndex] : densityNamesIncrement[density];
     if(densityName===undefined) densityName = "undefined"
 
+    const tokenNamePrefix = `component-${densityName.replace(' (default)', '')}`;
     
     return <Sizes 
+        tokenNamePrefix={tokenNamePrefix}
         densityName={densityName}
         sizeArray={sizeArray}
         componentPaddingScale={componentPaddingScale}
