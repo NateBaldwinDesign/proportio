@@ -188,9 +188,7 @@ article li {
 p.body1 {
   font-size: 1.5rem;
 }
-article {
-  text-wrap: balance;
-}
+
 article + article {
   margin-top: 2rem;
 }
@@ -290,8 +288,6 @@ main.demoRow .tabs_action {
   max-width: fit-content;
 }
 
-.Panel_tabs {
-}
 
 .Panel_tabsList {
   padding: 0 24px;
