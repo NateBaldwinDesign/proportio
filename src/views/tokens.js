@@ -11,7 +11,7 @@ import createCssVariables from '../utilities/createCssVariables';
 var JSONPrettyMon = require('react-json-pretty/dist/monikai');
 
 const myTheme = {
-  main: 'line-height:1.3;color:var(--Gray400);background:var(--appBackground);overflow:auto;',
+  main: 'line-height:1.3;color:var(--Gray400);background:transparent;overflow:auto;',
   error: 'line-height:1.3;color:#66d9ef;background:#272822;overflow:auto;',
   key: 'color:#0896A3;',
   string: 'color:#4C3EAB;',
@@ -21,7 +21,9 @@ const myTheme = {
 
 const Tokens = (props) => {
   
-  const CssVars = createCssVariables(tokens)
+  // createCssVariables(tokens)
+  const CssTokens = createCssVariables(tokens)
+
   return (
     <>
       <div className="splitView">
@@ -44,7 +46,8 @@ const Tokens = (props) => {
                   <JSONPretty data={tokens} theme={myTheme}/>
               </TabPanel>
               <TabPanel>
-                {JSON.stringify(CssVars)}
+                {CssTokens}
+                {/* <JSONPretty data={CssTokens} theme={myTheme}/> */}
               </TabPanel>
             </Tabs>
         </main>
