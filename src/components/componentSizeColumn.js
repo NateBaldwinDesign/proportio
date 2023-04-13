@@ -20,6 +20,7 @@ import {
     textIconGapScaleFormulaState
 } from '../states/textIconPair'
 import tokens from '../utilities/tokens';
+import findReferenceToken from '../utilities/findReferenceToken';
 
 const ComponentSizeColumn = (props) => {
     const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
@@ -113,83 +114,8 @@ const ComponentSizeColumn = (props) => {
 
     const radius = (scaleComponentRadius) ? scaledComponentRadius : componentRadiusNewIndexValue ;
 
-    // Create some good ol' tokens
-    // const newTokens = {
-    //     [`${newTokenNamePrefix}-gap`]: {
-    //         'value': gapSize,
-    //         'type': null
-    //     },
-    //     [`${newTokenNamePrefix}-padding-left`]: {
-    //         'value': paddingX,
-    //         'type': null
-    //     },
-    //     [`${newTokenNamePrefix}-padding-right`]: {
-    //         'value': paddingX,
-    //         'type': null
-    //     },
-    //     [`${newTokenNamePrefix}-top`]: {
-    //         'value': paddingY,
-    //         'type': null
-    //     },
-    //     [`${newTokenNamePrefix}-bottom`]: {
-    //         'value': paddingY,
-    //         'type': null
-    //     },
-    //     [`${newTokenNamePrefix}-text-size`]: {
-    //         'value': typeSize,
-    //         'type': null
-    //     },
-    //     [`${newTokenNamePrefix}-icon-size`]: {
-    //         'value': iconSize,
-    //         'type': null
-    //     },
-    //     [`${newTokenNamePrefix}-min-height`]: {
-    //         'value': componentMinHeight,
-    //         'type': null
-    //     },
-    //     [`${newTokenNamePrefix}-radius`]: {
-    //         'value': scaledComponentRadius,
-    //         'type': null
-    //     }
-    // }
-    // tokens.component.push(newTokens)
-    
-    // tokens.component[`${newTokenNamePrefix}-gap`] = {
-    //         'value': gapSize,
-    //         'type': null
-    //     }
-    // tokens.component[`${newTokenNamePrefix}-padding-left`] = {
-    //         'value': paddingX,
-    //         'type': null
-    //     }
-    // tokens.component[`${newTokenNamePrefix}-padding-right`] = {
-    //         'value': paddingX,
-    //         'type': null
-    //     }
-    // tokens.component[`${newTokenNamePrefix}-top`] = {
-    //         'value': paddingY,
-    //         'type': null
-    //     }
-    // tokens.component[`${newTokenNamePrefix}-bottom`] = {
-    //         'value': paddingY,
-    //         'type': null
-    //     }
-    // tokens.component[`${newTokenNamePrefix}-text-size`] = {
-    //         'value': typeSize,
-    //         'type': null
-    //     }
-    // tokens.component[`${newTokenNamePrefix}-icon-size`] = {
-    //         'value': iconSize,
-    //         'type': null
-    //     }
-    // tokens.component[`${newTokenNamePrefix}-min-height`] = {
-    //         'value': componentMinHeight,
-    //         'type': null
-    //     }
-    // tokens.component[`${newTokenNamePrefix}-radius`] = {
-    //         'value': scaledComponentRadius,
-    //         'type': null
-    //     }
+    findReferenceToken(Math.round(gapSize), textIconGapScaleFormula)
+
     tokens.component.push({[`${newTokenNamePrefix}-gap`]: {
         'value': `${Math.round(gapSize)}px`,
         'type': "dimension"

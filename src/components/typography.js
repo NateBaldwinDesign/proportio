@@ -74,7 +74,6 @@ const Typography = (props) => {
 
   tokens.typography = newTypeTokens;
 
-  console.log(tokens)
   return (
     <div className="column">
       <h3>Typography</h3>
