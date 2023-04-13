@@ -7,9 +7,20 @@ const createCssVariables = (tokens) => {
             return Object.keys(tokens)[0]
         })
         const tokenPairs = tokens[classifications].map((token, i) => {
-            CssTokensArray.push({ [`--${tokenNames[i]}`]: `${token[tokenNames[i]].value}` })
+            const value = (token[tokenNames[i]].value.includes('px') 
+                ? `${token[tokenNames[i]].value}` 
+                : `var(--${token[tokenNames[i]].value
+                    .replaceAll('{', '')
+                    .replaceAll('}', '')
+                    .replace('typography.','')
+                    .replace('icons.', '')
+                    .replace('spacing.', '')
+                    .replace('radius.', '')
+                    .replace('elevation', '')
+                })`)
+            CssTokensArray.push({ [`--${tokenNames[i]}`]: value })
             return document.documentElement.style
-            .setProperty(`--${tokenNames[i]}`, token[tokenNames[i]].value);
+            .setProperty(`--${tokenNames[i]}`, value);
         })
         return tokenPairs
     })

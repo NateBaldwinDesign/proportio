@@ -11,6 +11,7 @@ import {
     elevationLargeQuantityState,
     elevationScaleFormulaState
 } from "../states/elevation"
+import tokens from "../utilities/tokens";
 
 const Elevation = (props) => {
     const [baseElevationSize, setBaseElevationSize] = useRecoilState(baseElevationSizeState)
@@ -24,7 +25,27 @@ const Elevation = (props) => {
         return calculateScale(baseElevationSize, elevationScaleFactor, i, elevationScaleFormula);
     })
 
+    const newElevationTokens = []
+
     const elevationElements = sizes.map((size, i) => {
+        const nameX = `elevation-${100 * (i+1)}-offsetY`
+        const nameY = `elevation-${100 * (i+1)}-blur`
+        const objectX = {
+          [nameX]: {
+            'value': `${size}px`,
+            'type': 'dimension'
+          }
+        }
+        const objectY = {
+            [nameY]: {
+              'value': `${size}px`,
+              'type': 'dimension'
+            }
+          }
+    
+        newElevationTokens.push(objectX)
+        newElevationTokens.push(objectY)
+
         return (
             <ElevationElement 
                 key={`elevation-${i}}`}
@@ -32,6 +53,8 @@ const Elevation = (props) => {
             />
         )
     })
+
+    tokens.elevation = newElevationTokens;
 
     return (
         <div className="column">

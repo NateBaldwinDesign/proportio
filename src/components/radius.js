@@ -11,6 +11,7 @@ import {
     radiusLargeQuantityState,
     radiusScaleFormulaState
 } from "../states/radius"
+import tokens from "../utilities/tokens";
 
 const Radius = (props) => {
     const [baseRadiusSize, setBaseRadiusSize] = useRecoilState(baseRadiusSizeState)
@@ -23,8 +24,19 @@ const Radius = (props) => {
     const sizes = sizeArray.map((i) => {
         return calculateScale(baseRadiusSize, radiusScaleFactor, i, radiusScaleFormula);
     })
+    
+    const newRadiusTokens = []
 
     const radiusElements = sizes.map((size, i) => {
+        const name = `radius-${100 * (i+1)}`
+        const object = {
+          [name]: {
+            'value': `${size}px`,
+            'type': 'dimension'
+          }
+        }
+        newRadiusTokens.push(object)
+
         return (
             <RadiusElement 
                 key={`radius-${i}}`}
@@ -32,6 +44,8 @@ const Radius = (props) => {
             />
         )
     })
+
+    tokens.radius = newRadiusTokens
 
     return (
         <div className="column">

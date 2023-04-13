@@ -19,6 +19,8 @@ import {
     textIconIconSizeIndexState,
     textIconGapScaleFormulaState
 } from '../states/textIconPair'
+import tokens from '../utilities/tokens';
+import findReferenceToken from '../utilities/findReferenceToken';
 
 const ComponentSizeColumn = (props) => {
     const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
@@ -30,6 +32,8 @@ const ComponentSizeColumn = (props) => {
     const [textIconIconSizeIndex, setTextIconIconSizeIndex] = useRecoilState(textIconIconSizeIndexState);
     const [textIconGapScaleFormula, setTextIconGapScaleFormula] = useRecoilState(textIconGapScaleFormulaState);
     
+    const sizeName = props.sizeName;
+    const newTokenNamePrefix = props.newTokenNamePrefix;
     const componentPaddingScale = props.componentPaddingScale;
     const paddingXIndexArray = props.paddingXIndexArray;
     const increment = props.increment;
@@ -46,8 +50,7 @@ const ComponentSizeColumn = (props) => {
     const radiusScaleFactor = props.radiusScaleFactor;
     const componentRadiusIndexArray = props.componentRadiusIndexArray;
     const radiusScaleFormula = props.radiusScaleFormula;
-    const sizeNamesDecrement = props.sizeNamesDecrement;
-    const sizeNamesIncrement = props.sizeNamesIncrement;
+
     const componentLineHeight = props.componentLineHeight;
     const componentRadiusNewIndexValue = props.componentRadiusNewIndexValue;
     const scaleComponentRadius = props.scaleComponentRadius;
@@ -108,11 +111,46 @@ const ComponentSizeColumn = (props) => {
 
     // const computedHeight =
     //   paddingY * 2 + Number(componentLineHeight) * typeSize;
-    const decrementIndex = (size * -1) - 1;
-    let sizeName = size < 0 ? sizeNamesDecrement[decrementIndex] : sizeNamesIncrement[size];
-    if(sizeName===undefined) sizeName = "undefined"
 
     const radius = (scaleComponentRadius) ? scaledComponentRadius : componentRadiusNewIndexValue ;
+
+
+    tokens.component.push({[`${newTokenNamePrefix}-gap`]: {
+        'value': findReferenceToken(`${Math.round(gapSize)}px`, textIconGapScaleFormula),
+        'type': "dimension"
+    }})
+    tokens.component.push({[`${newTokenNamePrefix}-padding-left`]: {
+        'value': findReferenceToken(`${Math.round(paddingX)}px`, componentPaddingMethodOption),
+        'type': "dimension"
+    }})
+    tokens.component.push({[`${newTokenNamePrefix}-padding-right`]: {
+        'value': findReferenceToken(`${Math.round(paddingX)}px`, componentPaddingMethodOption),
+        'type': "dimension"
+    }})
+    tokens.component.push({[`${newTokenNamePrefix}-top`]: {
+        'value': findReferenceToken(`${Math.round(paddingY)}px`, componentPaddingMethodOption),
+        'type': "dimension"
+    }})
+    tokens.component.push({[`${newTokenNamePrefix}-bottom`]: {
+        'value': findReferenceToken(`${Math.round(paddingY)}px`, componentPaddingMethodOption),
+        'type': "dimension"
+    }})
+    tokens.component.push({[`${newTokenNamePrefix}-text-size`]: {
+        'value': findReferenceToken(`${Math.round(typeSize)}px`, 'typography'),
+        'type': "dimension"
+    }})
+    tokens.component.push({[`${newTokenNamePrefix}-icon-size`]: {
+        'value': findReferenceToken(`${Math.round(iconSize)}px`, 'icons'),
+        'type': "dimension"
+    }})
+    tokens.component.push({[`${newTokenNamePrefix}-min-height`]: {
+        'value': `${Math.round(componentMinHeight)}px`,
+        'type': "dimension"
+    }})
+    tokens.component.push({[`${newTokenNamePrefix}-radius`]: {
+        'value': `${Math.round(scaledComponentRadius)}px`,
+        'type': "dimension"
+    }})
 
     return (
         <div className="specRowItem"  key={`componenSpecItem${sizeName}${componentMinHeight}`}>

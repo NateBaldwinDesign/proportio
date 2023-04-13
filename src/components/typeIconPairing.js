@@ -67,10 +67,16 @@ const TypeIconPairing = (props) => {
 
   const smallSizes = smallSizeArray.map((e, i) => {
     const increment = (1 + i) * -1 + textIconGapIndex;
-    const iconIncrement = i - textIconIconSizeIndex;
+    // TODO: Incrementing is off for small sizes
+    const iconIncrement = i + textIconIconSizeIndex;
     const gapSize = Math.round(
       calculateScale(baseSize, scale, increment, method)
     );
+    // icon size
+    const textIncrement = (i+1) * -1
+    const iconSize = calculateScale(baseSize, iconScale, iconIncrement, iconScaleFormula);
+    const textSize = Math.round(calculateScale(baseSize, typeScale, textIncrement, typeScaleFormula));
+
 
     return (
       <div className="textIconItem" key={`typeIconPair-${iconScale}-neg${i}`}>
@@ -79,6 +85,7 @@ const TypeIconPairing = (props) => {
           <IconElement
             key={`typeIcon-icon-${iconScale}-neg${i}`}
             i={(iconIncrement + 1) * -1}
+            size={iconSize}
           />
           <span
             style={{
@@ -92,6 +99,7 @@ const TypeIconPairing = (props) => {
             key={`typeIcon-text-${typeScale}-neg${i}`}
             i={(i + 1) * -1}
             content={sampleText}
+            size={textSize}
           />
         </div>
       </div>
@@ -105,6 +113,9 @@ const TypeIconPairing = (props) => {
     const gapSize = Math.round(
       calculateScale(baseSize, scale, increment, method)
     );
+    const iconSize = calculateScale(baseSize, iconScale, iconIncrement, iconScaleFormula);
+    const textSize = Math.round(calculateScale(baseSize, typeScale, i, typeScaleFormula));
+
 
     return (
       <div className="textIconItem" key={`typeIconPair-${iconScale}-${i}`}>
@@ -112,10 +123,8 @@ const TypeIconPairing = (props) => {
         <div className="typeIconPair" key={`typeIcon-${i}`}>
           <IconElement
             key={`typeIcon-icon-${iconScale}-${i}`}
-            baseSize={baseSize}
-            scale={iconScale}
+            size={iconSize}
             i={iconIncrement}
-            scaleMethod={iconScaleFormula}
           />
           <span
             style={{
@@ -132,6 +141,7 @@ const TypeIconPairing = (props) => {
             i={i}
             content={sampleText}
             scaleMethod={typeScaleFormula}
+            size={textSize}
           />
         </div>
       </div>
