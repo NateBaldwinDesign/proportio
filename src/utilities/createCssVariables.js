@@ -22,7 +22,7 @@ const createCssVariables = (tokens) => {
         .replaceAll(':', ': ')
         .replaceAll('"', '')
 
-    return <pre class="__json-pretty__">{formattedCssTokens}</pre>;
+    return formattedCssTokens;
 }
 
 export default createCssVariables;

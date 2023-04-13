@@ -367,9 +367,32 @@ main.demoRow .tabs_action {
   z-index: 10;
 }
 
+.codeOutput {
+  flex-direction: column;
+
+}
 .__json-pretty__ {
   line-height: 1.3;
   color: var(--Gray500);
   background: transparent;
   overflow: auto;
+}
+
+button {
+  appearance: none;
+  padding: 6px 9px;
+  font-size: 0.875rem;
+  border-radius: 6px;
+  background: var(--Gray100);
+  color: var(--Gray600);
+  border: 1px solid var(--Gray300);
+  transition: all .1s ease-in-out;
+  cursor: pointer;
+}
+button:hover,
+button:active {
+  background: var(--Gray200);
+}
+button:focus {
+  box-shadow: 0 0 0 2px var(--appBackground), 0 0 0 4px var(--selectionIndicatorColor)
 }
