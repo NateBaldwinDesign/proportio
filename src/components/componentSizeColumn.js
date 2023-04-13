@@ -114,10 +114,9 @@ const ComponentSizeColumn = (props) => {
 
     const radius = (scaleComponentRadius) ? scaledComponentRadius : componentRadiusNewIndexValue ;
 
-    findReferenceToken(Math.round(gapSize), textIconGapScaleFormula)
 
     tokens.component.push({[`${newTokenNamePrefix}-gap`]: {
-        'value': `${Math.round(gapSize)}px`,
+        'value': findReferenceToken(`${Math.round(gapSize)}px`, textIconGapScaleFormula),
         'type': "dimension"
     }})
     tokens.component.push({[`${newTokenNamePrefix}-padding-left`]: {
