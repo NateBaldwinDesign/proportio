@@ -188,9 +188,7 @@ article li {
 p.body1 {
   font-size: 1.5rem;
 }
-article {
-  text-wrap: balance;
-}
+
 article + article {
   margin-top: 2rem;
 }
@@ -290,8 +288,6 @@ main.demoRow .tabs_action {
   max-width: fit-content;
 }
 
-.Panel_tabs {
-}
 
 .Panel_tabsList {
   padding: 0 24px;
@@ -365,4 +361,34 @@ main.demoRow .tabs_action {
 }
 .App_tabPanel.react-tabs__tab-panel--selected {
   z-index: 10;
+}
+
+.codeOutput {
+  flex-direction: column;
+
+}
+.__json-pretty__ {
+  line-height: 1.3;
+  color: var(--Gray500);
+  background: transparent;
+  overflow: auto;
+}
+
+button {
+  appearance: none;
+  padding: 6px 9px;
+  font-size: 0.875rem;
+  border-radius: 6px;
+  background: var(--Gray100);
+  color: var(--Gray600);
+  border: 1px solid var(--Gray300);
+  transition: all .1s ease-in-out;
+  cursor: pointer;
+}
+button:hover,
+button:active {
+  background: var(--Gray200);
+}
+button:focus {
+  box-shadow: 0 0 0 2px var(--appBackground), 0 0 0 4px var(--selectionIndicatorColor)
 }

@@ -18,6 +18,7 @@ import Components from "./views/components";
 import Header from "./components/header";
 import Home from "./views/home";
 import Docs from './views/docs';
+import Tokens from "./views/tokens";
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
               {/* <Tab className="App_tab">Home</Tab> */}
               <Tab className="App_tab">Foundations</Tab>
               <Tab className="App_tab">Components</Tab>
+              <Tab className="App_tab">Tokens</Tab>
               <Tab className="App_tab">Docs</Tab>
             </TabList>
           </Header>
@@ -51,6 +53,9 @@ function App() {
             <Components
               iconLineHeight={iconLineHeight}
             />
+          </TabPanel>
+          <TabPanel className="App_tabPanel">
+            <Tokens />
           </TabPanel>
           <TabPanel className="App_tabPanel">
             <Docs/>
