@@ -22,7 +22,7 @@ const findReferenceToken = (value, method) => {
         tokensArray[`${tokenNames[i]}`] = `${token[tokenNames[i]].value}`
     })
     
-    return (getObjectKey(tokensArray, value)) ? `${getObjectKey(tokensArray, value)}` : value;
+    return (getObjectKey(tokensArray, value)) ? `{${referenceKey}.${getObjectKey(tokensArray, value)}}` : value;
 }
 
 export default findReferenceToken;
