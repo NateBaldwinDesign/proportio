@@ -120,27 +120,27 @@ const ComponentSizeColumn = (props) => {
         'type': "dimension"
     }})
     tokens.component.push({[`${newTokenNamePrefix}-padding-left`]: {
-        'value': `${Math.round(paddingX)}px`,
+        'value': findReferenceToken(`${Math.round(paddingX)}px`, componentPaddingMethodOption),
         'type': "dimension"
     }})
     tokens.component.push({[`${newTokenNamePrefix}-padding-right`]: {
-        'value': `${Math.round(paddingX)}px`,
+        'value': findReferenceToken(`${Math.round(paddingX)}px`, componentPaddingMethodOption),
         'type': "dimension"
     }})
     tokens.component.push({[`${newTokenNamePrefix}-top`]: {
-        'value': `${Math.round(paddingY)}px`,
+        'value': findReferenceToken(`${Math.round(paddingY)}px`, componentPaddingMethodOption),
         'type': "dimension"
     }})
     tokens.component.push({[`${newTokenNamePrefix}-bottom`]: {
-        'value': `${Math.round(paddingY)}px`,
+        'value': findReferenceToken(`${Math.round(paddingY)}px`, componentPaddingMethodOption),
         'type': "dimension"
     }})
     tokens.component.push({[`${newTokenNamePrefix}-text-size`]: {
-        'value': `${Math.round(typeSize)}px`,
+        'value': findReferenceToken(`${Math.round(typeSize)}px`, 'typography'),
         'type': "dimension"
     }})
     tokens.component.push({[`${newTokenNamePrefix}-icon-size`]: {
-        'value': `${Math.round(iconSize)}px`,
+        'value': findReferenceToken(`${Math.round(iconSize)}px`, 'icons'),
         'type': "dimension"
     }})
     tokens.component.push({[`${newTokenNamePrefix}-min-height`]: {

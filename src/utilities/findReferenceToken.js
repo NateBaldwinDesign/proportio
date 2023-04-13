@@ -22,7 +22,6 @@ const findReferenceToken = (value, method) => {
         tokensArray[`${tokenNames[i]}`] = `${token[tokenNames[i]].value}`
     })
     
-    console.log(getObjectKey(tokensArray, value))
     return (getObjectKey(tokensArray, value)) ? `${getObjectKey(tokensArray, value)}` : value;
 }
 

@@ -12,12 +12,9 @@ import {
 } from '../states/iconography'
 
 const IconElement = (props) => {
-    const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
     const [iconPadding, setIconPadding] = useRecoilState(iconPaddingState)
-    const [iconScale, setIconScale] = useRecoilState(iconScaleState)
-    const [iconScaleFormula, setIconScaleFormula] = useRecoilState(iconScaleFormulaState)
 
-    const size = calculateScale(baseSize, iconScale, props.i, iconScaleFormula);
+    const size = props.size;
     /* Just to align icon examples with typography */
     const iconLineHeight = 1.375;
 
