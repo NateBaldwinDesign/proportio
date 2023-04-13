@@ -8,8 +8,12 @@ import {
   typeLargeQuantityState,
   typeScaleFormulaState
 } from '../states/typography'
+import calculateScale from "../utilities/calculateScale";
+import {baseSizeState} from '../states/base';
+import tokens from '../utilities/tokens'
 
 const Typography = (props) => {
+  const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
   const [typeScale, setTypeScale] = useRecoilState(typeScaleState)
   const [typeSmallQuantity, setTypeSmallQuantity] = useRecoilState(typeSmallQuantityState)
   const [typeLargeQuantity, setTypeLargeQuantity] = useRecoilState(typeLargeQuantityState)
@@ -20,14 +24,27 @@ const Typography = (props) => {
   let smallSizeArray = new Array(typeSmallQuantity).fill(0);
   let largeSizeArray = new Array(typeLargeQuantity).fill(0);
 
+  const newTypeTokens = []
+
   const smallSizes = smallSizeArray.map((e, i) => {
+    const increment = (i + 1) * -1;
+    const size = Math.round(calculateScale(baseSize, typeScale, increment, typeScaleFormula));
+    const name = `text-size-${100 + (increment * 10)}`;
+
+    const object = {
+      [name]: {
+        'value': `${size}px`,
+        'type': 'dimension'
+      }
+    }
+
+    newTypeTokens.push(object)
+
     return (
       <TypeElement
         key={`${typeScale}-neg${i}`}
-        scale={typeScale}
-        i={(i + 1) * -1}
+        size={size}
         content={sampleText}
-        scaleMethod={typeScaleFormula}
         showValue
       />
     );
@@ -35,18 +52,29 @@ const Typography = (props) => {
   const orderedSmallSizes = smallSizes.reverse();
 
   const largeSizes = largeSizeArray.map((e, i) => {
+    const size = Math.round(calculateScale(baseSize, typeScale, i, typeScaleFormula));
+    const name = `text-size-${100 * (i+1)}`
+    const object = {
+      [name]: {
+        'value': `${size}px`,
+        'type': 'dimension'
+      }
+    }
+
+    newTypeTokens.push(object)
     return (
       <TypeElement
         key={`${typeScale}-${i}`}
-        scale={typeScale}
-        i={i}
+        size={size}
         content={sampleText}
-        scaleMethod={typeScaleFormula}
         showValue
       />
     );
   });
 
+  tokens.typography = newTypeTokens;
+
+  console.log(tokens)
   return (
     <div className="column">
       <h3>Typography</h3>

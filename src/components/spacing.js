@@ -11,6 +11,7 @@ import {
     spacingFormulaState
 } from "../states/spacing";
 import scaleFormulas from "../utilities/scaleFormulas";
+import tokens from '../utilities/tokens';
 
 const Spacing = (props) => {
     const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
@@ -24,14 +25,38 @@ const Spacing = (props) => {
     let smallSizeArray = new Array(spacingSmallQuantity).fill(0);
     let largeSizeArray = new Array(spacingLargeQuantity).fill(0);
 
+    let newSpacingTokens = [];
+
     smallSizeArray = smallSizeArray.map((e, i) => {
         let increment = (i + 1) * -1;
-        return calculateScale(baseSize, spacingScaleFactor, increment, spacingFormula);
+        const size = Math.round(calculateScale(baseSize, spacingScaleFactor, increment, spacingFormula));
+        const name = `spacing-${100 + (increment * 10)}`;
+    
+        const object = {
+          [name]: {
+            'value': `${size}px`,
+            'type': 'dimension'
+          }
+        }
+    
+        newSpacingTokens.push(object)
+        return size;
     })
     smallSizeArray = smallSizeArray.reverse();
     largeSizeArray = largeSizeArray.map((e, i) => {
+        const size = Math.round(calculateScale(baseSize, spacingScaleFactor, i, spacingFormula));
+        const name = `spacing-${100 * (i+1)}`;
+    
+        const object = {
+          [name]: {
+            'value': `${size}px`,
+            'type': 'dimension'
+          }
+        }
+        newSpacingTokens.push(object)
         return calculateScale(baseSize, spacingScaleFactor, i, spacingFormula);
     })
+    tokens.spacing = newSpacingTokens;
 
     const spacingSizes = smallSizeArray.concat(largeSizeArray);
 
