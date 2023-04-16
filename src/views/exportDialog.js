@@ -155,7 +155,9 @@ const ExportDialog = (props) => {
                     <Tab>CSS variables</Tab>
                 </TabList>
                 <TabPanel className="codeOutput">
-                    <JSONPretty data={tokens} theme={myTheme}/>
+                    <div style={{overflow: 'auto'}}>
+                        <JSONPretty data={tokens} theme={myTheme}/>
+                    </div>
                     <CopyToClipboard text={JSON.stringify(tokens)}
                         onCopy={() => {
                         setCopiedTokens(true)
@@ -167,7 +169,9 @@ const ExportDialog = (props) => {
                     </CopyToClipboard>
                 </TabPanel>
                 <TabPanel className="codeOutput">
-                    <pre class="__json-pretty__">{CssTokens}</pre>
+                    <div style={{overflow: 'auto'}}>
+                        <pre class="__json-pretty__">{CssTokens}</pre>
+                    </div>
                     <CopyToClipboard text={`${CssTokens}`}
                     onCopy={() => {
                         setCopiedCssVars(true)

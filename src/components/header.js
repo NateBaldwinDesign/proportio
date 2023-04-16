@@ -20,6 +20,7 @@ const Header = (props) => {
       </div>
       <div className="header--right">
         <button 
+          className="clearButton"
           onClick={() => {
             console.log('Open says-a-me')
             console.log(showModal)
