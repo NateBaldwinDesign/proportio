@@ -20,8 +20,10 @@ const ExportDialog = (props) => {
     const showModal = props.showModal
     const setShowModal = props.setShowModal;
 
-    const [copied, setCopied] = useState(false);
-    const ButtonText = (copied===true) ? "Copied!" : "Copy";
+    const [copiedTokens, setCopiedTokens] = useState(false);
+    const ButtonTextTokens = (copiedTokens===true) ? "Copied!" : "Copy";
+    const [copiedCssVars, setCopiedCssVars] = useState(false);
+    const ButtonTextCssVars = (copiedCssVars===true) ? "Copied!" : "Copy";
 
     const CssTokens = createCssVariables(tokens)
 
@@ -140,42 +142,43 @@ const ExportDialog = (props) => {
             //     (props, children) => <div {...props}>{children}</div>
             // /* Custom Content element. */}
             >
-                <div>
+                <div className='Modal__Header'>
+                    <h2 style={{marginBottom: 0, marginTop: 0}}>Export</h2>
                     <button 
+                        className='clearButton'
                         onClick={() => {setShowModal(false)}}
                     >Close</button>
-                    <p>Modal Content</p>
                 </div>
                 <Tabs>
-              <TabList> 
-                <Tab>W3C tokens</Tab>
-                <Tab>CSS variables</Tab>
-              </TabList>
-              <TabPanel className="codeOutput">
-                  <CopyToClipboard text={JSON.stringify(tokens)}
+                <TabList> 
+                    <Tab>W3C tokens</Tab>
+                    <Tab>CSS variables</Tab>
+                </TabList>
+                <TabPanel className="codeOutput">
+                    <JSONPretty data={tokens} theme={myTheme}/>
+                    <CopyToClipboard text={JSON.stringify(tokens)}
+                        onCopy={() => {
+                        setCopiedTokens(true)
+                        setTimeout(() => {
+                            setCopiedTokens(false)
+                        }, 2000)
+                        }}>
+                        <button>{ButtonTextTokens}</button>
+                    </CopyToClipboard>
+                </TabPanel>
+                <TabPanel className="codeOutput">
+                    <pre class="__json-pretty__">{CssTokens}</pre>
+                    <CopyToClipboard text={`${CssTokens}`}
                     onCopy={() => {
-                      setCopied(true)
-                      setTimeout(() => {
-                        setCopied(false)
-                      }, 3000)
+                        setCopiedCssVars(true)
+                        setTimeout(() => {
+                        setCopiedCssVars(false)
+                        }, 2000)
                     }}>
-                    <button>{ButtonText}</button>
-                  </CopyToClipboard>
-                  <JSONPretty data={tokens} theme={myTheme}/>
-              </TabPanel>
-              <TabPanel className="codeOutput">
-                <CopyToClipboard text={`${CssTokens}`}
-                  onCopy={() => {
-                    setCopied(true)
-                    setTimeout(() => {
-                      setCopied(false)
-                    }, 3000)
-                  }}>
-                  <button>{ButtonText}</button>
-                </CopyToClipboard>
-                <pre class="__json-pretty__">{CssTokens}</pre>
-              </TabPanel>
-            </Tabs>
+                    <button>{ButtonTextCssVars}</button>
+                    </CopyToClipboard>
+                </TabPanel>
+                </Tabs>
         </ReactModal>
     )
 }
