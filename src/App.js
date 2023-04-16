@@ -47,6 +47,8 @@ function App() {
               <Tab className="App_tab">Typography</Tab>
               <Tab className="App_tab">Shape</Tab>
               <Tab className="App_tab">Components</Tab>
+              <Tab className="App_tab">Containers</Tab>
+
               {/* <Tab className="App_tab">Tokens</Tab> */}
               {/* <Tab className="App_tab">Docs</Tab> */}
             </TabList>
@@ -70,6 +72,9 @@ function App() {
             <Components
               iconLineHeight={iconLineHeight}
             />
+          </TabPanel>
+          <TabPanel className="App_tabPanel">
+            Containers
           </TabPanel>
 
         </Tabs>
