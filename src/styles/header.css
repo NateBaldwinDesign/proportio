@@ -43,6 +43,7 @@ header {
   justify-self: flex-end;
   display: flex;
   align-items: center;
+  gap: var(--appFrameMargin);
 }
 .header--right a {
   display: flex;

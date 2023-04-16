@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   RecoilRoot,
   atom,
@@ -17,25 +17,36 @@ import Foundations from "./views/foundations";
 import Components from "./views/components";
 import Header from "./components/header";
 import Home from "./views/home";
-import Docs from './views/docs';
-import Tokens from "./views/tokens";
+// import Docs from './views/docs';
+// import Tokens from "./views/tokens";
+import ExportDialog from "./views/exportDialog"
 
 function App() {
 
   const iconLineHeight = 1.375; /* Just to align icon examples with typography */
   const spacerLineHeight = iconLineHeight;
 
+  const [showModal, setShowModal] = useState(false)
+
+
   return (
     <RecoilRoot>
       <div className="App">
+        <ExportDialog
+          showModal={showModal}
+          setShowModal={setShowModal}
+        />
         <Tabs className="App_tabs">
-          <Header>
+          <Header
+            showModal={showModal}
+            setShowModal={setShowModal}
+          >
             <TabList className="App_tabsList">
               {/* <Tab className="App_tab">Home</Tab> */}
               <Tab className="App_tab">Foundations</Tab>
               <Tab className="App_tab">Components</Tab>
-              <Tab className="App_tab">Tokens</Tab>
-              <Tab className="App_tab">Docs</Tab>
+              {/* <Tab className="App_tab">Tokens</Tab> */}
+              {/* <Tab className="App_tab">Docs</Tab> */}
             </TabList>
           </Header>
 
@@ -54,12 +65,12 @@ function App() {
               iconLineHeight={iconLineHeight}
             />
           </TabPanel>
-          <TabPanel className="App_tabPanel">
+          {/* <TabPanel className="App_tabPanel">
             <Tokens />
-          </TabPanel>
-          <TabPanel className="App_tabPanel">
+          </TabPanel> */}
+          {/* <TabPanel className="App_tabPanel">
             <Docs/>
-          </TabPanel>
+          </TabPanel> */}
         </Tabs>
       </div>
     </RecoilRoot>
