@@ -13,7 +13,8 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "./styles/app.css";
 import "./styles/formElements.css";
 
-import Foundations from "./views/foundations";
+import TypographyView from "./views/typographyView";
+import ShapesView from './views/shapesView';
 import Components from "./views/components";
 import Header from "./components/header";
 import Home from "./views/home";
@@ -43,7 +44,8 @@ function App() {
           >
             <TabList className="App_tabsList">
               {/* <Tab className="App_tab">Home</Tab> */}
-              <Tab className="App_tab">Foundations</Tab>
+              <Tab className="App_tab">Typography</Tab>
+              <Tab className="App_tab">Shape</Tab>
               <Tab className="App_tab">Components</Tab>
               {/* <Tab className="App_tab">Tokens</Tab> */}
               {/* <Tab className="App_tab">Docs</Tab> */}
@@ -55,8 +57,12 @@ function App() {
           </TabPanel> */}
 
           <TabPanel className="App_tabPanel">
-            <Foundations
+            <TypographyView
               iconLineHeight={iconLineHeight}
+            />
+          </TabPanel>
+          <TabPanel className="App_tabPanel">
+            <ShapesView
               spacerLineHeight={spacerLineHeight}
             />
           </TabPanel>
@@ -65,12 +71,7 @@ function App() {
               iconLineHeight={iconLineHeight}
             />
           </TabPanel>
-          {/* <TabPanel className="App_tabPanel">
-            <Tokens />
-          </TabPanel> */}
-          {/* <TabPanel className="App_tabPanel">
-            <Docs/>
-          </TabPanel> */}
+
         </Tabs>
       </div>
     </RecoilRoot>

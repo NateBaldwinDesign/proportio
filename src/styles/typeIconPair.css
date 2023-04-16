@@ -1,6 +1,6 @@
 .textIconItem {
     display: grid;
-    grid-template-columns: 36px auto;
+    grid-template-columns: 70px auto;
     align-items: center;
 }
 

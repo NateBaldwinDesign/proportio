@@ -9,7 +9,7 @@ const RadiusElement = (props) => {
             <span className="specs"> {Math.round(radius)}px </span>
             <div 
                 className="radius"
-                style={{borderRadius: `${radius}px`}}
+                style={{borderTopLeftRadius: `${radius}px`}}
             >
             </div>
         </div>

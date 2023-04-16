@@ -12,7 +12,7 @@
   gap: 8px;
 }
 .elevation {
-  width: 80px;
-  height: 60px;
+  width: 260px;
+  height: 120px;
   background-color: var(--elevationItemBackground);
 }
