@@ -6,6 +6,9 @@ import GitHubLogo from '../icons/github.js'
 import "../styles/header.css";
 
 const Header = (props) => {
+  const showModal = props.showModal
+  const setShowModal = props.setShowModal;
+
   return (
     <header>
       <div className="header--left">
@@ -16,6 +19,13 @@ const Header = (props) => {
         {props.children}
       </div>
       <div className="header--right">
+        <button 
+          onClick={() => {
+            console.log('Open says-a-me')
+            console.log(showModal)
+            setShowModal(true)
+          }}
+        > Export </button>
         <a target="_blank" href="https://github.com/NateBaldwinDesign/proportio" title="Github repository">
           <GitHubLogo size="32" color="var(--textColor"/>
         </a>

@@ -1,0 +1,20 @@
+.ReactModal__Overlay {
+
+}
+
+.ReactModal__Overlay--after-open {
+    background-color: rgba(0, 0, 0, 0.20) !important;
+    backdrop-filter: blur(2px) !important;
+    z-index: 100;
+}
+
+.ReactModal__Content {
+    inset: 64px !important;
+    padding: 40px !important;
+    border-radius: 32px !important;
+    border: none !important;
+    box-shadow: 
+        0 0 20px 0 rgba(0, 0, 0, 0.10), 
+        0 20px 40px 0 rgba(0, 0, 0, 0.15),
+        0 40px 80px 0 rgba(0, 0, 0, 0.10)
+}
