@@ -21,6 +21,7 @@ import Home from "./views/home";
 // import Docs from './views/docs';
 // import Tokens from "./views/tokens";
 import ExportDialog from "./views/exportDialog"
+import Containers from "./views/containers";
 
 function App() {
 
@@ -74,7 +75,7 @@ function App() {
             />
           </TabPanel>
           <TabPanel className="App_tabPanel">
-            Containers
+            <Containers />
           </TabPanel>
 
         </Tabs>
