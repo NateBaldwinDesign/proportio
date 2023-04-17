@@ -36,7 +36,7 @@ const IconControls = (props) => {
   return (
     <fieldset>
       <legend>Iconography</legend>
-      <div className="segmentedControl">{inputs}</div>
+      {/* <div className="segmentedControl">{inputs}</div> */}
       <div className="column">
         <div className="formGroup">
           <label htmlFor="">Scale factor</label>

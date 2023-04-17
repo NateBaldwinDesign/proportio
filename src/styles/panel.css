@@ -25,3 +25,7 @@
   position: fixed;
   width: 232px;
 }
+
+.panel .react-tabs__tab-panel {
+  gap: 0;
+}

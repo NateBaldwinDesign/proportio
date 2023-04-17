@@ -67,8 +67,8 @@ const TypeIconPairing = (props) => {
 
   const smallSizes = smallSizeArray.map((e, i) => {
     const increment = (1 + i) * -1 + textIconGapIndex;
-    // TODO: Incrementing is off for small sizes
-    const iconIncrement = i + textIconIconSizeIndex;
+// TODO: Incrementing is off for small sizes
+    const iconIncrement = ((i+1) * -1) + textIconIconSizeIndex;
     const gapSize = Math.round(
       calculateScale(baseSize, scale, increment, method)
     );

@@ -7,7 +7,8 @@ import {
   elevationScaleFactorState,
   elevationSmallQuantityState,
   elevationLargeQuantityState,
-  elevationScaleFormulaState
+  elevationScaleFormulaState,
+  elevationOffsetYState
 } from "../states/elevation"
 import scaleMethodOptions from "../utilities/scaleFormulas"
 
@@ -17,6 +18,7 @@ const ElevationControls = (props) => {
   const [elevationSmallQuantity, setElevationSmallQuantity] = useRecoilState(elevationSmallQuantityState)
   const [elevationLargeQuantity, setElevationLargeQuantity] = useRecoilState(elevationLargeQuantityState)
   const [elevationScaleFormula, setElevationScaleFormula] = useRecoilState(elevationScaleFormulaState)
+  const [elevationOffsetY, setElevationOffsetY] = useRecoilState(elevationOffsetYState)
 
   const inputs = scaleMethodOptions.map((method) => {
     return (
@@ -80,6 +82,18 @@ const ElevationControls = (props) => {
             defaultValue={elevationLargeQuantity}
           />
         </div>
+        <div className="formGroup">
+          <label htmlFor="">Offset Y (%)</label>
+          <input
+            type="number"
+            onInput={(e) => setElevationOffsetY(Number(e.target.value))}
+            step="1"
+            min="0"
+            max="200"
+            defaultValue={elevationOffsetY}
+          />
+        </div>
+
       </div>
     </fieldset>
   );

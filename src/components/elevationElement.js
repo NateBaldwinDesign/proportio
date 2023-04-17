@@ -3,6 +3,8 @@ import { useRecoilState } from 'recoil';
 
 const ElevationElement = (props) => {
   const elevation = props.elevation;
+  const offsetY = props.offsetY;
+
   const margin = elevation > 0 ? elevation : 4;
   return (
     <div className="elevationItem">
@@ -10,7 +12,7 @@ const ElevationElement = (props) => {
       <div
         className="elevation"
         style={{
-          boxShadow: `0 ${elevation}px ${elevation}px var(--elevationDemoShadowColor)`,
+          boxShadow: `0 ${offsetY}px ${elevation}px var(--elevationDemoShadowColor)`,
           marginBottom: `${margin}px`,
         }}
       ></div>

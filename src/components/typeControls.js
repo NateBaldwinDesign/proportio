@@ -37,7 +37,7 @@ const TypeControls = (props) => {
   return (
     <fieldset>
       <legend>Typography</legend>
-      <div className="segmentedControl">{inputs}</div>
+      {/* <div className="segmentedControl">{inputs}</div> */}
 
       <div className="column">
         <div className="formGroup">
@@ -78,7 +78,7 @@ const TypeControls = (props) => {
             <label htmlFor="">Sample text</label>
             <input
               type="text"
-              style={{ width: "74px" }}
+              style={{ width: "126px" }}
               onInput={(e) => setSampleText(e.target.value)}
               defaultValue={sampleText}
             />
