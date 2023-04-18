@@ -230,7 +230,7 @@ main {
 
 main.demoRow {
   flex-direction: row;
-  column-gap: calc(var(--appFrameMargin) * 3);
+  column-gap: calc(var(--appFrameMargin) * 5);
   row-gap: var(--appFrameMargin);
   flex-wrap: wrap;
   padding-top: 48px;
@@ -239,6 +239,9 @@ main.demoRow {
 main.demoRow .tabs_action {
   width: 100%;
   margin: 0;
+}
+main.demoRow .column {
+  flex-grow: 0;
 }
 
 .splitView main {

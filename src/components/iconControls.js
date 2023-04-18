@@ -74,8 +74,8 @@ const IconControls = (props) => {
           <input
             type="number"
             onInput={(e) => setIconStroke(Number(e.target.value))}
-            step="0.1"
-            min="0.1"
+            step="0.25"
+            min="0.25"
             max="5"
             defaultValue={iconStroke}
           />
