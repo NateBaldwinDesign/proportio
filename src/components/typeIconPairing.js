@@ -6,7 +6,7 @@ import "../styles/typography.css";
 import "../styles/iconography.css";
 import "../styles/typeIconPair.css";
 import calculateScale from "../utilities/calculateScale";
-import {baseSizeState} from '../states/base';
+import {baseScaleUnitState, baseSizeState} from '../states/base';
 import { 
   spacingScaleFactorState,
   spacingFormulaState
@@ -29,6 +29,7 @@ import {
   iconScaleFormulaState,
   iconPaddingState
 } from '../states/iconography'
+import round from "../utilities/round";
 
 const TypeIconPairing = (props) => {
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
@@ -46,6 +47,8 @@ const TypeIconPairing = (props) => {
 
   const [iconScale, setIconScale] = useRecoilState(iconScaleState)
   const [iconScaleFormula, setIconScaleFormula] = useRecoilState(iconScaleFormulaState)
+  const [baseScaleUnit, setBaseScaleUnit] = useRecoilState(baseScaleUnitState)
+
 
   let smallSizeArray = new Array(typeSmallQuantity).fill(0);
   let largeSizeArray = new Array(typeLargeQuantity).fill(0);
@@ -83,11 +86,13 @@ const TypeIconPairing = (props) => {
     const marginIcon = `${(iconSize * demoLineHeight) - iconSize}px`;
     const margin = (marginText > marginIcon) ? marginText : marginIcon;
 
+    const gapValue = (baseScaleUnit === 'px') ? gapSize : round(gapSize/baseSize, 3);
+
     return (
       <div className="textIconItem" key={`typeIconPair-${iconScale}-neg${i}`} style={{
         marginBottom: margin
       }}>
-        <span className="specs"> {gapSize}px (gap) </span>
+        <span className="specs"> {gapValue}{baseScaleUnit} (gap) </span>
         <div className="typeIconPair" key={`typeIcon-neg${i}`}>
           <IconElement
             key={`typeIcon-icon-${iconScale}-neg${i}`}
@@ -126,12 +131,14 @@ const TypeIconPairing = (props) => {
     const marginText = `${(textSize * demoLineHeight) - textSize}px`;
     const marginIcon = `${(iconSize * demoLineHeight) - iconSize}px`;
     const margin = (marginText > marginIcon) ? marginText : marginIcon;
-    
+
+    const gapValue = (baseScaleUnit === 'px') ? gapSize : round(gapSize/baseSize, 3);
+
     return (
       <div className="textIconItem" key={`typeIconPair-${iconScale}-${i}`} style={{
         marginBottom: margin
       }}>
-        <span className="specs"> {gapSize}px (gap) </span>
+        <span className="specs"> {gapValue}{baseScaleUnit} (gap) </span>
         <div className="typeIconPair" key={`typeIcon-${i}`}>
           <IconElement
             key={`typeIcon-icon-${iconScale}-${i}`}
