@@ -254,7 +254,7 @@ main.demoRow .column {
 }
 @media screen and (min-width: 900px) {
   .splitView main {
-    max-width: calc(100vw - 400px - var(--appFrameMargin));
+    max-width: calc(100vw - 442px - var(--appFrameMargin));
     height: calc(100vh - 200px);
     margin: 0;
   }
