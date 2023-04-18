@@ -23,9 +23,8 @@ import ShapeSpacing from '../icons/shapeSpacing';
 import ShapeElevation from '../icons/shapeElevation';
 import ShapeCircle from '../icons/shapeCircle';
 
-const Foundations = (props) => {
-  const [sampleText, setSampleText] = useState("Text");
-  const spacerLineHeight = 8;
+const TypographyView = (props) => {
+  const [sampleText, setSampleText] = useState("Proportional");
 
   return (
     <>
@@ -33,43 +32,14 @@ const Foundations = (props) => {
         <Panel direction="column">
           <BaseControls   />
 
-          <Tabs >
-            <TabList>
-              <Tab>
-                {/* <ShapeSpacing size="24" color="currentColor"/> */}
-                Space
-              </Tab>
-              <Tab>
-                {/* <ShapeText size="24" color="currentColor"/> */}
-                Type
-              </Tab>
-              <Tab>
-                {/* <ShapeCircle size="24" color="currentColor"/> */}
-                Shape
-              </Tab>
-            </TabList>
-
-            <TabPanel>
-              <SpacingControls />
-            </TabPanel>
-            <TabPanel>
-              <TypeControls
+          <TypeControls
                 sampleText={sampleText}
                 setSampleText={setSampleText}
               />
               <IconControls />
               <TypeIconPairingControls />
-            </TabPanel>
-            <TabPanel> 
-              <RadiusControls />
-              <ElevationControls />
-            </TabPanel>
-          </Tabs>
         </Panel>
-        <main className="demoRow">
-          <Spacing
-            spacerLineHeight={spacerLineHeight}
-          />
+        <main className="demoRow apply-font-main">
           <Typography
             sampleText={sampleText}
           />
@@ -77,12 +47,10 @@ const Foundations = (props) => {
           <TypeIconPairing
             sampleText={sampleText}
           />
-          <Radius />
-          <Elevation />
         </main>
       </div>
     </>
   );
 };
 
-export default Foundations;
+export default TypographyView;

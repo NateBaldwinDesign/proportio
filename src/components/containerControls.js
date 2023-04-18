@@ -21,7 +21,7 @@ import {
   componentDensityScaleFactorState
 } from "../states/components"
 
-const ComponentControls = (props) => {
+const ContainerControls = (props) => {
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
 
   const [baseComponentSizeIndex, setBaseComponentSizeIndex] = useRecoilState(baseComponentSizeIndexState);
@@ -38,11 +38,6 @@ const ComponentControls = (props) => {
   const [componentDensitySmallQuantity, setComponentDensitySmallQuantity] = useRecoilState(componentDensitySmallQuantityState);
   const [componentDensityLargeQuantity, setComponentDensityLargeQuantity] = useRecoilState(componentDensityLargeQuantityState);
   const [componentDensityScaleFactor, setComponentDensityScaleFactor] = useRecoilState(componentDensityScaleFactorState);
-
-  const showComponentIcon = props.showComponentIcon;
-  const setShowComponentIcon = props.setShowComponentIcon;
-  const showComponentText = props.showComponentText;
-  const setShowComponentText = props.setShowComponentText;
 
   const componentScalingMethodInputs = scaleMethodOptions.map((method) => {
     return (
@@ -163,10 +158,7 @@ const ComponentControls = (props) => {
                     setBaseComponentPaddingXIndex(e.target.value);
                   }}
                 />
-                {/* <span
-                  className="computedValue"
-                  id="componentXPaddingComputedSize"
-                ></span> */}
+
               </div>
               <div className="formGroup">
                 <label>Top/bottom index</label>
@@ -178,10 +170,7 @@ const ComponentControls = (props) => {
                     setBaseComponentPaddingYIndex(e.target.value);
                   }}
                 />
-                {/* <span
-                  className="computedValue"
-                  id="componentYPaddingComputedSize"
-                ></span> */}
+
               </div>
             </div>
           </fieldset>
@@ -257,9 +246,7 @@ const ComponentControls = (props) => {
                     setBaseComponentRadius(e.target.value);
                   }}
                 />
-                {/* <span className="computedValue" id="componentComputedSize">
-                  {baseComponentSize}
-                </span> */}
+
               </div>
             </div>
           </fieldset>
@@ -269,4 +256,4 @@ const ComponentControls = (props) => {
   );
 };
 
-export default ComponentControls;
+export default ContainerControls;

@@ -7,8 +7,16 @@ import {
   iconSmallQuantityState,
   iconLargeQuantityState,
   iconScaleFormulaState,
-  iconPaddingState
+  iconPaddingState,
+  iconState,
+  iconStrokeState
 } from "../states/iconography"
+import Dropdown from 'react-dropdown';
+import Slider from "./slider";
+// import 'react-dropdown/style.css';
+
+const feather = require('feather-icons');
+
 
 const IconControls = (props) => {
   const [iconScale, setIconScale] = useRecoilState(iconScaleState)
@@ -16,6 +24,10 @@ const IconControls = (props) => {
   const [iconLargeQuantity, setIconLargeQuantity] = useRecoilState(iconLargeQuantityState)
   const [iconScaleFormula, setIconScaleFormula] = useRecoilState(iconScaleFormulaState)
   const [iconPadding, setIconPadding] = useRecoilState(iconPaddingState)
+  const [iconStroke, setIconStroke] = useRecoilState(iconStrokeState)
+
+  const availableIcons = Object.keys(feather.icons);
+  const [icon, setIcon] = useRecoilState(iconState);
 
   const inputs = scaleMethodOptions.map((method) => {
     return (
@@ -36,26 +48,41 @@ const IconControls = (props) => {
   return (
     <fieldset>
       <legend>Iconography</legend>
-      <div className="segmentedControl">{inputs}</div>
+      {/* <div className="segmentedControl">{inputs}</div> */}
       <div className="column">
         <div className="formGroup">
+          <label>Icon</label>
+          <span className="iconPicker" style={{width: 'calc(100% - 80px)'}}>
+            <Dropdown 
+              options={availableIcons} 
+              onChange={(e) => {
+                setIcon(e.value); 
+                // console.log(e)
+              }} 
+              value={icon} 
+              placeholder={icon} />
+            </span>
+        </div>
+        {/* <div className="formGroup">
           <label htmlFor="">Scale factor</label>
           <input
             type="number"
             onInput={(e) => setIconScale(Number(e.target.value))}
-            step={iconScaleFormula === "power" ? "0.01" : "1"}
+            step={iconScaleFormula === "power" ? "0.001" : "1"}
             min="0"
             defaultValue={iconScale}
           />
-        </div>
+        </div> */}
         <div className="formGroup">
-          <label htmlFor="">Icon padding</label>
-          <input
-            type="number"
-            onInput={(e) => setIconPadding(Number(e.target.value))}
-            step="1"
-            min="0"
-            defaultValue={iconPadding}
+          <label htmlFor="">Stroke</label>
+          <Slider
+            type="range"
+            onInput={setIconStroke}
+            step="0.25"
+            min="0.25"
+            max="5"
+            unit="px"
+            defaultValue={iconStroke}
           />
         </div>
         <div className="formGroup">

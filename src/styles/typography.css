@@ -1,11 +1,11 @@
 #typography {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
 }
 
 .typeItem {
     display: grid;
-    grid-template-columns: 32px max-content;
+    grid-template-columns: 64px max-content;
     align-items: center;
 }
 

@@ -9,8 +9,9 @@ import {
   typeScaleFormulaState
 } from '../states/typography'
 import calculateScale from "../utilities/calculateScale";
-import {baseSizeState} from '../states/base';
+import {baseScaleUnitState, baseSizeState} from '../states/base';
 import tokens from '../utilities/tokens'
+import round from "../utilities/round";
 
 const Typography = (props) => {
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
@@ -18,6 +19,7 @@ const Typography = (props) => {
   const [typeSmallQuantity, setTypeSmallQuantity] = useRecoilState(typeSmallQuantityState)
   const [typeLargeQuantity, setTypeLargeQuantity] = useRecoilState(typeLargeQuantityState)
   const [typeScaleFormula, setTypeScaleFormula] = useRecoilState(typeScaleFormulaState)
+  const [baseScaleUnit, setBaseScaleUnit] = useRecoilState(baseScaleUnitState)
 
   const sampleText = props.sampleText;
 
@@ -30,10 +32,11 @@ const Typography = (props) => {
     const increment = (i + 1) * -1;
     const size = Math.round(calculateScale(baseSize, typeScale, increment, typeScaleFormula));
     const name = `text-size-${100 + (increment * 10)}`;
+    const value = (baseScaleUnit === 'px') ? size : round(size/baseSize, 3);
 
     const object = {
       [name]: {
-        'value': `${size}px`,
+        'value': `${value}${baseScaleUnit}`,
         'type': 'dimension'
       }
     }
@@ -54,9 +57,11 @@ const Typography = (props) => {
   const largeSizes = largeSizeArray.map((e, i) => {
     const size = Math.round(calculateScale(baseSize, typeScale, i, typeScaleFormula));
     const name = `text-size-${100 * (i+1)}`
+    const value = (baseScaleUnit === 'px') ? size : round(size/baseSize, 3);
+
     const object = {
       [name]: {
-        'value': `${size}px`,
+        'value': `${value}${baseScaleUnit}`,
         'type': 'dimension'
       }
     }

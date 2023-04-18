@@ -4,7 +4,7 @@ import {
   } from 'recoil';
 import IconElement from "./iconElement";
 import '../styles/iconography.css'
-import {baseSizeState} from '../states/base';
+import {baseScaleUnitState, baseSizeState} from '../states/base';
 import {
     iconScaleState,
     iconSmallQuantityState,
@@ -14,6 +14,7 @@ import {
 } from '../states/iconography'
 import calculateScale from "../utilities/calculateScale";
 import tokens from "../utilities/tokens";
+import round from "../utilities/round";
 
 const Iconography = (props) => {
     const [baseSize, setBaseSize] = useRecoilState(baseSizeState)
@@ -22,6 +23,7 @@ const Iconography = (props) => {
     const [iconLargeQuantity, setIconLargeQuantity] = useRecoilState(iconLargeQuantityState)
     const [iconScaleFormula, setIconScaleFormula] = useRecoilState(iconScaleFormulaState)
     const [iconPadding, setIconPadding] = useRecoilState(iconPaddingState)
+    const [baseScaleUnit, setBaseScaleUnit] = useRecoilState(baseScaleUnitState)
 
     let smallSizeArray = new Array(iconSmallQuantity).fill(0); 
     let largeSizeArray = new Array(iconLargeQuantity).fill(0);
@@ -32,10 +34,11 @@ const Iconography = (props) => {
         const increment = (i+1) * -1
         const size = Math.round(calculateScale(baseSize, iconScale, increment, iconScaleFormula));
         const name = `icon-size-${100 + (increment * 10)}`;
+        const value = (baseScaleUnit === 'px') ? size : round(size/baseSize, 3);
 
         const object = {
           [name]: {
-            'value': `${size}px`,
+            'value': `${value}${baseScaleUnit}`,
             'type': 'dimension'
           }
         }
@@ -53,9 +56,11 @@ const Iconography = (props) => {
     const largeSizes = largeSizeArray.map((e, i) => {
         const size = Math.round(calculateScale(baseSize, iconScale, i, iconScaleFormula));
         const name = `icon-size-${100 * (i+1)}`
+        const value = (baseScaleUnit === 'px') ? size : round(size/baseSize, 3);
+
         const object = {
           [name]: {
-            'value': `${size}px`,
+            'value': `${value}${baseScaleUnit}`,
             'type': 'dimension'
           }
         }
@@ -74,7 +79,7 @@ const Iconography = (props) => {
     return (
         <div className="column">
             <h3>Iconography</h3>
-            <div>
+            <div id="iconography">
                 {orderedSmallSizes}
                 {largeSizes}
             </div>

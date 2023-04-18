@@ -5,15 +5,6 @@ import {
 import scaleMethodOptions from '../utilities/scaleMethodOptions';
 
 
-/** TODO: 
- *  Remove baseIconSizeIndexState and baseComponentTextSizeIndexState
- *  and simply reference textIconIconSizeIndex etc in the components
- */
-const baseIconSizeIndexState = atom({
-    key: 'baseIconSizeIndex',
-    // default: textIconIconSizeIndex
-    default: 0
-})
 const baseComponentSizeIndexState = atom({
     key: 'baseComponentSizeIndex',
     default: 1
@@ -73,7 +64,6 @@ const baseComponentRadiusState = atom({
 })
 
 export {
-    baseIconSizeIndexState,
     baseComponentSizeIndexState,
     componentLineHeightState,
     componentSmallQuantityState,

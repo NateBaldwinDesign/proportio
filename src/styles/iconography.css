@@ -1,6 +1,10 @@
+#iconography {
+    display: flex;
+    flex-direction: column-reverse;
+}
 .iconItem {
     display: grid;
-    grid-template-columns: 36px max-content;
+    grid-template-columns: 64px max-content;
     font-size: 12px;
     font-style: italic;
     align-items: center;
@@ -8,6 +12,6 @@
   
 .icon {
     display: flex;
-    background-color: var(--blueprint200);
+    background-color: var(--blueprint100);
     border-radius: 2px;
 }

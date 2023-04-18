@@ -7,9 +7,11 @@ import {
   elevationScaleFactorState,
   elevationSmallQuantityState,
   elevationLargeQuantityState,
-  elevationScaleFormulaState
+  elevationScaleFormulaState,
+  elevationOffsetYState
 } from "../states/elevation"
 import scaleMethodOptions from "../utilities/scaleFormulas"
+import Slider from "./slider";
 
 const ElevationControls = (props) => {
   const [baseElevationSize, setBaseElevationSize] = useRecoilState(baseElevationSizeState)
@@ -17,6 +19,7 @@ const ElevationControls = (props) => {
   const [elevationSmallQuantity, setElevationSmallQuantity] = useRecoilState(elevationSmallQuantityState)
   const [elevationLargeQuantity, setElevationLargeQuantity] = useRecoilState(elevationLargeQuantityState)
   const [elevationScaleFormula, setElevationScaleFormula] = useRecoilState(elevationScaleFormulaState)
+  const [elevationOffsetY, setElevationOffsetY] = useRecoilState(elevationOffsetYState)
 
   const inputs = scaleMethodOptions.map((method) => {
     return (
@@ -80,6 +83,19 @@ const ElevationControls = (props) => {
             defaultValue={elevationLargeQuantity}
           />
         </div>
+        <div className="formGroup">
+          <label htmlFor="">Shadow distance</label>
+          <Slider
+            type="number"
+            onInput={setElevationOffsetY}
+            step="1"
+            min="0"
+            max="200"
+            unit="%"
+            defaultValue={elevationOffsetY}
+          />
+        </div>
+
       </div>
     </fieldset>
   );

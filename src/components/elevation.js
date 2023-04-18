@@ -9,7 +9,8 @@ import {
     elevationScaleFactorState,
     elevationSmallQuantityState,
     elevationLargeQuantityState,
-    elevationScaleFormulaState
+    elevationScaleFormulaState,
+    elevationOffsetYState
 } from "../states/elevation"
 import tokens from "../utilities/tokens";
 
@@ -19,10 +20,14 @@ const Elevation = (props) => {
     const [elevationSmallQuantity, setElevationSmallQuantity] = useRecoilState(elevationSmallQuantityState)
     const [elevationLargeQuantity, setElevationLargeQuantity] = useRecoilState(elevationLargeQuantityState)
     const [elevationScaleFormula, setElevationScaleFormula] = useRecoilState(elevationScaleFormulaState)
+    const [elevationOffsetY, setElevationOffsetY] = useRecoilState(elevationOffsetYState)
 
     let sizeArray = buildArray(elevationSmallQuantity, elevationLargeQuantity);
     const sizes = sizeArray.map((i) => {
         return calculateScale(baseElevationSize, elevationScaleFactor, i, elevationScaleFormula);
+    })
+    const offsets = sizes.map((size) => {
+        return size * (elevationOffsetY / 100)
     })
 
     const newElevationTokens = []
@@ -32,7 +37,7 @@ const Elevation = (props) => {
         const nameY = `elevation-${100 * (i+1)}-blur`
         const objectX = {
           [nameX]: {
-            'value': `${size}px`,
+            'value': `${offsets[i]}px`,
             'type': 'dimension'
           }
         }
@@ -49,6 +54,7 @@ const Elevation = (props) => {
         return (
             <ElevationElement 
                 key={`elevation-${i}}`}
+                offsetY={offsets[i]}
                 elevation={size}
             />
         )

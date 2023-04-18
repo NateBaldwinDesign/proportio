@@ -44,7 +44,7 @@ const ExportDialog = (props) => {
             // /* Function that will be run when the modal is requested
             //     to be closed (either by clicking on overlay or pressing ESC).
             //     Note: It is not called if isOpen is changed by other means. */}
-
+            closeTimeoutMS={300}
             // closeTimeoutMS={
             //     0
             // /* Number indicating the milliseconds to wait before closing

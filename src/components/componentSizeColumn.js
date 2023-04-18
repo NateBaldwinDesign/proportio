@@ -55,8 +55,10 @@ const ComponentSizeColumn = (props) => {
     const componentRadiusNewIndexValue = props.componentRadiusNewIndexValue;
     const scaleComponentRadius = props.scaleComponentRadius;
     const iconPadding = props.iconPadding;
+
     const showSpecs = props.showSpecs;
-    const size = props.size;
+    const showComponentIcon = props.showComponentIcon;
+    const showComponentText = props.showComponentText;
     
     const componentGapScale = props.componentGapScale;
     const componentGapMethod = props.componentGapMethod;
@@ -166,6 +168,8 @@ const ComponentSizeColumn = (props) => {
                 gapSize={gapSize}
                 componentLineHeight={componentLineHeight}
                 spec={showSpecs}
+                showComponentIcon={showComponentIcon}
+                showComponentText={showComponentText}
                 radius={radius}
             />
         </div>

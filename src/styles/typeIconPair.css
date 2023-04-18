@@ -1,6 +1,11 @@
+#typeIconPairing {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
 .textIconItem {
     display: grid;
-    grid-template-columns: 36px auto;
+    grid-template-columns: 90px auto;
     align-items: center;
 }
 

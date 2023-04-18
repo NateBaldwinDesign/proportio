@@ -29,7 +29,6 @@ import {
   componentSmallQuantityState,
   componentLargeQuantityState,
   baseComponentTextSizeIndexState,
-  baseIconSizeIndexState,
   baseComponentSizeIndexState,
   scaleComponentRadiusState,
   baseComponentRadiusState,
@@ -87,12 +86,6 @@ const Sizes = (props) => {
   const componentGapMethod = props.componentGapMethod;
   const gapIndexArray = props.gapIndexArray;
 
-  const showComponentIcon = props.showComponentIcon;
-  const showComponentText = props.showComponentText;
-
-  console.log(sizeArray)
-  console.log(iconSizeIndexArray)
-
   const sizedComponents = sizeArray.map((size, increment) => {
     const decrementIndex = (size * -1) - 1;
     let sizeName = size < 0 ? sizeNamesDecrement[decrementIndex] : sizeNamesIncrement[size];
@@ -125,8 +118,6 @@ const Sizes = (props) => {
       scaleComponentRadius={scaleComponentRadius}
       iconPadding={iconPadding}
       showSpecs={showSpecs}
-      showComponentIcon={showComponentIcon}
-      showComponentText={showComponentText}
       componentGapScale={componentGapScale}
       componentGapMethod={componentGapMethod}
       gapIndexArray={gapIndexArray}
@@ -138,14 +129,12 @@ const Sizes = (props) => {
       <div className="componentColumn_Heading">
         <h5>{capitalize(densityName)}</h5>
       </div>
-      <div className="componentColumn">
-        {sizedComponents}
-      </div>
+      {sizedComponents}
     </div>
   )
 }
 
-const ComponentSpecs = (props) => {  
+const ContainerSpecs = (props) => {  
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
   const [componentPaddingMethodOption, setComponentPaddingMethodOption] = useRecoilState(componentPaddingMethodOptionState)
   const [typeScale, setTypeScale] = useRecoilState(typeScaleState);
@@ -180,10 +169,6 @@ const ComponentSpecs = (props) => {
   const [componentDensityScaleFactor, setComponentDensityScaleFactor] = useRecoilState(componentDensityScaleFactorState);
 
   const showSpecs = props.showSpecs;
-  const showComponentIcon = props.showComponentIcon;
-  const showComponentText = props.showComponentText;
-
-  const rowClassName = (showSpecs) ? "row row--comfortable" : "row row--spacious";
   // Clear out component tokens
   tokens.component = []
 
@@ -323,18 +308,16 @@ const ComponentSpecs = (props) => {
         componentGapScale={componentGapScale}
         componentGapMethod={componentGapMethod}
         gapIndexArray={gapIndexArray}
-        showComponentIcon={showComponentIcon}
-        showComponentText={showComponentText}
       />
   })
 
 
   return ( <>
-    <div className={rowClassName}>
+    <div className="row row--spacious">
       {densityComponents}
     </div>  
   </>
   );
 };
 
-export default ComponentSpecs;
+export default ContainerSpecs;

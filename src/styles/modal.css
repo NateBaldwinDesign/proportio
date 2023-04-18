@@ -5,14 +5,20 @@
 }
 
 .ReactModal__Content {
-    inset: 64px !important;
+    inset: 128px 64px 0 !important;
     padding: 40px !important;
     border-radius: 32px !important;
     border: none !important;
     box-shadow: 
         0 0 20px 0 rgba(0, 0, 0, 0.10), 
         0 20px 40px 0 rgba(0, 0, 0, 0.15),
-        0 40px 80px 0 rgba(0, 0, 0, 0.10)
+        0 40px 80px 0 rgba(0, 0, 0, 0.10);
+    transition: inset 300ms ease-out;
+}
+.ReactModal__Content--after-open {
+    inset: 64px !important;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .Modal__Header {
@@ -21,4 +27,17 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: var(--appFrameMargin);
+}
+
+.ReactModal__Overlay {
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open{
+    opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+    opacity: 0;
 }

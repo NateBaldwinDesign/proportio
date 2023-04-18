@@ -23,11 +23,16 @@ const elevationScaleFormulaState = atom({
     key: 'elevationScaleFormula',
     default: scaleFormulas[1]
 })
+const elevationOffsetYState = atom({
+    key: 'elevationOffsetY',
+    default: 100
+})
 
 export {
     baseElevationSizeState,
     elevationScaleFactorState,
     elevationSmallQuantityState,
     elevationLargeQuantityState,
-    elevationScaleFormulaState
+    elevationScaleFormulaState,
+    elevationOffsetYState
 }

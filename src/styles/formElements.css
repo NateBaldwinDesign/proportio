@@ -2,7 +2,17 @@
   --segmentedControlRadius: 8px;
 }
 
-input {
+div[id^=font-picker-main],
+.Dropdown-root {
+  border: none;
+  box-shadow: none !important;
+  width: 100% !important;
+  position:relative;
+}
+
+input,
+div[id^=font-picker-main] .dropdown-button,
+.Dropdown-control {
   box-shadow: none;
   outline: none;
   background-color: var(--appBackground);
@@ -13,6 +23,81 @@ input {
   font-size: 0.875rem;
   accent-color: var(--Gold400);
 }
+
+div[id^=font-picker-main] .dropdown-button,
+.dropdown-font-family {
+  font-family: inherit;
+}
+div[id^=font-picker-main] .dropdown-button,
+.Dropdown-control {
+  background-color: var(--appBackground) !important;
+  padding: 4px 6px !important;
+  max-height: 28px !important;
+}
+
+div[id^=font-picker] ul,
+.Dropdown-menu {
+  background-color: var(--appBackground) !important;
+  box-shadow: var(--menuShadow) !important;
+  border: 1px solid var(--border200);
+  border-radius: 6px;
+  top: 28px;
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+.Dropdown-menu {
+  position: absolute;
+  width: 100%;
+}
+div[id^=font-picker].expanded ul,
+.Dropdown-root.is-open .Dropdown-menu {
+  max-height: 200px;
+  overflow: auto;
+  top: 32px;
+  opacity: 1;
+  transition: all 0.3s ease-out;
+}
+div[id^=font-picker] ul li button {
+  border-radius: 0;
+}
+div[id^=font-picker] ul li button:hover, 
+div[id^=font-picker] ul li button:focus {
+  background: var(--Gold100) !important;
+}
+.Dropdown-option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: none;
+  outline: none;
+  background-color: transparent;
+  padding: 4px 6px;
+  font-size: 0.875rem;
+  height: 28px;
+  cursor: pointer;
+}
+.Dropdown-option:hover,
+.Dropdown-option:active {
+  background-color: var(--Gold100);
+}
+.is-open .Dropdown-arrow {
+  transform: rotate(-180deg);
+}
+.Dropdown-arrow {
+  border-top: 6px solid #000000;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  content: ' ';
+  display: block;
+  height: 0;
+  margin: 0;
+  position: absolute;
+  right: 10px;
+  top: 11px;
+  width: 0;
+  transition: transform 0.3s;
+}
+
 input[type="number"] {
   width: 6ch;
 }
@@ -58,6 +143,13 @@ input[type="radio"]:checked + label {
   background-color: var(--selectionIndicatorColor);
   border-color: var(--selectionIndicatorColor);
   color: var(--appBackground);
+}
+
+input[type='range'] {
+  padding: 0;
+  height: auto;
+  margin: 0;
+  align-self: flex-end;
 }
 
 fieldset {
@@ -118,4 +210,17 @@ label {
   justify-content: space-between;
   gap: 8px;
   margin-bottom: 8px;
+}
+
+.slider {
+  display: grid;
+  grid-template-columns: 128px 48px;
+  gap: 8px;
+}
+.formGroup .slider {
+  align-self: flex-end;
+}
+.slider_value {
+  text-align: right;
+  font-size: 0.875rem;
 }

@@ -9,6 +9,7 @@
   :root {
     --Gray100: #efefef;
     --Gray200: #c7c7c7;
+    --Gray250: #acacac;
     --Gray300: #949494;
     --Gray400: #6f6f6f;
     --Gray500: #424242;
@@ -48,6 +49,7 @@
   :root {
     --Gray100: #242424;
     --Gray200: #454545;
+    --Gray250: #585858;
     --Gray300: #646464;
     --Gray400: #878787;
     --Gray500: #c1c1c1;
@@ -83,7 +85,7 @@
 :root {
   --blueprint100: var(--Gray100);
   --blueprint150: var(--Gray200);
-  --blueprint200: var(--Gray300);
+  --blueprint200: var(--Gray250);
   --blueprint300: var(--Gray300);
   --blueprint400: var(--Gray400);
   --blueprint500: var(--Gray600);
@@ -95,6 +97,7 @@
   --textColor: var(--Gray600);
   --panelBorderRadius: 24px;
   --panelShadow: 0 4px 8px 0 var(--shadowColor);
+  --menuShadow: 0 4px 8px 0 var(--shadowColor);
   --appFrameMargin: 24px;
   --headerHeight: 56px;
   --fontStack: "Inter", sans-serif;
@@ -102,6 +105,7 @@
   --focusRing: 0 0 0 2px var(--appBackground), 0 0 0 4px var(--Gold300);
   /* --fontFamily: "Inter", sans-serif; */
   --fontFamily: "Outfit", sans-serif;
+  --defaultFontWeight: 400;
 }
 
 ::-moz-selection {
@@ -207,7 +211,7 @@ article + article {
 @media screen and (min-width: 900px) {
   .splitView {
     grid-template-areas: "panel main";
-    grid-template-columns: 280px auto;
+    grid-template-columns: 320px auto;
     padding: var(--appFrameMargin) var(--appFrameMargin) 0 0;
     height: calc(100% - var(--appFrameMargin));
   }
@@ -226,7 +230,7 @@ main {
 
 main.demoRow {
   flex-direction: row;
-  column-gap: calc(var(--appFrameMargin) * 3);
+  column-gap: calc(var(--appFrameMargin) * 5);
   row-gap: var(--appFrameMargin);
   flex-wrap: wrap;
   padding-top: 48px;
@@ -235,6 +239,9 @@ main.demoRow {
 main.demoRow .tabs_action {
   width: 100%;
   margin: 0;
+}
+main.demoRow .column {
+  flex-grow: 0;
 }
 
 .splitView main {
@@ -247,7 +254,7 @@ main.demoRow .tabs_action {
 }
 @media screen and (min-width: 900px) {
   .splitView main {
-    max-width: calc(100vw - 400px - var(--appFrameMargin));
+    max-width: calc(100vw - 442px - var(--appFrameMargin));
     height: calc(100vh - 200px);
     margin: 0;
   }
@@ -275,6 +282,11 @@ main.demoRow .tabs_action {
   gap: 8px;
 }
 .row--spacious {
+  /* gap: 32px; */
+  column-gap: calc(var(--appFrameMargin) * 5);
+  row-gap: 32px;
+}
+.row--comfortable {
   gap: 32px;
 }
 .column {
@@ -344,6 +356,11 @@ main.demoRow .tabs_action {
   transition: all ease-in-out 0.1s;
   /* border-bottom: 4px solid transparent; */
 }
+/* .App_tab:hover,
+.App_tab:active {
+  background-color: var(--Gold100);
+  transition: all ease-in-out 0.1s;
+} */
 .App_tab.react-tabs__tab--selected {
   /* border-color: var(--selectionIndicatorColor); */
   background-color: var(--selectionIndicatorColor);
@@ -400,4 +417,14 @@ button:focus {
 button.clearButton {
   background: transparent;
   border: none;
+}
+button.clearButton:hover,
+button.clearButton:active,
+button.clearButton:focus {
+  background: var(--Gold100);
+}
+
+.typeItem,
+.component {
+  font-weight: var(--demoFontWeight, 400)
 }
