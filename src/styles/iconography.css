@@ -8,6 +8,6 @@
   
 .icon {
     display: flex;
-    background-color: var(--blueprint200);
+    background-color: var(--blueprint100);
     border-radius: 2px;
 }

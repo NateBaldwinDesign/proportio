@@ -7,8 +7,14 @@ import {
   iconSmallQuantityState,
   iconLargeQuantityState,
   iconScaleFormulaState,
-  iconPaddingState
+  iconPaddingState,
+  iconState
 } from "../states/iconography"
+import Dropdown from 'react-dropdown';
+// import 'react-dropdown/style.css';
+
+const feather = require('feather-icons');
+
 
 const IconControls = (props) => {
   const [iconScale, setIconScale] = useRecoilState(iconScaleState)
@@ -16,6 +22,10 @@ const IconControls = (props) => {
   const [iconLargeQuantity, setIconLargeQuantity] = useRecoilState(iconLargeQuantityState)
   const [iconScaleFormula, setIconScaleFormula] = useRecoilState(iconScaleFormulaState)
   const [iconPadding, setIconPadding] = useRecoilState(iconPaddingState)
+
+  const availableIcons = Object.keys(feather.icons);
+  const [icon, setIcon] = useRecoilState(iconState);
+  console.log(icon)
 
   const inputs = scaleMethodOptions.map((method) => {
     return (
@@ -38,6 +48,16 @@ const IconControls = (props) => {
       <legend>Iconography</legend>
       {/* <div className="segmentedControl">{inputs}</div> */}
       <div className="column">
+        <div className="formGroup">
+          <Dropdown 
+            options={availableIcons} 
+            onChange={(e) => {
+              setIcon(e.value); 
+              // console.log(e)
+            }} 
+            value={icon} 
+            placeholder={icon} />
+        </div>
         <div className="formGroup">
           <label htmlFor="">Scale factor</label>
           <input

@@ -4,15 +4,13 @@ import calculateScale from "../utilities/calculateScale";
 import createSvgIcon from "../utilities/createSvgIcon";
 import {baseSizeState} from '../states/base';
 import {
-    iconScaleState,
-    iconSmallQuantityState,
-    iconLargeQuantityState,
-    iconScaleFormulaState,
-    iconPaddingState
+    iconPaddingState,
+    iconState
 } from '../states/iconography'
 
 const IconElement = (props) => {
     const [iconPadding, setIconPadding] = useRecoilState(iconPaddingState)
+    const [icon, setIcon] = useRecoilState(iconState)
 
     const size = props.size;
     /* Just to align icon examples with typography */
@@ -28,7 +26,7 @@ const IconElement = (props) => {
                 width: `${size}px`, 
                 height: `${size}px`
             }}>
-                {createSvgIcon(size, size, iconPadding)}
+                {createSvgIcon(size, size, iconPadding, `${icon}`)}
             </div>
         </div>
     )

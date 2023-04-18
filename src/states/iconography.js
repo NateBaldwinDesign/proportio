@@ -2,6 +2,7 @@ import {
     atom
 } from 'recoil';
 import scaleFormulas from '../utilities/scaleFormulas';
+const feather = require('feather-icons')
 
 const iconScaleState = atom({
     key: 'iconScale',
@@ -23,11 +24,16 @@ const iconScaleFormulaState = atom({
     key: 'iconScaleFormula',
     default: scaleFormulas[1]
 })
+const iconState = atom({
+    key: 'icon',
+    default: feather.icons.box.name
+})
 
 export {
     iconScaleState,
     iconSmallQuantityState,
     iconLargeQuantityState,
     iconScaleFormulaState,
-    iconPaddingState
+    iconPaddingState,
+    iconState
 }
