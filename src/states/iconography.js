@@ -28,6 +28,14 @@ const iconState = atom({
     key: 'icon',
     default: feather.icons.box.name
 })
+const iconStrokeState = atom({
+    key: 'iconStroke',
+    default: 2
+})
+const iconStrokeScaleState = atom({
+    key: 'iconStrokeScale',
+    default: 1.125
+})
 
 export {
     iconScaleState,
@@ -35,5 +43,7 @@ export {
     iconLargeQuantityState,
     iconScaleFormulaState,
     iconPaddingState,
-    iconState
+    iconState,
+    iconStrokeState,
+    iconStrokeScaleState
 }

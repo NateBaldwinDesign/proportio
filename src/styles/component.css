@@ -40,7 +40,7 @@
   grid-template-columns: max-content;
   width: max-content;
   height: max-content;
-  background-color: var(--blueprint300);
+  background-color: var(--blueprint150);
   border-radius: 6px;
   font-weight: 500; /* Demi */
 }
@@ -77,12 +77,12 @@
 }
 .componentTextSpec {
   grid-area: label;
-  background-color: var(--blueprint150);
+  background-color: var(--blueprint200);
 }
 .componentIconSpec {
   display: flex;
   grid-area: icon;
-  background-color: var(--blueprint150);
+  background-color: var(--blueprint200);
 }
 .componentText {
   grid-area: label;
@@ -94,6 +94,7 @@
 
 .specs {
   font-family: var(--fontFamily) !important;
+  font-weight: var(--defaultFontWeight);
   display: flex;
   align-items: center;
   font-size: 12px;

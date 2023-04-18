@@ -6,7 +6,8 @@ import {
   typeSmallQuantityState,
   typeLargeQuantityState,
   typeScaleFormulaState,
-  typeFontFamilyState
+  typeFontFamilyState,
+  typeFontWeightState
 } from '../states/typography'
 import scaleMethodOptions from "../utilities/scaleFormulas"
 import FontPicker from "font-picker-react"
@@ -17,6 +18,7 @@ const TypeControls = (props) => {
   const [typeLargeQuantity, setTypeLargeQuantity] = useRecoilState(typeLargeQuantityState)
   const [typeScaleFormula, setTypeScaleFormula] = useRecoilState(typeScaleFormulaState)
   const [activeFontFamily, setActiveFontFamily] = useRecoilState(typeFontFamilyState)
+  const [typeFontWeight, setTypeFontWeight] = useRecoilState(typeFontWeightState)
 
   const setSampleText = props.setSampleText;
   const sampleText = props.sampleText;
@@ -55,11 +57,26 @@ const TypeControls = (props) => {
           />
         </div>
         <div className="formGroup">
+          <label htmlFor="">Font weight</label>
+          <input
+            type="number"
+            onInput={(e) => {
+              setTypeFontWeight(Number(e.target.value))
+              document.documentElement.style
+                .setProperty(`--demoFontWeight`, e.target.value);
+            }}
+            step="100"
+            min="100"
+            max="900"
+            defaultValue={typeFontWeight}
+          />
+        </div>
+        <div className="formGroup">
           <label htmlFor="">Scale factor</label>
           <input
             type="number"
             onInput={(e) => setTypeScale(Number(e.target.value))}
-            step={typeScaleFormula === "power" ? "0.01" : "1"}
+            step={typeScaleFormula === "power" ? "0.001" : "1"}
             min="0"
             defaultValue={typeScale}
           />

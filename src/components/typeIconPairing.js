@@ -50,6 +50,8 @@ const TypeIconPairing = (props) => {
   let smallSizeArray = new Array(typeSmallQuantity).fill(0);
   let largeSizeArray = new Array(typeLargeQuantity).fill(0);
 
+  const demoLineHeight = 1.125;
+
   const sampleText = props.sampleText;
 
   const scale =
@@ -67,7 +69,7 @@ const TypeIconPairing = (props) => {
 
   const smallSizes = smallSizeArray.map((e, i) => {
     const increment = (1 + i) * -1 + textIconGapIndex;
-// TODO: Incrementing is off for small sizes
+    // TODO: Incrementing is off for small sizes
     const iconIncrement = ((i+1) * -1) + textIconIconSizeIndex;
     const gapSize = Math.round(
       calculateScale(baseSize, scale, increment, method)
@@ -77,9 +79,14 @@ const TypeIconPairing = (props) => {
     const iconSize = calculateScale(baseSize, iconScale, iconIncrement, iconScaleFormula);
     const textSize = Math.round(calculateScale(baseSize, typeScale, textIncrement, typeScaleFormula));
 
+    const marginText = `${(textSize * demoLineHeight) - textSize}px`;
+    const marginIcon = `${(iconSize * demoLineHeight) - iconSize}px`;
+    const margin = (marginText > marginIcon) ? marginText : marginIcon;
 
     return (
-      <div className="textIconItem" key={`typeIconPair-${iconScale}-neg${i}`}>
+      <div className="textIconItem" key={`typeIconPair-${iconScale}-neg${i}`} style={{
+        marginBottom: margin
+      }}>
         <span className="specs"> {gapSize}px (gap) </span>
         <div className="typeIconPair" key={`typeIcon-neg${i}`}>
           <IconElement
@@ -116,9 +123,14 @@ const TypeIconPairing = (props) => {
     const iconSize = calculateScale(baseSize, iconScale, iconIncrement, iconScaleFormula);
     const textSize = Math.round(calculateScale(baseSize, typeScale, i, typeScaleFormula));
 
-
+    const marginText = `${(textSize * demoLineHeight) - textSize}px`;
+    const marginIcon = `${(iconSize * demoLineHeight) - iconSize}px`;
+    const margin = (marginText > marginIcon) ? marginText : marginIcon;
+    
     return (
-      <div className="textIconItem" key={`typeIconPair-${iconScale}-${i}`}>
+      <div className="textIconItem" key={`typeIconPair-${iconScale}-${i}`} style={{
+        marginBottom: margin
+      }}>
         <span className="specs"> {gapSize}px (gap) </span>
         <div className="typeIconPair" key={`typeIcon-${i}`}>
           <IconElement

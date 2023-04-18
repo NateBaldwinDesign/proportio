@@ -2,8 +2,11 @@ import React from "react";
 import { useRecoilState } from 'recoil';
 import createSvgIcon from "../utilities/createSvgIcon";
 import "../styles/component.css";
+import { iconState, iconStrokeState } from "../states/iconography";
 
 const ComponentElement = (props) => {
+  const [icon, setIcon] = useRecoilState(iconState);
+  const [iconStroke, setIconStroke] = useRecoilState(iconStrokeState)
   const componentMinHeight = props.componentMinHeight;
   const paddingX = props.paddingX;
   const paddingY = props.paddingY;
@@ -96,7 +99,7 @@ const ComponentElement = (props) => {
             }}
           ></div>
           <div className={spec ? "componentIconSpec" : "componentIcon"}>
-            {createSvgIcon(iconSize, iconSize, iconPadding)}
+            {createSvgIcon(iconSize, iconSize, iconPadding, icon, iconStroke)}
           </div>
           <div className={spec ? "componentTextSpec" : "componentText"}>
             {componentLabel}

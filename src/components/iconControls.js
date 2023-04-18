@@ -8,7 +8,8 @@ import {
   iconLargeQuantityState,
   iconScaleFormulaState,
   iconPaddingState,
-  iconState
+  iconState,
+  iconStrokeState
 } from "../states/iconography"
 import Dropdown from 'react-dropdown';
 // import 'react-dropdown/style.css';
@@ -22,10 +23,10 @@ const IconControls = (props) => {
   const [iconLargeQuantity, setIconLargeQuantity] = useRecoilState(iconLargeQuantityState)
   const [iconScaleFormula, setIconScaleFormula] = useRecoilState(iconScaleFormulaState)
   const [iconPadding, setIconPadding] = useRecoilState(iconPaddingState)
+  const [iconStroke, setIconStroke] = useRecoilState(iconStrokeState)
 
   const availableIcons = Object.keys(feather.icons);
   const [icon, setIcon] = useRecoilState(iconState);
-  console.log(icon)
 
   const inputs = scaleMethodOptions.map((method) => {
     return (
@@ -63,19 +64,20 @@ const IconControls = (props) => {
           <input
             type="number"
             onInput={(e) => setIconScale(Number(e.target.value))}
-            step={iconScaleFormula === "power" ? "0.01" : "1"}
+            step={iconScaleFormula === "power" ? "0.001" : "1"}
             min="0"
             defaultValue={iconScale}
           />
         </div>
         <div className="formGroup">
-          <label htmlFor="">Icon padding</label>
+          <label htmlFor="">Stroke</label>
           <input
             type="number"
-            onInput={(e) => setIconPadding(Number(e.target.value))}
-            step="1"
-            min="0"
-            defaultValue={iconPadding}
+            onInput={(e) => setIconStroke(Number(e.target.value))}
+            step="0.1"
+            min="0.1"
+            max="5"
+            defaultValue={iconStroke}
           />
         </div>
         <div className="formGroup">

@@ -9,6 +9,7 @@
   :root {
     --Gray100: #efefef;
     --Gray200: #c7c7c7;
+    --Gray250: #acacac;
     --Gray300: #949494;
     --Gray400: #6f6f6f;
     --Gray500: #424242;
@@ -48,6 +49,7 @@
   :root {
     --Gray100: #242424;
     --Gray200: #454545;
+    --Gray250: #585858;
     --Gray300: #646464;
     --Gray400: #878787;
     --Gray500: #c1c1c1;
@@ -83,7 +85,7 @@
 :root {
   --blueprint100: var(--Gray100);
   --blueprint150: var(--Gray200);
-  --blueprint200: var(--Gray300);
+  --blueprint200: var(--Gray250);
   --blueprint300: var(--Gray300);
   --blueprint400: var(--Gray400);
   --blueprint500: var(--Gray600);
@@ -103,6 +105,7 @@
   --focusRing: 0 0 0 2px var(--appBackground), 0 0 0 4px var(--Gold300);
   /* --fontFamily: "Inter", sans-serif; */
   --fontFamily: "Outfit", sans-serif;
+  --defaultFontWeight: 400;
 }
 
 ::-moz-selection {
@@ -411,4 +414,9 @@ button.clearButton:hover,
 button.clearButton:active,
 button.clearButton:focus {
   background: var(--Gold100);
+}
+
+.typeItem,
+.component {
+  font-weight: var(--demoFontWeight, 400)
 }
