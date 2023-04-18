@@ -39,7 +39,7 @@ const TypographyView = (props) => {
               <IconControls />
               <TypeIconPairingControls />
         </Panel>
-        <main className="demoRow">
+        <main className="demoRow apply-font-main">
           <Typography
             sampleText={sampleText}
           />

@@ -95,6 +95,7 @@
   --textColor: var(--Gray600);
   --panelBorderRadius: 24px;
   --panelShadow: 0 4px 8px 0 var(--shadowColor);
+  --menuShadow: 0 4px 8px 0 var(--shadowColor);
   --appFrameMargin: 24px;
   --headerHeight: 56px;
   --fontStack: "Inter", sans-serif;
@@ -344,6 +345,11 @@ main.demoRow .tabs_action {
   transition: all ease-in-out 0.1s;
   /* border-bottom: 4px solid transparent; */
 }
+/* .App_tab:hover,
+.App_tab:active {
+  background-color: var(--Gold100);
+  transition: all ease-in-out 0.1s;
+} */
 .App_tab.react-tabs__tab--selected {
   /* border-color: var(--selectionIndicatorColor); */
   background-color: var(--selectionIndicatorColor);
@@ -401,4 +407,8 @@ button.clearButton {
   background: transparent;
   border: none;
 }
-
+button.clearButton:hover,
+button.clearButton:active,
+button.clearButton:focus {
+  background: var(--Gold100);
+}

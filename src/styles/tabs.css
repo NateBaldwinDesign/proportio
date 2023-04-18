@@ -19,6 +19,10 @@
   cursor: pointer;
   border-bottom: 4px solid transparent;
 }
+/* .react-tabs__tab:hover,
+.react-tabs__tab:active {
+  background-color: var(--Gold100);
+} */
 .react-tabs__tab:focus-visible,
 .react-tabs__tab:focus {
   outline: none;

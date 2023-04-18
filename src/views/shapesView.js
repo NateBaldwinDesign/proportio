@@ -34,7 +34,7 @@ const ShapesView = (props) => {
             <RadiusControls />
             <ElevationControls />
         </Panel>
-        <main className="demoRow">
+        <main className="demoRow apply-font-main">
           <Spacing
             spacerLineHeight={spacerLineHeight}
           />

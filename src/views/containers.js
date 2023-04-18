@@ -17,7 +17,7 @@ const Containers = (props) => {
           <ContainerControls />
         </Panel>
 
-        <main className="demoRow">
+        <main className="demoRow apply-font-main">
               <div className="tabs_action">
                 <div className="checkboxGroup" >
                   <input

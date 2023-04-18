@@ -2,7 +2,14 @@
   --segmentedControlRadius: 8px;
 }
 
-input {
+div[id^=font-picker-main] {
+  border: none;
+  box-shadow: none !important;
+  width: 100% !important;
+}
+
+input,
+div[id^=font-picker-main] .dropdown-button {
   box-shadow: none;
   outline: none;
   background-color: var(--appBackground);
@@ -13,6 +20,34 @@ input {
   font-size: 0.875rem;
   accent-color: var(--Gold400);
 }
+
+div[id^=font-picker-main] .dropdown-button {
+  background-color: var(--appBackground) !important;
+  padding: 4px 6px !important;
+}
+
+div[id^=font-picker] ul {
+  background-color: var(--appBackground) !important;
+  box-shadow: var(--menuShadow) !important;
+  border: 1px solid var(--border200);
+  border-radius: 6px;
+  top: 34px;
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+div[id^=font-picker].expanded ul {
+  top: 40px;
+  opacity: 1;
+  transition: all 0.3s ease-out;
+}
+div[id^=font-picker] ul li button {
+  border-radius: 0;
+}
+div[id^=font-picker] ul li button:hover, 
+div[id^=font-picker] ul li button:focus {
+  background: var(--Gold100) !important;
+}
+
 input[type="number"] {
   width: 6ch;
 }

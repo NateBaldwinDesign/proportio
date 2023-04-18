@@ -17,6 +17,8 @@
 }
 .ReactModal__Content--after-open {
     inset: 64px !important;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .Modal__Header {

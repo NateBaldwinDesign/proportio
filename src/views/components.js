@@ -16,7 +16,7 @@ const Components = (props) => {
           <ComponentControls />
         </Panel>
 
-        <main className="demoRow">
+        <main className="demoRow apply-font-main">
           {/* <Tabs>
             <TabList>
               <Tab>Desktop</Tab>

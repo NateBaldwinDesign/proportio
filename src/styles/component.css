@@ -93,6 +93,7 @@
 }
 
 .specs {
+  font-family: var(--fontFamily) !important;
   display: flex;
   align-items: center;
   font-size: 12px;

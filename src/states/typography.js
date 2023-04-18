@@ -19,10 +19,15 @@ const typeScaleFormulaState = atom({
     key: 'typeScaleFormula',
     default: scaleFormulas[1]
 })
+const typeFontFamilyState = atom({
+    key: 'typeFontFamily',
+    default: "Open Sans"
+})
 
 export {
     typeScaleState,
     typeSmallQuantityState,
     typeLargeQuantityState,
-    typeScaleFormulaState
+    typeScaleFormulaState,
+    typeFontFamilyState
 }

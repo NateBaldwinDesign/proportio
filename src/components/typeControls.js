@@ -5,15 +5,18 @@ import {
   typeScaleState,
   typeSmallQuantityState,
   typeLargeQuantityState,
-  typeScaleFormulaState
+  typeScaleFormulaState,
+  typeFontFamilyState
 } from '../states/typography'
 import scaleMethodOptions from "../utilities/scaleFormulas"
+import FontPicker from "font-picker-react"
 
 const TypeControls = (props) => {
   const [typeScale, setTypeScale] = useRecoilState(typeScaleState)
   const [typeSmallQuantity, setTypeSmallQuantity] = useRecoilState(typeSmallQuantityState)
   const [typeLargeQuantity, setTypeLargeQuantity] = useRecoilState(typeLargeQuantityState)
   const [typeScaleFormula, setTypeScaleFormula] = useRecoilState(typeScaleFormulaState)
+  const [activeFontFamily, setActiveFontFamily] = useRecoilState(typeFontFamilyState)
 
   const setSampleText = props.setSampleText;
   const sampleText = props.sampleText;
@@ -40,6 +43,17 @@ const TypeControls = (props) => {
       {/* <div className="segmentedControl">{inputs}</div> */}
 
       <div className="column">
+        <div className="formGroup">
+          <FontPicker
+            pickerId="main"
+            apiKey="AIzaSyC4_gemFBE-Ep1knNI5zgWnz7ZirQrqOnw"
+            limit={500}
+            activeFontFamily={activeFontFamily}
+            onChange={(nextFont) => 
+              setActiveFontFamily(nextFont.family)
+            }
+          />
+        </div>
         <div className="formGroup">
           <label htmlFor="">Scale factor</label>
           <input
