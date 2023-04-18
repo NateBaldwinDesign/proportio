@@ -130,7 +130,9 @@ const Sizes = (props) => {
       <div className="componentColumn_Heading">
         <h5>{capitalize(densityName)}</h5>
       </div>
-      {sizedComponents}
+      <div className="componentColumn">
+        {sizedComponents}
+      </div>
     </div>
   )
 }

@@ -1,3 +1,7 @@
+#iconography {
+    display: flex;
+    flex-direction: column-reverse;
+}
 .iconItem {
     display: grid;
     grid-template-columns: 64px max-content;

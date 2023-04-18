@@ -1,3 +1,8 @@
+#typeIconPairing {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
 .textIconItem {
     display: grid;
     grid-template-columns: 90px auto;

@@ -79,7 +79,7 @@ const Iconography = (props) => {
     return (
         <div className="column">
             <h3>Iconography</h3>
-            <div>
+            <div id="iconography">
                 {orderedSmallSizes}
                 {largeSizes}
             </div>

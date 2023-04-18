@@ -11,6 +11,7 @@ import {
   elevationOffsetYState
 } from "../states/elevation"
 import scaleMethodOptions from "../utilities/scaleFormulas"
+import Slider from "./slider";
 
 const ElevationControls = (props) => {
   const [baseElevationSize, setBaseElevationSize] = useRecoilState(baseElevationSizeState)
@@ -83,13 +84,14 @@ const ElevationControls = (props) => {
           />
         </div>
         <div className="formGroup">
-          <label htmlFor="">Offset Y (%)</label>
-          <input
+          <label htmlFor="">Shadow distance</label>
+          <Slider
             type="number"
-            onInput={(e) => setElevationOffsetY(Number(e.target.value))}
+            onInput={setElevationOffsetY}
             step="1"
             min="0"
             max="200"
+            unit="%"
             defaultValue={elevationOffsetY}
           />
         </div>

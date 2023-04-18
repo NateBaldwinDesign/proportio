@@ -1,3 +1,8 @@
+.componentColumn {
+  display: flex;
+  flex-direction: column-reverse
+}
+
 .componentSpecWrapper {
   display: grid;
   grid-template-columns: 92px max-content max-content 80px;
@@ -143,7 +148,7 @@
   justify-content: flex-start;
   grid-area: spec0;
   width: 100%;
-  text-aling: center;
+  text-align: center;
   margin-bottom: 8px;
 }
 .specPaddingY::after {
@@ -163,7 +168,7 @@
   justify-content: center;
   grid-area: spec00;
   width: 100%;
-  text-aling: center;
+  text-align: center;
   margin-bottom: 8px;
   margin-left: 5%;
 }
