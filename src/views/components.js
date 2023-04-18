@@ -7,13 +7,20 @@ import "../styles/tabs.css";
 import Panel from "../components/panel";
 
 const Components = (props) => {
-  const [showSpecs, setShowSpecs] = useState(true);
+  const [showSpecs, setShowSpecs] = useState(false);
+  const [showComponentIcon, setShowComponentIcon] = useState(true)
+  const [showComponentText, setShowComponentText] = useState(true)
 
   return (
     <>
       <div className="splitView">
         <Panel direction="column">
-          <ComponentControls />
+          <ComponentControls 
+            showComponentIcon={showComponentIcon}
+            setShowComponentIcon={setShowComponentIcon}
+            showComponentText={showComponentText}
+            setShowComponentText={setShowComponentText}
+          />
         </Panel>
 
         <main className="demoRow apply-font-main">
@@ -40,6 +47,8 @@ const Components = (props) => {
             {/* <TabPanel> */}
               <ComponentSpecs
                 showSpecs={showSpecs}
+                showComponentIcon={showComponentIcon}
+                showComponentText={showComponentText}
               />
             {/* </TabPanel>
             <TabPanel>

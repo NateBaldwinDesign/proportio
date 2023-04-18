@@ -52,14 +52,16 @@ const IconControls = (props) => {
       <div className="column">
         <div className="formGroup">
           <label>Icon</label>
-          <Dropdown 
-            options={availableIcons} 
-            onChange={(e) => {
-              setIcon(e.value); 
-              // console.log(e)
-            }} 
-            value={icon} 
-            placeholder={icon} />
+          <span className="iconPicker" style={{width: 'calc(100% - 80px)'}}>
+            <Dropdown 
+              options={availableIcons} 
+              onChange={(e) => {
+                setIcon(e.value); 
+                // console.log(e)
+              }} 
+              value={icon} 
+              placeholder={icon} />
+            </span>
         </div>
         {/* <div className="formGroup">
           <label htmlFor="">Scale factor</label>

@@ -24,7 +24,7 @@ import ShapeElevation from '../icons/shapeElevation';
 import ShapeCircle from '../icons/shapeCircle';
 
 const TypographyView = (props) => {
-  const [sampleText, setSampleText] = useState("Sample text");
+  const [sampleText, setSampleText] = useState("Proportional");
 
   return (
     <>

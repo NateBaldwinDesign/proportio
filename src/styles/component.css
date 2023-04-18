@@ -39,9 +39,9 @@
   align-items: center;
   justify-items: center;
   grid-template-areas:
-    ". . padTop padTop . ."
+    ". padTopAlt padTop padTop . ."
     "padLeft icon textIconGap label . padRight"
-    ". . padBottom padBottom . radius";
+    ". padBottomAlt padBottom padBottom . radius";
   grid-template-columns: max-content;
   width: max-content;
   height: max-content;
@@ -71,6 +71,12 @@
   grid-area: padBottom;
   margin-left: -18%;
 }
+.padTopAlt {
+  grid-area: padTopAlt;
+}
+.padBottomAlt {
+  grid-area: padBottomAlt;
+}
 .padLeft {
   grid-area: padLeft;
 }
@@ -81,6 +87,7 @@
   grid-area: textIconGap;
 }
 .componentTextSpec {
+  font-weight: var(--demoFontWeight);
   grid-area: label;
   background-color: var(--blueprint200);
 }
@@ -90,6 +97,7 @@
   background-color: var(--blueprint200);
 }
 .componentText {
+  font-weight: var(--demoFontWeight);
   grid-area: label;
 }
 .componentIcon {

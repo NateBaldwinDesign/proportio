@@ -41,6 +41,11 @@ const ComponentControls = (props) => {
   const [componentDensityLargeQuantity, setComponentDensityLargeQuantity] = useRecoilState(componentDensityLargeQuantityState);
   const [componentDensityScaleFactor, setComponentDensityScaleFactor] = useRecoilState(componentDensityScaleFactorState);
 
+  const showComponentIcon = props.showComponentIcon;
+  const setShowComponentIcon = props.setShowComponentIcon;
+  const showComponentText = props.showComponentText;
+  const setShowComponentText = props.setShowComponentText;
+
   const componentScalingMethodInputs = scaleMethodOptions.map((method) => {
     return (
       <div className="radioGroup" key={`${method}`}>
@@ -76,6 +81,34 @@ const ComponentControls = (props) => {
 
   return (
     <>
+      <fieldset>
+        <div className="column">
+          <div className="checkboxGroup" >
+            <input
+                type="checkbox"
+                name="showComponentText"
+                id="showComponentText"
+                onClick={(e) => setShowComponentText(e.target.checked)}
+                defaultChecked={(showComponentText) ? true : false}
+              />
+              <label htmlFor="showComponentText">
+                Show text
+              </label>
+            </div>
+            <div className="checkboxGroup" >
+            <input
+                type="checkbox"
+                name="showComponentIcon"
+                id="showComponentIcon"
+                onClick={(e) => setShowComponentIcon(e.target.checked)}
+                defaultChecked={(showComponentIcon) ? true : false}
+              />
+              <label htmlFor="showComponentIcon">
+                Show icon
+              </label>
+            </div>
+        </div>
+      </fieldset>
       <Tabs>
         <TabList>
           <Tab> Sizes </Tab>

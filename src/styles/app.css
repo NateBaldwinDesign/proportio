@@ -282,6 +282,11 @@ main.demoRow .column {
   gap: 8px;
 }
 .row--spacious {
+  /* gap: 32px; */
+  column-gap: calc(var(--appFrameMargin) * 5);
+  row-gap: 32px;
+}
+.row--comfortable {
   gap: 32px;
 }
 .column {

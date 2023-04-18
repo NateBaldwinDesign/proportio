@@ -49,3 +49,8 @@
   align-items: center;
   margin-left: var(--appFrameMargin);
 }
+
+.panel .react-tabs__tab {
+  flex-grow: 1;
+  text-align: center;
+}
