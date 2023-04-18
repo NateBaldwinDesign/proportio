@@ -29,7 +29,6 @@ import {
   componentSmallQuantityState,
   componentLargeQuantityState,
   baseComponentTextSizeIndexState,
-  baseIconSizeIndexState,
   baseComponentSizeIndexState,
   scaleComponentRadiusState,
   baseComponentRadiusState,
@@ -149,7 +148,6 @@ const ContainerSpecs = (props) => {
   const [baseComponentPaddingYIndex, setBaseComponentPaddingYIndex] = useRecoilState(baseComponentPaddingYIndexState);
   // Should get rid of these two. Customizing adds unnecessary complexity
   const [baseComponentTextSizeIndex, setBaseComponentTextSizeIndex] = useRecoilState(baseComponentTextSizeIndexState);
-  const [baseIconSizeIndex, setBaseIconSizeIndex] = useRecoilState(baseIconSizeIndexState);
   
   const [baseComponentSizeIndex, setBaseComponentSizeIndex] = useRecoilState(baseComponentSizeIndexState)
   const [scaleComponentRadius, setScaleComponentRadiusState] = useRecoilState(scaleComponentRadiusState)
@@ -243,7 +241,7 @@ const ContainerSpecs = (props) => {
   const iconSizeIndexArray = buildShiftedArray(
     componentSmallQuantity,
     componentLargeQuantity,
-    baseIconSizeIndex
+    textIconIconSizeIndex
   );
   const componentMinHeightIndexArray = buildShiftedArray(
     componentSmallQuantity,

@@ -5,7 +5,6 @@ import {baseSizeState} from '../states/base';
 import scaleMethodOptions from "../utilities/scaleMethodOptions";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import {
-  baseIconSizeIndexState,
   baseComponentSizeIndexState,
   componentLineHeightState,
   componentSmallQuantityState,
@@ -25,7 +24,6 @@ import {
 const ComponentControls = (props) => {
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
 
-  const [baseIconSizeIndex, setBaseIconSizeIndex] = useRecoilState(baseIconSizeIndexState);
   const [baseComponentSizeIndex, setBaseComponentSizeIndex] = useRecoilState(baseComponentSizeIndexState);
   const [componentLineHeight, setComponentLineHeight] = useRecoilState(componentLineHeightState);
   const [componentSmallQuantity, setComponentSmallQuantity] = useRecoilState(componentSmallQuantityState);
@@ -81,34 +79,6 @@ const ComponentControls = (props) => {
 
   return (
     <>
-      <fieldset>
-        <div className="column">
-          <div className="checkboxGroup" >
-            <input
-                type="checkbox"
-                name="showComponentText"
-                id="showComponentText"
-                onClick={(e) => setShowComponentText(e.target.checked)}
-                defaultChecked={(showComponentText) ? true : false}
-              />
-              <label htmlFor="showComponentText">
-                Show text
-              </label>
-            </div>
-            <div className="checkboxGroup" >
-            <input
-                type="checkbox"
-                name="showComponentIcon"
-                id="showComponentIcon"
-                onClick={(e) => setShowComponentIcon(e.target.checked)}
-                defaultChecked={(showComponentIcon) ? true : false}
-              />
-              <label htmlFor="showComponentIcon">
-                Show icon
-              </label>
-            </div>
-        </div>
-      </fieldset>
       <Tabs>
         <TabList>
           <Tab> Sizes </Tab>

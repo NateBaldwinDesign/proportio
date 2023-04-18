@@ -5,7 +5,6 @@ import {baseSizeState} from '../states/base';
 import scaleMethodOptions from "../utilities/scaleMethodOptions";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import {
-  baseIconSizeIndexState,
   baseComponentSizeIndexState,
   componentLineHeightState,
   componentSmallQuantityState,
@@ -25,7 +24,6 @@ import {
 const ContainerControls = (props) => {
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
 
-  const [baseIconSizeIndex, setBaseIconSizeIndex] = useRecoilState(baseIconSizeIndexState);
   const [baseComponentSizeIndex, setBaseComponentSizeIndex] = useRecoilState(baseComponentSizeIndexState);
   const [componentLineHeight, setComponentLineHeight] = useRecoilState(componentLineHeightState);
   const [componentSmallQuantity, setComponentSmallQuantity] = useRecoilState(componentSmallQuantityState);

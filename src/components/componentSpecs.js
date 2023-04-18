@@ -90,6 +90,9 @@ const Sizes = (props) => {
   const showComponentIcon = props.showComponentIcon;
   const showComponentText = props.showComponentText;
 
+  console.log(sizeArray)
+  console.log(iconSizeIndexArray)
+
   const sizedComponents = sizeArray.map((size, increment) => {
     const decrementIndex = (size * -1) - 1;
     let sizeName = size < 0 ? sizeNamesDecrement[decrementIndex] : sizeNamesIncrement[size];
@@ -156,7 +159,6 @@ const ComponentSpecs = (props) => {
   const [baseComponentPaddingYIndex, setBaseComponentPaddingYIndex] = useRecoilState(baseComponentPaddingYIndexState);
   // Should get rid of these two. Customizing adds unnecessary complexity
   const [baseComponentTextSizeIndex, setBaseComponentTextSizeIndex] = useRecoilState(baseComponentTextSizeIndexState);
-  const [baseIconSizeIndex, setBaseIconSizeIndex] = useRecoilState(baseIconSizeIndexState);
   
   const [baseComponentSizeIndex, setBaseComponentSizeIndex] = useRecoilState(baseComponentSizeIndexState)
   const [scaleComponentRadius, setScaleComponentRadiusState] = useRecoilState(scaleComponentRadiusState)
@@ -254,7 +256,7 @@ const ComponentSpecs = (props) => {
   const iconSizeIndexArray = buildShiftedArray(
     componentSmallQuantity,
     componentLargeQuantity,
-    baseIconSizeIndex
+    textIconIconSizeIndex
   );
   const componentMinHeightIndexArray = buildShiftedArray(
     componentSmallQuantity,
