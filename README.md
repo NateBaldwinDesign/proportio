@@ -16,12 +16,12 @@ and more.
 (Minimum loveable product)
 - [ ] Add “round to even numbers” option
 - [ ] Add hint text with recommendations like keeping icon scale close to type scale
-- [ ] Modularize states & clean up props
-- [ ] Add Feather icons for choosing sample icon: https://github.com/feathericons/feather
-- [ ] Add variable stroke scale input
-- [ ] Add google fonts picker for text
-- [ ] If variable, add variable weight scale
-- [ ] Add density columns
+- [x] Modularize states & clean up props
+- [x] Add Feather icons for choosing sample icon: https://github.com/feathericons/feather
+- [x] Add variable stroke scale input
+- [x] Add google fonts picker for text
+- [x] If variable, add variable weight scale
+- [x] Add density columns
 - [ ] Add mobile scale factor
 - [ ] Add mobile or responsive type & icon scales
 - [ ] Add export/ save data or CSS, which compiles options into organized code styles
