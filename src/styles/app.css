@@ -211,7 +211,7 @@ article + article {
 @media screen and (min-width: 900px) {
   .splitView {
     grid-template-areas: "panel main";
-    grid-template-columns: 280px auto;
+    grid-template-columns: 320px auto;
     padding: var(--appFrameMargin) var(--appFrameMargin) 0 0;
     height: calc(100% - var(--appFrameMargin));
   }

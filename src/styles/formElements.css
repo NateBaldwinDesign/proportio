@@ -141,6 +141,13 @@ input[type="radio"]:checked + label {
   color: var(--appBackground);
 }
 
+input[type='range'] {
+  padding: 0;
+  height: auto;
+  margin: 0;
+  align-self: flex-end;
+}
+
 fieldset {
   display: flex;
   flex-direction: row;
@@ -199,4 +206,17 @@ label {
   justify-content: space-between;
   gap: 8px;
   margin-bottom: 8px;
+}
+
+.slider {
+  display: grid;
+  grid-template-columns: 128px 48px;
+  gap: 8px;
+}
+.formGroup .slider {
+  align-self: flex-end;
+}
+.slider_value {
+  text-align: right;
+  font-size: 0.875rem;
 }

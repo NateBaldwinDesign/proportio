@@ -11,6 +11,7 @@ import {
 } from '../states/typography'
 import scaleMethodOptions from "../utilities/scaleFormulas"
 import FontPicker from "font-picker-react"
+import { iconScaleState } from "../states/iconography";
 
 const TypeControls = (props) => {
   const [typeScale, setTypeScale] = useRecoilState(typeScaleState)
@@ -19,6 +20,7 @@ const TypeControls = (props) => {
   const [typeScaleFormula, setTypeScaleFormula] = useRecoilState(typeScaleFormulaState)
   const [activeFontFamily, setActiveFontFamily] = useRecoilState(typeFontFamilyState)
   const [typeFontWeight, setTypeFontWeight] = useRecoilState(typeFontWeightState)
+  const [iconScale, setIconScale] = useRecoilState(iconScaleState)
 
   const setSampleText = props.setSampleText;
   const sampleText = props.sampleText;
@@ -46,6 +48,7 @@ const TypeControls = (props) => {
 
       <div className="column">
         <div className="formGroup">
+          <label htmlFor="">Font</label>
           <FontPicker
             pickerId="main"
             apiKey="AIzaSyC4_gemFBE-Ep1knNI5zgWnz7ZirQrqOnw"
@@ -75,7 +78,10 @@ const TypeControls = (props) => {
           <label htmlFor="">Scale factor</label>
           <input
             type="number"
-            onInput={(e) => setTypeScale(Number(e.target.value))}
+            onInput={(e) => {
+              setTypeScale(Number(e.target.value))
+              setIconScale(Number(e.target.value))
+            }}
             step={typeScaleFormula === "power" ? "0.001" : "1"}
             min="0"
             defaultValue={typeScale}

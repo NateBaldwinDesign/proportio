@@ -12,6 +12,7 @@ import {
   iconStrokeState
 } from "../states/iconography"
 import Dropdown from 'react-dropdown';
+import Slider from "./slider";
 // import 'react-dropdown/style.css';
 
 const feather = require('feather-icons');
@@ -50,6 +51,7 @@ const IconControls = (props) => {
       {/* <div className="segmentedControl">{inputs}</div> */}
       <div className="column">
         <div className="formGroup">
+          <label>Icon</label>
           <Dropdown 
             options={availableIcons} 
             onChange={(e) => {
@@ -59,7 +61,7 @@ const IconControls = (props) => {
             value={icon} 
             placeholder={icon} />
         </div>
-        <div className="formGroup">
+        {/* <div className="formGroup">
           <label htmlFor="">Scale factor</label>
           <input
             type="number"
@@ -68,15 +70,16 @@ const IconControls = (props) => {
             min="0"
             defaultValue={iconScale}
           />
-        </div>
+        </div> */}
         <div className="formGroup">
           <label htmlFor="">Stroke</label>
-          <input
-            type="number"
-            onInput={(e) => setIconStroke(Number(e.target.value))}
+          <Slider
+            type="range"
+            onInput={setIconStroke}
             step="0.25"
             min="0.25"
             max="5"
+            unit="px"
             defaultValue={iconStroke}
           />
         </div>
