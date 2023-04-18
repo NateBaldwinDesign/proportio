@@ -49,15 +49,18 @@ const TypeControls = (props) => {
       <div className="column">
         <div className="formGroup">
           <label htmlFor="">Font</label>
-          <FontPicker
-            pickerId="main"
-            apiKey="AIzaSyC4_gemFBE-Ep1knNI5zgWnz7ZirQrqOnw"
-            limit={500}
-            activeFontFamily={activeFontFamily}
-            onChange={(nextFont) => 
-              setActiveFontFamily(nextFont.family)
-            }
-          />
+          <span className="apply-font-main" style={{width: 'calc(100% - 80px)'}}>
+            <FontPicker
+              pickerId="main"
+              apiKey="AIzaSyC4_gemFBE-Ep1knNI5zgWnz7ZirQrqOnw"
+              limit={500}
+              activeFontFamily={activeFontFamily}
+              onChange={(nextFont) => 
+                setActiveFontFamily(nextFont.family)
+              }
+            />
+          </span>
+          
         </div>
         <div className="formGroup">
           <label htmlFor="">Font weight</label>

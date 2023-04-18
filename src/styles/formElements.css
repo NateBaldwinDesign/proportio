@@ -25,6 +25,10 @@ div[id^=font-picker-main] .dropdown-button,
 }
 
 div[id^=font-picker-main] .dropdown-button,
+.dropdown-font-family {
+  font-family: inherit;
+}
+div[id^=font-picker-main] .dropdown-button,
 .Dropdown-control {
   background-color: var(--appBackground) !important;
   padding: 4px 6px !important;
