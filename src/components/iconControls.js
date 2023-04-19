@@ -51,8 +51,11 @@ const IconControls = (props) => {
       {/* <div className="segmentedControl">{inputs}</div> */}
       <div className="column">
         <div className="formGroup">
-          <label>Icon</label>
-          <span className="iconPicker" style={{width: 'calc(100% - 80px)'}}>
+          <label>
+            Icon<br/>
+            <cite>via <a href="https://feathericons.com/" target="_blank">Feather icons</a></cite>
+          </label>
+          <span className="iconPicker" style={{width: 'calc(100% - 120px)'}}>
             <Dropdown 
               options={availableIcons} 
               onChange={(e) => {

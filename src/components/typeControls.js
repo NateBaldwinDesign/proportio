@@ -48,8 +48,11 @@ const TypeControls = (props) => {
 
       <div className="column">
         <div className="formGroup">
-          <label htmlFor="">Font</label>
-          <span className="apply-font-main" style={{width: 'calc(100% - 80px)'}}>
+          <label htmlFor="">
+            Font<br/>
+            <cite>via <a href="https://fonts.google.com/" target="_blank">Google fonts</a></cite>
+          </label>
+          <span className="apply-font-main" style={{width: 'calc(100% - 120px)'}}>
             <FontPicker
               pickerId="main"
               apiKey="AIzaSyC4_gemFBE-Ep1knNI5zgWnz7ZirQrqOnw"

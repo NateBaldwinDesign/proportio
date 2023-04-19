@@ -30,6 +30,8 @@
     --legendColor: #000000;
     --legendTextColor: #ffffff;
     --dialogBackground: var(var(--appBackground));
+    --linkColor: var(--Gold400);
+
     /* --blueprint100: #e3eaf3;
     --blueprint200: #afc3dd;
     --blueprint300: #8ea9cd;
@@ -74,6 +76,8 @@
     --legendTextColor: #ffffff;
     --background: #001e44;
     --dialogBackground: var(--Gray100);
+    --linkColor: var(--Gold500);
+
     /* --blueprint100: #011e46;
     --blueprint200: #19457e;
     --blueprint300: #325c95;
@@ -102,6 +106,7 @@
   --border100: var(--Gray200);
   --border200: var(--Gray300);
   --textColor: var(--Gray600);
+  --textColorTertiary: var(--Gray500);
   --panelBorderRadius: 24px;
   --panelShadow: 0 4px 8px 0 var(--shadowColor);
   --menuShadow: 0 4px 8px 0 var(--shadowColor);
@@ -434,4 +439,14 @@ button.clearButton:focus {
 .typeItem,
 .component {
   font-weight: var(--demoFontWeight, 400)
+}
+
+cite {
+  font-size: 12px;
+  color: var(--textColorTertiary);
+}
+
+a,
+a:visited {
+  color: var(--linkColor);
 }
