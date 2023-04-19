@@ -22,6 +22,8 @@
     --Gold500: #5d3b00;
     --Gold600: #000000;
 
+    --blueprint100: var(--Gray100);
+
     --appBackground: #ffffff;
     --appBackgroundDepressed: var(--Gray100);
     --background: #e4ebf3;
@@ -62,6 +64,8 @@
     --Gold500: #f1b83e;
     --Gold600: #ffffff;
 
+    --blueprint100: var(--Gray200);
+
     --appBackground: var(--Gray100);
     --appBackgroundDepressed: #171717;
     --legendColor: #323232;
@@ -83,7 +87,6 @@
 }
 
 :root {
-  --blueprint100: var(--Gray100);
   --blueprint150: var(--Gray200);
   --blueprint200: var(--Gray250);
   --blueprint300: var(--Gray300);

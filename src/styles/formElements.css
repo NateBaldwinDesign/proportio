@@ -83,8 +83,11 @@ div[id^=font-picker] ul li button:focus {
 .is-open .Dropdown-arrow {
   transform: rotate(-180deg);
 }
+div[id^=font-picker] .dropdown-icon.finished::before {
+  border-top-color: var(--textColor) !important;
+}
 .Dropdown-arrow {
-  border-top: 6px solid #000000;
+  border-top: 6px solid var(--textColor);
   border-right: 5px solid transparent;
   border-left: 5px solid transparent;
   content: ' ';
