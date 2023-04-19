@@ -1,5 +1,5 @@
 .ReactModal__Overlay--after-open {
-    background-color: rgba(0, 0, 0, 0.20) !important;
+    background-color: var(--modalOverlayColor) !important;
     backdrop-filter: blur(2px) !important;
     z-index: 100;
 }
@@ -9,6 +9,7 @@
     padding: 40px !important;
     border-radius: 32px !important;
     border: none !important;
+    background-color: var(--dialogBackground) !important;
     box-shadow: 
         0 0 20px 0 rgba(0, 0, 0, 0.10), 
         0 20px 40px 0 rgba(0, 0, 0, 0.15),

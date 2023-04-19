@@ -29,6 +29,7 @@
     --background: #e4ebf3;
     --legendColor: #000000;
     --legendTextColor: #ffffff;
+    --dialogBackground: var(var(--appBackground));
     /* --blueprint100: #e3eaf3;
     --blueprint200: #afc3dd;
     --blueprint300: #8ea9cd;
@@ -38,6 +39,7 @@
 
     --shadowColor: rgb(0 0 0 / 8%);
     --elevationDemoShadowColor: rgb(0 0 0 / 20%);
+    --modalOverlayColor: rgba(0, 0, 0, 0.20);
     --elevationItemBackground: var(var(--appBackground));
     --selectionIndicatorColor: var(--Gold300);
     --logoColor: var(--Gold300)
@@ -71,6 +73,7 @@
     --legendColor: #323232;
     --legendTextColor: #ffffff;
     --background: #001e44;
+    --dialogBackground: var(--Gray100);
     /* --blueprint100: #011e46;
     --blueprint200: #19457e;
     --blueprint300: #325c95;
@@ -80,6 +83,7 @@
 
     --shadowColor: rgb(0 0 0 / 50%);
     --elevationDemoShadowColor: rgb(0 0 0 / 50%);
+    --modalOverlayColor: rgba(0, 0, 0, 0.50);
     --elevationItemBackground: var(--Gray200);
     --selectionIndicatorColor: var(--Gold500);
     --logoColor: var(--Gold500)
