@@ -163,23 +163,23 @@
 .specPaddingY::after {
   content: " ";
   display: block;
-  width: 1px;
-  height: 10px;
+  width: 6%;
+  height: 16px;
   border-left: 1px solid var(--Gold400);
+  border-top: 1px solid var(--Gold400);
   bottom: -8px;
-  left: 1ch;
+  left: -10%;
   position: absolute;
 }
 
 .specGap {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   grid-area: spec00;
   width: 100%;
   text-align: center;
   margin-bottom: 8px;
-  margin-left: 5%;
 }
 .specGap::after {
   content: " ";
@@ -189,6 +189,7 @@
   border-left: 1px solid var(--Gold400);
   bottom: -36px;
   position: absolute;
+  left: 19%;
 }
 
 .specType {
@@ -212,7 +213,8 @@
 .specIcon {
   position: relative;
   grid-area: spec3;
-  width: max-content;
+  width: 100%;
+  justify-content: flex-start;
   height: 18px;
   margin-left: 18%;
   margin-right: 8px;
@@ -221,11 +223,11 @@
 .specIcon::after {
   content: " ";
   display: block;
-  height: 24px;
+  height: 32px;
   border-right: 1px solid var(--Gold400);
   position: absolute;
-  top: -24px;
-  left: 12px;
+  top: -32px;
+  left: 8%;
 }
 
 .specRadius {
