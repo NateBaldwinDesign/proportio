@@ -40,7 +40,10 @@ const ComponentElement = (props) => {
     : ''
   const padTopClass = (showComponentText) ? "padTop" : "padTopAlt"
   const padBottomClass = (showComponentText) ? "padBottom" : "padBottomAlt"
-  const gapSpecAnnotation = (!showComponentIcon || !showComponentText) ? '' : <div className="specGap specs"> {`Gap: ${Math.round(gapSize)}px`} </div>
+  const gapSpecAnnotation = (!showComponentIcon || !showComponentText) ? '' 
+    : <div className="specGap specs" style={{ marginLeft: `${Math.round(paddingX)}px`}}> 
+        {`Gap: ${Math.round(gapSize)}px`} 
+      </div>
 
   const biggestHeight = (computedHeight > componentMinHeight) ? computedHeight : componentMinHeight;
   const radius = (props.radius > (biggestHeight / 2)) ? (biggestHeight / 2) : props.radius;
@@ -54,7 +57,11 @@ const ComponentElement = (props) => {
         )}px \n (Min: ${Math.round(componentMinHeight)})px`}{" "}
       </div>
       <div className="specType specs"> {`Font: ${Math.round(typeSize)}px`} </div>
-      <div className="specIcon specs"> {`Icon: ${Math.round(iconSize)}px`} </div>
+      <div className="specIcon specs" style={{
+        marginLeft: `${Math.round(paddingX)}px`
+      }}> 
+        {`Icon: ${Math.round(iconSize)}px`} 
+      </div>
       <div className="specPaddingX specs"> {`Pad-X: ${Math.round(paddingX)}px`} </div>
       <div className="specPaddingY specs"> {`Pad-Y: ${Math.round(paddingY)}px`} </div>
       {gapSpecAnnotation}
