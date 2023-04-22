@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   useRecoilState
 } from 'recoil';
@@ -20,59 +20,60 @@ const BaseControls = (props) => {
   const [typeScale, setTypeScale] = useRecoilState(typeScaleState)
   const [typeScaleFormula, setTypeScaleFormula] = useRecoilState(typeScaleFormulaState)
   const [iconScale, setIconScale] = useRecoilState(iconScaleState)
+  const [typeScaleInput, setTypeScaleInput] = useState(typeScale);
 
   const typeScaleOptions = [
     {
       value: 1.067,
-      label: '1.076 [minor second]'
+      label: 'Minor second'
     },
     {
       value: 1.125,
-      label: '1.125 [major second]'
+      label: 'Major second'
     },
     {
       value: 1.2,
-      label: '1.2 [minor third]'
+      label: 'Minor third'
     },
     {
       value: 1.25,
-      label: '1.25 [major third]'
+      label: 'Major third'
     },
     {
       value: 1.333,
-      label: '1.333 [perfect fourth]'
+      label: 'Perfect fourth'
     },
     {
       value: 1.414,
-      label: '1.414 [augmented fourth]'
+      label: 'Augmented fourth'
     },
     {
       value: 1.5,
-      label: '1.5 [perfect fifth]'
+      label: 'Perfect fifth'
     },
     {
       value: 1.6,
-      label: '1.6 [minor sixth]'
+      label: 'Minor sixth'
     },
     {
       value: 1.618,
-      label: '1.618 [golden ratio]'
+      label: 'Golden ratio'
     },
     {
       value: 1.667,
-      label: '1.667 [major sixth]'
+      label: 'Major sixth'
     },
     {
       value: 1.778,
-      label: '1.778 [minor seventh]'
+      label: 'Minor seventh'
     },
     {
       value: 1.875,
-      label: '1.875 [major seventh]'
+      label: 'Major seventh'
     },
     {
       value: 2,
-      label: '2 [octave]'
+      label: 'Octave'
     }
   ]
 
@@ -120,11 +121,12 @@ const BaseControls = (props) => {
           <Dropdown 
               options={typeScaleOptions} 
               onChange={(e) => {
-                setTypeScale(e.value); 
-                // console.log(e)
+                // setTypeScaleInput(e.value);
+                setTypeScale(Number(e.value))
+                setIconScale(Number(e.value)) 
               }} 
-              value={typeScaleOptions.filter((item) => item.value === typeScale)} 
-              placeholder={typeScaleOptions[1]} />
+              value={typeScaleOptions.filter((item) => item.value === typeScale)[0]} 
+              placeholder={typeScaleOptions[1].value} />
 
           <input
             type="number"
@@ -134,7 +136,7 @@ const BaseControls = (props) => {
             }}
             step={typeScaleFormula === "power" ? "0.001" : "1"}
             min="0"
-            defaultValue={typeScale}
+            defaultValue={typeScaleInput}
           />
         </div>
         {/* <div className="formGroup">
