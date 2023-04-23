@@ -7,6 +7,10 @@ const baseSizeState = atom({
     key: 'baseSize',
     default: 16
 });
+const baseMinSizeState = atom({
+    key: 'baseMinSize',
+    default: 16
+});
 const baseMaxSizeState = atom({
     key: 'baseMaxSize',
     default: 20
@@ -31,6 +35,7 @@ const viewportMaxState = atom({
 export {
     baseSizeState,
     baseMobileScaleFactorState,
+    baseMinSizeState,
     baseMaxSizeState,
     baseScaleUnitState,
     viewportMinState,

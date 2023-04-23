@@ -4,6 +4,7 @@ import {
 } from 'recoil';
 import {
   baseSizeState,
+  baseMinSizeState,
   baseMobileScaleFactorState,
   baseScaleUnitState,
   baseMaxSizeState,
@@ -13,14 +14,29 @@ import {
 import scaleUnits from "../utilities/scaleUnits";
 import capitalize from "../utilities/capitalize";
 import fluidScale from "../utilities/fluidScale";
+import { viewportSizeState } from "../states/viewport";
+import calculateFontSize from "../utilities/calculateFontSize";
 
 const BaseControls = (props) => {
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
+  const [baseMinSize, setBaseMinSize] = useRecoilState(baseMinSizeState);
   const [baseMobileScaleFactor, setBaseMobileScaleFactor] = useRecoilState(baseMobileScaleFactorState)
   const [baseScaleUnit, setBaseScaleUnit] = useRecoilState(baseScaleUnitState)
   const [baseMaxSize, setBaseMaxSize] = useRecoilState(baseMaxSizeState)
   const [viewportMin, setViewportMin] = useRecoilState(viewportMinState)
   const [viewportMax, setViewportMax] = useRecoilState(viewportMaxState)
+  const [viewportSize, setViewportSize] = useRecoilState(viewportSizeState)
+
+  const updateBaseSizeByMin = (v) => {
+    const size = calculateFontSize(viewportMin, viewportMax, v, baseMaxSize, viewportSize)
+    console.log(size)
+    return setBaseSize(size)
+  }
+  const updateBaseSizeByMax = (v) => {
+    const size = calculateFontSize(viewportMin, viewportMax, v, baseMaxSize, viewportSize)
+    console.log(size)
+    return setBaseSize(size)
+  }
 
   const inputs = scaleUnits.map((unit) => {
     return (
@@ -52,17 +68,23 @@ const BaseControls = (props) => {
           <label htmlFor="">Minimum size</label>
           <input
             type="number"
-            onInput={(e) => setBaseSize(Number(e.target.value))}
+            onInput={(e) => {
+              setBaseMinSize(Number(e.target.value))
+              updateBaseSizeByMin(Number(e.target.value))
+            }}
             step="1"
             min="0"
-            defaultValue={baseSize}
+            defaultValue={baseMinSize}
           />
         </div>
         <div className="formGroup">
           <label htmlFor="">Maximum size</label>
           <input
             type="number"
-            onInput={(e) => setBaseMaxSize(Number(e.target.value))}
+            onInput={(e) => {
+              setBaseMaxSize(Number(e.target.value))
+              updateBaseSizeByMax(Number(e.target.value))
+            }}
             step="1"
             min="0"
             defaultValue={baseMaxSize}

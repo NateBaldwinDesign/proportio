@@ -8,12 +8,14 @@ import {
   baseMobileScaleFactorState,
   baseScaleUnitState,
   baseMaxSizeState,
+  baseMinSizeState,
   viewportMinState,
   viewportMaxState
 } from '../states/base';
 import Slider from './slider'
 
 import "../styles/header.css";
+import calculateFontSize from "../utilities/calculateFontSize";
 
 const Header = (props) => {
   const showModal = props.showModal
@@ -22,6 +24,14 @@ const Header = (props) => {
   const [viewportMin, setViewportMin] = useRecoilState(viewportMinState)
   const [viewportMax, setViewportMax] = useRecoilState(viewportMaxState)
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
+  const [baseMinSize, setBaseMinSize] = useRecoilState(baseMinSizeState);
+  const [baseMaxSize, setBaseMaxSize] = useRecoilState(baseMaxSizeState);
+
+  const updateBaseSize = (v) => {
+    const size = calculateFontSize(viewportMin, viewportMax, baseMinSize, baseMaxSize, v)
+    console.log(size)
+    return setBaseSize(size)
+  }
 
   return (
     <header>
@@ -39,11 +49,12 @@ const Header = (props) => {
           <Slider
             type="number"
             onInput={setViewportSize}
+            dependancyFunction={updateBaseSize}
             step="1"
             min={viewportMin}
             max={viewportMax}
             unit="px"
-            defaultValue={viewportSize}
+            defaultValue={(viewportSize < viewportMin) ? viewportMin : ((viewportSize > viewportMax) ? viewportMax : viewportSize)}
           />
         </div>
 

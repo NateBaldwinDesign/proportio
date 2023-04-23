@@ -9,7 +9,7 @@ import {
  */
 const viewportSizeState = atom({
     key: 'viewportSize',
-    default: 1920
+    default: 320
 })
 
 export {
