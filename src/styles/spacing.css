@@ -1,6 +1,7 @@
 #spacingWrapper {
     display: flex;
     flex-direction: column-reverse;
+    gap: 16px;
 }
 .spacingItem {
     display: grid;

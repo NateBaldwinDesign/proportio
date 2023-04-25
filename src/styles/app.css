@@ -29,7 +29,7 @@
     --background: #e4ebf3;
     --legendColor: #000000;
     --legendTextColor: #ffffff;
-    --dialogBackground: var(var(--appBackground));
+    --dialogBackground: var(--appBackground);
     --linkColor: var(--Gold400);
 
     /* --blueprint100: #e3eaf3;

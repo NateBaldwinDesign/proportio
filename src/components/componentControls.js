@@ -79,13 +79,13 @@ const ComponentControls = (props) => {
 
   return (
     <>
-      <Tabs>
+      {/* <Tabs>
         <TabList>
           <Tab> Sizes </Tab>
           <Tab> Density </Tab>
           <Tab> Radius </Tab>
         </TabList>
-        <TabPanel>
+        <TabPanel> */}
           <fieldset>
             <legend>Default size</legend>
             <div className="segmentedControl">{componentScalingMethodInputs}</div>
@@ -146,8 +146,8 @@ const ComponentControls = (props) => {
               </div>
             </div>
           </fieldset>
-        </TabPanel>
-        <TabPanel>
+        {/* </TabPanel>
+        <TabPanel> */}
           <fieldset>
             <legend>Default density (padding)</legend>
             <div className="segmentedControl">{componentPaddingMethodInputs}</div>
@@ -228,8 +228,8 @@ const ComponentControls = (props) => {
               </div>
             </div>
           </fieldset>
-        </TabPanel>
-        <TabPanel>
+        {/* </TabPanel>
+        <TabPanel> */}
           <fieldset>
             <legend>Radius</legend>
             <div className="column">
@@ -263,8 +263,8 @@ const ComponentControls = (props) => {
               </div>
             </div>
           </fieldset>
-        </TabPanel>
-      </Tabs>
+        {/* </TabPanel>
+      </Tabs> */}
     </>
   );
 };

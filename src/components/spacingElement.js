@@ -7,7 +7,9 @@ const SpacingElement = (props) => {
     const spacerLineHeight = 1.375;
 
     return (
-        <div className="spacingItem" style={{marginBottom: `${(size * spacerLineHeight) - size}px`}}>
+        <div className="spacingItem" 
+            // style={{marginBottom: `${(size * spacerLineHeight) - size}px`}}
+        >
             <span className="specs"> {Math.round(size)}px </span>
             <div className="spacing" style={{
                 width: `${size}px`, 

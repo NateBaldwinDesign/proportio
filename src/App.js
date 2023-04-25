@@ -21,8 +21,7 @@ import Home from "./views/home";
 // import Docs from './views/docs';
 // import Tokens from "./views/tokens";
 import ExportDialog from "./views/exportDialog"
-import Containers from "./views/containers";
-import Layout from "./views/layout";
+
 
 function App() {
 
@@ -48,7 +47,6 @@ function App() {
               <Tab className="App_tab">Typography</Tab>
               <Tab className="App_tab">Shape</Tab>
               <Tab className="App_tab">Components</Tab>
-              <Tab className="App_tab">Layout</Tab>
             </TabList>
           </Header>
 
@@ -66,9 +64,6 @@ function App() {
             <Components
               iconLineHeight={iconLineHeight}
             />
-          </TabPanel>
-          <TabPanel className="App_tabPanel">
-            <Layout />
           </TabPanel>
 
         </Tabs>
