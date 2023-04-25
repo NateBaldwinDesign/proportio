@@ -80,7 +80,7 @@ const TypeControls = (props) => {
             defaultValue={typeFontWeight}
           />
         </div>
-        <div className="formGroup">
+        {/* <div className="formGroup">
           <label htmlFor="">Scale factor</label>
           <input
             type="number"
@@ -92,8 +92,8 @@ const TypeControls = (props) => {
             min="0"
             defaultValue={typeScale}
           />
-        </div>
-        <div className="formGroup">
+        </div> */}
+        {/* <div className="formGroup">
           <label htmlFor="">Small sizes</label>
           <input
             type="number"
@@ -113,7 +113,7 @@ const TypeControls = (props) => {
             min="0"
             defaultValue={typeLargeQuantity}
           />
-        </div>
+        </div> */}
       {/* </div> */}
       {/* <div className="row">
         <div className="column"> */}

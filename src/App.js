@@ -22,6 +22,7 @@ import Home from "./views/home";
 // import Tokens from "./views/tokens";
 import ExportDialog from "./views/exportDialog"
 import Containers from "./views/containers";
+import Layout from "./views/layout";
 
 function App() {
 
@@ -44,20 +45,12 @@ function App() {
             setShowModal={setShowModal}
           >
             <TabList className="App_tabsList">
-              {/* <Tab className="App_tab">Home</Tab> */}
               <Tab className="App_tab">Typography</Tab>
               <Tab className="App_tab">Shape</Tab>
               <Tab className="App_tab">Components</Tab>
-              {/* <Tab className="App_tab">Containers</Tab> */}
-
-              {/* <Tab className="App_tab">Tokens</Tab> */}
-              {/* <Tab className="App_tab">Docs</Tab> */}
+              <Tab className="App_tab">Layout</Tab>
             </TabList>
           </Header>
-
-          {/* <TabPanel className="App_tabPanel">
-            <Home />
-          </TabPanel> */}
 
           <TabPanel className="App_tabPanel">
             <TypographyView
@@ -74,9 +67,9 @@ function App() {
               iconLineHeight={iconLineHeight}
             />
           </TabPanel>
-          {/* <TabPanel className="App_tabPanel">
-            <Containers />
-          </TabPanel> */}
+          <TabPanel className="App_tabPanel">
+            <Layout />
+          </TabPanel>
 
         </Tabs>
       </div>
