@@ -15,26 +15,26 @@ const SpacingControls = (props) => {
   const [spacingSmallQuantity, setSpacingSmallQuantity] = useRecoilState(spacingSmallQuantityState);
   const [spacingLargeQuantity, setSpacingLargeQuantity] = useRecoilState(spacingLargeQuantityState);
   const [spacingFormula, setSpacingFormula] = useRecoilState(spacingFormulaState)
-  const inputs = scaleFormulas.map((formula) => {
-    return (
-      <div className="radioGroup" key={`spacing${formula}`}>
-        <input
-          type="radio"
-          id={`Spacing${formula}`}
-          name="SpacingScale_formula"
-          value={formula}
-          onClick={(e) => setSpacingFormula(e.target.value)}
-          defaultChecked={formula === spacingFormula ? true : false}
-        />
-        <label htmlFor={`Spacing${formula}`}>{capitalize(formula)}</label>
-      </div>
-    );
-  });
+  // const inputs = scaleFormulas.map((formula) => {
+  //   return (
+  //     <div className="radioGroup" key={`spacing${formula}`}>
+  //       <input
+  //         type="radio"
+  //         id={`Spacing${formula}`}
+  //         name="SpacingScale_formula"
+  //         value={formula}
+  //         onClick={(e) => setSpacingFormula(e.target.value)}
+  //         defaultChecked={formula === spacingFormula ? true : false}
+  //       />
+  //       <label htmlFor={`Spacing${formula}`}>{capitalize(formula)}</label>
+  //     </div>
+  //   );
+  // });
 
   return (
     <fieldset>
       <legend>Spacing</legend>
-      <div className="segmentedControl">{inputs}</div>
+      {/* <div className="segmentedControl">{inputs}</div> */}
       <div className="column">
         <div className="formGroup">
           <label htmlFor="">Scale factor</label>

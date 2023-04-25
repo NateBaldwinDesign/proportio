@@ -1,14 +1,19 @@
 import React from "react";
 import { useRecoilState } from 'recoil';
+import { baseScaleUnitState, baseSizeState } from "../states/base";
+import round from "../utilities/round";
 
 const ElevationElement = (props) => {
   const elevation = props.elevation;
   const offsetY = props.offsetY;
+  const [baseScaleUnit, setBaseScaleUnit] = useRecoilState(baseScaleUnitState)
+  const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
+  const value = (baseScaleUnit === 'px') ? round(elevation) : round(elevation/baseSize, 3);
 
   const margin = elevation > 0 ? elevation : 4;
   return (
     <div className="elevationItem">
-      <span className="specs"> {Math.round(elevation)}px </span>
+      <span className="specs"> {value}{baseScaleUnit} </span>
       <div
         className="elevation"
         style={{

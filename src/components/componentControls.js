@@ -248,7 +248,7 @@ const ComponentControls = (props) => {
                 </div>
               </div>
               <div className="formGroup">
-                <label>Radius index</label>
+                <label>Radius size index</label>
                 <input
                   type="number"
                   defaultValue={baseComponentRadius}

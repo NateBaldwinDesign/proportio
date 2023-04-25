@@ -269,6 +269,7 @@ main.demoRow .column {
     max-width: calc(100vw - 442px - var(--appFrameMargin));
     height: calc(100vh - 200px);
     margin: 0;
+    row-gap: 56px;
   }
 }
 .splitView main.main--content {

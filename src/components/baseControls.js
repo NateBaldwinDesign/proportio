@@ -21,6 +21,7 @@ import {
   iconLargeQuantityState
 } from "../states/iconography";
 import Dropdown from 'react-dropdown';
+import typeScaleOptions from '../utilities/typeScaleOptions';
 
 const BaseControls = (props) => {
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
@@ -35,97 +36,40 @@ const BaseControls = (props) => {
   const [iconLargeQuantity, setIconLargeQuantity] = useRecoilState(iconLargeQuantityState)
   const [scaleInput, setScaleInput] = useState(typeScale)
 
-  const typeScaleOptions = [
-    {
-      value: 1.067,
-      label: 'Minor second'
-    },
-    {
-      value: 1.125,
-      label: 'Major second'
-    },
-    {
-      value: 1.2,
-      label: 'Minor third'
-    },
-    {
-      value: 1.25,
-      label: 'Major third'
-    },
-    {
-      value: 1.333,
-      label: 'Perfect fourth'
-    },
-    {
-      value: undefined,
-      label: 'Custom'
-    },
-    // {
-    //   value: 1.414,
-    //   label: 'Augmented fourth'
-    // },
-    // {
-    //   value: 1.5,
-    //   label: 'Perfect fifth'
-    // },
-    // {
-    //   value: 1.6,
-    //   label: 'Minor sixth'
-    // },
-    // {
-    //   value: 1.618,
-    //   label: 'Golden ratio'
-    // },
-    // {
-    //   value: 1.667,
-    //   label: 'Major sixth'
-    // },
-    // {
-    //   value: 1.778,
-    //   label: 'Minor seventh'
-    // },
-    // {
-    //   value: 1.875,
-    //   label: 'Major seventh'
-    // },
-    // {
-    //   value: 2,
-    //   label: 'Octave'
-    // }
-  ]
-
-  const inputs = scaleUnits.map((unit) => {
-    return (
-      <div className="radioGroup" key={`${unit}`}>
-        <input
-          type="radio"
-          id={`scale${unit}`}
-          name="scale_unit"
-          value={unit}
-          onClick={(e) => setBaseScaleUnit(e.target.value)}
-          defaultChecked={unit === baseScaleUnit ? true : false}
-        />
-        <label htmlFor={`scale${unit}`}>{capitalize(unit)}</label>
-      </div>
-    );
-  });
+  // const inputs = scaleUnits.map((unit) => {
+  //   return (
+  //     <div className="radioGroup" key={`${unit}`}>
+  //       <input
+  //         type="radio"
+  //         id={`scale${unit}`}
+  //         name="scale_unit"
+  //         value={unit}
+  //         onClick={(e) => setBaseScaleUnit(e.target.value)}
+  //         defaultChecked={unit === baseScaleUnit ? true : false}
+  //       />
+  //       <label htmlFor={`scale${unit}`}>{capitalize(unit)}</label>
+  //     </div>
+  //   );
+  // });
 
   return (
     <fieldset >
-      <legend>Base values</legend>
+      <legend>Common values</legend>
       <div className="column">
-        <div className="formGroup">
+        {/* <div className="formGroup">
         <div className="segmentedControl">
           {inputs}
         </div>
-        </div>
+        </div> */}
 
 
         <div className="formGroup">
-          <label htmlFor="">Unit size</label>
+          <label htmlFor="">Base size (px)</label>
           <input
             type="number"
-            onInput={(e) => setBaseSize(Number(e.target.value))}
+            onInput={(e) => {
+              setBaseSize(Number(e.target.value))
+            }}
             step="1"
             min="0"
             defaultValue={baseSize}
@@ -133,7 +77,7 @@ const BaseControls = (props) => {
         </div>
 
         <div className="formGroup">
-          <label htmlFor="">Factor</label>
+          <label htmlFor="">Scale</label>
 
           <Dropdown 
               options={typeScaleOptions} 

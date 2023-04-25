@@ -49,3 +49,18 @@ header {
   display: flex;
   align-items: center;
 }
+.header--center {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.header--left .formGroup,
+.header--center .formGroup, 
+.header--right .formGroup {
+  margin-bottom: 0;
+}
+
+#unitPicker {
+  width: 6ch;
+}

@@ -12,13 +12,17 @@ import {
     radiusScaleFormulaState
 } from "../states/radius"
 import tokens from "../utilities/tokens";
+import { baseScaleUnitState, baseSizeState } from "../states/base";
+import round from "../utilities/round";
 
 const Radius = (props) => {
+    const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
     const [baseRadiusSize, setBaseRadiusSize] = useRecoilState(baseRadiusSizeState)
     const [radiusScaleFactor, setRadiusScaleFactor] = useRecoilState(radiusScaleFactorState)
     const [radiusSmallQuantity, setRadiusSmallQuantity] = useRecoilState(radiusSmallQuantityState)
     const [radiusLargeQuantity, setRadiusLargeQuantity] = useRecoilState(radiusLargeQuantityState)
     const [radiusScaleFormula, setRadiusScaleFormula] = useRecoilState(radiusScaleFormulaState)
+    const [baseScaleUnit, setBaseScaleUnit] = useRecoilState(baseScaleUnitState)
 
     let sizeArray = buildArray(radiusSmallQuantity, radiusLargeQuantity);
     const sizes = sizeArray.map((i) => {
@@ -29,9 +33,10 @@ const Radius = (props) => {
 
     const radiusElements = sizes.map((size, i) => {
         const name = `radius-${100 * (i+1)}`
+        const value = (baseScaleUnit === 'px') ? size : round(size/baseSize, 3);
         const object = {
           [name]: {
-            'value': `${size}px`,
+            'value': `${value}${baseScaleUnit}`,
             'type': 'dimension'
           }
         }

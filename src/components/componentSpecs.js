@@ -90,9 +90,6 @@ const Sizes = (props) => {
   const showComponentIcon = props.showComponentIcon;
   const showComponentText = props.showComponentText;
 
-  console.log(sizeArray)
-  console.log(iconSizeIndexArray)
-
   const sizedComponents = sizeArray.map((size, increment) => {
     const decrementIndex = (size * -1) - 1;
     let sizeName = size < 0 ? sizeNamesDecrement[decrementIndex] : sizeNamesIncrement[size];

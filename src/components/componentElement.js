@@ -3,10 +3,18 @@ import { useRecoilState } from 'recoil';
 import createSvgIcon from "../utilities/createSvgIcon";
 import "../styles/component.css";
 import { iconState, iconStrokeState } from "../states/iconography";
+import { baseScaleUnitState, baseSizeState } from "../states/base";
+import round from "../utilities/round";
+
 
 const ComponentElement = (props) => {
   const [icon, setIcon] = useRecoilState(iconState);
   const [iconStroke, setIconStroke] = useRecoilState(iconStrokeState)
+  const [baseScaleUnit, setBaseScaleUnit] = useRecoilState(baseScaleUnitState)
+  const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
+  
+    // const value = (baseScaleUnit === 'px') ? round(size) : round(size/baseSize, 3);
+
   const componentMinHeight = props.componentMinHeight;
   const paddingX = props.paddingX;
   const paddingY = props.paddingY;
@@ -42,7 +50,7 @@ const ComponentElement = (props) => {
   const padBottomClass = (showComponentText) ? "padBottom" : "padBottomAlt"
   const gapSpecAnnotation = (!showComponentIcon || !showComponentText) ? '' 
     : <div className="specGap specs" style={{ marginLeft: `${Math.round(paddingX)}px`}}> 
-        {`Gap: ${Math.round(gapSize)}px`} 
+        {`Gap: ${(baseScaleUnit === 'px') ? round(gapSize) : round(gapSize/baseSize, 3)}${baseScaleUnit}`} 
       </div>
 
   const biggestHeight = (computedHeight > componentMinHeight) ? computedHeight : componentMinHeight;
@@ -52,20 +60,19 @@ const ComponentElement = (props) => {
     <>
       <div className="specHeight specs">
         {" "}
-        {`Height: ${Math.round(
-          computedHeight
-        )}px \n (Min: ${Math.round(componentMinHeight)})px`}{" "}
+        {`Height: ${(baseScaleUnit === 'px') ? round(computedHeight) : round(computedHeight/baseSize, 3)}${baseScaleUnit} 
+        \n (Min: ${(baseScaleUnit === 'px') ? round(componentMinHeight) : round(componentMinHeight/baseSize, 3)}${baseScaleUnit})`}{" "}
       </div>
-      <div className="specType specs"> {`Font: ${Math.round(typeSize)}px`} </div>
+      <div className="specType specs"> {`Font: ${(baseScaleUnit === 'px') ? round(typeSize) : round(typeSize/baseSize, 3)}${baseScaleUnit}`} </div>
       <div className="specIcon specs" style={{
         marginLeft: `${Math.round(paddingX)}px`
       }}> 
-        {`Icon: ${Math.round(iconSize)}px`} 
+        {`Icon: ${(baseScaleUnit === 'px') ? round(iconSize) : round(iconSize/baseSize, 3)}${baseScaleUnit}`} 
       </div>
-      <div className="specPaddingX specs"> {`Pad-X: ${Math.round(paddingX)}px`} </div>
-      <div className="specPaddingY specs"> {`Pad-Y: ${Math.round(paddingY)}px`} </div>
+      <div className="specPaddingX specs"> {`Pad-X: ${(baseScaleUnit === 'px') ? round(paddingX) : round(paddingX/baseSize, 3)}${baseScaleUnit}`} </div>
+      <div className="specPaddingY specs"> {`Pad-Y: ${(baseScaleUnit === 'px') ? round(paddingY) : round(paddingY/baseSize, 3)}${baseScaleUnit}`} </div>
       {gapSpecAnnotation}
-      <div className="specRadius specs"> {`R: ${Math.round(radius)}px`} </div>
+      <div className="specRadius specs"> {`R: ${(baseScaleUnit === 'px') ? round(radius) : round(radius/baseSize, 3)}${baseScaleUnit}`} </div>
     </>
   );
   const showSpecs = spec ? specAnnotations : "";
