@@ -6,6 +6,7 @@ const Slider = (props) => {
     const max = props.max;
     const defaultValue = props.defaultValue;
     const onInput = props.onInput;
+    const dependancyFunction = props.dependancyFunction;
     const unit = props.unit;
 
     return (
@@ -15,6 +16,7 @@ const Slider = (props) => {
                 type="range"
                 onInput={(e) => {
                     onInput(Number(e.target.value))
+                    dependancyFunction(Number(e.target.value))
                 }}
                 step={step}
                 min={min}
