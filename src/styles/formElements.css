@@ -163,7 +163,7 @@ fieldset {
   flex-basis: fit-content;
   flex-shrink: 0;
   gap: 24px;
-  margin: 8px 0;
+  margin: 16px 0;
   outline: none;
   box-shadow: none;
   border: 0;
@@ -180,7 +180,7 @@ fieldset:last-of-type {
   fieldset {
     border-bottom: 1px solid var(--border100);
     border-right: none;
-    padding: 10px 0 16px 0;
+    padding: 16px 0 24px 0;
     width: auto;
   }
   fieldset:last-of-type {
@@ -203,7 +203,16 @@ legend {
   padding: 0;
   font-size: 1rem;
   font-weight: 600;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: baseline;
 }
+
+legend cite {
+  font-weight: 400;
+}
+
 label {
   font-size: 0.875rem;
 }

@@ -111,7 +111,7 @@ const BaseControls = (props) => {
   });
 
   return (
-    <fieldset style={{marginBottom: '0'}}>
+    <fieldset >
       <legend>Base values</legend>
       <div className="column">
         <div className="formGroup">

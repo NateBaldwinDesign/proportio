@@ -43,14 +43,16 @@ const TypeControls = (props) => {
 
   return (
     <fieldset>
-      <legend>Typography</legend>
+      <legend>
+        Typography 
+        <cite>via <a href="https://fonts.google.com/" target="_blank">Google fonts</a></cite>
+      </legend>
       {/* <div className="segmentedControl">{inputs}</div> */}
 
       <div className="column">
         <div className="formGroup">
           <label htmlFor="">
-            Font<br/>
-            <cite>via <a href="https://fonts.google.com/" target="_blank">Google fonts</a></cite>
+            Font
           </label>
           <span className="apply-font-main" style={{width: 'calc(100% - 120px)'}}>
             <FontPicker
