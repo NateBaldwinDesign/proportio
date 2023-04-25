@@ -45,6 +45,7 @@ div[id^=font-picker] ul,
   z-index: 10;
   opacity: 0;
   transition: all 0.3s ease-out;
+  z-index: 10;
 }
 .Dropdown-menu {
   position: absolute;

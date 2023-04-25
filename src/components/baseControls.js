@@ -9,8 +9,17 @@ import {
 } from '../states/base';
 import scaleUnits from "../utilities/scaleUnits";
 import capitalize from "../utilities/capitalize";
-import { typeScaleFormulaState, typeScaleState } from "../states/typography";
-import { iconScaleState } from "../states/iconography";
+import { 
+  typeScaleFormulaState, 
+  typeScaleState,
+  typeSmallQuantityState,
+  typeLargeQuantityState
+} from "../states/typography";
+import { 
+  iconScaleState,
+  iconSmallQuantityState,
+  iconLargeQuantityState
+} from "../states/iconography";
 import Dropdown from 'react-dropdown';
 
 const BaseControls = (props) => {
@@ -20,7 +29,11 @@ const BaseControls = (props) => {
   const [typeScale, setTypeScale] = useRecoilState(typeScaleState)
   const [typeScaleFormula, setTypeScaleFormula] = useRecoilState(typeScaleFormulaState)
   const [iconScale, setIconScale] = useRecoilState(iconScaleState)
-  const [typeScaleInput, setTypeScaleInput] = useState(typeScale);
+  const [typeSmallQuantity, setTypeSmallQuantity] = useRecoilState(typeSmallQuantityState)
+  const [typeLargeQuantity, setTypeLargeQuantity] = useRecoilState(typeLargeQuantityState)
+  const [iconSmallQuantity, setIconSmallQuantity] = useRecoilState(iconSmallQuantityState)
+  const [iconLargeQuantity, setIconLargeQuantity] = useRecoilState(iconLargeQuantityState)
+  const [scaleInput, setScaleInput] = useState(typeScale)
 
   const typeScaleOptions = [
     {
@@ -44,37 +57,41 @@ const BaseControls = (props) => {
       label: 'Perfect fourth'
     },
     {
-      value: 1.414,
-      label: 'Augmented fourth'
+      value: undefined,
+      label: 'Custom'
     },
-    {
-      value: 1.5,
-      label: 'Perfect fifth'
-    },
-    {
-      value: 1.6,
-      label: 'Minor sixth'
-    },
-    {
-      value: 1.618,
-      label: 'Golden ratio'
-    },
-    {
-      value: 1.667,
-      label: 'Major sixth'
-    },
-    {
-      value: 1.778,
-      label: 'Minor seventh'
-    },
-    {
-      value: 1.875,
-      label: 'Major seventh'
-    },
-    {
-      value: 2,
-      label: 'Octave'
-    }
+    // {
+    //   value: 1.414,
+    //   label: 'Augmented fourth'
+    // },
+    // {
+    //   value: 1.5,
+    //   label: 'Perfect fifth'
+    // },
+    // {
+    //   value: 1.6,
+    //   label: 'Minor sixth'
+    // },
+    // {
+    //   value: 1.618,
+    //   label: 'Golden ratio'
+    // },
+    // {
+    //   value: 1.667,
+    //   label: 'Major sixth'
+    // },
+    // {
+    //   value: 1.778,
+    //   label: 'Minor seventh'
+    // },
+    // {
+    //   value: 1.875,
+    //   label: 'Major seventh'
+    // },
+    // {
+    //   value: 2,
+    //   label: 'Octave'
+    // }
   ]
 
   const inputs = scaleUnits.map((unit) => {
@@ -116,27 +133,62 @@ const BaseControls = (props) => {
         </div>
 
         <div className="formGroup">
-          <label htmlFor="">Scale factor</label>
+          <label htmlFor="">Factor</label>
 
           <Dropdown 
               options={typeScaleOptions} 
               onChange={(e) => {
-                // setTypeScaleInput(e.value);
-                setTypeScale(Number(e.value))
-                setIconScale(Number(e.value)) 
+                setScaleInput(e.value)
+                if(e.value !== typeScale) {
+                  setTypeScale(Number(e.value))
+                  setIconScale(Number(e.value))
+                }
               }} 
-              value={typeScaleOptions.filter((item) => item.value === typeScale)[0]} 
+              value={
+                (!typeScaleOptions.filter((item) => item.value === typeScale)[0])
+                ? typeScaleOptions.filter((item) => item.value === undefined)[0]
+                : typeScaleOptions.filter((item) => item.value === typeScale)[0]
+              } 
               placeholder={typeScaleOptions[1].value} />
 
           <input
+            key={scaleInput}
             type="number"
-            onInput={(e) => {
+            onChange={(e) => {
+              // console.log(e.target.value)
               setTypeScale(Number(e.target.value))
               setIconScale(Number(e.target.value))
             }}
             step={typeScaleFormula === "power" ? "0.001" : "1"}
             min="0"
-            defaultValue={typeScaleInput}
+            defaultValue={scaleInput}
+          />
+        </div>
+        <div className="formGroup">
+          <label htmlFor="">Small sizes</label>
+          <input
+            type="number"
+            onInput={(e) => {
+              setTypeSmallQuantity(Number(e.target.value))
+              setIconSmallQuantity(Number(e.target.value))
+            }}
+            step="1"
+            min="0"
+            defaultValue={typeSmallQuantity}
+          />
+        </div>
+
+        <div className="formGroup">
+          <label htmlFor="">Large sizes</label>
+          <input
+            type="number"
+            onInput={(e) => {
+              setTypeLargeQuantity(Number(e.target.value))
+              setIconLargeQuantity(Number(e.target.value))
+            }}
+            step="1"
+            min="0"
+            defaultValue={typeLargeQuantity}
           />
         </div>
         {/* <div className="formGroup">

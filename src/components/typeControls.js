@@ -93,7 +93,7 @@ const TypeControls = (props) => {
             defaultValue={typeScale}
           />
         </div> */}
-        <div className="formGroup">
+        {/* <div className="formGroup">
           <label htmlFor="">Small sizes</label>
           <input
             type="number"
@@ -113,7 +113,7 @@ const TypeControls = (props) => {
             min="0"
             defaultValue={typeLargeQuantity}
           />
-        </div>
+        </div> */}
       {/* </div> */}
       {/* <div className="row">
         <div className="column"> */}

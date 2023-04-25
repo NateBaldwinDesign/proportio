@@ -88,7 +88,7 @@ const IconControls = (props) => {
             defaultValue={iconStroke}
           />
         </div>
-        <div className="formGroup">
+        {/* <div className="formGroup">
           <label htmlFor="">Small sizes</label>
           <input
             type="number"
@@ -108,7 +108,7 @@ const IconControls = (props) => {
             min="0"
             defaultValue={iconLargeQuantity}
           />
-        </div>
+        </div> */}
       </div>
     </fieldset>
   );
