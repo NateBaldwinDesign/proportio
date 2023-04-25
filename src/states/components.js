@@ -15,19 +15,19 @@ const componentLineHeightState = atom({
 })
 const componentSmallQuantityState = atom({
     key: 'componentSmallQuantity',
-    default: 1
+    default: 0
 })
 const componentLargeQuantityState = atom({
     key: 'componentLargeQuantity',
-    default: 2
+    default: 1
 })
 const componentDensitySmallQuantityState = atom({
     key: 'componentDensitySmallQuantity',
-    default: 1
+    default: 0
 })
 const componentDensityLargeQuantityState = atom({
     key: 'componentDensityLargeQuantity',
-    default: 2
+    default: 1
 })
 const componentDensityScaleFactorState = atom({
     key: 'componentDensityScaleFactor',
