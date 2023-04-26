@@ -49,10 +49,10 @@ import {
 import {
   textIconGapIndexState,
   textIconIconSizeIndexState,
-  textIconGapScaleFormulaState
-} from "../states/textIconPair"
-import tokens from "../utilities/tokens";
-import demoComponents from '../utilities/demoComponents'
+  textIconGapScaleFormulaState,
+} from '../states/textIconPair';
+import tokens from '../utilities/tokens';
+import demoComponents from '../utilities/demoComponents';
 
 const Sizes = (props) => {
   const tokenNamePrefix = props.tokenNamePrefix;
@@ -97,39 +97,41 @@ const Sizes = (props) => {
       '',
     )}`;
 
-    return <ComponentSizeColumn
-      key={`${newTokenNamePrefix}-${decrementIndex}`}
-      size={size}
-      density={densityName}
-      sizeName={sizeName}
-      increment={increment}
-      newTokenNamePrefix={newTokenNamePrefix}
-      componentPaddingScale={componentPaddingScale}
-      paddingXIndexArray={paddingXIndexArray}
-      componentPaddingMethodFormula={componentPaddingMethodFormula}
-      paddingYIndexArray={paddingYIndexArray}
-      textSizeIndexArray={textSizeIndexArray}
-      iconSizeIndexArray={iconSizeIndexArray}
-      iconScaleFormula={iconScaleFormula}
-      componentScale={componentScale}
-      componentMinHeightIndexArray={componentMinHeightIndexArray}
-      componentScaleMethodFormula={componentScaleMethodFormula}
-      baseRadiusSize={baseRadiusSize}
-      radiusScaleFactor={radiusScaleFactor}
-      componentRadiusIndexArray={componentRadiusIndexArray}
-      radiusScaleFormula={radiusScaleFormula}
-      componentLineHeight={componentLineHeight}
-      componentRadiusNewIndexValue={componentRadiusNewIndexValue}
-      scaleComponentRadius={scaleComponentRadius}
-      iconPadding={iconPadding}
-      showSpecs={showSpecs}
-      showComponentIcon={showComponentIcon}
-      showComponentText={showComponentText}
-      componentGapScale={componentGapScale}
-      componentGapMethod={componentGapMethod}
-      gapIndexArray={gapIndexArray}
-    />
-  }) 
+    return (
+      <ComponentSizeColumn
+        key={`${newTokenNamePrefix}-${decrementIndex}`}
+        size={size}
+        density={densityName}
+        sizeName={sizeName}
+        increment={increment}
+        newTokenNamePrefix={newTokenNamePrefix}
+        componentPaddingScale={componentPaddingScale}
+        paddingXIndexArray={paddingXIndexArray}
+        componentPaddingMethodFormula={componentPaddingMethodFormula}
+        paddingYIndexArray={paddingYIndexArray}
+        textSizeIndexArray={textSizeIndexArray}
+        iconSizeIndexArray={iconSizeIndexArray}
+        iconScaleFormula={iconScaleFormula}
+        componentScale={componentScale}
+        componentMinHeightIndexArray={componentMinHeightIndexArray}
+        componentScaleMethodFormula={componentScaleMethodFormula}
+        baseRadiusSize={baseRadiusSize}
+        radiusScaleFactor={radiusScaleFactor}
+        componentRadiusIndexArray={componentRadiusIndexArray}
+        radiusScaleFormula={radiusScaleFormula}
+        componentLineHeight={componentLineHeight}
+        componentRadiusNewIndexValue={componentRadiusNewIndexValue}
+        scaleComponentRadius={scaleComponentRadius}
+        iconPadding={iconPadding}
+        showSpecs={showSpecs}
+        showComponentIcon={showComponentIcon}
+        showComponentText={showComponentText}
+        componentGapScale={componentGapScale}
+        componentGapMethod={componentGapMethod}
+        gapIndexArray={gapIndexArray}
+      />
+    );
+  });
 
   return (
     <div className="column column--fitContent">
@@ -219,7 +221,7 @@ const ComponentSpecs = (props) => {
 
   const rowClassName = showSpecs ? 'row row--comfortable' : 'row row--spacious';
   // Clear out component tokens
-  tokens.component = []
+  tokens.component = [];
   demoComponents.length = 0;
 
   const componentPaddingScale =
@@ -339,9 +341,8 @@ const ComponentSpecs = (props) => {
       '',
     )}`;
 
-    const tokenNamePrefix = `component-${densityName.replace(' (default)', '')}`;
-    
-    return <Sizes 
+    return (
+      <Sizes
         key={`${densityName}-${sizeArray}`}
         tokenNamePrefix={tokenNamePrefix}
         densityName={densityName}
