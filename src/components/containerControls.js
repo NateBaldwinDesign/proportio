@@ -4,9 +4,15 @@ import {
     containerLargeSizesState,
     containerBaseRadiusIndexState,
     containerBaseElevationIndexState,
-    containerRadiusScaleFactorState
+    containerRadiusScaleFactorState,
+    containerBaseRadiusXIndexState,
+    containerBaseRadiusYIndexState,
+    containerPaddingScaleFactorState,
+    containerPaddingMethodOptionState
 } from '../states/containers';
 import { useRecoilState } from 'recoil';
+import scaleMethodOptions from '../utilities/scaleMethodOptions';
+import capitalize from '../utilities/capitalize';
 
 const ContainerControls = (props) => {
     const [containerSmallSizes, setContainerSmallSizes] = useRecoilState(containerSmallSizesState)
@@ -14,11 +20,33 @@ const ContainerControls = (props) => {
     const [containerBaseRadiusIndex, setContainerBaseRadiusIndex] = useRecoilState(containerBaseRadiusIndexState)
     const [containerBaseElevationIndex, setContainerBaseElevationIndex] = useRecoilState(containerBaseElevationIndexState)
     const [containerRadiusScaleFactor, setContainerRadiusScaleFactor] = useRecoilState(containerRadiusScaleFactorState)
-    
+    const [containerBasePaddingXIndex, setContainerBasePaddingXIndex] = useRecoilState(containerBaseRadiusXIndexState)
+    const [containerBasePaddingYIndex, setContainerBasePaddingYIndex] = useRecoilState(containerBaseRadiusYIndexState)
+    const [containerPaddingScaleFactor, setContainerPaddingScaleFactor] = useRecoilState(containerPaddingScaleFactorState)
+    const [containerPaddingMethodOption, setContainerPaddingMethodOption] = useRecoilState(containerPaddingMethodOptionState)
+
+    const containerPaddingMethodInputs = scaleMethodOptions.map((method) => {
+        return (
+          <div className="radioGroup" key={`${method}`}>
+            <input
+              type="radio"
+              id={`containerPadding${method}`}
+              name="containerPaddingScale_method"
+              defaultValue={method}
+              onClick={(e) => setContainerPaddingMethodOption(e.target.value)}
+              defaultChecked={method === containerPaddingMethodOption ? true : false}
+            />
+            <label htmlFor={`containerPadding${method}`}>
+              {`${capitalize(method)}`}
+            </label>
+          </div>
+        );
+      });
+
     return (
         <>
         <fieldset>
-          <legend>Container sizes</legend>
+          <legend>Sizes</legend>
           {/* <div className="segmentedControl">{inputs}</div> */}
           <div className='column'>
             <div className="formGroup">
@@ -43,6 +71,47 @@ const ContainerControls = (props) => {
             </div>
             </div>
         </fieldset>
+        <fieldset>
+            <legend>Padding</legend>
+            <div className="segmentedControl">{containerPaddingMethodInputs}</div>
+            <div className="column">
+              <div className="formGroup">
+                <label>Top/bottom padding index</label>
+                <input
+                  type="number"
+                  id="containerXPaddingScale"
+                  defaultValue={containerBasePaddingXIndex}
+                  step="1"
+                  onInput={(e) => {
+                    setContainerBasePaddingXIndex(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="formGroup">
+                <label>Left/right padding index</label>
+                <input
+                  type="number"
+                  id="containerYPaddingScale"
+                  defaultValue={containerBasePaddingYIndex}
+                  step="1"
+                  onInput={(e) => {
+                    setContainerBasePaddingYIndex(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="formGroup">
+                <label>Scale factor</label>
+                <input
+                  type="number"
+                  defaultValue={containerPaddingScaleFactor}
+                  step="1"
+                  onInput={(e) => {
+                    setContainerPaddingScaleFactor(e.target.value);
+                  }}
+                />
+              </div>
+            </div>
+          </fieldset>
         <fieldset>
             <legend>Radius</legend>
             <div className='column'>

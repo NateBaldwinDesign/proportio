@@ -45,11 +45,11 @@ const Containers = (props) => {
     const elevations = elevationsArray.map((i) => {
         return calculateScale(baseElevationSize, elevationScaleFactor, i, elevationScaleFormula);
     })
-    const offsets = elevations.map((size) => {
-        return size * (elevationOffsetY / 100)
+    const offsets = elevations.map((elevation) => {
+        return elevation * (elevationOffsetY / 100)
     })
     const radiusArray = buildShiftedArray(containerSmallSizes, containerLargeSizes, containerBaseRadiusIndex, containerRadiusScaleFactor)
-    
+    console.log(elevationsArray)
 
     const newContainerTokens = []
 
@@ -57,7 +57,7 @@ const Containers = (props) => {
         const nameX = `elevation-${100 * (i+1)}-offsetY`
         const nameY = `elevation-${100 * (i+1)}-blur`
         const valueX = (baseScaleUnit === 'px') ? offsets[i] : round(offsets[i]/baseSize, 3);
-        const valueY = (baseScaleUnit === 'px') ? size : round(size/baseSize, 3);
+        const valueY = (baseScaleUnit === 'px') ? elevation : round(elevation/baseSize, 3);
 
         const objectX = {
           [nameX]: {
@@ -89,7 +89,7 @@ const Containers = (props) => {
 
     return (
         <div className="column">
-            <h3>Containers</h3>
+            {/* <h3>Containers</h3> */}
             <div id="containerWrapper">
                 {containerElements}
             </div>

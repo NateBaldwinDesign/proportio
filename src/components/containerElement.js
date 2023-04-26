@@ -36,13 +36,15 @@ const ContainerElement = (props) => {
     <div className="containerItem">
       <span className="specs"> {value}{baseScaleUnit} </span>
       <div
-        className="containerElement"
+        className="containerElement apply-font-main"
         style={{
           boxShadow: `0 ${offsetY}px ${elevation}px var(--elevationDemoShadowColor)`,
           marginBottom: `${margin}px`,
           borderRadius: `${radius}px`
         }}
-      ></div>
+      >
+        <p className="apply-font-main">Lorem ipsum dolor</p>
+      </div>
     </div>
   );
 };
