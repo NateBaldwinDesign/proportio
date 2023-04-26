@@ -1,23 +1,21 @@
-import {
-    atom
-} from 'recoil';
+import { atom } from 'recoil';
 import scaleMethodOptions from '../utilities/scaleMethodOptions';
 
 const textIconGapIndexState = atom({
-    key: 'textIconGapIndex',
-    default: -10
-})
+  key: 'textIconGapIndex',
+  default: -10,
+});
 const textIconIconSizeIndexState = atom({
-    key: 'textIconIconSizeIndex',
-    default: 0
-})
+  key: 'textIconIconSizeIndex',
+  default: 0,
+});
 const textIconGapScaleFormulaState = atom({
-    key: 'textIconGapScaleFormula',
-    default: scaleMethodOptions[0]
-})
+  key: 'textIconGapScaleFormula',
+  default: scaleMethodOptions[0],
+});
 
 export {
-    textIconGapIndexState,
-    textIconIconSizeIndexState,
-    textIconGapScaleFormulaState
-}
+  textIconGapIndexState,
+  textIconIconSizeIndexState,
+  textIconGapScaleFormulaState,
+};

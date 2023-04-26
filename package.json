@@ -3,24 +3,8 @@
   "version": "0.1.0",
   "homepage": "https://proportio.app",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "feather-icons": "^4.29.0",
-    "font-picker-react": "^3.5.2",
-    "html-react-parser": "^3.0.15",
-    "react": "^18.2.0",
-    "react-copy-to-clipboard": "^5.1.0",
-    "react-dom": "^18.2.0",
-    "react-dropdown": "^1.11.0",
-    "react-modal": "^3.16.1",
-    "react-scripts": "5.0.1",
-    "react-tabs": "^6.0.0",
-    "recoil": "^0.7.7",
-    "web-vitals": "^2.1.4"
-  },
   "scripts": {
+    "configure-husky": "npx husky install && npx husky add .husky/pre-commit \"npx --no-install lint-staged\"",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
@@ -46,9 +30,43 @@
       "last 1 safari version"
     ]
   },
+  "lint-staged": {
+    "**/*.{js,jsx,json}": [
+      "eslint . --fix",
+      "prettier --write ."
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "babel-eslint": "^10.1.0",
+    "feather-icons": "^4.29.0",
+    "font-picker-react": "^3.5.2",
+    "html-react-parser": "^3.0.15",
+    "react": "^18.2.0",
+    "react-copy-to-clipboard": "^5.1.0",
+    "react-dom": "^18.2.0",
+    "react-dropdown": "^1.11.0",
+    "react-modal": "^3.16.1",
+    "react-scripts": "5.0.1",
+    "react-tabs": "^6.0.0",
+    "recoil": "^0.7.7",
+    "web-vitals": "^2.1.4"
+  },
   "devDependencies": {
     "css.gg": "^2.0.0",
+    "eslint": "^8.39.0",
+    "eslint-plugin-react": "^7.32.2",
     "gh-pages": "^5.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.1",
+    "prettier": "^2.8.8",
     "pretty-print-json": "^2.0.0",
     "react-json-pretty": "^2.2.0"
   }

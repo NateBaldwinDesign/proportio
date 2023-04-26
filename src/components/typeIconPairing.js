@@ -1,54 +1,70 @@
-import React from "react";
+import React from 'react';
 import { useRecoilState } from 'recoil';
-import TypeElement from "./typeElement";
-import IconElement from "./iconElement";
-import "../styles/typography.css";
-import "../styles/iconography.css";
-import "../styles/typeIconPair.css";
-import calculateScale from "../utilities/calculateScale";
-import {baseScaleUnitState, baseSizeState} from '../states/base';
-import { 
+import TypeElement from './typeElement';
+import IconElement from './iconElement';
+import '../styles/typography.css';
+import '../styles/iconography.css';
+import '../styles/typeIconPair.css';
+import calculateScale from '../utilities/calculateScale';
+import { baseScaleUnitState, baseSizeState } from '../states/base';
+import {
   spacingScaleFactorState,
-  spacingFormulaState
- } from "../states/spacing";
- import {
+  spacingFormulaState,
+} from '../states/spacing';
+import {
   typeScaleState,
   typeSmallQuantityState,
   typeLargeQuantityState,
-  typeScaleFormulaState
-} from '../states/typography'
+  typeScaleFormulaState,
+} from '../states/typography';
 import {
   textIconGapIndexState,
   textIconIconSizeIndexState,
-  textIconGapScaleFormulaState
-} from "../states/textIconPair"
+  textIconGapScaleFormulaState,
+} from '../states/textIconPair';
 import {
   iconScaleState,
   iconSmallQuantityState,
   iconLargeQuantityState,
   iconScaleFormulaState,
-  iconPaddingState
-} from '../states/iconography'
-import round from "../utilities/round";
+  iconPaddingState,
+} from '../states/iconography';
+import round from '../utilities/round';
 
 const TypeIconPairing = (props) => {
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
-  const [spacingScaleFactor, setSpacingScaleFactor] = useRecoilState(spacingScaleFactorState);
-  const [spacingFormula, setSpacingFormula] = useRecoilState(spacingFormulaState);
+  const [spacingScaleFactor, setSpacingScaleFactor] = useRecoilState(
+    spacingScaleFactorState,
+  );
+  const [spacingFormula, setSpacingFormula] =
+    useRecoilState(spacingFormulaState);
 
-  const [typeScale, setTypeScale] = useRecoilState(typeScaleState)
-  const [typeSmallQuantity, setTypeSmallQuantity] = useRecoilState(typeSmallQuantityState)
-  const [typeLargeQuantity, setTypeLargeQuantity] = useRecoilState(typeLargeQuantityState)
-  const [typeScaleFormula, setTypeScaleFormula] = useRecoilState(typeScaleFormulaState)
+  const [typeScale, setTypeScale] = useRecoilState(typeScaleState);
+  const [typeSmallQuantity, setTypeSmallQuantity] = useRecoilState(
+    typeSmallQuantityState,
+  );
+  const [typeLargeQuantity, setTypeLargeQuantity] = useRecoilState(
+    typeLargeQuantityState,
+  );
+  const [typeScaleFormula, setTypeScaleFormula] = useRecoilState(
+    typeScaleFormulaState,
+  );
 
-  const [textIconGapIndex, setTextIconGapIndex] = useRecoilState(textIconGapIndexState)
-  const [textIconIconSizeIndex, setTextIconIconSizeIndex] = useRecoilState(textIconIconSizeIndexState)
-  const [textIconGapScaleFormula, setTextIconGapScaleFormula] = useRecoilState(textIconGapScaleFormulaState)
+  const [textIconGapIndex, setTextIconGapIndex] = useRecoilState(
+    textIconGapIndexState,
+  );
+  const [textIconIconSizeIndex, setTextIconIconSizeIndex] = useRecoilState(
+    textIconIconSizeIndexState,
+  );
+  const [textIconGapScaleFormula, setTextIconGapScaleFormula] = useRecoilState(
+    textIconGapScaleFormulaState,
+  );
 
-  const [iconScale, setIconScale] = useRecoilState(iconScaleState)
-  const [iconScaleFormula, setIconScaleFormula] = useRecoilState(iconScaleFormulaState)
-  const [baseScaleUnit, setBaseScaleUnit] = useRecoilState(baseScaleUnitState)
-
+  const [iconScale, setIconScale] = useRecoilState(iconScaleState);
+  const [iconScaleFormula, setIconScaleFormula] = useRecoilState(
+    iconScaleFormulaState,
+  );
+  const [baseScaleUnit, setBaseScaleUnit] = useRecoilState(baseScaleUnitState);
 
   let smallSizeArray = new Array(typeSmallQuantity).fill(0);
   let largeSizeArray = new Array(typeLargeQuantity).fill(0);
@@ -58,41 +74,57 @@ const TypeIconPairing = (props) => {
   const sampleText = props.sampleText;
 
   const scale =
-    textIconGapScaleFormula === "typeScale"
+    textIconGapScaleFormula === 'typeScale'
       ? typeScale
-      : textIconGapScaleFormula === "spacingScale"
+      : textIconGapScaleFormula === 'spacingScale'
       ? spacingScaleFactor
-      : "none";
+      : 'none';
   const method =
-    textIconGapScaleFormula === "typeScale"
+    textIconGapScaleFormula === 'typeScale'
       ? typeScaleFormula
-      : textIconGapScaleFormula === "spacingScale"
+      : textIconGapScaleFormula === 'spacingScale'
       ? spacingFormula
-      : "none";
+      : 'none';
 
   const smallSizes = smallSizeArray.map((e, i) => {
     const increment = (1 + i) * -1 + textIconGapIndex;
     // TODO: Incrementing is off for small sizes
-    const iconIncrement = ((i+1) * -1) + textIconIconSizeIndex;
+    const iconIncrement = (i + 1) * -1 + textIconIconSizeIndex;
     const gapSize = Math.round(
-      calculateScale(baseSize, scale, increment, method)
+      calculateScale(baseSize, scale, increment, method),
     );
     // icon size
-    const textIncrement = (i+1) * -1
-    const iconSize = calculateScale(baseSize, iconScale, iconIncrement, iconScaleFormula);
-    const textSize = Math.round(calculateScale(baseSize, typeScale, textIncrement, typeScaleFormula));
+    const textIncrement = (i + 1) * -1;
+    const iconSize = calculateScale(
+      baseSize,
+      iconScale,
+      iconIncrement,
+      iconScaleFormula,
+    );
+    const textSize = Math.round(
+      calculateScale(baseSize, typeScale, textIncrement, typeScaleFormula),
+    );
 
-    const marginText = `${(textSize * demoLineHeight) - textSize}px`;
-    const marginIcon = `${(iconSize * demoLineHeight) - iconSize}px`;
-    const margin = (marginText > marginIcon) ? marginText : marginIcon;
+    const marginText = `${textSize * demoLineHeight - textSize}px`;
+    const marginIcon = `${iconSize * demoLineHeight - iconSize}px`;
+    const margin = marginText > marginIcon ? marginText : marginIcon;
 
-    const gapValue = (baseScaleUnit === 'px') ? gapSize : round(gapSize/baseSize, 3);
+    const gapValue =
+      baseScaleUnit === 'px' ? gapSize : round(gapSize / baseSize, 3);
 
     return (
-      <div className="textIconItem" key={`typeIconPair-${iconScale}-neg${i}`} style={{
-        marginBottom: margin
-      }}>
-        <span className="specs"> {gapValue}{baseScaleUnit} (gap) </span>
+      <div
+        className="textIconItem"
+        key={`typeIconPair-${iconScale}-neg${i}`}
+        style={{
+          marginBottom: margin,
+        }}
+      >
+        <span className="specs">
+          {' '}
+          {gapValue}
+          {baseScaleUnit} (gap){' '}
+        </span>
         <div className="typeIconPair" key={`typeIcon-neg${i}`}>
           <IconElement
             key={`typeIcon-icon-${iconScale}-neg${i}`}
@@ -101,7 +133,7 @@ const TypeIconPairing = (props) => {
           />
           <span
             style={{
-              display: "block",
+              display: 'block',
               margin: 0,
               padding: 0,
               width: `${gapSize}px`,
@@ -123,22 +155,38 @@ const TypeIconPairing = (props) => {
     const increment = i + textIconGapIndex;
     const iconIncrement = i + textIconIconSizeIndex;
     const gapSize = Math.round(
-      calculateScale(baseSize, scale, increment, method)
+      calculateScale(baseSize, scale, increment, method),
     );
-    const iconSize = calculateScale(baseSize, iconScale, iconIncrement, iconScaleFormula);
-    const textSize = Math.round(calculateScale(baseSize, typeScale, i, typeScaleFormula));
+    const iconSize = calculateScale(
+      baseSize,
+      iconScale,
+      iconIncrement,
+      iconScaleFormula,
+    );
+    const textSize = Math.round(
+      calculateScale(baseSize, typeScale, i, typeScaleFormula),
+    );
 
-    const marginText = `${(textSize * demoLineHeight) - textSize}px`;
-    const marginIcon = `${(iconSize * demoLineHeight) - iconSize}px`;
-    const margin = (marginText > marginIcon) ? marginText : marginIcon;
+    const marginText = `${textSize * demoLineHeight - textSize}px`;
+    const marginIcon = `${iconSize * demoLineHeight - iconSize}px`;
+    const margin = marginText > marginIcon ? marginText : marginIcon;
 
-    const gapValue = (baseScaleUnit === 'px') ? gapSize : round(gapSize/baseSize, 3);
+    const gapValue =
+      baseScaleUnit === 'px' ? gapSize : round(gapSize / baseSize, 3);
 
     return (
-      <div className="textIconItem" key={`typeIconPair-${iconScale}-${i}`} style={{
-        marginBottom: margin
-      }}>
-        <span className="specs"> {gapValue}{baseScaleUnit} (gap) </span>
+      <div
+        className="textIconItem"
+        key={`typeIconPair-${iconScale}-${i}`}
+        style={{
+          marginBottom: margin,
+        }}
+      >
+        <span className="specs">
+          {' '}
+          {gapValue}
+          {baseScaleUnit} (gap){' '}
+        </span>
         <div className="typeIconPair" key={`typeIcon-${i}`}>
           <IconElement
             key={`typeIcon-icon-${iconScale}-${i}`}
@@ -147,7 +195,7 @@ const TypeIconPairing = (props) => {
           />
           <span
             style={{
-              display: "block",
+              display: 'block',
               margin: 0,
               padding: 0,
               width: `${gapSize}px`,

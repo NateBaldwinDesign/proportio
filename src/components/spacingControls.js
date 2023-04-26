@@ -1,20 +1,27 @@
-import React from "react";
+import React from 'react';
 import { useRecoilState } from 'recoil';
-import capitalize from "../utilities/capitalize";
-import calculateScale from "../utilities/calculateScale";
-import { 
+import capitalize from '../utilities/capitalize';
+import calculateScale from '../utilities/calculateScale';
+import {
   spacingScaleFactorState,
   spacingSmallQuantityState,
   spacingLargeQuantityState,
-  spacingFormulaState
- } from "../states/spacing";
- import scaleFormulas from "../utilities/scaleFormulas";
+  spacingFormulaState,
+} from '../states/spacing';
+import scaleFormulas from '../utilities/scaleFormulas';
 
 const SpacingControls = (props) => {
-  const [spacingScaleFactor, setSpacingScaleFactor] = useRecoilState(spacingScaleFactorState);
-  const [spacingSmallQuantity, setSpacingSmallQuantity] = useRecoilState(spacingSmallQuantityState);
-  const [spacingLargeQuantity, setSpacingLargeQuantity] = useRecoilState(spacingLargeQuantityState);
-  const [spacingFormula, setSpacingFormula] = useRecoilState(spacingFormulaState)
+  const [spacingScaleFactor, setSpacingScaleFactor] = useRecoilState(
+    spacingScaleFactorState,
+  );
+  const [spacingSmallQuantity, setSpacingSmallQuantity] = useRecoilState(
+    spacingSmallQuantityState,
+  );
+  const [spacingLargeQuantity, setSpacingLargeQuantity] = useRecoilState(
+    spacingLargeQuantityState,
+  );
+  const [spacingFormula, setSpacingFormula] =
+    useRecoilState(spacingFormulaState);
   // const inputs = scaleFormulas.map((formula) => {
   //   return (
   //     <div className="radioGroup" key={`spacing${formula}`}>
@@ -41,7 +48,7 @@ const SpacingControls = (props) => {
           <input
             type="number"
             onInput={(e) => setSpacingScaleFactor(Number(e.target.value))}
-            step={spacingFormula === "power" ? "0.01" : "1"}
+            step={spacingFormula === 'power' ? '0.01' : '1'}
             min="0"
             defaultValue={spacingScaleFactor}
           />

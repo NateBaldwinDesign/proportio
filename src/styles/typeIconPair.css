@@ -1,24 +1,24 @@
 #typeIconPairing {
-    display: flex;
-    flex-direction: column-reverse;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .textIconItem {
-    display: grid;
-    grid-template-columns: 90px auto;
-    align-items: center;
+  display: grid;
+  grid-template-columns: 90px auto;
+  align-items: center;
 }
 
 .typeIconPair {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .typeIconPair .iconItem,
 .typeIconPair .typeItem {
-    display: flex;
+  display: flex;
 }
 
 .typeIconPair .icon {
-    background-color: transparent;
+  background-color: transparent;
 }

@@ -2,16 +2,16 @@
   --segmentedControlRadius: 8px;
 }
 
-div[id^=font-picker-main],
+div[id^='font-picker-main'],
 .Dropdown-root {
   border: none;
   box-shadow: none !important;
   width: 100% !important;
-  position:relative;
+  position: relative;
 }
 
 input,
-div[id^=font-picker-main] .dropdown-button,
+div[id^='font-picker-main'] .dropdown-button,
 .Dropdown-control {
   box-shadow: none;
   outline: none;
@@ -24,18 +24,18 @@ div[id^=font-picker-main] .dropdown-button,
   accent-color: var(--Gold400);
 }
 
-div[id^=font-picker-main] .dropdown-button,
+div[id^='font-picker-main'] .dropdown-button,
 .dropdown-font-family {
   font-family: inherit;
 }
-div[id^=font-picker-main] .dropdown-button,
+div[id^='font-picker-main'] .dropdown-button,
 .Dropdown-control {
   background-color: var(--appBackground) !important;
   padding: 4px 6px !important;
   max-height: 28px !important;
 }
 
-div[id^=font-picker] ul,
+div[id^='font-picker'] ul,
 .Dropdown-menu {
   background-color: var(--appBackground) !important;
   box-shadow: var(--menuShadow) !important;
@@ -51,7 +51,7 @@ div[id^=font-picker] ul,
   position: absolute;
   width: 100%;
 }
-div[id^=font-picker].expanded ul,
+div[id^='font-picker'].expanded ul,
 .Dropdown-root.is-open .Dropdown-menu {
   max-height: 200px;
   overflow: auto;
@@ -59,11 +59,11 @@ div[id^=font-picker].expanded ul,
   opacity: 1;
   transition: all 0.3s ease-out;
 }
-div[id^=font-picker] ul li button {
+div[id^='font-picker'] ul li button {
   border-radius: 0;
 }
-div[id^=font-picker] ul li button:hover, 
-div[id^=font-picker] ul li button:focus {
+div[id^='font-picker'] ul li button:hover,
+div[id^='font-picker'] ul li button:focus {
   background: var(--Gold100) !important;
 }
 .Dropdown-option {
@@ -85,7 +85,7 @@ div[id^=font-picker] ul li button:focus {
 .is-open .Dropdown-arrow {
   transform: rotate(-180deg);
 }
-div[id^=font-picker] .dropdown-icon.finished::before {
+div[id^='font-picker'] .dropdown-icon.finished::before {
   border-top-color: var(--textColor) !important;
 }
 .Dropdown-arrow {
@@ -103,17 +103,17 @@ div[id^=font-picker] .dropdown-icon.finished::before {
   transition: transform 0.3s;
 }
 
-input[type="number"] {
+input[type='number'] {
   width: 6ch;
 }
 input:focus {
   box-shadow: var(--focusRing);
 }
 
-input[type="radio"] {
+input[type='radio'] {
   display: none;
 }
-input[type="radio"] + label {
+input[type='radio'] + label {
   padding: 4px 8px;
   width: 100%;
 }
@@ -130,21 +130,21 @@ input[type="radio"] + label {
   flex-grow: 1;
   text-align: center;
 }
-.radioGroup input[type="radio"] + label {
+.radioGroup input[type='radio'] + label {
   border: 1px solid var(--border100);
 }
-.radioGroup + .radioGroup input[type="radio"] + label {
+.radioGroup + .radioGroup input[type='radio'] + label {
   border-left: none;
 }
-.radioGroup:first-of-type input[type="radio"] + label {
+.radioGroup:first-of-type input[type='radio'] + label {
   border-top-left-radius: var(--segmentedControlRadius);
   border-bottom-left-radius: var(--segmentedControlRadius);
 }
-.radioGroup:last-of-type input[type="radio"] + label {
+.radioGroup:last-of-type input[type='radio'] + label {
   border-top-right-radius: var(--segmentedControlRadius);
   border-bottom-right-radius: var(--segmentedControlRadius);
 }
-input[type="radio"]:checked + label {
+input[type='radio']:checked + label {
   background-color: var(--selectionIndicatorColor);
   border-color: var(--selectionIndicatorColor);
   color: var(--appBackground);

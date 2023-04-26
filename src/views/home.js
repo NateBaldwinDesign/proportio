@@ -1,13 +1,15 @@
-import React from "react";
+import React from 'react';
 import { useRecoilState } from 'recoil';
-import "../styles/hero.css";
+import '../styles/hero.css';
 
 const Home = (props) => {
   return (
     <>
       <div className="hero">
         <div className="hero_content">
-          <h1 className="hero_title">Proportional scaling and balance for your entire design system.</h1>
+          <h1 className="hero_title">
+            Proportional scaling and balance for your entire design system.
+          </h1>
         </div>
       </div>
       <main className="mainPageContent">
@@ -21,7 +23,7 @@ const Home = (props) => {
           <h2>Proportional, generative design</h2>
           <p>
             Midas provides you with methods to experiment with proportional
-            scaling. The same approach used for creating{" "}
+            scaling. The same approach used for creating{' '}
             <strong>modular type scales</strong> is applied to every aspect of
             user interface design:
           </p>

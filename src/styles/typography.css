@@ -1,16 +1,16 @@
 #typography {
-    display: flex;
-    flex-direction: column-reverse;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .typeItem {
-    display: grid;
-    grid-template-columns: 64px max-content;
-    align-items: center;
+  display: grid;
+  grid-template-columns: 64px max-content;
+  align-items: center;
 }
 
 .specs {
-    font-size: 12px;
-    font-style: italic;
-    align-items: center;
+  font-size: 12px;
+  font-style: italic;
+  align-items: center;
 }

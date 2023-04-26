@@ -1,24 +1,24 @@
 .toolbar {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .toolbar .react-tabs__tab-list {
-    flex-direction: row;
-    gap: 8px;
-    margin-bottom: 8px;
+  flex-direction: row;
+  gap: 8px;
+  margin-bottom: 8px;
 }
 .toolbar .react-tabs__tab {
-    display: flex;
-    border-radius: 8px;
-    padding: 2px;
-    width: 36px;
-    height: 36px;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 0;
-    color: var(--Gray400)
+  display: flex;
+  border-radius: 8px;
+  padding: 2px;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 0;
+  color: var(--Gray400);
 }
 .toolbar .react-tabs__tab--selected {
-    background-color: var(--selectionIndicatorColor);
-    color: var(--appBackground);
+  background-color: var(--selectionIndicatorColor);
+  color: var(--appBackground);
 }
