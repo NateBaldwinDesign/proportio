@@ -1,6 +1,3 @@
-const scaleFormulas = [
-    "linear", 
-    "power"
-];
+const scaleFormulas = ['linear', 'power'];
 
 export default scaleFormulas;

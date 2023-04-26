@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
 
 @media (prefers-color-scheme: light) {
   /*
@@ -45,7 +45,7 @@
     --elevationItemBackground: var(--appBackground);
     --containerItemBackground: var(--appBackground);
     --selectionIndicatorColor: var(--Gold300);
-    --logoColor: var(--Gold300)
+    --logoColor: var(--Gold300);
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -88,7 +88,7 @@
 
     --shadowColor: rgb(0 0 0 / 50%);
     --elevationDemoShadowColor: rgb(0 0 0 / 50%);
-    --modalOverlayColor: rgba(0, 0, 0, 0.50);
+    --modalOverlayColor: rgba(0, 0, 0, 0.5);
     --elevationItemBackground: var(--Gray200);
     --containerItemBackground: var(--Gray100);
     --selectionIndicatorColor: var(--Gold500);
@@ -114,11 +114,11 @@
   --menuShadow: 0 4px 8px 0 var(--shadowColor);
   --appFrameMargin: 24px;
   --headerHeight: 56px;
-  --fontStack: "Inter", sans-serif;
+  --fontStack: 'Inter', sans-serif;
 
   --focusRing: 0 0 0 2px var(--appBackground), 0 0 0 4px var(--Gold300);
   /* --fontFamily: "Inter", sans-serif; */
-  --fontFamily: "Outfit", sans-serif;
+  --fontFamily: 'Outfit', sans-serif;
   --defaultFontWeight: 400;
 }
 
@@ -213,9 +213,10 @@ article + article {
 
 .splitView {
   display: grid;
-  grid-template-areas: "main" 
-                      "panel";
-  grid-template-rows: "auto auto";
+  grid-template-areas:
+    'main'
+    'panel';
+  grid-template-rows: 'auto auto';
   gap: var(--appFrameMargin);
   padding: 0;
   height: 100%;
@@ -224,7 +225,7 @@ article + article {
 }
 @media screen and (min-width: 900px) {
   .splitView {
-    grid-template-areas: "panel main";
+    grid-template-areas: 'panel main';
     grid-template-columns: 320px auto;
     padding: var(--appFrameMargin) var(--appFrameMargin) 0 0;
     height: calc(100% - var(--appFrameMargin));
@@ -315,7 +316,6 @@ main.demoRow .column {
   max-width: fit-content;
 }
 
-
 .Panel_tabsList {
   padding: 0 24px;
   display: flex;
@@ -346,8 +346,8 @@ main.demoRow .column {
   grid-template-rows: var(--headerHeight) calc(100vh - var(--headerHeight));
   overflow: auto;
   grid-template-areas:
-    "header"
-    "content";
+    'header'
+    'content';
   /* overflow: hidden; */
 }
 .App_tabsList {
@@ -419,7 +419,7 @@ button {
   background: var(--Gray100);
   color: var(--Gray600);
   border: 1px solid var(--Gray300);
-  transition: all .1s ease-in-out;
+  transition: all 0.1s ease-in-out;
   cursor: pointer;
 }
 button:hover,
@@ -427,7 +427,8 @@ button:active {
   background: var(--Gray200);
 }
 button:focus {
-  box-shadow: 0 0 0 2px var(--appBackground), 0 0 0 4px var(--selectionIndicatorColor)
+  box-shadow: 0 0 0 2px var(--appBackground),
+    0 0 0 4px var(--selectionIndicatorColor);
 }
 button.clearButton {
   background: transparent;
@@ -441,7 +442,7 @@ button.clearButton:focus {
 
 .typeItem,
 .component {
-  font-weight: var(--demoFontWeight, 400)
+  font-weight: var(--demoFontWeight, 400);
 }
 
 cite {

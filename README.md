@@ -1,19 +1,24 @@
 # Proportio
-*__Tool for creating proportional scales for typography, iconography, spacing, and components in design systems.__*
+
+_**Tool for creating proportional scales for typography, iconography, spacing, and components in design systems.**_
 
 ![GitHub](https://img.shields.io/github/license/NateBaldwinDesign/Proportio)
 
 ## Purpose
+
 Making systematic design faster and easier by use of generative, parametric design. Midas enables designers to use proportional scales to create:
+
 - Type scales
 - Icon scales
 - Spacing scales
 - Component sizes
 - Component padding
-and more.
+  and more.
 
 ## MLP todo list
+
 (Minimum loveable product)
+
 - [ ] Add “round to even numbers” option
 - [ ] Add hint text with recommendations like keeping icon scale close to type scale
 - [x] Modularize states & clean up props
@@ -26,15 +31,15 @@ and more.
 - [ ] Add mobile or responsive type & icon scales
 - [ ] Add export/ save data or CSS, which compiles options into organized code styles
 - [ ] Add example UI? Cards, tables, controls, long form typography…
-- [ ] Figure out url issues 
-- [ ] Add contribution guidelines 
+- [ ] Figure out url issues
+- [ ] Add contribution guidelines
 - [ ] Clean up code
 - [ ] Typescript?
-- [ ] Documentation 
+- [ ] Documentation
 - [ ] iconography for menus and mobile friendly design (maybe use these: https://css.gg/)
 
-
 ## Development
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ### Available Scripts

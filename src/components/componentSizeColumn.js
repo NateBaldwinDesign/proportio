@@ -2,23 +2,16 @@ import React from 'react';
 import calculateScale from '../utilities/calculateScale';
 import capitalize from '../utilities/capitalize';
 import ComponentElement from './componentElement';
-import {
-    useRecoilState
-} from 'recoil';
-import {baseSizeState} from '../states/base';
+import { useRecoilState } from 'recoil';
+import { baseSizeState } from '../states/base';
 import { componentPaddingMethodOptionState } from '../states/components';
+import { typeScaleFormulaState, typeScaleState } from '../states/typography';
+import { iconScaleState } from '../states/iconography';
 import {
-    typeScaleFormulaState,
-    typeScaleState
-} from '../states/typography'
-import {
-    iconScaleState
-} from '../states/iconography'
-import {
-    textIconGapIndexState,
-    textIconIconSizeIndexState,
-    textIconGapScaleFormulaState
-} from '../states/textIconPair'
+  textIconGapIndexState,
+  textIconIconSizeIndexState,
+  textIconGapScaleFormulaState,
+} from '../states/textIconPair';
 import tokens from '../utilities/tokens';
 import findReferenceToken from '../utilities/findReferenceToken';
 import demoComponents from '../utilities/demoComponents'

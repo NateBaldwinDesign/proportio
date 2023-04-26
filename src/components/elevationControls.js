@@ -1,25 +1,37 @@
-import React from "react";
+import React from 'react';
 import { useRecoilState } from 'recoil';
-import capitalize from "../utilities/capitalize";
-import calculateScale from "../utilities/calculateScale";
+import capitalize from '../utilities/capitalize';
+import calculateScale from '../utilities/calculateScale';
 import {
   baseElevationSizeState,
   elevationScaleFactorState,
   elevationSmallQuantityState,
   elevationLargeQuantityState,
   elevationScaleFormulaState,
-  elevationOffsetYState
-} from "../states/elevation"
-import scaleMethodOptions from "../utilities/scaleFormulas"
-import Slider from "./slider";
+  elevationOffsetYState,
+} from '../states/elevation';
+import scaleMethodOptions from '../utilities/scaleFormulas';
+import Slider from './slider';
 
 const ElevationControls = (props) => {
-  const [baseElevationSize, setBaseElevationSize] = useRecoilState(baseElevationSizeState)
-  const [elevationScaleFactor, setElevationScaleFactor] = useRecoilState(elevationScaleFactorState)
-  const [elevationSmallQuantity, setElevationSmallQuantity] = useRecoilState(elevationSmallQuantityState)
-  const [elevationLargeQuantity, setElevationLargeQuantity] = useRecoilState(elevationLargeQuantityState)
-  const [elevationScaleFormula, setElevationScaleFormula] = useRecoilState(elevationScaleFormulaState)
-  const [elevationOffsetY, setElevationOffsetY] = useRecoilState(elevationOffsetYState)
+  const [baseElevationSize, setBaseElevationSize] = useRecoilState(
+    baseElevationSizeState,
+  );
+  const [elevationScaleFactor, setElevationScaleFactor] = useRecoilState(
+    elevationScaleFactorState,
+  );
+  const [elevationSmallQuantity, setElevationSmallQuantity] = useRecoilState(
+    elevationSmallQuantityState,
+  );
+  const [elevationLargeQuantity, setElevationLargeQuantity] = useRecoilState(
+    elevationLargeQuantityState,
+  );
+  const [elevationScaleFormula, setElevationScaleFormula] = useRecoilState(
+    elevationScaleFormulaState,
+  );
+  const [elevationOffsetY, setElevationOffsetY] = useRecoilState(
+    elevationOffsetYState,
+  );
 
   const inputs = scaleMethodOptions.map((method) => {
     return (
@@ -57,7 +69,7 @@ const ElevationControls = (props) => {
           <input
             type="number"
             onInput={(e) => setElevationScaleFactor(Number(e.target.value))}
-            step={elevationScaleFormula === "power" ? "0.1" : "1"}
+            step={elevationScaleFormula === 'power' ? '0.1' : '1'}
             min="0"
             defaultValue={elevationScaleFactor}
           />
@@ -95,7 +107,6 @@ const ElevationControls = (props) => {
             defaultValue={elevationOffsetY}
           />
         </div>
-
       </div>
     </fieldset>
   );

@@ -1,29 +1,24 @@
-import React from "react";
-import {
-  useRecoilState
-} from 'recoil';
-import "../styles/iconography.css";
-import buildArray from "../utilities/buildArray";
-import buildShiftedArray from "../utilities/buildShiftedArray";
-import calculateScale from "../utilities/calculateScale";
-import capitalize from "../utilities/capitalize";
-import ComponentElement from "./componentElement";
-import ComponentSizeColumn from "./componentSizeColumn";
+import React from 'react';
+import { useRecoilState } from 'recoil';
+import '../styles/iconography.css';
+import buildArray from '../utilities/buildArray';
+import buildShiftedArray from '../utilities/buildShiftedArray';
+import calculateScale from '../utilities/calculateScale';
+import capitalize from '../utilities/capitalize';
+import ComponentElement from './componentElement';
+import ComponentSizeColumn from './componentSizeColumn';
 import {
   sizeNamesIncrement,
   sizeNamesDecrement,
   densityNamesIncrement,
-  densityNamesDecrement
-} from "../utilities/names"
-import {baseSizeState} from '../states/base';
-import {
-  typeScaleFormulaState,
-  typeScaleState
-} from '../states/typography'
+  densityNamesDecrement,
+} from '../utilities/names';
+import { baseSizeState } from '../states/base';
+import { typeScaleFormulaState, typeScaleState } from '../states/typography';
 import {
   spacingFormulaState,
-  spacingScaleFactorState
-} from '../states/spacing'
+  spacingScaleFactorState,
+} from '../states/spacing';
 import {
   componentMinHeightMethodOptionState,
   componentSmallQuantityState,
@@ -39,18 +34,18 @@ import {
   baseComponentPaddingYIndexState,
   componentDensitySmallQuantityState,
   componentDensityLargeQuantityState,
-  componentDensityScaleFactorState
-} from "../states/components"
+  componentDensityScaleFactorState,
+} from '../states/components';
 import {
   baseRadiusSizeState,
   radiusScaleFormulaState,
-  radiusScaleFactorState
-} from '../states/radius'
+  radiusScaleFactorState,
+} from '../states/radius';
 import {
   iconScaleState,
   iconScaleFormulaState,
-  iconPaddingState
-} from '../states/iconography'
+  iconPaddingState,
+} from '../states/iconography';
 import {
   textIconGapIndexState,
   textIconIconSizeIndexState,
@@ -92,11 +87,15 @@ const Sizes = (props) => {
   const showComponentText = props.showComponentText;
 
   const sizedComponents = sizeArray.map((size, increment) => {
-    const decrementIndex = (size * -1) - 1;
-    let sizeName = size < 0 ? sizeNamesDecrement[decrementIndex] : sizeNamesIncrement[size];
-    if(sizeName===undefined) sizeName = "undefined"
+    const decrementIndex = size * -1 - 1;
+    let sizeName =
+      size < 0 ? sizeNamesDecrement[decrementIndex] : sizeNamesIncrement[size];
+    if (sizeName === undefined) sizeName = 'undefined';
 
-    const newTokenNamePrefix = `${tokenNamePrefix}-${sizeName.replace(' (default)', '')}`
+    const newTokenNamePrefix = `${tokenNamePrefix}-${sizeName.replace(
+      ' (default)',
+      '',
+    )}`;
 
     return <ComponentSizeColumn
       key={`${newTokenNamePrefix}-${decrementIndex}`}
@@ -137,161 +136,208 @@ const Sizes = (props) => {
       <div className="componentColumn_Heading">
         <h5>{capitalize(densityName)}</h5>
       </div>
-      <div className="componentColumn">
-        {sizedComponents}
-      </div>
+      <div className="componentColumn">{sizedComponents}</div>
     </div>
-  )
-}
+  );
+};
 
-const ComponentSpecs = (props) => {  
+const ComponentSpecs = (props) => {
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
-  const [componentPaddingMethodOption, setComponentPaddingMethodOption] = useRecoilState(componentPaddingMethodOptionState)
+  const [componentPaddingMethodOption, setComponentPaddingMethodOption] =
+    useRecoilState(componentPaddingMethodOptionState);
   const [typeScale, setTypeScale] = useRecoilState(typeScaleState);
-  const [spacingScaleFactor, setSpacingScaleFactor] = useRecoilState(spacingScaleFactorState);
-  const [spacingFormula, setSpacingFormula] = useRecoilState(spacingFormulaState);
-  const [typeScaleFormula, setTypeScaleFormula] = useRecoilState(typeScaleFormulaState)
-  const [componentMinHeightMethodOption, setComponentMinHeightMethodOption] = useRecoilState(componentMinHeightMethodOptionState)
-  const [componentSmallQuantity, setComponentSmallQuantity] = useRecoilState(componentSmallQuantityState);
-  const [componentLargeQuantity, setComponentLargeQuantity] = useRecoilState(componentLargeQuantityState);
-  const [baseComponentPaddingXIndex, setBaseComponentPaddingXIndex] = useRecoilState(baseComponentPaddingXIndexState);
-  const [baseComponentPaddingYIndex, setBaseComponentPaddingYIndex] = useRecoilState(baseComponentPaddingYIndexState);
+  const [spacingScaleFactor, setSpacingScaleFactor] = useRecoilState(
+    spacingScaleFactorState,
+  );
+  const [spacingFormula, setSpacingFormula] =
+    useRecoilState(spacingFormulaState);
+  const [typeScaleFormula, setTypeScaleFormula] = useRecoilState(
+    typeScaleFormulaState,
+  );
+  const [componentMinHeightMethodOption, setComponentMinHeightMethodOption] =
+    useRecoilState(componentMinHeightMethodOptionState);
+  const [componentSmallQuantity, setComponentSmallQuantity] = useRecoilState(
+    componentSmallQuantityState,
+  );
+  const [componentLargeQuantity, setComponentLargeQuantity] = useRecoilState(
+    componentLargeQuantityState,
+  );
+  const [baseComponentPaddingXIndex, setBaseComponentPaddingXIndex] =
+    useRecoilState(baseComponentPaddingXIndexState);
+  const [baseComponentPaddingYIndex, setBaseComponentPaddingYIndex] =
+    useRecoilState(baseComponentPaddingYIndexState);
   // Should get rid of these two. Customizing adds unnecessary complexity
-  const [baseComponentTextSizeIndex, setBaseComponentTextSizeIndex] = useRecoilState(baseComponentTextSizeIndexState);
-  
-  const [baseComponentSizeIndex, setBaseComponentSizeIndex] = useRecoilState(baseComponentSizeIndexState)
-  const [scaleComponentRadius, setScaleComponentRadiusState] = useRecoilState(scaleComponentRadiusState)
-  const [baseComponentRadius, setBaseComponentRadiusState] = useRecoilState(baseComponentRadiusState)
-  const [componentLineHeight, setComponentLineHeightState] = useRecoilState(componentLineHeightState)
+  const [baseComponentTextSizeIndex, setBaseComponentTextSizeIndex] =
+    useRecoilState(baseComponentTextSizeIndexState);
 
-  const [baseRadiusSize, setBaseRadiusSize] = useRecoilState(baseRadiusSizeState);
-  const [radiusScaleFormula, setRadiusScaleFormula] = useRecoilState(radiusScaleFormulaState)
-  const [radiusScaleFactor, setRadiusScaleFactor] = useRecoilState(radiusScaleFactorState)
+  const [baseComponentSizeIndex, setBaseComponentSizeIndex] = useRecoilState(
+    baseComponentSizeIndexState,
+  );
+  const [scaleComponentRadius, setScaleComponentRadiusState] = useRecoilState(
+    scaleComponentRadiusState,
+  );
+  const [baseComponentRadius, setBaseComponentRadiusState] = useRecoilState(
+    baseComponentRadiusState,
+  );
+  const [componentLineHeight, setComponentLineHeightState] = useRecoilState(
+    componentLineHeightState,
+  );
 
-  const [iconScaleFormula, setIconScaleFormula] = useRecoilState(iconScaleFormulaState)
-  const [iconPadding, setIconPadding] = useRecoilState(iconPaddingState)
-  
-  const [textIconGapIndex, setTextIconGapIndex] = useRecoilState(textIconGapIndexState);
-  const [textIconIconSizeIndex, setTextIconIconSizeIndex] = useRecoilState(textIconIconSizeIndexState);
-  const [textIconGapScaleFormula, setTextIconGapScaleFormula] = useRecoilState(textIconGapScaleFormulaState);
-  const [componentDensitySmallQuantity, setComponentDensitySmallQuantity] = useRecoilState(componentDensitySmallQuantityState);
-  const [componentDensityLargeQuantity, setComponentDensityLargeQuantity] = useRecoilState(componentDensityLargeQuantityState);
-  const [componentDensityScaleFactor, setComponentDensityScaleFactor] = useRecoilState(componentDensityScaleFactorState);
+  const [baseRadiusSize, setBaseRadiusSize] =
+    useRecoilState(baseRadiusSizeState);
+  const [radiusScaleFormula, setRadiusScaleFormula] = useRecoilState(
+    radiusScaleFormulaState,
+  );
+  const [radiusScaleFactor, setRadiusScaleFactor] = useRecoilState(
+    radiusScaleFactorState,
+  );
+
+  const [iconScaleFormula, setIconScaleFormula] = useRecoilState(
+    iconScaleFormulaState,
+  );
+  const [iconPadding, setIconPadding] = useRecoilState(iconPaddingState);
+
+  const [textIconGapIndex, setTextIconGapIndex] = useRecoilState(
+    textIconGapIndexState,
+  );
+  const [textIconIconSizeIndex, setTextIconIconSizeIndex] = useRecoilState(
+    textIconIconSizeIndexState,
+  );
+  const [textIconGapScaleFormula, setTextIconGapScaleFormula] = useRecoilState(
+    textIconGapScaleFormulaState,
+  );
+  const [componentDensitySmallQuantity, setComponentDensitySmallQuantity] =
+    useRecoilState(componentDensitySmallQuantityState);
+  const [componentDensityLargeQuantity, setComponentDensityLargeQuantity] =
+    useRecoilState(componentDensityLargeQuantityState);
+  const [componentDensityScaleFactor, setComponentDensityScaleFactor] =
+    useRecoilState(componentDensityScaleFactorState);
 
   const showSpecs = props.showSpecs;
   const showComponentIcon = props.showComponentIcon;
   const showComponentText = props.showComponentText;
 
-  const rowClassName = (showSpecs) ? "row row--comfortable" : "row row--spacious";
+  const rowClassName = showSpecs ? 'row row--comfortable' : 'row row--spacious';
   // Clear out component tokens
   tokens.component = []
   demoComponents.length = 0;
 
   const componentPaddingScale =
-    componentPaddingMethodOption === "typeScale"
+    componentPaddingMethodOption === 'typeScale'
       ? typeScale
-      : componentPaddingMethodOption === "spacingScale"
+      : componentPaddingMethodOption === 'spacingScale'
       ? spacingScaleFactor
       : 1;
   const componentPaddingMethodFormula =
-    componentPaddingMethodOption === "typeScale"
+    componentPaddingMethodOption === 'typeScale'
       ? typeScaleFormula
-      : componentPaddingMethodOption === "spacingScale"
+      : componentPaddingMethodOption === 'spacingScale'
       ? spacingFormula
       : undefined;
   const componentScale =
-  componentMinHeightMethodOption === "typeScale"
-        ? typeScale
-        : componentMinHeightMethodOption === "spacingScale"
-        ? spacingScaleFactor
-        : 1;
+    componentMinHeightMethodOption === 'typeScale'
+      ? typeScale
+      : componentMinHeightMethodOption === 'spacingScale'
+      ? spacingScaleFactor
+      : 1;
   const componentScaleMethodFormula =
-  componentMinHeightMethodOption === "typeScale"
+    componentMinHeightMethodOption === 'typeScale'
       ? typeScaleFormula
-      : componentMinHeightMethodOption === "spacingScale"
+      : componentMinHeightMethodOption === 'spacingScale'
       ? spacingFormula
       : undefined;
   const componentGapScale =
-    textIconGapScaleFormula === "typeScale"
+    textIconGapScaleFormula === 'typeScale'
       ? typeScale
-      : textIconGapScaleFormula === "spacingScale"
+      : textIconGapScaleFormula === 'spacingScale'
       ? spacingScaleFactor
-      : "none";
+      : 'none';
   const componentGapMethod =
-    textIconGapScaleFormula === "typeScale"
+    textIconGapScaleFormula === 'typeScale'
       ? typeScaleFormula
-      : textIconGapScaleFormula === "spacingScale"
+      : textIconGapScaleFormula === 'spacingScale'
       ? spacingFormula
-      : "none";
+      : 'none';
 
   /* Create array of size indexes to generate components */
   let sizeArray = buildArray(componentSmallQuantity, componentLargeQuantity);
-  let densityArray = buildArray(componentDensitySmallQuantity, componentDensityLargeQuantity);
+  let densityArray = buildArray(
+    componentDensitySmallQuantity,
+    componentDensityLargeQuantity,
+  );
 
   /* Create arrays of sub-element indexes */
   const densityPaddingXIndexArray = buildShiftedArray(
     componentDensitySmallQuantity,
     componentDensityLargeQuantity,
     baseComponentPaddingXIndex,
-    componentDensityScaleFactor
+    componentDensityScaleFactor,
   );
 
   const densityPaddingYIndexArray = buildShiftedArray(
     componentDensitySmallQuantity,
     componentDensityLargeQuantity,
     baseComponentPaddingYIndex,
-    componentDensityScaleFactor
+    componentDensityScaleFactor,
   );
   const gapIndexArray = buildShiftedArray(
     componentSmallQuantity,
     componentLargeQuantity,
-    textIconGapIndex
+    textIconGapIndex,
   );
 
   const textSizeIndexArray = buildShiftedArray(
     componentSmallQuantity,
     componentLargeQuantity,
-    baseComponentTextSizeIndex
+    baseComponentTextSizeIndex,
   );
   const iconSizeIndexArray = buildShiftedArray(
     componentSmallQuantity,
     componentLargeQuantity,
-    textIconIconSizeIndex
+    textIconIconSizeIndex,
   );
   const componentMinHeightIndexArray = buildShiftedArray(
     componentSmallQuantity,
     componentLargeQuantity,
-    baseComponentSizeIndex
+    baseComponentSizeIndex,
   );
   const componentRadiusIndexArray = buildShiftedArray(
     componentSmallQuantity,
     componentLargeQuantity,
-    baseComponentRadius
+    baseComponentRadius,
   );
-  
+
   const componentRadiusNewIndexValue = calculateScale(
-      baseRadiusSize,
-      radiusScaleFactor,
-      baseComponentRadius,
-      radiusScaleFormula
-    );
-  
+    baseRadiusSize,
+    radiusScaleFactor,
+    baseComponentRadius,
+    radiusScaleFormula,
+  );
+
   /* Map each density */
   const densityComponents = densityArray.map((density, densityIncrement) => {
     const paddingXIndexArray = buildShiftedArray(
       componentSmallQuantity,
       componentLargeQuantity,
-      densityPaddingXIndexArray[densityIncrement]
+      densityPaddingXIndexArray[densityIncrement],
     );
     const paddingYIndexArray = buildShiftedArray(
       componentSmallQuantity,
       componentLargeQuantity,
-      densityPaddingYIndexArray[densityIncrement]
+      densityPaddingYIndexArray[densityIncrement],
     );
 
-    const decrementIndex = (density * -1) - 1;
-    let densityName = density < 0 ? densityNamesDecrement[decrementIndex] : densityNamesIncrement[density];
-    if(densityName===undefined) densityName = "undefined"
+    const decrementIndex = density * -1 - 1;
+    let densityName =
+      density < 0
+        ? densityNamesDecrement[decrementIndex]
+        : densityNamesIncrement[density];
+    if (densityName === undefined) densityName = 'undefined';
+
+    const tokenNamePrefix = `component-${densityName.replace(
+      ' (default)',
+      '',
+    )}`;
 
     const tokenNamePrefix = `component-${densityName.replace(' (default)', '')}`;
     
@@ -327,14 +373,13 @@ const ComponentSpecs = (props) => {
         showComponentIcon={showComponentIcon}
         showComponentText={showComponentText}
       />
-  })
+    );
+  });
 
-
-  return ( <>
-    <div className={rowClassName}>
-      {densityComponents}
-    </div>  
-  </>
+  return (
+    <>
+      <div className={rowClassName}>{densityComponents}</div>
+    </>
   );
 };
 
