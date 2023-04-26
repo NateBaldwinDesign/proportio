@@ -14,7 +14,7 @@ import ContainerControls from '../components/containerControls';
 import Containers from '../components/containers';
 
 const ContainerView = (props) => {
-  const [showSpecs, setShowSpecs] = useState(false);
+  const [showSpecs, setShowSpecs] = useState(true);
 
   return (
     <>
@@ -23,7 +23,7 @@ const ContainerView = (props) => {
           <ContainerControls />
         </Panel>
 
-        <main className="demoRow apply-font-main">
+        <main className="demoRow demoRow--compact apply-font-main">
         <div className="tabs_action">
                 <fieldset>
                   <div className="checkboxGroup" >
@@ -40,7 +40,7 @@ const ContainerView = (props) => {
                   </div>
                 </fieldset>
               </div>
-          <Containers />
+          <Containers showSpecs={showSpecs}/>
         </main>
       </div>
     </>

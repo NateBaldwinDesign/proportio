@@ -274,6 +274,9 @@ main.demoRow .column {
     margin: 0;
     row-gap: 56px;
   }
+  .splitView main.demoRow--compact {
+    row-gap: 16px;
+  }
 }
 .splitView main.main--content {
   height: fit-content;

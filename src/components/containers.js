@@ -38,7 +38,8 @@ const Containers = (props) => {
     const [containerBaseRadiusIndex, setContainerBaseRadiusIndex] = useRecoilState(containerBaseRadiusIndexState)
     const [containerBaseElevationIndex, setContainerBaseElevationIndex] = useRecoilState(containerBaseElevationIndexState)
     const [containerRadiusScaleFactor, setContainerRadiusScaleFactor] = useRecoilState(containerRadiusScaleFactorState)
-
+    const showSpecs = props.showSpecs;
+    
     let radius = 4; // TEMPORARY
 
     let elevationsArray = buildArray(containerSmallSizes, containerLargeSizes);
@@ -80,6 +81,7 @@ const Containers = (props) => {
                 offsetY={offsets[i]}
                 elevation={elevation}
                 radius={radius}
+                spec={showSpecs}
             />
         )
     })
@@ -87,7 +89,7 @@ const Containers = (props) => {
     tokens.containers = newContainerTokens;
 
     return (
-        <div className="column">
+        <div className="column" style={{flexGrow: '1'}}>
             {/* <h3>Containers</h3> */}
             <div id="containerWrapper">
                 {containerElements}

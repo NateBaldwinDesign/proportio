@@ -7,7 +7,7 @@ import '../styles/tabs.css';
 import Panel from '../components/panel';
 
 const Components = (props) => {
-  const [showSpecs, setShowSpecs] = useState(false);
+  const [showSpecs, setShowSpecs] = useState(true);
   const [showComponentIcon, setShowComponentIcon] = useState(true);
   const [showComponentText, setShowComponentText] = useState(true);
 

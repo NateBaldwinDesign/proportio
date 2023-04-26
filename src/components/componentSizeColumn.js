@@ -165,7 +165,7 @@ const ComponentSizeColumn = (props) => {
                 iconPadding={iconPadding}
                 gapSize={gapSize}
                 componentLineHeight={componentLineHeight}
-                spec={showSpecs}
+                spec={false}
                 showComponentIcon={showComponentIcon}
                 showComponentText={showComponentText}
                 radius={radius}
