@@ -7,6 +7,7 @@ module.exports = {
   extends: 'plugin:react/jsx-runtime',
   overrides: [],
   ignorePatterns: [
+    'build/*.*',
     'package.json',
     'package-lock.json',
     'yarn-lock.json',
