@@ -172,87 +172,79 @@ const ComponentControls = (props) => {
       </fieldset>
       {/* </TabPanel>
         <TabPanel> */}
-      <fieldset>
-        <legend>Default density (padding)</legend>
-        <div className="segmentedControl">{componentPaddingMethodInputs}</div>
-        <div className="column">
-          <div className="formGroup">
-            <label>Left/right index</label>
-            <input
-              type="number"
-              id="componentXPaddingScale"
-              defaultValue={baseComponentPaddingXIndex}
-              step="1"
-              onInput={(e) => {
-                setBaseComponentPaddingXIndex(e.target.value);
-              }}
-            />
-            {/* <span
-                  className="computedValue"
-                  id="componentXPaddingComputedSize"
-                ></span> */}
-          </div>
-          <div className="formGroup">
-            <label>Top/bottom index</label>
-            <input
-              type="number"
-              defaultValue={baseComponentPaddingYIndex}
-              step="1"
-              onInput={(e) => {
-                setBaseComponentPaddingYIndex(e.target.value);
-              }}
-            />
-            {/* <span
-                  className="computedValue"
-                  id="componentYPaddingComputedSize"
-                ></span> */}
-          </div>
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>Additional densities</legend>
-        {/* {componentPaddingMethodInputs} */}
-        <div className="column">
-          <div className="formGroup">
-            <label>Scale factor</label>
-            <input
-              type="number"
-              defaultValue={componentDensityScaleFactor}
-              step="1"
-              min="1"
-              onInput={(e) => {
-                setComponentDensityScaleFactor(Number(e.target.value));
-              }}
-            />
-          </div>
-          <div className="formGroup">
-            <label>Small densities</label>
-            <input
-              type="number"
-              defaultValue={componentDensitySmallQuantity}
-              step="1"
-              min="0"
-              onInput={(e) => {
-                setComponentDensitySmallQuantity(e.target.value);
-              }}
-            />
-          </div>
-          <div className="formGroup">
-            <label>Large densities</label>
-            <input
-              type="number"
-              defaultValue={componentDensityLargeQuantity}
-              step="1"
-              min="0"
-              onInput={(e) => {
-                setComponentDensityLargeQuantity(e.target.value);
-              }}
-            />
-          </div>
-        </div>
-      </fieldset>
-      {/* </TabPanel>
+          <fieldset>
+            <legend>Default density (padding)</legend>
+            <div className="segmentedControl">{componentPaddingMethodInputs}</div>
+            <div className="column">
+              <div className="formGroup">
+                <label>Left/right index</label>
+                <input
+                  type="number"
+                  id="componentXPaddingScale"
+                  defaultValue={baseComponentPaddingXIndex}
+                  step="1"
+                  onInput={(e) => {
+                    setBaseComponentPaddingXIndex(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="formGroup">
+                <label>Top/bottom index</label>
+                <input
+                  type="number"
+                  defaultValue={baseComponentPaddingYIndex}
+                  step="1"
+                  onInput={(e) => {
+                    setBaseComponentPaddingYIndex(e.target.value);
+                  }}
+                />
+              </div>
+            </div>
+          </fieldset>
+          
+          <fieldset>
+            <legend>Additional densities</legend>
+            {/* {componentPaddingMethodInputs} */}
+            <div className="column">
+              <div className="formGroup">
+                <label>Scale factor</label>
+                <input
+                  type="number"
+                  defaultValue={componentDensityScaleFactor}
+                  step="1"
+                  min="1"
+                  onInput={(e) => {
+                    setComponentDensityScaleFactor(Number(e.target.value));
+                  }}
+                />
+              </div>
+              <div className="formGroup">
+                <label>Small densities</label>
+                <input
+                  type="number"
+                  defaultValue={componentDensitySmallQuantity}
+                  step="1"
+                  min="0"
+                  onInput={(e) => {
+                    setComponentDensitySmallQuantity(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="formGroup">
+                <label>Large densities</label>
+                <input
+                  type="number"
+                  defaultValue={componentDensityLargeQuantity}
+                  step="1"
+                  min="0"
+                  onInput={(e) => {
+                    setComponentDensityLargeQuantity(e.target.value);
+                  }}
+                />
+              </div>
+            </div>
+          </fieldset>
+        {/* </TabPanel>
         <TabPanel> */}
       <fieldset>
         <legend>Radius</legend>

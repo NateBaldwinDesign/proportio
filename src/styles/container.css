@@ -1,0 +1,17 @@
+#containerWrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 16px;
+  }
+  .containerItem {
+    display: grid;
+    grid-template-columns: 32px auto;
+    align-items: center;
+    gap: 8px;
+  }
+  .containerElement {
+    width: 400px;
+    /* height: 240px; */
+    background-color: var(--containerItemBackground);
+  }
+ 

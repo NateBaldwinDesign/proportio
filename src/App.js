@@ -20,7 +20,9 @@ import Header from './components/header';
 import Home from './views/home';
 // import Docs from './views/docs';
 // import Tokens from "./views/tokens";
-import ExportDialog from './views/exportDialog';
+import ExportDialog from './views/exportDialog'
+import ContainerView from './views/containerView';
+
 
 function App() {
   const iconLineHeight = 1.375; /* Just to align icon examples with typography */
@@ -38,6 +40,7 @@ function App() {
               <Tab className="App_tab">Typography</Tab>
               <Tab className="App_tab">Shape</Tab>
               <Tab className="App_tab">Components</Tab>
+              <Tab className="App_tab">Containers</Tab>
             </TabList>
           </Header>
 
@@ -49,6 +52,9 @@ function App() {
           </TabPanel>
           <TabPanel className="App_tabPanel">
             <Components iconLineHeight={iconLineHeight} />
+          </TabPanel>
+          <TabPanel className="App_tabPanel">
+            <ContainerView />
           </TabPanel>
         </Tabs>
       </div>
