@@ -21,6 +21,7 @@ import {
 } from '../states/textIconPair'
 import tokens from '../utilities/tokens';
 import findReferenceToken from '../utilities/findReferenceToken';
+import demoComponents from '../utilities/demoComponents'
 
 const ComponentSizeColumn = (props) => {
     const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
@@ -32,6 +33,7 @@ const ComponentSizeColumn = (props) => {
     const [textIconIconSizeIndex, setTextIconIconSizeIndex] = useRecoilState(textIconIconSizeIndexState);
     const [textIconGapScaleFormula, setTextIconGapScaleFormula] = useRecoilState(textIconGapScaleFormulaState);
     
+    const density = props.density;
     const sizeName = props.sizeName;
     const newTokenNamePrefix = props.newTokenNamePrefix;
     const componentPaddingScale = props.componentPaddingScale;
@@ -153,6 +155,30 @@ const ComponentSizeColumn = (props) => {
         'value': `${Math.round(scaledComponentRadius)}px`,
         'type': "dimension"
     }})
+
+    // Make sure the current entry is not already in demoComponents
+    const result = demoComponents.find(item => item.name === `component-${density}-${sizeName}`);
+
+    if(!result) demoComponents.push(
+        {
+            "name": `component-${density}-${sizeName}`,
+            "value": <ComponentElement
+                key={`component-${density}-${sizeName}`}
+                componentMinHeight={componentMinHeight}
+                paddingX={paddingX}
+                paddingY={paddingY}
+                typeSize={typeSize}
+                iconSize={iconSize}
+                iconPadding={iconPadding}
+                gapSize={gapSize}
+                componentLineHeight={componentLineHeight}
+                spec={showSpecs}
+                showComponentIcon={showComponentIcon}
+                showComponentText={showComponentText}
+                radius={radius}
+            />
+        }
+    )
 
     return (
         <div className="specRowItem"  key={`componenSpecItem${sizeName}${componentMinHeight}`}>

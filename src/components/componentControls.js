@@ -163,10 +163,6 @@ const ComponentControls = (props) => {
                     setBaseComponentPaddingXIndex(e.target.value);
                   }}
                 />
-                {/* <span
-                  className="computedValue"
-                  id="componentXPaddingComputedSize"
-                ></span> */}
               </div>
               <div className="formGroup">
                 <label>Top/bottom index</label>
@@ -178,10 +174,6 @@ const ComponentControls = (props) => {
                     setBaseComponentPaddingYIndex(e.target.value);
                   }}
                 />
-                {/* <span
-                  className="computedValue"
-                  id="componentYPaddingComputedSize"
-                ></span> */}
               </div>
             </div>
           </fieldset>

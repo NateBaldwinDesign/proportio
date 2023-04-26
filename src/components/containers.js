@@ -49,7 +49,6 @@ const Containers = (props) => {
         return elevation * (elevationOffsetY / 100)
     })
     const radiusArray = buildShiftedArray(containerSmallSizes, containerLargeSizes, containerBaseRadiusIndex, containerRadiusScaleFactor)
-    console.log(elevationsArray)
 
     const newContainerTokens = []
 

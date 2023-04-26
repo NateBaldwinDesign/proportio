@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
     containerSmallSizesState,
     containerLargeSizesState,
@@ -14,7 +14,7 @@ import ContainerControls from '../components/containerControls';
 import Containers from '../components/containers';
 
 const ContainerView = (props) => {
-
+  const [showSpecs, setShowSpecs] = useState(false);
 
   return (
     <>
@@ -24,6 +24,22 @@ const ContainerView = (props) => {
         </Panel>
 
         <main className="demoRow apply-font-main">
+        <div className="tabs_action">
+                <fieldset>
+                  <div className="checkboxGroup" >
+                    <input
+                      type="checkbox"
+                      name="showComponentSpecs"
+                      id="showComponentSpecs"
+                      onClick={(e) => setShowSpecs(e.target.checked)}
+                      defaultChecked={showSpecs}
+                    />
+                    <label htmlFor="showComponentSpecs">
+                      Show container specs
+                    </label>
+                  </div>
+                </fieldset>
+              </div>
           <Containers />
         </main>
       </div>

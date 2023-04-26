@@ -57,6 +57,7 @@ import {
   textIconGapScaleFormulaState
 } from "../states/textIconPair"
 import tokens from "../utilities/tokens";
+import demoComponents from '../utilities/demoComponents'
 
 const Sizes = (props) => {
   const tokenNamePrefix = props.tokenNamePrefix;
@@ -100,6 +101,7 @@ const Sizes = (props) => {
     return <ComponentSizeColumn
       key={`${newTokenNamePrefix}-${decrementIndex}`}
       size={size}
+      density={densityName}
       sizeName={sizeName}
       increment={increment}
       newTokenNamePrefix={newTokenNamePrefix}
@@ -183,6 +185,7 @@ const ComponentSpecs = (props) => {
   const rowClassName = (showSpecs) ? "row row--comfortable" : "row row--spacious";
   // Clear out component tokens
   tokens.component = []
+  demoComponents.length = 0;
 
   const componentPaddingScale =
     componentPaddingMethodOption === "typeScale"
@@ -293,6 +296,7 @@ const ComponentSpecs = (props) => {
     const tokenNamePrefix = `component-${densityName.replace(' (default)', '')}`;
     
     return <Sizes 
+        key={`${densityName}-${sizeArray}`}
         tokenNamePrefix={tokenNamePrefix}
         densityName={densityName}
         sizeArray={sizeArray}
