@@ -1,16 +1,16 @@
 #spacingWrapper {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 16px;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 16px;
 }
 .spacingItem {
-    display: grid;
-    grid-template-columns: 32px auto;
-    font-size: 12px;
-    font-style: italic;
-    align-items: center;
-    gap: 8px;
+  display: grid;
+  grid-template-columns: 32px auto;
+  font-size: 12px;
+  font-style: italic;
+  align-items: center;
+  gap: 8px;
 }
 .spacing {
-    background-color: var(--blueprint200);
-  }
+  background-color: var(--blueprint200);
+}

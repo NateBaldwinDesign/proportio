@@ -1,6 +1,3 @@
-const scaleUnits = [
-    "px", 
-    "rem"
-];
+const scaleUnits = ['px', 'rem'];
 
 export default scaleUnits;

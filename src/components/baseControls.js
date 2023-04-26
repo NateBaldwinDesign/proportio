@@ -1,40 +1,50 @@
-import React, {useState} from "react";
-import {
-  useRecoilState
-} from 'recoil';
+import React, { useState } from 'react';
+import { useRecoilState } from 'recoil';
 import {
   baseSizeState,
   baseMobileScaleFactorState,
-  baseScaleUnitState
+  baseScaleUnitState,
 } from '../states/base';
-import scaleUnits from "../utilities/scaleUnits";
-import capitalize from "../utilities/capitalize";
-import { 
-  typeScaleFormulaState, 
+import scaleUnits from '../utilities/scaleUnits';
+import capitalize from '../utilities/capitalize';
+import {
+  typeScaleFormulaState,
   typeScaleState,
   typeSmallQuantityState,
-  typeLargeQuantityState
-} from "../states/typography";
-import { 
+  typeLargeQuantityState,
+} from '../states/typography';
+import {
   iconScaleState,
   iconSmallQuantityState,
-  iconLargeQuantityState
-} from "../states/iconography";
+  iconLargeQuantityState,
+} from '../states/iconography';
 import Dropdown from 'react-dropdown';
 import typeScaleOptions from '../utilities/typeScaleOptions';
 
 const BaseControls = (props) => {
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
-  const [baseMobileScaleFactor, setBaseMobileScaleFactor] = useRecoilState(baseMobileScaleFactorState)
-  const [baseScaleUnit, setBaseScaleUnit] = useRecoilState(baseScaleUnitState)
-  const [typeScale, setTypeScale] = useRecoilState(typeScaleState)
-  const [typeScaleFormula, setTypeScaleFormula] = useRecoilState(typeScaleFormulaState)
-  const [iconScale, setIconScale] = useRecoilState(iconScaleState)
-  const [typeSmallQuantity, setTypeSmallQuantity] = useRecoilState(typeSmallQuantityState)
-  const [typeLargeQuantity, setTypeLargeQuantity] = useRecoilState(typeLargeQuantityState)
-  const [iconSmallQuantity, setIconSmallQuantity] = useRecoilState(iconSmallQuantityState)
-  const [iconLargeQuantity, setIconLargeQuantity] = useRecoilState(iconLargeQuantityState)
-  const [scaleInput, setScaleInput] = useState(typeScale)
+  const [baseMobileScaleFactor, setBaseMobileScaleFactor] = useRecoilState(
+    baseMobileScaleFactorState,
+  );
+  const [baseScaleUnit, setBaseScaleUnit] = useRecoilState(baseScaleUnitState);
+  const [typeScale, setTypeScale] = useRecoilState(typeScaleState);
+  const [typeScaleFormula, setTypeScaleFormula] = useRecoilState(
+    typeScaleFormulaState,
+  );
+  const [iconScale, setIconScale] = useRecoilState(iconScaleState);
+  const [typeSmallQuantity, setTypeSmallQuantity] = useRecoilState(
+    typeSmallQuantityState,
+  );
+  const [typeLargeQuantity, setTypeLargeQuantity] = useRecoilState(
+    typeLargeQuantityState,
+  );
+  const [iconSmallQuantity, setIconSmallQuantity] = useRecoilState(
+    iconSmallQuantityState,
+  );
+  const [iconLargeQuantity, setIconLargeQuantity] = useRecoilState(
+    iconLargeQuantityState,
+  );
+  const [scaleInput, setScaleInput] = useState(typeScale);
 
   // const inputs = scaleUnits.map((unit) => {
   //   return (
@@ -53,7 +63,7 @@ const BaseControls = (props) => {
   // });
 
   return (
-    <fieldset >
+    <fieldset>
       <legend>Common values</legend>
       <div className="column">
         {/* <div className="formGroup">
@@ -62,13 +72,12 @@ const BaseControls = (props) => {
         </div>
         </div> */}
 
-
         <div className="formGroup">
           <label htmlFor="">Base size (px)</label>
           <input
             type="number"
             onInput={(e) => {
-              setBaseSize(Number(e.target.value))
+              setBaseSize(Number(e.target.value));
             }}
             step="1"
             min="0"
@@ -79,31 +88,32 @@ const BaseControls = (props) => {
         <div className="formGroup">
           <label htmlFor="">Scale</label>
 
-          <Dropdown 
-              options={typeScaleOptions} 
-              onChange={(e) => {
-                setScaleInput(e.value)
-                if(e.value !== typeScale) {
-                  setTypeScale(Number(e.value))
-                  setIconScale(Number(e.value))
-                }
-              }} 
-              value={
-                (!typeScaleOptions.filter((item) => item.value === typeScale)[0])
+          <Dropdown
+            options={typeScaleOptions}
+            onChange={(e) => {
+              setScaleInput(e.value);
+              if (e.value !== typeScale) {
+                setTypeScale(Number(e.value));
+                setIconScale(Number(e.value));
+              }
+            }}
+            value={
+              !typeScaleOptions.filter((item) => item.value === typeScale)[0]
                 ? typeScaleOptions.filter((item) => item.value === undefined)[0]
                 : typeScaleOptions.filter((item) => item.value === typeScale)[0]
-              } 
-              placeholder={typeScaleOptions[1].value} />
+            }
+            placeholder={typeScaleOptions[1].value}
+          />
 
           <input
             key={scaleInput}
             type="number"
             onChange={(e) => {
               // console.log(e.target.value)
-              setTypeScale(Number(e.target.value))
-              setIconScale(Number(e.target.value))
+              setTypeScale(Number(e.target.value));
+              setIconScale(Number(e.target.value));
             }}
-            step={typeScaleFormula === "power" ? "0.001" : "1"}
+            step={typeScaleFormula === 'power' ? '0.001' : '1'}
             min="0"
             defaultValue={scaleInput}
           />
@@ -113,8 +123,8 @@ const BaseControls = (props) => {
           <input
             type="number"
             onInput={(e) => {
-              setTypeSmallQuantity(Number(e.target.value))
-              setIconSmallQuantity(Number(e.target.value))
+              setTypeSmallQuantity(Number(e.target.value));
+              setIconSmallQuantity(Number(e.target.value));
             }}
             step="1"
             min="0"
@@ -127,8 +137,8 @@ const BaseControls = (props) => {
           <input
             type="number"
             onInput={(e) => {
-              setTypeLargeQuantity(Number(e.target.value))
-              setIconLargeQuantity(Number(e.target.value))
+              setTypeLargeQuantity(Number(e.target.value));
+              setIconLargeQuantity(Number(e.target.value));
             }}
             step="1"
             min="0"

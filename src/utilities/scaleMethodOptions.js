@@ -1,6 +1,3 @@
-const scaleMethodOptions = [
-    "typeScale", 
-    "spacingScale"
-]
+const scaleMethodOptions = ['typeScale', 'spacingScale'];
 
 export default scaleMethodOptions;

@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 import { useRecoilState } from 'recoil';
-import capitalize from "../utilities/capitalize";
-import scaleMethodOptions from "../utilities/scaleFormulas"
+import capitalize from '../utilities/capitalize';
+import scaleMethodOptions from '../utilities/scaleFormulas';
 import {
   iconScaleState,
   iconSmallQuantityState,
@@ -9,22 +9,27 @@ import {
   iconScaleFormulaState,
   iconPaddingState,
   iconState,
-  iconStrokeState
-} from "../states/iconography"
+  iconStrokeState,
+} from '../states/iconography';
 import Dropdown from 'react-dropdown';
-import Slider from "./slider";
+import Slider from './slider';
 // import 'react-dropdown/style.css';
 
 const feather = require('feather-icons');
 
-
 const IconControls = (props) => {
-  const [iconScale, setIconScale] = useRecoilState(iconScaleState)
-  const [iconSmallQuantity, setIconSmallQuantity] = useRecoilState(iconSmallQuantityState)
-  const [iconLargeQuantity, setIconLargeQuantity] = useRecoilState(iconLargeQuantityState)
-  const [iconScaleFormula, setIconScaleFormula] = useRecoilState(iconScaleFormulaState)
-  const [iconPadding, setIconPadding] = useRecoilState(iconPaddingState)
-  const [iconStroke, setIconStroke] = useRecoilState(iconStrokeState)
+  const [iconScale, setIconScale] = useRecoilState(iconScaleState);
+  const [iconSmallQuantity, setIconSmallQuantity] = useRecoilState(
+    iconSmallQuantityState,
+  );
+  const [iconLargeQuantity, setIconLargeQuantity] = useRecoilState(
+    iconLargeQuantityState,
+  );
+  const [iconScaleFormula, setIconScaleFormula] = useRecoilState(
+    iconScaleFormulaState,
+  );
+  const [iconPadding, setIconPadding] = useRecoilState(iconPaddingState);
+  const [iconStroke, setIconStroke] = useRecoilState(iconStrokeState);
 
   const availableIcons = Object.keys(feather.icons);
   const [icon, setIcon] = useRecoilState(iconState);
@@ -49,24 +54,28 @@ const IconControls = (props) => {
     <fieldset>
       <legend>
         Iconography
-        <cite>via <a href="https://feathericons.com/" target="_blank">Feather icons</a></cite>
+        <cite>
+          via{' '}
+          <a href="https://feathericons.com/" target="_blank">
+            Feather icons
+          </a>
+        </cite>
       </legend>
       {/* <div className="segmentedControl">{inputs}</div> */}
       <div className="column">
         <div className="formGroup">
-          <label>
-            Icon
-          </label>
-          <span className="iconPicker" style={{width: 'calc(100% - 120px)'}}>
-            <Dropdown 
-              options={availableIcons} 
+          <label>Icon</label>
+          <span className="iconPicker" style={{ width: 'calc(100% - 120px)' }}>
+            <Dropdown
+              options={availableIcons}
               onChange={(e) => {
-                setIcon(e.value); 
+                setIcon(e.value);
                 // console.log(e)
-              }} 
-              value={icon} 
-              placeholder={icon} />
-            </span>
+              }}
+              value={icon}
+              placeholder={icon}
+            />
+          </span>
         </div>
         {/* <div className="formGroup">
           <label htmlFor="">Scale factor</label>

@@ -1,6 +1,6 @@
 .componentColumn {
   display: flex;
-  flex-direction: column-reverse
+  flex-direction: column-reverse;
 }
 
 .componentSpecWrapper {
@@ -8,9 +8,9 @@
   grid-template-columns: 92px max-content max-content 80px;
   grid-template-rows: max-content;
   grid-template-areas:
-    ". spec00 spec0 ."
-    "spec1 component component spec2 "
-    ". spec3 spec4 spec5";
+    '. spec00 spec0 .'
+    'spec1 component component spec2 '
+    '. spec3 spec4 spec5';
   border: 1px dashed var(--Gold200);
   padding: 4px 16px;
   width: max-content;
@@ -39,9 +39,9 @@
   align-items: center;
   justify-items: center;
   grid-template-areas:
-    ". padTopAlt padTop padTop . ."
-    "padLeft icon textIconGap label . padRight"
-    ". padBottomAlt padBottom padBottom . radius";
+    '. padTopAlt padTop padTop . .'
+    'padLeft icon textIconGap label . padRight'
+    '. padBottomAlt padBottom padBottom . radius';
   grid-template-columns: max-content;
   width: max-content;
   height: max-content;
@@ -125,7 +125,7 @@
   margin-right: 10px;
 }
 .specHeight::after {
-  content: " ";
+  content: ' ';
   display: block;
   width: 4px;
   height: calc(100% - 2px);
@@ -142,7 +142,7 @@
   margin-left: 16px;
 }
 .specPaddingX::before {
-  content: " ";
+  content: ' ';
   display: block;
   width: 16px;
   height: 1px;
@@ -161,7 +161,7 @@
   margin-bottom: 8px;
 }
 .specPaddingY::after {
-  content: " ";
+  content: ' ';
   display: block;
   width: 6%;
   height: 16px;
@@ -182,7 +182,7 @@
   margin-bottom: 8px;
 }
 .specGap::after {
-  content: " ";
+  content: ' ';
   display: block;
   width: 1px;
   height: 32px;
@@ -201,7 +201,7 @@
   margin-left: 8px;
 }
 .specType::after {
-  content: " ";
+  content: ' ';
   display: block;
   height: 24px;
   border-right: 1px solid var(--Gold400);
@@ -221,7 +221,7 @@
   margin-top: 8px;
 }
 .specIcon::after {
-  content: " ";
+  content: ' ';
   display: block;
   height: 32px;
   border-right: 1px solid var(--Gold400);

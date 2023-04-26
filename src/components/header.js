@@ -1,23 +1,23 @@
-import React from "react";
+import React from 'react';
 import { useRecoilState } from 'recoil';
 import {
   baseSizeState,
   baseMobileScaleFactorState,
-  baseScaleUnitState
+  baseScaleUnitState,
 } from '../states/base';
-import scaleUnits from "../utilities/scaleUnits";
-import Logo from "./logo";
-import GitHubLogo from '../icons/github.js'
-import capitalize from "../utilities/capitalize";
+import scaleUnits from '../utilities/scaleUnits';
+import Logo from './logo';
+import GitHubLogo from '../icons/github.js';
+import capitalize from '../utilities/capitalize';
 import Dropdown from 'react-dropdown';
 
-import "../styles/header.css";
+import '../styles/header.css';
 
 const Header = (props) => {
-  const showModal = props.showModal
+  const showModal = props.showModal;
   const setShowModal = props.setShowModal;
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
-  const [baseScaleUnit, setBaseScaleUnit] = useRecoilState(baseScaleUnitState)
+  const [baseScaleUnit, setBaseScaleUnit] = useRecoilState(baseScaleUnitState);
 
   const inputs = scaleUnits.map((unit) => {
     return (
@@ -44,21 +44,20 @@ const Header = (props) => {
         </div>
         {props.children}
       </div>
-      
+
       <div className="header--right">
         <div className="formGroup">
           <label htmlFor="scale_unit">Unit</label>
           <span id="unitPicker">
-          <Dropdown 
-              options={scaleUnits} 
+            <Dropdown
+              options={scaleUnits}
               onChange={(e) => {
-                setBaseScaleUnit(e.value); 
-              }} 
-              // value={icon} 
-              placeholder={baseScaleUnit} 
-              />
+                setBaseScaleUnit(e.value);
+              }}
+              // value={icon}
+              placeholder={baseScaleUnit}
+            />
           </span>
-
         </div>
         {/* <button 
           className="clearButton"
@@ -68,8 +67,12 @@ const Header = (props) => {
             setShowModal(true)
           }}
         > Export </button> */}
-        <a target="_blank" href="https://github.com/NateBaldwinDesign/proportio" title="Github repository">
-          <GitHubLogo size="32" color="var(--textColor"/>
+        <a
+          target="_blank"
+          href="https://github.com/NateBaldwinDesign/proportio"
+          title="Github repository"
+        >
+          <GitHubLogo size="32" color="var(--textColor" />
         </a>
       </div>
     </header>

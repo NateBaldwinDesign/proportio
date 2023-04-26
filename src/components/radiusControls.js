@@ -1,22 +1,31 @@
-import React from "react";
+import React from 'react';
 import { useRecoilState } from 'recoil';
-import capitalize from "../utilities/capitalize";
-import calculateScale from "../utilities/calculateScale";
-import scaleMethodOptions from "../utilities/scaleFormulas"
+import capitalize from '../utilities/capitalize';
+import calculateScale from '../utilities/calculateScale';
+import scaleMethodOptions from '../utilities/scaleFormulas';
 import {
   baseRadiusSizeState,
   radiusScaleFactorState,
   radiusSmallQuantityState,
   radiusLargeQuantityState,
-  radiusScaleFormulaState
-} from "../states/radius"
+  radiusScaleFormulaState,
+} from '../states/radius';
 
 const RadiusControls = (props) => {
-  const [baseRadiusSize, setBaseRadiusSize] = useRecoilState(baseRadiusSizeState)
-  const [radiusScaleFactor, setRadiusScaleFactor] = useRecoilState(radiusScaleFactorState)
-  const [radiusSmallQuantity, setRadiusSmallQuantity] = useRecoilState(radiusSmallQuantityState)
-  const [radiusLargeQuantity, setRadiusLargeQuantity] = useRecoilState(radiusLargeQuantityState)
-  const [radiusScaleFormula, setRadiusScaleFormula] = useRecoilState(radiusScaleFormulaState)
+  const [baseRadiusSize, setBaseRadiusSize] =
+    useRecoilState(baseRadiusSizeState);
+  const [radiusScaleFactor, setRadiusScaleFactor] = useRecoilState(
+    radiusScaleFactorState,
+  );
+  const [radiusSmallQuantity, setRadiusSmallQuantity] = useRecoilState(
+    radiusSmallQuantityState,
+  );
+  const [radiusLargeQuantity, setRadiusLargeQuantity] = useRecoilState(
+    radiusLargeQuantityState,
+  );
+  const [radiusScaleFormula, setRadiusScaleFormula] = useRecoilState(
+    radiusScaleFormulaState,
+  );
 
   const inputs = scaleMethodOptions.map((method) => {
     return (
@@ -54,7 +63,7 @@ const RadiusControls = (props) => {
           <input
             type="number"
             onInput={(e) => setRadiusScaleFactor(Number(e.target.value))}
-            step={radiusScaleFormula === "power" ? "0.1" : "1"}
+            step={radiusScaleFormula === 'power' ? '0.1' : '1'}
             min="0"
             defaultValue={radiusScaleFactor}
           />
