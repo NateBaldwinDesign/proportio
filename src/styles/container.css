@@ -1,0 +1,19 @@
+#containerWrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 16px;
+  }
+  .containerItem {
+    display: grid;
+    grid-template-columns: 32px auto;
+    font-size: 12px;
+    font-style: italic;
+    align-items: center;
+    gap: 8px;
+  }
+  .containerElement {
+    width: 300px;
+    height: 260px;
+    background-color: var(--elevationItemBackground);
+  }
+  
