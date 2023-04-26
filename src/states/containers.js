@@ -13,15 +13,6 @@ const containerLargeSizesState = atom({
     default: 2
 })
 
-const containerBaseRadiusXIndexState = atom({
-    key: 'containerBaseRadiusXIndex',
-    default: 1
-})
-const containerBaseRadiusYIndexState = atom({
-    key: 'containerBaseRadiusYIndex',
-    default: 1
-})
-
 const containerBaseElevationIndexState = atom({
     key: 'containerBaseElevationIndex',
     default: 1
@@ -36,8 +27,16 @@ const containerRadiusScaleFactorState = atom({
     default: 1
 })
 
-const containerBasePaddingIndexState = atom({
-    key: 'containerBasePaddingIndex',
+const containerBasePaddingXIndexState = atom({
+    key: 'containerBasePaddingXIndex',
+    default: 0
+})
+const containerBasePaddingYIndexState = atom({
+    key: 'containerBasePaddingYIndex',
+    default: 0
+})
+const containerBaseGapIndexState = atom({
+    key: 'containerBaseGapIndex',
     default: 0
 })
 const containerPaddingScaleFactorState = atom({
@@ -52,11 +51,11 @@ const containerPaddingMethodOptionState = atom({
 export {
     containerSmallSizesState,
     containerLargeSizesState,
-    containerBaseRadiusXIndexState,
-    containerBaseRadiusYIndexState,
+    containerBasePaddingXIndexState,
+    containerBasePaddingYIndexState,
     containerBaseElevationIndexState,
     containerRadiusScaleFactorState,
-    containerBasePaddingIndexState,
+    containerBaseGapIndexState,
     containerPaddingScaleFactorState,
     containerBaseRadiusIndexState,
     containerPaddingMethodOptionState

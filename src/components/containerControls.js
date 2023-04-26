@@ -5,10 +5,11 @@ import {
     containerBaseRadiusIndexState,
     containerBaseElevationIndexState,
     containerRadiusScaleFactorState,
-    containerBaseRadiusXIndexState,
-    containerBaseRadiusYIndexState,
     containerPaddingScaleFactorState,
-    containerPaddingMethodOptionState
+    containerPaddingMethodOptionState,
+    containerBasePaddingXIndexState,
+    containerBasePaddingYIndexState,
+    containerBaseGapIndexState
 } from '../states/containers';
 import { useRecoilState } from 'recoil';
 import scaleMethodOptions from '../utilities/scaleMethodOptions';
@@ -20,10 +21,11 @@ const ContainerControls = (props) => {
     const [containerBaseRadiusIndex, setContainerBaseRadiusIndex] = useRecoilState(containerBaseRadiusIndexState)
     const [containerBaseElevationIndex, setContainerBaseElevationIndex] = useRecoilState(containerBaseElevationIndexState)
     const [containerRadiusScaleFactor, setContainerRadiusScaleFactor] = useRecoilState(containerRadiusScaleFactorState)
-    const [containerBasePaddingXIndex, setContainerBasePaddingXIndex] = useRecoilState(containerBaseRadiusXIndexState)
-    const [containerBasePaddingYIndex, setContainerBasePaddingYIndex] = useRecoilState(containerBaseRadiusYIndexState)
+    const [containerBasePaddingXIndex, setContainerBasePaddingXIndex] = useRecoilState(containerBasePaddingXIndexState)
+    const [containerBasePaddingYIndex, setContainerBasePaddingYIndex] = useRecoilState(containerBasePaddingYIndexState)
     const [containerPaddingScaleFactor, setContainerPaddingScaleFactor] = useRecoilState(containerPaddingScaleFactorState)
     const [containerPaddingMethodOption, setContainerPaddingMethodOption] = useRecoilState(containerPaddingMethodOptionState)
+    const [containerBaseGapIndex, setContainerBaseGapIndex] = useRecoilState(containerBaseGapIndexState)
 
     const containerPaddingMethodInputs = scaleMethodOptions.map((method) => {
         return (
@@ -96,6 +98,18 @@ const ContainerControls = (props) => {
                   step="1"
                   onInput={(e) => {
                     setContainerBasePaddingYIndex(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="formGroup">
+                <label>Gap index</label>
+                <input
+                  type="number"
+                  id="containerGap"
+                  defaultValue={containerBaseGapIndex}
+                  step="1"
+                  onInput={(e) => {
+                    setContainerBaseGapIndex(e.target.value);
                   }}
                 />
               </div>

@@ -12,6 +12,6 @@
   .containerElement {
     width: 400px;
     /* height: 240px; */
-    background-color: var(--elevationItemBackground);
+    background-color: var(--containerItemBackground);
   }
  

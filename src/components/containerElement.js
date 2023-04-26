@@ -37,6 +37,7 @@ const ContainerElement = (props) => {
 
   const defaultComponent = demoComponents.filter((item) => item.name === "component-comfortable (default)-medium (default)");
 
+  console.log(defaultComponent[0].value)
   return (
     <div className="containerItem">
       <span className="specs"> {value}{baseScaleUnit} </span>
