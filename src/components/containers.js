@@ -22,6 +22,7 @@ import {
 import tokens from "../utilities/tokens";
 import { baseScaleUnitState, baseSizeState } from "../states/base";
 import round from "../utilities/round";
+import buildShiftedArray from "../utilities/buildShiftedArray";
 
 const Containers = (props) => {
     const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
@@ -39,18 +40,20 @@ const Containers = (props) => {
     const [containerRadiusScaleFactor, setContainerRadiusScaleFactor] = useRecoilState(containerRadiusScaleFactorState)
 
     let radius = 4; // TEMPORARY
-    
-    let sizeArray = buildArray(elevationSmallQuantity, elevationLargeQuantity);
-    const sizes = sizeArray.map((i) => {
+
+    let elevationsArray = buildArray(containerSmallSizes, containerLargeSizes);
+    const elevations = elevationsArray.map((i) => {
         return calculateScale(baseElevationSize, elevationScaleFactor, i, elevationScaleFormula);
     })
-    const offsets = sizes.map((size) => {
+    const offsets = elevations.map((size) => {
         return size * (elevationOffsetY / 100)
     })
+    const radiusArray = buildShiftedArray(containerSmallSizes, containerLargeSizes, containerBaseRadiusIndex, containerRadiusScaleFactor)
+    
 
     const newContainerTokens = []
 
-    const containerElements = sizes.map((size, i) => {
+    const containerElements = elevations.map((elevation, i) => {
         const nameX = `elevation-${100 * (i+1)}-offsetY`
         const nameY = `elevation-${100 * (i+1)}-blur`
         const valueX = (baseScaleUnit === 'px') ? offsets[i] : round(offsets[i]/baseSize, 3);
@@ -76,7 +79,7 @@ const Containers = (props) => {
             <ContainerElement 
                 key={`container-${i}}`}
                 offsetY={offsets[i]}
-                elevation={size}
+                elevation={elevation}
                 radius={radius}
             />
         )
