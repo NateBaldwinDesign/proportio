@@ -32,9 +32,11 @@
   }
   .padTop {
     grid-area: padTop;
+    margin: 0;
   }
   .padBottom {
     grid-area: padBottom;
+    margin: 0;
   }
   .padLeft {
     grid-area: padLeft;

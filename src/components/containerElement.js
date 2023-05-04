@@ -35,24 +35,24 @@ const ContainerElement = (props) => {
 
   const value = (baseScaleUnit === 'px') ? round(elevation) : round(elevation/baseSize, 3);
 
-  const paddingY = 20;
-  const paddingX = 20;
-  const gapSize = 8;
+  const paddingY = props.paddingY;
+  const paddingX = props.paddingX;
+  const gapSize = props.gapSize;
   const margin = elevation > 0 ? elevation : 4;
 
   const defaultComponent = demoComponents.filter((item) => item.name === "component-comfortable (default)-medium (default)");
 
   const sizeName = 'Temp'
-  const gapSpecAnnotation =
-      <div
-        className="specGap specs"
-        style={{ marginLeft: `${Math.round(paddingX)}px` }}
-      >
-        {`Gap: ${
-          baseScaleUnit === 'px' ? round(gapSize) : round(gapSize / baseSize, 3)
-        }${baseScaleUnit}`}
-      </div>
-    ;
+  // const gapSpecAnnotation =
+  //     <div
+  //       className="specGap specs"
+  //       style={{ marginLeft: `${paddingX}px` }}
+  //     >
+  //       {`Gap: ${
+  //         baseScaleUnit === 'px' ? round(gapSize) : round(gapSize / baseSize, 3)
+  //       }${baseScaleUnit}`}
+  //     </div>
+  //   ;
 
     const specAnnotations = (
       <>
@@ -72,7 +72,7 @@ const ContainerElement = (props) => {
               : round(paddingY / baseSize, 3)
           }${baseScaleUnit}`}{' '}
         </div>
-        {gapSpecAnnotation}
+        {/* {gapSpecAnnotation} */}
         <div className="specRadius specs">
           {' '}
           {`R: ${
@@ -135,15 +135,15 @@ const ContainerElement = (props) => {
             }}
           ></div>
 
-          <div class="containerContent">
+          <div className="containerContent">
             <p className="apply-font-main">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas non nisl ac dui gravida pellentesque. Phasellus et cursus dui, at fringilla risus. Vestibulum a tortor euismod, fermentum tortor sed, euismod turpis.
             </p>
             <div
-              className={spec ? 'paddingUnit innerGap' : 'innerGap'}
+              // className={spec ? 'paddingUnit innerGap' : 'innerGap'}
               style={{
-                width: `${gapSize}px`,
-                height: `${gapSize / 2}px`,
+                height: `${gapSize}px`,
+                width: `${gapSize / 2}px`,
               }}
             ></div>
             {defaultComponent[0].value}

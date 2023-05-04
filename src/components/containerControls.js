@@ -101,7 +101,7 @@ const ContainerControls = (props) => {
                   }}
                 />
               </div>
-              <div className="formGroup">
+              {/* <div className="formGroup">
                 <label>Gap index</label>
                 <input
                   type="number"
@@ -112,7 +112,7 @@ const ContainerControls = (props) => {
                     setContainerBaseGapIndex(e.target.value);
                   }}
                 />
-              </div>
+              </div> */}
               <div className="formGroup">
                 <label>Scale factor</label>
                 <input
