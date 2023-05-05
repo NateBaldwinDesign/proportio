@@ -170,6 +170,7 @@ const Containers = (props) => {
                 radius={radius}
                 spec={showSpecs}
                 sizeName={sizeName}
+                containerElevation={containerElevation}
             />
         )
     })

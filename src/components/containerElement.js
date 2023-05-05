@@ -29,6 +29,7 @@ const ContainerElement = (props) => {
   const offsetY = props.offsetY;
   const spec = props.spec;
   const sizeName = props.sizeName;
+  const containerElevation = props.containerElevation;
   const [baseScaleUnit, setBaseScaleUnit] = useRecoilState(baseScaleUnitState)
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
   const [containerBaseRadiusIndex, setContainerBaseRadiusIndex] = useRecoilState(containerBaseRadiusIndexState)
@@ -53,6 +54,18 @@ const ContainerElement = (props) => {
   //       }${baseScaleUnit}`}
   //     </div>
   //   ;
+
+  const elevationSpec = (
+    <div className="containerspecElevation specs">
+        {`Blur: ${
+          baseScaleUnit === 'px' ? round(elevation) : round(elevation / baseSize, 3)
+        }${baseScaleUnit}`}
+          <br/> 
+        {`Distance: ${baseScaleUnit === 'px' ? round(offsetY) : round(offsetY / baseSize, 3)}${baseScaleUnit}`}
+      </div>
+  )
+
+  const elevationSpecAnnotation = (containerElevation) ? elevationSpec : " ";
 
     const specAnnotations = (
       <>
@@ -79,6 +92,7 @@ const ContainerElement = (props) => {
             baseScaleUnit === 'px' ? round(radius) : round(radius / baseSize, 3)
           }${baseScaleUnit}`}{' '}
         </div>
+        {elevationSpecAnnotation}
       </>
     );
     const showSpecs = spec ? specAnnotations : '';

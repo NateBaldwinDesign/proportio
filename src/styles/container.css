@@ -15,8 +15,8 @@
       'containerItem .'
       'containerItem containerspec2'
       'containerItem .'
-      '. containerspec3';
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+      'containerspecBottom containerspec4';
+    /* grid-template-rows: 1fr 1fr 1fr 1fr 1fr; */
     /* align-items: center; */
   }
   .containerElement {
@@ -90,8 +90,11 @@
   left: -18px;
   position: absolute;
 }
- .containerspecRadius {
-  grid-area: containerspec3;
+.containerspecRadius {
+  grid-area: containerspec4;
   display: flex;
- }
-
+  align-self: start;
+}
+.containerspecElevation {
+  grid-area: containerspecBottom;
+}
