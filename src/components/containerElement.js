@@ -56,7 +56,7 @@ const ContainerElement = (props) => {
 
     const specAnnotations = (
       <>
-        <div className="specPaddingX specs">
+        <div className="containerspecPaddingX specs">
           {' '}
           {`Pad-X: ${
             baseScaleUnit === 'px'
@@ -64,7 +64,7 @@ const ContainerElement = (props) => {
               : round(paddingX / baseSize, 3)
           }${baseScaleUnit}`}{' '}
         </div>
-        <div className="specPaddingY specs">
+        <div className="containerspecPaddingY specs">
           {' '}
           {`Pad-Y: ${
             baseScaleUnit === 'px'
@@ -73,7 +73,7 @@ const ContainerElement = (props) => {
           }${baseScaleUnit}`}{' '}
         </div>
         {/* {gapSpecAnnotation} */}
-        <div className="specRadius specs">
+        <div className="containerspecRadius specs">
           {' '}
           {`R: ${
             baseScaleUnit === 'px' ? round(radius) : round(radius / baseSize, 3)
@@ -86,7 +86,7 @@ const ContainerElement = (props) => {
   return (
     <div className="specRowItem"  key={`containerSpecItem${sizeName}${offsetY}${elevation}`}>
       <h5> {capitalize(sizeName)} </h5>
-      {/* <div className="containerItem"> */}
+      <div className={spec ? 'containerSpecWrapper' : 'containerWrapper'}>
         {/* <span className="specs"> {value}{baseScaleUnit} </span> */}
         <div
           className="containerElement apply-font-main"
@@ -150,7 +150,8 @@ const ContainerElement = (props) => {
           </div>
 
         </div>
-      {/* </div> */}
+        {showSpecs}
+      </div>
     </div>
   );
 };
