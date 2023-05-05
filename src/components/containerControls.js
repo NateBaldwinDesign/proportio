@@ -8,8 +8,7 @@ import {
     containerPaddingScaleFactorState,
     containerPaddingMethodOptionState,
     containerBasePaddingXIndexState,
-    containerBasePaddingYIndexState,
-    containerBaseGapIndexState
+    containerBasePaddingYIndexState
 } from '../states/containers';
 import { useRecoilState } from 'recoil';
 import scaleMethodOptions from '../utilities/scaleMethodOptions';
@@ -25,7 +24,6 @@ const ContainerControls = (props) => {
     const [containerBasePaddingYIndex, setContainerBasePaddingYIndex] = useRecoilState(containerBasePaddingYIndexState)
     const [containerPaddingScaleFactor, setContainerPaddingScaleFactor] = useRecoilState(containerPaddingScaleFactorState)
     const [containerPaddingMethodOption, setContainerPaddingMethodOption] = useRecoilState(containerPaddingMethodOptionState)
-    const [containerBaseGapIndex, setContainerBaseGapIndex] = useRecoilState(containerBaseGapIndexState)
 
     const containerElevation = props.containerElevation
     const setContainerElevation = props.setContainerElevation
@@ -104,18 +102,6 @@ const ContainerControls = (props) => {
                   }}
                 />
               </div>
-              {/* <div className="formGroup">
-                <label>Gap index</label>
-                <input
-                  type="number"
-                  id="containerGap"
-                  defaultValue={containerBaseGapIndex}
-                  step="1"
-                  onInput={(e) => {
-                    setContainerBaseGapIndex(e.target.value);
-                  }}
-                />
-              </div> */}
               <div className="formGroup">
                 <label>Scale factor</label>
                 <input

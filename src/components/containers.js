@@ -178,7 +178,10 @@ const Containers = (props) => {
     tokens.containers = newContainerTokens;
 
     return (
-        <div className="column" style={{flexGrow: '1'}}>
+        <div 
+            className="column" 
+            // style={{flexGrow: '1'}}
+        >
             {/* <h3>Containers</h3> */}
             <div id="containerWrapper">
                 {containerElements}

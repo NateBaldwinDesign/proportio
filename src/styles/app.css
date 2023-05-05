@@ -104,6 +104,8 @@
   --blueprint500: var(--Gray600);
   --blueprint600: var(--Gray600);
 
+  --paddingColor: #FF00FF;
+
   --fieldSetBackground: var(--Gray100);
   --border100: var(--Gray200);
   --border200: var(--Gray300);

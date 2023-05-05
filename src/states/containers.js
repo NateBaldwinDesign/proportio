@@ -35,17 +35,13 @@ const containerBasePaddingYIndexState = atom({
     key: 'containerBasePaddingYIndex',
     default: 0
 })
-const containerBaseGapIndexState = atom({
-    key: 'containerBaseGapIndex',
-    default: 0
-})
 const containerPaddingScaleFactorState = atom({
     key: 'containerPaddingFactorScale',
     default: 1
 })
 const containerPaddingMethodOptionState = atom({
     key: 'containerPaddingMethodOption',
-    default: scaleMethodOptions[0]
+    default: scaleMethodOptions[1]
 })
 
 export {
@@ -55,7 +51,6 @@ export {
     containerBasePaddingYIndexState,
     containerBaseElevationIndexState,
     containerRadiusScaleFactorState,
-    containerBaseGapIndexState,
     containerPaddingScaleFactorState,
     containerBaseRadiusIndexState,
     containerPaddingMethodOptionState

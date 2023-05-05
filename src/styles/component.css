@@ -45,7 +45,8 @@
   grid-template-columns: max-content;
   width: max-content;
   height: max-content;
-  background-color: var(--blueprint150);
+  background-color: var(--blueprint100);
+  border: 1px solid var(--blueprint300);
   border-radius: 6px;
   font-weight: 500; /* Demi */
 }
@@ -60,7 +61,7 @@
   position: absolute;
 }
 .paddingUnit {
-  background-color: var(--blueprint500);
+  background-color: var(--paddingColor);
   opacity: 0.5;
 }
 .padTop {
@@ -90,12 +91,12 @@
 .componentTextSpec {
   font-weight: var(--demoFontWeight);
   grid-area: label;
-  background-color: var(--blueprint200);
+  background-color: var(--blueprint150);
 }
 .componentIconSpec {
   display: flex;
   grid-area: icon;
-  background-color: var(--blueprint200);
+  background-color: var(--blueprint150);
 }
 .componentText {
   font-weight: var(--demoFontWeight);
