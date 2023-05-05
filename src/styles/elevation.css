@@ -5,7 +5,7 @@
 }
 .elevationItem {
   display: grid;
-  grid-template-columns: 32px auto;
+  grid-template-columns: 92px auto;
   font-size: 12px;
   font-style: italic;
   align-items: center;

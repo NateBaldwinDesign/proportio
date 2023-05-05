@@ -10,14 +10,16 @@ const ElevationElement = (props) => {
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
   const value =
     baseScaleUnit === 'px' ? round(elevation) : round(elevation / baseSize, 3);
+  const offsetValue =
+    baseScaleUnit === 'px' ? round(offsetY) : round(offsetY / baseSize, 3);
 
   const margin = elevation > 0 ? elevation : 4;
   return (
     <div className="elevationItem">
       <span className="specs">
-        {' '}
-        {value}
-        {baseScaleUnit}{' '}
+        Blur: {value}{baseScaleUnit}
+        <br/>
+        Distance: {offsetValue}{baseScaleUnit}
       </span>
       <div
         className="elevation"
