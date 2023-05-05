@@ -20,21 +20,19 @@ Making systematic design faster and easier by use of generative, parametric desi
 (Minimum loveable product)
 
 - [ ] Add “round to even numbers” option
-- [ ] Add hint text with recommendations like keeping icon scale close to type scale
 - [x] Modularize states & clean up props
 - [x] Add Feather icons for choosing sample icon: https://github.com/feathericons/feather
 - [x] Add variable stroke scale input
 - [x] Add google fonts picker for text
-- [x] If variable, add variable weight scale
 - [x] Add density columns
 - [ ] Add mobile scale factor
 - [ ] Add mobile or responsive type & icon scales
 - [ ] Add export/ save data or CSS, which compiles options into organized code styles
-- [ ] Add example UI? Cards, tables, controls, long form typography…
+- [x] Add example UI? Cards, tables, controls
+- [ ] Enhanced typography controls (fluid type, long-form type demos)
 - [ ] Figure out url issues
 - [ ] Add contribution guidelines
 - [ ] Clean up code
-- [ ] Typescript?
 - [ ] Documentation
 - [ ] iconography for menus and mobile friendly design (maybe use these: https://css.gg/)
 
