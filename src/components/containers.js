@@ -68,16 +68,17 @@ const Containers = (props) => {
     const [typeScale, setTypeScale] = useRecoilState(typeScaleState);
     const [spacingScaleFactor, setSpacingScaleFactor] = useRecoilState(spacingScaleFactorState)
     const showSpecs = props.showSpecs;
+    const containerElevation = props.containerElevation
     
     const containerPaddingMethod = (containerPaddingMethodOption === 'typeScale') ? typeScale : spacingScaleFactor;
     let sizeArray = buildArray(containerSmallSizes, containerLargeSizes);
-    let elevationsArray = buildArray(containerSmallSizes, containerLargeSizes);
-    const elevations = elevationsArray.map((i) => {
-        return calculateScale(baseElevationSize, elevationScaleFactor, i, elevationScaleFormula);
-    })
-    const offsets = elevations.map((elevation) => {
-        return elevation * (elevationOffsetY / 100)
-    })
+    let elevationsArray = buildShiftedArray(containerSmallSizes, containerLargeSizes, containerBaseElevationIndex);
+    // const elevations = elevationsArray.map((i) => {
+    //     return calculateScale(baseElevationSize, elevationScaleFactor, i, elevationScaleFormula);
+    // })
+    // const offsets = elevations.map((elevation) => {
+    //     return elevation * (elevationOffsetY / 100)
+    // })
     const radiusArray = buildShiftedArray(containerSmallSizes, containerLargeSizes, containerBaseRadiusIndex, containerRadiusScaleFactor)
 
     const paddingYIndexArray = buildShiftedArray(
@@ -109,11 +110,13 @@ const Containers = (props) => {
         const sizeName =
           size < 0 ? sizeNamesDecrement[decrementIndex] : sizeNamesIncrement[size];
         if (sizeName === undefined) sizeName = 'undefined';
-        
+        const elevation = (containerElevation) ? calculateScale(baseElevationSize, elevationScaleFactor, elevationsArray[i], elevationScaleFormula) : undefined;
+        const offset = elevation * (elevationOffsetY / 100);
+
         const nameX = `elevation-${100 * (i+1)}-offsetY`
         const nameY = `elevation-${100 * (i+1)}-blur`
-        const valueX = (baseScaleUnit === 'px') ? offsets[i] : round(offsets[i]/baseSize, 3);
-        const valueY = (baseScaleUnit === 'px') ? elevations[i] : round(elevations[i]/baseSize, 3);
+        const valueX = (baseScaleUnit === 'px') ? offset : round(offset/baseSize, 3);
+        const valueY = (baseScaleUnit === 'px') ? elevation : round(elevation/baseSize, 3);
         const paddingXvalue = calculateScale(
             baseSize,
             containerPaddingMethod,
@@ -159,8 +162,8 @@ const Containers = (props) => {
         return (
             <ContainerElement 
                 key={`container-${i}}`}
-                offsetY={offsets[i]}
-                elevation={elevations[i]}
+                offsetY={offset}
+                elevation={elevation}
                 paddingX={paddingX}
                 paddingY={paddingY}
                 gapSize={baseSize}

@@ -238,3 +238,9 @@ label {
   text-align: right;
   font-size: 0.875rem;
 }
+.checkboxGroup {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}

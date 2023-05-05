@@ -27,6 +27,9 @@ const ContainerControls = (props) => {
     const [containerPaddingMethodOption, setContainerPaddingMethodOption] = useRecoilState(containerPaddingMethodOptionState)
     const [containerBaseGapIndex, setContainerBaseGapIndex] = useRecoilState(containerBaseGapIndexState)
 
+    const containerElevation = props.containerElevation
+    const setContainerElevation = props.setContainerElevation
+
     const containerPaddingMethodInputs = scaleMethodOptions.map((method) => {
         return (
           <div className="radioGroup" key={`${method}`}>
@@ -136,7 +139,6 @@ const ContainerControls = (props) => {
                 type="number"
                 onInput={(e) => setContainerBaseRadiusIndex(Number(e.target.value))}
                 step="1"
-                min="0"
                 defaultValue={containerBaseRadiusIndex}
               />
             </div>
@@ -156,16 +158,27 @@ const ContainerControls = (props) => {
         <fieldset>
             <legend>Elevation</legend>
             <div className='column'>
-            <div className="formGroup">
-              <label htmlFor="">Elevation index</label>
-              <input
-                type="number"
-                onInput={(e) => setContainerBaseElevationIndex(Number(e.target.value))}
-                step="1"
-                min="0"
-                defaultValue={containerBaseElevationIndex}
-              />
-            </div>
+                <div className="checkboxGroup" >
+                  <input
+                    type="checkbox"
+                    name="componentElevation"
+                    id="componentElevation"
+                    onClick={(e) => setContainerElevation(e.target.checked)}
+                    defaultChecked={containerElevation}
+                  />
+                  <label htmlFor="componentElevation">
+                    Apply elevations
+                  </label>
+                </div>
+              <div className="formGroup">
+                <label htmlFor="">Elevation index</label>
+                <input
+                  type="number"
+                  onInput={(e) => setContainerBaseElevationIndex(Number(e.target.value))}
+                  step="1"
+                  defaultValue={containerBaseElevationIndex}
+                />
+              </div>
             </div>
         </fieldset>
         </>
