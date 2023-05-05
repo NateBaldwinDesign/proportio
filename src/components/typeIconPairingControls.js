@@ -83,7 +83,7 @@ const TypeIconPairingControls = (props) => {
   return (
     <fieldset>
       <legend>Type-icon pairing</legend>
-      {/* <div className="segmentedControl">{inputs}</div> */}
+      <div className="segmentedControl">{inputs}</div>
       <div className="column">
         <div className="formGroup">
           <label htmlFor="">{fieldLabel}</label>

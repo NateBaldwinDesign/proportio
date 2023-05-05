@@ -27,6 +27,9 @@ const ContainerControls = (props) => {
     const [containerPaddingMethodOption, setContainerPaddingMethodOption] = useRecoilState(containerPaddingMethodOptionState)
     const [containerBaseGapIndex, setContainerBaseGapIndex] = useRecoilState(containerBaseGapIndexState)
 
+    const containerElevation = props.containerElevation
+    const setContainerElevation = props.setContainerElevation
+
     const containerPaddingMethodInputs = scaleMethodOptions.map((method) => {
         return (
           <div className="radioGroup" key={`${method}`}>
@@ -82,18 +85,6 @@ const ContainerControls = (props) => {
                 <input
                   type="number"
                   id="containerXPaddingScale"
-                  defaultValue={containerBasePaddingXIndex}
-                  step="1"
-                  onInput={(e) => {
-                    setContainerBasePaddingXIndex(e.target.value);
-                  }}
-                />
-              </div>
-              <div className="formGroup">
-                <label>Left/right padding index</label>
-                <input
-                  type="number"
-                  id="containerYPaddingScale"
                   defaultValue={containerBasePaddingYIndex}
                   step="1"
                   onInput={(e) => {
@@ -102,6 +93,18 @@ const ContainerControls = (props) => {
                 />
               </div>
               <div className="formGroup">
+                <label>Left/right padding index</label>
+                <input
+                  type="number"
+                  id="containerYPaddingScale"
+                  defaultValue={containerBasePaddingXIndex}
+                  step="1"
+                  onInput={(e) => {
+                    setContainerBasePaddingXIndex(e.target.value);
+                  }}
+                />
+              </div>
+              {/* <div className="formGroup">
                 <label>Gap index</label>
                 <input
                   type="number"
@@ -112,13 +115,14 @@ const ContainerControls = (props) => {
                     setContainerBaseGapIndex(e.target.value);
                   }}
                 />
-              </div>
+              </div> */}
               <div className="formGroup">
                 <label>Scale factor</label>
                 <input
                   type="number"
                   defaultValue={containerPaddingScaleFactor}
                   step="1"
+                  min="1"
                   onInput={(e) => {
                     setContainerPaddingScaleFactor(e.target.value);
                   }}
@@ -135,7 +139,6 @@ const ContainerControls = (props) => {
                 type="number"
                 onInput={(e) => setContainerBaseRadiusIndex(Number(e.target.value))}
                 step="1"
-                min="0"
                 defaultValue={containerBaseRadiusIndex}
               />
             </div>
@@ -146,7 +149,7 @@ const ContainerControls = (props) => {
                 type="number"
                 onInput={(e) => setContainerRadiusScaleFactor(Number(e.target.value))}
                 step="1"
-                min="0"
+                min="1"
                 defaultValue={containerRadiusScaleFactor}
               />
             </div>
@@ -155,16 +158,27 @@ const ContainerControls = (props) => {
         <fieldset>
             <legend>Elevation</legend>
             <div className='column'>
-            <div className="formGroup">
-              <label htmlFor="">Elevation index</label>
-              <input
-                type="number"
-                onInput={(e) => setContainerBaseElevationIndex(Number(e.target.value))}
-                step="1"
-                min="0"
-                defaultValue={containerBaseElevationIndex}
-              />
-            </div>
+                <div className="checkboxGroup" >
+                  <input
+                    type="checkbox"
+                    name="componentElevation"
+                    id="componentElevation"
+                    onClick={(e) => setContainerElevation(e.target.checked)}
+                    defaultChecked={containerElevation}
+                  />
+                  <label htmlFor="componentElevation">
+                    Apply elevations
+                  </label>
+                </div>
+              <div className="formGroup">
+                <label htmlFor="">Elevation index</label>
+                <input
+                  type="number"
+                  onInput={(e) => setContainerBaseElevationIndex(Number(e.target.value))}
+                  step="1"
+                  defaultValue={containerBaseElevationIndex}
+                />
+              </div>
             </div>
         </fieldset>
         </>

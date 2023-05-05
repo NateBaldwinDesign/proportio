@@ -50,6 +50,11 @@
   margin-left: var(--appFrameMargin);
 }
 
+.tabs_action fieldset {
+  margin: 0;
+  padding: 0;
+}
+
 .panel .react-tabs__tab {
   flex-grow: 1;
   text-align: center;

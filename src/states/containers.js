@@ -41,7 +41,7 @@ const containerBaseGapIndexState = atom({
 })
 const containerPaddingScaleFactorState = atom({
     key: 'containerPaddingFactorScale',
-    default: 0
+    default: 1
 })
 const containerPaddingMethodOptionState = atom({
     key: 'containerPaddingMethodOption',

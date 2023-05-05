@@ -14,16 +14,20 @@ import ContainerControls from '../components/containerControls';
 import Containers from '../components/containers';
 
 const ContainerView = (props) => {
-  const [showSpecs, setShowSpecs] = useState(false);
+  const [showSpecs, setShowSpecs] = useState(true);
+  const [containerElevation, setContainerElevation] = useState(true);
 
   return (
     <>
       <div className="splitView">
         <Panel direction="column">
-          <ContainerControls />
+          <ContainerControls 
+            containerElevation={containerElevation}
+            setContainerElevation={setContainerElevation}
+          />
         </Panel>
 
-        <main className="demoRow apply-font-main">
+        <main className="demoRow demoRow--compact apply-font-main">
         <div className="tabs_action">
                 <fieldset>
                   <div className="checkboxGroup" >
@@ -40,7 +44,10 @@ const ContainerView = (props) => {
                   </div>
                 </fieldset>
               </div>
-          <Containers />
+          <Containers 
+            showSpecs={showSpecs}
+            containerElevation={containerElevation}
+          />
         </main>
       </div>
     </>
