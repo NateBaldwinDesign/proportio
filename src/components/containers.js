@@ -8,6 +8,12 @@ import {
     spacingFormulaState, spacingScaleFactorState
 } from '../states/spacing';
 import {
+    sizeNamesIncrement,
+    sizeNamesDecrement,
+    densityNamesIncrement,
+    densityNamesDecrement,
+  } from '../utilities/names';
+import {
     typeScaleFormulaState,
     typeScaleState
 } from "../states/typography"
@@ -34,6 +40,7 @@ import tokens from "../utilities/tokens";
 import { baseScaleUnitState, baseSizeState } from "../states/base";
 import round from "../utilities/round";
 import buildShiftedArray from "../utilities/buildShiftedArray";
+import { baseRadiusSizeState, radiusScaleFactorState, radiusScaleFormulaState } from "../states/radius";
 
 const Containers = (props) => {
     const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
@@ -53,18 +60,17 @@ const Containers = (props) => {
     const [containerBasePaddingXIndex, setContainerBasePaddingXIndexState] = useRecoilState(containerBasePaddingXIndexState)
     const [containerBasePaddingYIndex, setContainerBasePaddingYIndexState] = useRecoilState(containerBasePaddingYIndexState)
     const [containerPaddingScaleFactor, setContainerPaddingScaleFactor] = useRecoilState(containerPaddingScaleFactorState);
-    
-    const [spacingFormula, setSpacingFormula] =
-        useRecoilState(spacingFormulaState);
-    const [typeScaleFormula, setTypeScaleFormula] = useRecoilState(
-        typeScaleFormulaState,
-    );
+    const [baseRadiusSize, setBaseRadiusSize] = useRecoilState(baseRadiusSizeState);
+    const [radiusScaleFactor, setRadiusScaleFactor] = useRecoilState(radiusScaleFactorState);
+    const [radiusScaleFormula, setRadiusScaleFormula] = useRecoilState(radiusScaleFormulaState);
+    const [spacingFormula, setSpacingFormula] = useRecoilState(spacingFormulaState);
+    const [typeScaleFormula, setTypeScaleFormula] = useRecoilState(typeScaleFormulaState);
     const [typeScale, setTypeScale] = useRecoilState(typeScaleState);
     const [spacingScaleFactor, setSpacingScaleFactor] = useRecoilState(spacingScaleFactorState)
     const showSpecs = props.showSpecs;
     
     const containerPaddingMethod = (containerPaddingMethodOption === 'typeScale') ? typeScale : spacingScaleFactor;
-
+    let sizeArray = buildArray(containerSmallSizes, containerLargeSizes);
     let elevationsArray = buildArray(containerSmallSizes, containerLargeSizes);
     const elevations = elevationsArray.map((i) => {
         return calculateScale(baseElevationSize, elevationScaleFactor, i, elevationScaleFormula);
@@ -74,57 +80,62 @@ const Containers = (props) => {
     })
     const radiusArray = buildShiftedArray(containerSmallSizes, containerLargeSizes, containerBaseRadiusIndex, containerRadiusScaleFactor)
 
-    const paddingYIndexArrayArray = buildShiftedArray(
-        containerSmallSizes,
-        containerLargeSizes,
-        containerBasePaddingYIndex
-      );
-    const paddingXIndexArrayArray = buildShiftedArray(
-        containerSmallSizes,
-        containerLargeSizes,
-        containerBasePaddingXIndex
-      );
-
-
-    const increment = 0;
-
-    const paddingXIndexArray = buildShiftedArray(
-        containerSmallSizes,
-        containerLargeSizes,
-        paddingXIndexArrayArray[increment]
-      );
     const paddingYIndexArray = buildShiftedArray(
         containerSmallSizes,
         containerLargeSizes,
-        paddingYIndexArrayArray[increment]
-        );
+        containerBasePaddingYIndex,
+        containerPaddingScaleFactor
+      );
+    const paddingXIndexArray = buildShiftedArray(
+        containerSmallSizes,
+        containerLargeSizes,
+        containerBasePaddingXIndex,
+        containerPaddingScaleFactor
+      );
+
     const containerPaddingMethodFormula =
         containerPaddingMethodOption === 'typeScale'
         ? typeScaleFormula
         : containerPaddingMethodOption === 'spacingScale'
         ? spacingFormula
         : undefined;
-    const paddingX = calculateScale(
-        baseSize,
-        containerPaddingMethod,
-        paddingXIndexArray[0], // TODO: Update when desity options exist
-        containerPaddingMethodFormula
-    );
-    const paddingY = calculateScale(
-        baseSize,
-        containerPaddingMethod,
-        paddingYIndexArray[0], // TODO: Update when desity options exist
-        containerPaddingMethodFormula
-    );
-
+    
     const newContainerTokens = []
 
-    const containerElements = elevations.map((elevation, i) => {
+    // console.log(containerBasePaddingXIndex, containerPaddingScaleFactor, paddingXIndexArray)
+    // console.log(radiusArray)
+    const containerElements = sizeArray.map((size, i) => {
+        const decrementIndex = size * -1 - 1;
+        const sizeName =
+          size < 0 ? sizeNamesDecrement[decrementIndex] : sizeNamesIncrement[size];
+        if (sizeName === undefined) sizeName = 'undefined';
+        
         const nameX = `elevation-${100 * (i+1)}-offsetY`
         const nameY = `elevation-${100 * (i+1)}-blur`
         const valueX = (baseScaleUnit === 'px') ? offsets[i] : round(offsets[i]/baseSize, 3);
-        const valueY = (baseScaleUnit === 'px') ? elevation : round(elevation/baseSize, 3);
-        const radius = radiusArray[i]
+        const valueY = (baseScaleUnit === 'px') ? elevations[i] : round(elevations[i]/baseSize, 3);
+        const paddingXvalue = calculateScale(
+            baseSize,
+            containerPaddingMethod,
+            paddingXIndexArray[i], 
+            containerPaddingMethodFormula
+        );
+        const paddingYvalue = calculateScale(
+            baseSize,
+            containerPaddingMethod,
+            paddingYIndexArray[i],
+            containerPaddingMethodFormula
+        );
+        const radiusValue = calculateScale(
+            baseRadiusSize,
+            radiusScaleFactor,
+            radiusArray[i],
+            radiusScaleFormula,
+          );
+        const paddingX = (baseScaleUnit === 'px') ? paddingXvalue : round(paddingXvalue/baseSize, 3);
+        const paddingY = (baseScaleUnit === 'px') ? paddingYvalue : round(paddingYvalue/baseSize, 3);
+        const radius = (baseScaleUnit === 'px') ? radiusValue : round(radiusValue/baseSize, 3);
+        
 
         const objectX = {
           [nameX]: {
@@ -142,16 +153,20 @@ const Containers = (props) => {
         newContainerTokens.push(objectX)
         newContainerTokens.push(objectY)
 
+        // console.log(i, paddingX)
+        // console.log(radiusArray, radius)
+
         return (
             <ContainerElement 
                 key={`container-${i}}`}
                 offsetY={offsets[i]}
-                elevation={elevation}
+                elevation={elevations[i]}
                 paddingX={paddingX}
                 paddingY={paddingY}
                 gapSize={baseSize}
                 radius={radius}
                 spec={showSpecs}
+                sizeName={sizeName}
             />
         )
     })

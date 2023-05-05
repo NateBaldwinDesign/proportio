@@ -82,10 +82,10 @@ const ContainerControls = (props) => {
                 <input
                   type="number"
                   id="containerXPaddingScale"
-                  defaultValue={containerBasePaddingXIndex}
+                  defaultValue={containerBasePaddingYIndex}
                   step="1"
                   onInput={(e) => {
-                    setContainerBasePaddingXIndex(e.target.value);
+                    setContainerBasePaddingYIndex(e.target.value);
                   }}
                 />
               </div>
@@ -94,10 +94,10 @@ const ContainerControls = (props) => {
                 <input
                   type="number"
                   id="containerYPaddingScale"
-                  defaultValue={containerBasePaddingYIndex}
+                  defaultValue={containerBasePaddingXIndex}
                   step="1"
                   onInput={(e) => {
-                    setContainerBasePaddingYIndex(e.target.value);
+                    setContainerBasePaddingXIndex(e.target.value);
                   }}
                 />
               </div>
@@ -119,6 +119,7 @@ const ContainerControls = (props) => {
                   type="number"
                   defaultValue={containerPaddingScaleFactor}
                   step="1"
+                  min="1"
                   onInput={(e) => {
                     setContainerPaddingScaleFactor(e.target.value);
                   }}
@@ -146,7 +147,7 @@ const ContainerControls = (props) => {
                 type="number"
                 onInput={(e) => setContainerRadiusScaleFactor(Number(e.target.value))}
                 step="1"
-                min="0"
+                min="1"
                 defaultValue={containerRadiusScaleFactor}
               />
             </div>

@@ -28,6 +28,7 @@ const ContainerElement = (props) => {
   const radius = props.radius;
   const offsetY = props.offsetY;
   const spec = props.spec;
+  const sizeName = props.sizeName;
   const [baseScaleUnit, setBaseScaleUnit] = useRecoilState(baseScaleUnitState)
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
   const [containerBaseRadiusIndex, setContainerBaseRadiusIndex] = useRecoilState(containerBaseRadiusIndexState)
@@ -42,7 +43,6 @@ const ContainerElement = (props) => {
 
   const defaultComponent = demoComponents.filter((item) => item.name === "component-comfortable (default)-medium (default)");
 
-  const sizeName = 'Temp'
   // const gapSpecAnnotation =
   //     <div
   //       className="specGap specs"
@@ -139,14 +139,14 @@ const ContainerElement = (props) => {
             <p className="apply-font-main">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas non nisl ac dui gravida pellentesque. Phasellus et cursus dui, at fringilla risus. Vestibulum a tortor euismod, fermentum tortor sed, euismod turpis.
             </p>
-            <div
+            {/* <div
               // className={spec ? 'paddingUnit innerGap' : 'innerGap'}
               style={{
                 height: `${gapSize}px`,
                 width: `${gapSize / 2}px`,
               }}
-            ></div>
-            {defaultComponent[0].value}
+            ></div> */}
+            {/* {defaultComponent[0].value} */}
           </div>
 
         </div>
