@@ -35,11 +35,8 @@ const ContainerElement = (props) => {
   const [containerBaseRadiusIndex, setContainerBaseRadiusIndex] = useRecoilState(containerBaseRadiusIndexState)
   const [containerRadiusScaleFactor, setContainerRadiusScaleFactor] = useRecoilState(containerRadiusScaleFactorState)
 
-  const value = (baseScaleUnit === 'px') ? round(elevation) : round(elevation/baseSize, 3);
-
   const paddingY = props.paddingY;
   const paddingX = props.paddingX;
-  const gapSize = props.gapSize;
   const margin = elevation > 0 ? elevation : 4;
 
   const defaultComponent = demoComponents.filter((item) => item.name === "component-comfortable (default)-medium (default)");
@@ -66,36 +63,25 @@ const ContainerElement = (props) => {
   )
 
   const elevationSpecAnnotation = (containerElevation) ? elevationSpec : " ";
-
-    const specAnnotations = (
-      <>
-        <div className="containerspecPaddingX specs">
-          {' '}
-          {`Pad-X: ${
-            baseScaleUnit === 'px'
-              ? round(paddingX)
-              : round(paddingX / baseSize, 3)
-          }${baseScaleUnit}`}{' '}
-        </div>
-        <div className="containerspecPaddingY specs">
-          {' '}
-          {`Pad-Y: ${
-            baseScaleUnit === 'px'
-              ? round(paddingY)
-              : round(paddingY / baseSize, 3)
-          }${baseScaleUnit}`}{' '}
-        </div>
-        {/* {gapSpecAnnotation} */}
-        <div className="containerspecRadius specs">
-          {' '}
-          {`R: ${
-            baseScaleUnit === 'px' ? round(radius) : round(radius / baseSize, 3)
-          }${baseScaleUnit}`}{' '}
-        </div>
-        {elevationSpecAnnotation}
-      </>
-    );
-    const showSpecs = spec ? specAnnotations : '';
+  const specAnnotations = (
+    <>
+      <div className="containerspecPaddingX specs">
+        {' '}
+        {`Pad-X: ${paddingX}${baseScaleUnit}`}{' '}
+      </div>
+      <div className="containerspecPaddingY specs">
+        {' '}
+        {`Pad-Y: ${paddingY}${baseScaleUnit}`}{' '}
+      </div>
+      {/* {gapSpecAnnotation} */}
+      <div className="containerspecRadius specs">
+        {' '}
+        {`R: ${radius}${baseScaleUnit}`}{' '}
+      </div>
+      {elevationSpecAnnotation}
+    </>
+  );
+  const showSpecs = spec ? specAnnotations : '';
 
   return (
     <div className="specRowItem"  key={`containerSpecItem${sizeName}${offsetY}${elevation}`}>
@@ -110,11 +96,11 @@ const ContainerElement = (props) => {
             borderRadius: `${radius}px`
           }}
         >
-                    <div
+          <div
             className={spec ? `paddingUnit padTop` : `padTop`}
             style={{
-              height: `${paddingY}px`,
-              width: `${paddingY}px`,
+              height: `${paddingY}${baseScaleUnit}`,
+              width: `${paddingY}${baseScaleUnit}`,
             }}
           ></div>
           <div
@@ -122,30 +108,30 @@ const ContainerElement = (props) => {
               spec ? `paddingUnit padBottom` : ` padBottom`
             }
             style={{
-              height: `${paddingY}px`,
-              width: `${paddingY}px`,
+              height: `${paddingY}${baseScaleUnit}`,
+              width: `${paddingY}${baseScaleUnit}`,
             }}
           ></div>
           <div
             className={spec ? 'paddingUnit padLeft' : 'padLeft'}
             style={{
-              height: `${paddingX}px`,
-              width: `${paddingX}px`,
+              height: `${paddingX}${baseScaleUnit}`,
+              width: `${paddingX}${baseScaleUnit}`,
             }}
           ></div>
           <div
             className={spec ? 'paddingUnit padRight' : 'padRight'}
             style={{
-              height: `${paddingX}px`,
-              width: `${paddingX}px`,
+              height: `${paddingX}${baseScaleUnit}`,
+              width: `${paddingX}${baseScaleUnit}`,
             }}
           ></div>
           <div
             className={spec ? 'paddingUnit compRadius' : 'compRadius'}
             style={{
-              height: `${radius * 2}px`,
-              width: `${radius * 2}px`,
-              borderRadius: `${radius}px`,
+              height: `${radius * 2}${baseScaleUnit}`,
+              width: `${radius * 2}${baseScaleUnit}`,
+              borderRadius: `${radius}${baseScaleUnit}`,
             }}
           ></div>
 
