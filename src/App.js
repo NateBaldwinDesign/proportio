@@ -20,9 +20,8 @@ import Header from './components/header';
 import Home from './views/home';
 // import Docs from './views/docs';
 // import Tokens from "./views/tokens";
-import ExportDialog from './views/exportDialog'
+import ExportDialog from './views/exportDialog';
 import ContainerView from './views/containerView';
-
 
 function App() {
   const iconLineHeight = 1.375; /* Just to align icon examples with typography */

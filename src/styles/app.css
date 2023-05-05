@@ -41,7 +41,7 @@
 
     --shadowColor: rgb(0 0 0 / 8%);
     --elevationDemoShadowColor: rgb(0 0 0 / 20%);
-    --modalOverlayColor: rgba(0, 0, 0, 0.20);
+    --modalOverlayColor: rgba(0, 0, 0, 0.2);
     --elevationItemBackground: var(--appBackground);
     --containerItemBackground: var(--appBackground);
     --selectionIndicatorColor: var(--Gold300);
@@ -103,6 +103,8 @@
   --blueprint400: var(--Gray400);
   --blueprint500: var(--Gray600);
   --blueprint600: var(--Gray600);
+
+  --paddingColor: #ff00ff;
 
   --fieldSetBackground: var(--Gray100);
   --border100: var(--Gray200);

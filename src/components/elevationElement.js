@@ -17,9 +17,11 @@ const ElevationElement = (props) => {
   return (
     <div className="elevationItem">
       <span className="specs">
-        Blur: {value}{baseScaleUnit}
-        <br/>
-        Distance: {offsetValue}{baseScaleUnit}
+        Blur: {value}
+        {baseScaleUnit}
+        <br />
+        Distance: {offsetValue}
+        {baseScaleUnit}
       </span>
       <div
         className="elevation"

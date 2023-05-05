@@ -1,24 +1,24 @@
 import React from 'react';
 import {
-    containerSmallSizesState,
-    containerLargeSizesState,
-    containerBaseRadiusIndexState,
-    containerBaseElevationIndexState,
-    containerRadiusScaleFactorState
+  containerSmallSizesState,
+  containerLargeSizesState,
+  containerBaseRadiusIndexState,
+  containerBaseElevationIndexState,
+  containerRadiusScaleFactorState,
 } from '../states/containers';
 import {
-    baseElevationSizeState,
-    elevationScaleFactorState,
-    elevationSmallQuantityState,
-    elevationLargeQuantityState,
-    elevationScaleFormulaState,
-    elevationOffsetYState
-} from "../states/elevation"
-import tokens from "../utilities/tokens";
+  baseElevationSizeState,
+  elevationScaleFactorState,
+  elevationSmallQuantityState,
+  elevationLargeQuantityState,
+  elevationScaleFormulaState,
+  elevationOffsetYState,
+} from '../states/elevation';
+import tokens from '../utilities/tokens';
 import { useRecoilState } from 'recoil';
-import { baseScaleUnitState, baseSizeState } from "../states/base";
-import round from "../utilities/round";
-import "../styles/container.css";
+import { baseScaleUnitState, baseSizeState } from '../states/base';
+import round from '../utilities/round';
+import '../styles/container.css';
 import ComponentElement from './componentElement';
 import demoComponents from '../utilities/demoComponents';
 import capitalize from '../utilities/capitalize';
@@ -30,19 +30,20 @@ const ContainerElement = (props) => {
   const spec = props.spec;
   const sizeName = props.sizeName;
   const containerElevation = props.containerElevation;
-  const [baseScaleUnit, setBaseScaleUnit] = useRecoilState(baseScaleUnitState)
+  const [baseScaleUnit, setBaseScaleUnit] = useRecoilState(baseScaleUnitState);
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
-  const [containerBaseRadiusIndex, setContainerBaseRadiusIndex] = useRecoilState(containerBaseRadiusIndexState)
-  const [containerRadiusScaleFactor, setContainerRadiusScaleFactor] = useRecoilState(containerRadiusScaleFactorState)
-
-  const value = (baseScaleUnit === 'px') ? round(elevation) : round(elevation/baseSize, 3);
+  const [containerBaseRadiusIndex, setContainerBaseRadiusIndex] =
+    useRecoilState(containerBaseRadiusIndexState);
+  const [containerRadiusScaleFactor, setContainerRadiusScaleFactor] =
+    useRecoilState(containerRadiusScaleFactorState);
 
   const paddingY = props.paddingY;
   const paddingX = props.paddingX;
-  const gapSize = props.gapSize;
   const margin = elevation > 0 ? elevation : 4;
 
-  const defaultComponent = demoComponents.filter((item) => item.name === "component-comfortable (default)-medium (default)");
+  const defaultComponent = demoComponents.filter(
+    (item) => item.name === 'component-comfortable (default)-medium (default)',
+  );
 
   // const gapSpecAnnotation =
   //     <div
@@ -57,48 +58,44 @@ const ContainerElement = (props) => {
 
   const elevationSpec = (
     <div className="containerspecElevation specs">
-        {`Blur: ${
-          baseScaleUnit === 'px' ? round(elevation) : round(elevation / baseSize, 3)
-        }${baseScaleUnit}`}
-          <br/> 
-        {`Distance: ${baseScaleUnit === 'px' ? round(offsetY) : round(offsetY / baseSize, 3)}${baseScaleUnit}`}
+      {`Blur: ${
+        baseScaleUnit === 'px'
+          ? round(elevation)
+          : round(elevation / baseSize, 3)
+      }${baseScaleUnit}`}
+      <br />
+      {`Distance: ${
+        baseScaleUnit === 'px' ? round(offsetY) : round(offsetY / baseSize, 3)
+      }${baseScaleUnit}`}
+    </div>
+  );
+
+  const elevationSpecAnnotation = containerElevation ? elevationSpec : ' ';
+  const specAnnotations = (
+    <>
+      <div className="containerspecPaddingX specs">
+        {' '}
+        {`Pad-X: ${paddingX}${baseScaleUnit}`}{' '}
       </div>
-  )
-
-  const elevationSpecAnnotation = (containerElevation) ? elevationSpec : " ";
-
-    const specAnnotations = (
-      <>
-        <div className="containerspecPaddingX specs">
-          {' '}
-          {`Pad-X: ${
-            baseScaleUnit === 'px'
-              ? round(paddingX)
-              : round(paddingX / baseSize, 3)
-          }${baseScaleUnit}`}{' '}
-        </div>
-        <div className="containerspecPaddingY specs">
-          {' '}
-          {`Pad-Y: ${
-            baseScaleUnit === 'px'
-              ? round(paddingY)
-              : round(paddingY / baseSize, 3)
-          }${baseScaleUnit}`}{' '}
-        </div>
-        {/* {gapSpecAnnotation} */}
-        <div className="containerspecRadius specs">
-          {' '}
-          {`R: ${
-            baseScaleUnit === 'px' ? round(radius) : round(radius / baseSize, 3)
-          }${baseScaleUnit}`}{' '}
-        </div>
-        {elevationSpecAnnotation}
-      </>
-    );
-    const showSpecs = spec ? specAnnotations : '';
+      <div className="containerspecPaddingY specs">
+        {' '}
+        {`Pad-Y: ${paddingY}${baseScaleUnit}`}{' '}
+      </div>
+      {/* {gapSpecAnnotation} */}
+      <div className="containerspecRadius specs">
+        {' '}
+        {`R: ${radius}${baseScaleUnit}`}{' '}
+      </div>
+      {elevationSpecAnnotation}
+    </>
+  );
+  const showSpecs = spec ? specAnnotations : '';
 
   return (
-    <div className="specRowItem"  key={`containerSpecItem${sizeName}${offsetY}${elevation}`}>
+    <div
+      className="specRowItem"
+      key={`containerSpecItem${sizeName}${offsetY}${elevation}`}
+    >
       <h5> {capitalize(sizeName)} </h5>
       <div className={spec ? 'containerSpecWrapper' : 'containerWrapper'}>
         {/* <span className="specs"> {value}{baseScaleUnit} </span> */}
@@ -107,51 +104,52 @@ const ContainerElement = (props) => {
           style={{
             boxShadow: `0 ${offsetY}px ${elevation}px var(--elevationDemoShadowColor)`,
             marginBottom: `${margin}px`,
-            borderRadius: `${radius}px`
+            borderRadius: `${radius}px`,
           }}
         >
-                    <div
+          <div
             className={spec ? `paddingUnit padTop` : `padTop`}
             style={{
-              height: `${paddingY}px`,
-              width: `${paddingY}px`,
+              height: `${paddingY}${baseScaleUnit}`,
+              width: `${paddingY}${baseScaleUnit}`,
             }}
           ></div>
           <div
-            className={
-              spec ? `paddingUnit padBottom` : ` padBottom`
-            }
+            className={spec ? `paddingUnit padBottom` : ` padBottom`}
             style={{
-              height: `${paddingY}px`,
-              width: `${paddingY}px`,
+              height: `${paddingY}${baseScaleUnit}`,
+              width: `${paddingY}${baseScaleUnit}`,
             }}
           ></div>
           <div
             className={spec ? 'paddingUnit padLeft' : 'padLeft'}
             style={{
-              height: `${paddingX}px`,
-              width: `${paddingX}px`,
+              height: `${paddingX}${baseScaleUnit}`,
+              width: `${paddingX}${baseScaleUnit}`,
             }}
           ></div>
           <div
             className={spec ? 'paddingUnit padRight' : 'padRight'}
             style={{
-              height: `${paddingX}px`,
-              width: `${paddingX}px`,
+              height: `${paddingX}${baseScaleUnit}`,
+              width: `${paddingX}${baseScaleUnit}`,
             }}
           ></div>
           <div
             className={spec ? 'paddingUnit compRadius' : 'compRadius'}
             style={{
-              height: `${radius * 2}px`,
-              width: `${radius * 2}px`,
-              borderRadius: `${radius}px`,
+              height: `${radius * 2}${baseScaleUnit}`,
+              width: `${radius * 2}${baseScaleUnit}`,
+              borderRadius: `${radius}${baseScaleUnit}`,
             }}
           ></div>
 
           <div className="containerContent">
             <p className="apply-font-main">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas non nisl ac dui gravida pellentesque. Phasellus et cursus dui, at fringilla risus. Vestibulum a tortor euismod, fermentum tortor sed, euismod turpis.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+              non nisl ac dui gravida pellentesque. Phasellus et cursus dui, at
+              fringilla risus. Vestibulum a tortor euismod, fermentum tortor
+              sed, euismod turpis.
             </p>
             {/* <div
               // className={spec ? 'paddingUnit innerGap' : 'innerGap'}
@@ -162,7 +160,6 @@ const ContainerElement = (props) => {
             ></div> */}
             {/* {defaultComponent[0].value} */}
           </div>
-
         </div>
         {showSpecs}
       </div>

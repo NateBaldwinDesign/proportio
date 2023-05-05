@@ -1,63 +1,67 @@
 #containerWrapper {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 32px;
-    align-items: center;
-    background-color: var(--Gray100);
-    border-radius: 16px;
-    padding: 40px;
-  }
-  .containerWrapper,
-  .containerSpecWrapper {
-    display: grid;
-    grid-template-areas: 
-      'containerspec1 .'
-      'containerItem .'
-      'containerItem containerspec2'
-      'containerItem .'
-      'containerspecBottom containerspec4';
-    /* grid-template-rows: 1fr 1fr 1fr 1fr 1fr; */
-    /* align-items: center; */
-  }
-  .containerElement {
-    width: 400px;
-    position: relative;
-    grid-area: containerItem;
-    border: 1px solid var(--Gray200);
-    /* height: 240px; */
-    background-color: var(--containerItemBackground);
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    grid-template-areas:
-      '.  padTop  .'
-      'padLeft containerContent padRight'
-      '. padBottom radius';
-    grid-template-columns: max-content;
-    width: max-content;
-    height: max-content;
-  }
-  .padTop {
-    grid-area: padTop;
-    margin: 0;
-  }
-  .padBottom {
-    grid-area: padBottom;
-    margin: 0;
-  }
-  .padLeft {
-    grid-area: padLeft;
-  }
-  .padRight {
-    grid-area: padRight;
-  }
-  .containerContent {
-    grid-area: containerContent;
-  }
- .containerContent p {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 32px;
+  align-items: center;
+  /* background-color: var(--Gray100); */
+  border-radius: 16px;
+  padding: 40px;
+}
+.containerWrapper,
+.containerSpecWrapper {
+  display: grid;
+  grid-template-areas:
+    'containerspec1 .'
+    'containerItem .'
+    'containerItem containerspec2'
+    'containerItem .'
+    'containerspecBottom containerspec4';
+  /* grid-template-rows: 1fr 1fr 1fr 1fr 1fr; */
+  /* align-items: center; */
+}
+.containerSpecWrapper {
+  border: 1px dashed var(--Gold300);
+  padding: 20px 20px 20px 40px;
+}
+.containerElement {
+  width: 400px;
+  position: relative;
+  grid-area: containerItem;
+  border: 1px solid var(--Gray200);
+  /* height: 240px; */
+  background-color: var(--containerItemBackground);
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-areas:
+    '.  padTop  .'
+    'padLeft containerContent padRight'
+    '. padBottom radius';
+  grid-template-columns: max-content;
+  width: max-content;
+  height: max-content;
+}
+.padTop {
+  grid-area: padTop;
+  margin: 0;
+}
+.padBottom {
+  grid-area: padBottom;
+  margin: 0;
+}
+.padLeft {
+  grid-area: padLeft;
+}
+.padRight {
+  grid-area: padRight;
+}
+.containerContent {
+  grid-area: containerContent;
+}
+.containerContent p {
   max-width: 400px;
- }
- .containerspecPaddingY {
+}
+.containerspecPaddingY {
   grid-area: containerspec1;
   position: relative;
   display: flex;
@@ -65,23 +69,23 @@
   width: 100%;
   text-align: center;
   margin-bottom: 8px;
- }
- .containerspecPaddingY::after {
+}
+.containerspecPaddingY::after {
   content: ' ';
   display: block;
-  height: 18px;
+  height: 10px;
   width: 1px;
   border-left: 1px solid var(--Gold400);
-  top: 26px;
+  top: 16px;
   position: absolute;
 }
- .containerspecPaddingX {
+.containerspecPaddingX {
   grid-area: containerspec2;
   position: relative;
   height: 100%;
   margin-left: 16px;
- }
- .containerspecPaddingX::before {
+}
+.containerspecPaddingX::before {
   content: ' ';
   display: block;
   width: 16px;
