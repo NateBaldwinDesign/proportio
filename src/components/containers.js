@@ -193,11 +193,11 @@ const Containers = (props) => {
     );
     const paddingX =
       baseScaleUnit === 'px'
-        ? paddingXvalue
+        ? round(paddingXvalue)
         : round(paddingXvalue / baseSize, 3);
     const paddingY =
       baseScaleUnit === 'px'
-        ? paddingYvalue
+        ? round(paddingYvalue)
         : round(paddingYvalue / baseSize, 3);
     const radius =
       baseScaleUnit === 'px' ? radiusValue : round(radiusValue / baseSize, 3);
