@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useRecoilState } from 'recoil';
 import capitalize from '../utilities/capitalize';
 import calculateScale from '../utilities/calculateScale';
@@ -9,6 +9,9 @@ import {
   spacingFormulaState,
 } from '../states/spacing';
 import scaleFormulas from '../utilities/scaleFormulas';
+import typeScaleOptions from '../utilities/typeScaleOptions';
+import Dropdown from 'react-dropdown';
+
 
 const SpacingControls = (props) => {
   const [spacingScaleFactor, setSpacingScaleFactor] = useRecoilState(
@@ -22,6 +25,9 @@ const SpacingControls = (props) => {
   );
   const [spacingFormula, setSpacingFormula] =
     useRecoilState(spacingFormulaState);
+  
+  const [scaleInput, setScaleInput] = useState(spacingScaleFactor);
+
   // const inputs = scaleFormulas.map((formula) => {
   //   return (
   //     <div className="radioGroup" key={`spacing${formula}`}>
@@ -43,12 +49,43 @@ const SpacingControls = (props) => {
       <legend>Spacing</legend>
       {/* <div className="segmentedControl">{inputs}</div> */}
       <div className="column">
-        <div className="formGroup">
+        {/* <div className="formGroup">
           <label htmlFor="">Scale factor</label>
           <input
             type="number"
             onInput={(e) => setSpacingScaleFactor(Number(e.target.value))}
             step={spacingFormula === 'power' ? '0.01' : '1'}
+            min="0"
+            defaultValue={spacingScaleFactor}
+          />
+        </div> */}
+        <div className="formGroup">
+          <label htmlFor="">Scale</label>
+
+          <Dropdown
+            options={typeScaleOptions}
+            onChange={(e) => {
+              setScaleInput(e.value);
+              if (e.value !== spacingScaleFactor) {
+                setSpacingScaleFactor(Number(e.value));
+              }
+            }}
+            value={
+              !typeScaleOptions.filter((item) => item.value === spacingScaleFactor)[0]
+                ? typeScaleOptions.filter((item) => item.value === undefined)[0]
+                : typeScaleOptions.filter((item) => item.value === spacingScaleFactor)[0]
+            }
+            placeholder={typeScaleOptions[1].value}
+          />
+
+          <input
+            key={scaleInput}
+            type="number"
+            onChange={(e) => {
+              // console.log(e.target.value)
+              setSpacingScaleFactor(Number(e.target.value));
+            }}
+            step={spacingFormula === 'power' ? '0.001' : '1'}
             min="0"
             defaultValue={spacingScaleFactor}
           />
