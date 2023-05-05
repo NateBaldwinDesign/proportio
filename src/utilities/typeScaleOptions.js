@@ -21,40 +21,40 @@ const typeScaleOptions = [
   },
   {
     value: 1.414,
-    label: 'Augmented fourth'
+    label: 'Augmented fourth',
   },
   {
     value: 1.5,
-    label: 'Perfect fifth'
+    label: 'Perfect fifth',
   },
   {
     value: 1.6,
-    label: 'Minor sixth'
+    label: 'Minor sixth',
   },
   {
     value: 1.618,
-    label: 'Golden ratio'
+    label: 'Golden ratio',
   },
   {
     value: 1.667,
-    label: 'Major sixth'
+    label: 'Major sixth',
   },
   {
     value: 1.778,
-    label: 'Minor seventh'
+    label: 'Minor seventh',
   },
   {
     value: 1.875,
-    label: 'Major seventh'
+    label: 'Major seventh',
   },
   {
     value: 2,
-    label: 'Octave'
+    label: 'Octave',
   },
   {
     value: undefined,
     label: 'Custom',
-  }
+  },
 ];
 
 export default typeScaleOptions;

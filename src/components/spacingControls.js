@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
 import capitalize from '../utilities/capitalize';
 import calculateScale from '../utilities/calculateScale';
@@ -12,7 +12,6 @@ import scaleFormulas from '../utilities/scaleFormulas';
 import typeScaleOptions from '../utilities/typeScaleOptions';
 import Dropdown from 'react-dropdown';
 
-
 const SpacingControls = (props) => {
   const [spacingScaleFactor, setSpacingScaleFactor] = useRecoilState(
     spacingScaleFactorState,
@@ -25,7 +24,7 @@ const SpacingControls = (props) => {
   );
   const [spacingFormula, setSpacingFormula] =
     useRecoilState(spacingFormulaState);
-  
+
   const [scaleInput, setScaleInput] = useState(spacingScaleFactor);
 
   // const inputs = scaleFormulas.map((formula) => {
@@ -71,9 +70,13 @@ const SpacingControls = (props) => {
               }
             }}
             value={
-              !typeScaleOptions.filter((item) => item.value === spacingScaleFactor)[0]
+              !typeScaleOptions.filter(
+                (item) => item.value === spacingScaleFactor,
+              )[0]
                 ? typeScaleOptions.filter((item) => item.value === undefined)[0]
-                : typeScaleOptions.filter((item) => item.value === spacingScaleFactor)[0]
+                : typeScaleOptions.filter(
+                    (item) => item.value === spacingScaleFactor,
+                  )[0]
             }
             placeholder={typeScaleOptions[1].value}
           />
