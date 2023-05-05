@@ -2,6 +2,11 @@
   "name": "proportio",
   "version": "0.1.0",
   "homepage": "https://proportio.app",
+  "author": {
+    "name": "Nate Baldwin",
+    "email": "natebaldwindesign@gmail.com",
+    "url": "https://natebaldw.in"
+  },
   "private": true,
   "scripts": {
     "configure-husky": "npx husky install && npx husky add .husky/pre-commit \"npx --no-install lint-staged\"",
