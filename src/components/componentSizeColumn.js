@@ -12,8 +12,6 @@ import {
   textIconIconSizeIndexState,
   textIconGapScaleFormulaState,
 } from '../states/textIconPair';
-import tokens from '../utilities/tokens';
-import findReferenceToken from '../utilities/findReferenceToken';
 import demoComponents from '../utilities/demoComponents';
 
 const ComponentSizeColumn = (props) => {
@@ -37,7 +35,6 @@ const ComponentSizeColumn = (props) => {
 
   const density = props.density;
   const sizeName = props.sizeName;
-  const newTokenNamePrefix = props.newTokenNamePrefix;
   const componentPaddingScale = props.componentPaddingScale;
   const paddingXIndexArray = props.paddingXIndexArray;
   const increment = props.increment;
@@ -121,76 +118,6 @@ const ComponentSizeColumn = (props) => {
   const radius = scaleComponentRadius
     ? scaledComponentRadius
     : componentRadiusNewIndexValue;
-
-  tokens.component.push({
-    [`${newTokenNamePrefix}-gap`]: {
-      value: findReferenceToken(
-        `${Math.round(gapSize)}px`,
-        textIconGapScaleFormula,
-      ),
-      type: 'dimension',
-    },
-  });
-  tokens.component.push({
-    [`${newTokenNamePrefix}-padding-left`]: {
-      value: findReferenceToken(
-        `${Math.round(paddingX)}px`,
-        componentPaddingMethodOption,
-      ),
-      type: 'dimension',
-    },
-  });
-  tokens.component.push({
-    [`${newTokenNamePrefix}-padding-right`]: {
-      value: findReferenceToken(
-        `${Math.round(paddingX)}px`,
-        componentPaddingMethodOption,
-      ),
-      type: 'dimension',
-    },
-  });
-  tokens.component.push({
-    [`${newTokenNamePrefix}-top`]: {
-      value: findReferenceToken(
-        `${Math.round(paddingY)}px`,
-        componentPaddingMethodOption,
-      ),
-      type: 'dimension',
-    },
-  });
-  tokens.component.push({
-    [`${newTokenNamePrefix}-bottom`]: {
-      value: findReferenceToken(
-        `${Math.round(paddingY)}px`,
-        componentPaddingMethodOption,
-      ),
-      type: 'dimension',
-    },
-  });
-  tokens.component.push({
-    [`${newTokenNamePrefix}-text-size`]: {
-      value: findReferenceToken(`${Math.round(typeSize)}px`, 'typography'),
-      type: 'dimension',
-    },
-  });
-  tokens.component.push({
-    [`${newTokenNamePrefix}-icon-size`]: {
-      value: findReferenceToken(`${Math.round(iconSize)}px`, 'icons'),
-      type: 'dimension',
-    },
-  });
-  tokens.component.push({
-    [`${newTokenNamePrefix}-min-height`]: {
-      value: `${Math.round(componentMinHeight)}px`,
-      type: 'dimension',
-    },
-  });
-  tokens.component.push({
-    [`${newTokenNamePrefix}-radius`]: {
-      value: `${Math.round(scaledComponentRadius)}px`,
-      type: 'dimension',
-    },
-  });
 
   // Make sure the current entry is not already in demoComponents
   const result = demoComponents.find(

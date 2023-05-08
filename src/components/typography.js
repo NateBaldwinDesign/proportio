@@ -10,7 +10,6 @@ import {
 } from '../states/typography';
 import calculateScale from '../utilities/calculateScale';
 import { baseScaleUnitState, baseSizeState } from '../states/base';
-import tokens from '../utilities/tokens';
 import round from '../utilities/round';
 
 const Typography = (props) => {
@@ -32,8 +31,6 @@ const Typography = (props) => {
   let smallSizeArray = new Array(typeSmallQuantity).fill(0);
   let largeSizeArray = new Array(typeLargeQuantity).fill(0);
 
-  const newTypeTokens = [];
-
   const smallSizes = smallSizeArray.map((e, i) => {
     const increment = (i + 1) * -1;
     const size = Math.round(
@@ -41,15 +38,6 @@ const Typography = (props) => {
     );
     const name = `text-size-${100 + increment * 10}`;
     const value = baseScaleUnit === 'px' ? size : round(size / baseSize, 3);
-
-    const object = {
-      [name]: {
-        value: `${value}${baseScaleUnit}`,
-        type: 'dimension',
-      },
-    };
-
-    newTypeTokens.push(object);
 
     return (
       <TypeElement
@@ -69,14 +57,6 @@ const Typography = (props) => {
     const name = `text-size-${100 * (i + 1)}`;
     const value = baseScaleUnit === 'px' ? size : round(size / baseSize, 3);
 
-    const object = {
-      [name]: {
-        value: `${value}${baseScaleUnit}`,
-        type: 'dimension',
-      },
-    };
-
-    newTypeTokens.push(object);
     return (
       <TypeElement
         key={`${typeScale}-${i}`}
@@ -86,8 +66,6 @@ const Typography = (props) => {
       />
     );
   });
-
-  tokens.typography = newTypeTokens;
 
   return (
     <div className="column">

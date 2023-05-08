@@ -11,7 +11,6 @@ import {
   iconPaddingState,
 } from '../states/iconography';
 import calculateScale from '../utilities/calculateScale';
-import tokens from '../utilities/tokens';
 import round from '../utilities/round';
 
 const Iconography = (props) => {
@@ -32,8 +31,6 @@ const Iconography = (props) => {
   let smallSizeArray = new Array(iconSmallQuantity).fill(0);
   let largeSizeArray = new Array(iconLargeQuantity).fill(0);
 
-  const newIconTokens = [];
-
   const smallSizes = smallSizeArray.map((e, i) => {
     const increment = (i + 1) * -1;
     const size = Math.round(
@@ -41,14 +38,6 @@ const Iconography = (props) => {
     );
     const name = `icon-size-${100 + increment * 10}`;
     const value = baseScaleUnit === 'px' ? size : round(size / baseSize, 3);
-
-    const object = {
-      [name]: {
-        value: `${value}${baseScaleUnit}`,
-        type: 'dimension',
-      },
-    };
-    newIconTokens.push(object);
 
     return (
       <IconElement
@@ -68,20 +57,10 @@ const Iconography = (props) => {
     const name = `icon-size-${100 * (i + 1)}`;
     const value = baseScaleUnit === 'px' ? size : round(size / baseSize, 3);
 
-    const object = {
-      [name]: {
-        value: `${value}${baseScaleUnit}`,
-        type: 'dimension',
-      },
-    };
-    newIconTokens.push(object);
-
     return (
       <IconElement key={`${iconScale}-${i}`} i={i} size={size} showValue />
     );
   });
-
-  tokens.icons = newIconTokens;
 
   return (
     <div className="column">

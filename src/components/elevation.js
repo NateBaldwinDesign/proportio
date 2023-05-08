@@ -12,7 +12,6 @@ import {
   elevationScaleFormulaState,
   elevationOffsetYState,
 } from '../states/elevation';
-import tokens from '../utilities/tokens';
 import { baseScaleUnitState, baseSizeState } from '../states/base';
 import round from '../utilities/round';
 
@@ -51,30 +50,12 @@ const Elevation = (props) => {
     return size * (elevationOffsetY / 100);
   });
 
-  const newElevationTokens = [];
-
   const elevationElements = sizes.map((size, i) => {
     const nameX = `elevation-${100 * (i + 1)}-offsetY`;
     const nameY = `elevation-${100 * (i + 1)}-blur`;
     const valueX =
       baseScaleUnit === 'px' ? offsets[i] : round(offsets[i] / baseSize, 3);
     const valueY = baseScaleUnit === 'px' ? size : round(size / baseSize, 3);
-
-    const objectX = {
-      [nameX]: {
-        value: `${valueX}px`,
-        type: 'dimension',
-      },
-    };
-    const objectY = {
-      [nameY]: {
-        value: `${valueY}px`,
-        type: 'dimension',
-      },
-    };
-
-    newElevationTokens.push(objectX);
-    newElevationTokens.push(objectY);
 
     return (
       <ElevationElement
@@ -84,8 +65,6 @@ const Elevation = (props) => {
       />
     );
   });
-
-  tokens.elevation = newElevationTokens;
 
   return (
     <div className="column">

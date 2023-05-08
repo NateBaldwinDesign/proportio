@@ -51,11 +51,9 @@ import {
   textIconIconSizeIndexState,
   textIconGapScaleFormulaState,
 } from '../states/textIconPair';
-import tokens from '../utilities/tokens';
 import demoComponents from '../utilities/demoComponents';
 
 const Sizes = (props) => {
-  const tokenNamePrefix = props.tokenNamePrefix;
   const densityName = props.densityName;
   const sizeArray = props.sizeArray;
   const componentPaddingScale = props.componentPaddingScale;
@@ -92,19 +90,13 @@ const Sizes = (props) => {
       size < 0 ? sizeNamesDecrement[decrementIndex] : sizeNamesIncrement[size];
     if (sizeName === undefined) sizeName = 'undefined';
 
-    const newTokenNamePrefix = `${tokenNamePrefix}-${sizeName.replace(
-      ' (default)',
-      '',
-    )}`;
-
     return (
       <ComponentSizeColumn
-        key={`${newTokenNamePrefix}-${decrementIndex}`}
+        key={`${sizeName}-${decrementIndex}`}
         size={size}
         density={densityName}
         sizeName={sizeName}
         increment={increment}
-        newTokenNamePrefix={newTokenNamePrefix}
         componentPaddingScale={componentPaddingScale}
         paddingXIndexArray={paddingXIndexArray}
         componentPaddingMethodFormula={componentPaddingMethodFormula}
@@ -220,8 +212,7 @@ const ComponentSpecs = (props) => {
   const showComponentText = props.showComponentText;
 
   const rowClassName = showSpecs ? 'row row--comfortable' : 'row row--spacious';
-  // Clear out component tokens
-  tokens.component = [];
+
   demoComponents.length = 0;
 
   const componentPaddingScale =
@@ -336,15 +327,9 @@ const ComponentSpecs = (props) => {
         : densityNamesIncrement[density];
     if (densityName === undefined) densityName = 'undefined';
 
-    const tokenNamePrefix = `component-${densityName.replace(
-      ' (default)',
-      '',
-    )}`;
-
     return (
       <Sizes
         key={`${densityName}-${sizeArray}`}
-        tokenNamePrefix={tokenNamePrefix}
         densityName={densityName}
         sizeArray={sizeArray}
         componentPaddingScale={componentPaddingScale}
