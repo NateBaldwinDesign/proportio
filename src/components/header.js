@@ -59,14 +59,15 @@ const Header = (props) => {
             />
           </span>
         </div>
-        {/* <button 
+        <button
           className="clearButton"
           onClick={() => {
-            console.log('Open says-a-me')
-            console.log(showModal)
-            setShowModal(true)
+            setShowModal(true);
           }}
-        > Export </button> */}
+        >
+          {' '}
+          Export{' '}
+        </button>
         <a
           target="_blank"
           href="https://github.com/NateBaldwinDesign/proportio"

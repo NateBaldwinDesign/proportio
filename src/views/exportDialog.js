@@ -3,6 +3,7 @@ import ReactModal from 'react-modal';
 import JSONPretty from 'react-json-pretty';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import createCssVariables from '../utilities/createCssVariables';
+import createTokens from '../utilities/createTokens';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import '../styles/modal.css';
 
@@ -23,6 +24,8 @@ const ExportDialog = (props) => {
   const ButtonTextTokens = copiedTokens === true ? 'Copied!' : 'Copy';
   const [copiedCssVars, setCopiedCssVars] = useState(false);
   const ButtonTextCssVars = copiedCssVars === true ? 'Copied!' : 'Copy';
+  const tokens = createTokens();
+  const CssTokens = createCssVariables(tokens);
 
   return (
     <ReactModal
@@ -48,10 +51,10 @@ const ExportDialog = (props) => {
         </TabList>
         <TabPanel className="codeOutput">
           <div style={{ overflow: 'auto' }}>
-            {/* <JSONPretty data={tokens} theme={myTheme} /> */}
+            <JSONPretty data={tokens} theme={myTheme} />
           </div>
           <CopyToClipboard
-            // text={JSON.stringify(tokens)}
+            text={JSON.stringify(tokens)}
             onCopy={() => {
               setCopiedTokens(true);
               setTimeout(() => {
@@ -64,10 +67,10 @@ const ExportDialog = (props) => {
         </TabPanel>
         <TabPanel className="codeOutput">
           <div style={{ overflow: 'auto' }}>
-            {/* <pre class="__json-pretty__">{CssTokens}</pre> */}
+            <pre class="__json-pretty__">{CssTokens}</pre>
           </div>
           <CopyToClipboard
-            // text={`${CssTokens}`}
+            text={`${CssTokens}`}
             onCopy={() => {
               setCopiedCssVars(true);
               setTimeout(() => {
