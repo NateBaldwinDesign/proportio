@@ -14,7 +14,6 @@ import {
   elevationScaleFormulaState,
   elevationOffsetYState,
 } from '../states/elevation';
-import tokens from '../utilities/tokens';
 import { useRecoilState } from 'recoil';
 import { baseScaleUnitState, baseSizeState } from '../states/base';
 import round from '../utilities/round';

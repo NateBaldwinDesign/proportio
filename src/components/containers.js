@@ -34,7 +34,6 @@ import {
   containerBasePaddingYIndexState,
   containerPaddingScaleFactorState,
 } from '../states/containers';
-import tokens from '../utilities/tokens';
 import { baseScaleUnitState, baseSizeState } from '../states/base';
 import round from '../utilities/round';
 import buildShiftedArray from '../utilities/buildShiftedArray';
@@ -148,8 +147,6 @@ const Containers = (props) => {
       ? spacingFormula
       : undefined;
 
-  const newContainerTokens = [];
-
   // console.log(containerBasePaddingXIndex, containerPaddingScaleFactor, paddingXIndexArray)
   // console.log(radiusArray)
   const containerElements = sizeArray.map((size, i) => {
@@ -202,25 +199,6 @@ const Containers = (props) => {
     const radius =
       baseScaleUnit === 'px' ? radiusValue : round(radiusValue / baseSize, 3);
 
-    const objectX = {
-      [nameX]: {
-        value: `${valueX}px`,
-        type: 'dimension',
-      },
-    };
-    const objectY = {
-      [nameY]: {
-        value: `${valueY}px`,
-        type: 'dimension',
-      },
-    };
-
-    newContainerTokens.push(objectX);
-    newContainerTokens.push(objectY);
-
-    // console.log(i, paddingX)
-    // console.log(radiusArray, radius)
-
     return (
       <ContainerElement
         key={`container-${i}}`}
@@ -236,8 +214,6 @@ const Containers = (props) => {
       />
     );
   });
-
-  tokens.containers = newContainerTokens;
 
   return (
     <div

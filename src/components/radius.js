@@ -11,7 +11,6 @@ import {
   radiusLargeQuantityState,
   radiusScaleFormulaState,
 } from '../states/radius';
-import tokens from '../utilities/tokens';
 import { baseScaleUnitState, baseSizeState } from '../states/base';
 import round from '../utilities/round';
 
@@ -43,23 +42,12 @@ const Radius = (props) => {
     );
   });
 
-  const newRadiusTokens = [];
-
   const radiusElements = sizes.map((size, i) => {
     const name = `radius-${100 * (i + 1)}`;
     const value = baseScaleUnit === 'px' ? size : round(size / baseSize, 3);
-    const object = {
-      [name]: {
-        value: `${value}${baseScaleUnit}`,
-        type: 'dimension',
-      },
-    };
-    newRadiusTokens.push(object);
 
     return <RadiusElement key={`radius-${i}}`} radius={size} />;
   });
-
-  tokens.radius = newRadiusTokens;
 
   return (
     <div className="column">

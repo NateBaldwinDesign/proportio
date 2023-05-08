@@ -11,7 +11,6 @@ import {
   spacingFormulaState,
 } from '../states/spacing';
 import scaleFormulas from '../utilities/scaleFormulas';
-import tokens from '../utilities/tokens';
 import round from '../utilities/round';
 
 const Spacing = (props) => {
@@ -34,8 +33,6 @@ const Spacing = (props) => {
   let smallSizeArray = new Array(spacingSmallQuantity).fill(0);
   let largeSizeArray = new Array(spacingLargeQuantity).fill(0);
 
-  let newSpacingTokens = [];
-
   smallSizeArray = smallSizeArray.map((e, i) => {
     let increment = (i + 1) * -1;
     const size = Math.round(
@@ -44,14 +41,6 @@ const Spacing = (props) => {
     const name = `spacing-${100 + increment * 10}`;
     const value = baseScaleUnit === 'px' ? size : round(size / baseSize, 3);
 
-    const object = {
-      [name]: {
-        value: `${value}${baseScaleUnit}`,
-        type: 'dimension',
-      },
-    };
-
-    newSpacingTokens.push(object);
     return size;
   });
   smallSizeArray = smallSizeArray.reverse();
@@ -68,10 +57,8 @@ const Spacing = (props) => {
         type: 'dimension',
       },
     };
-    newSpacingTokens.push(object);
     return calculateScale(baseSize, spacingScaleFactor, i, spacingFormula);
   });
-  tokens.spacing = newSpacingTokens;
 
   const spacingSizes = smallSizeArray.concat(largeSizeArray);
 
