@@ -12,8 +12,6 @@ const ComponentElement = (props) => {
   const [baseScaleUnit, setBaseScaleUnit] = useRecoilState(baseScaleUnitState);
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
 
-  // const value = (baseScaleUnit === 'px') ? round(size) : round(size/baseSize, 3);
-
   const componentMinHeight = props.componentMinHeight;
   const paddingX = props.paddingX;
   const paddingY = props.paddingY;

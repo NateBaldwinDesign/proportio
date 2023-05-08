@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 const Slider = (props) => {
   const step = props.step;
   const min = props.min;

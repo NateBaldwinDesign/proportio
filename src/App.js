@@ -1,14 +1,6 @@
 import React, { useState } from 'react';
-import {
-  RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue,
-} from 'recoil';
-
+import { RecoilRoot } from 'recoil';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-// import 'react-tabs/style/react-tabs.css';
 
 import './styles/app.css';
 import './styles/formElements.css';
@@ -17,9 +9,6 @@ import TypographyView from './views/typographyView';
 import ShapesView from './views/shapesView';
 import Components from './views/components';
 import Header from './components/header';
-import Home from './views/home';
-// import Docs from './views/docs';
-// import Tokens from "./views/tokens";
 import ExportDialog from './views/exportDialog';
 import ContainerView from './views/containerView';
 

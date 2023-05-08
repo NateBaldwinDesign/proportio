@@ -10,7 +10,6 @@ import {
   spacingLargeQuantityState,
   spacingFormulaState,
 } from '../states/spacing';
-import scaleFormulas from '../utilities/scaleFormulas';
 import round from '../utilities/round';
 
 const Spacing = (props) => {

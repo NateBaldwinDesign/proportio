@@ -51,12 +51,6 @@ const Elevation = (props) => {
   });
 
   const elevationElements = sizes.map((size, i) => {
-    const nameX = `elevation-${100 * (i + 1)}-offsetY`;
-    const nameY = `elevation-${100 * (i + 1)}-blur`;
-    const valueX =
-      baseScaleUnit === 'px' ? offsets[i] : round(offsets[i] / baseSize, 3);
-    const valueY = baseScaleUnit === 'px' ? size : round(size / baseSize, 3);
-
     return (
       <ElevationElement
         key={`elevation-${i}}`}

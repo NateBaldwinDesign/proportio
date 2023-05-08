@@ -1,7 +1,6 @@
 import React from 'react';
 import { useRecoilState } from 'recoil';
 import capitalize from '../utilities/capitalize';
-import calculateScale from '../utilities/calculateScale';
 import {
   baseElevationSizeState,
   elevationScaleFactorState,

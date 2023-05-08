@@ -13,12 +13,6 @@ const Home = (props) => {
         </div>
       </div>
       <main className="mainPageContent">
-        {/* <article>
-          <h1 className="display1">Give your system the Midas' touch.</h1>
-          <p className="body1">
-            Proportional systems-design tool for mature design systems.
-          </p>
-        </article> */}
         <article>
           <h2>Proportional, generative design</h2>
           <p>

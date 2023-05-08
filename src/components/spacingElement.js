@@ -5,18 +5,13 @@ import round from '../utilities/round';
 
 const SpacingElement = (props) => {
   const size = props.size;
-  /* Just to align icon examples with typography */
-  const spacerLineHeight = 1.375;
   const [baseScaleUnit, setBaseScaleUnit] = useRecoilState(baseScaleUnitState);
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
   const value =
     baseScaleUnit === 'px' ? round(size) : round(size / baseSize, 3);
 
   return (
-    <div
-      className="spacingItem"
-      // style={{marginBottom: `${(size * spacerLineHeight) - size}px`}}
-    >
+    <div className="spacingItem">
       <span className="specs">
         {' '}
         {value}

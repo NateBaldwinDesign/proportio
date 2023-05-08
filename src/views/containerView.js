@@ -1,14 +1,4 @@
 import React, { useState } from 'react';
-import {
-  containerSmallSizesState,
-  containerLargeSizesState,
-  containerBaseRadiusIndexState,
-  containerBaseElevationIndexState,
-  containerRadiusScaleFactorState,
-} from '../states/containers';
-import { useRecoilState } from 'recoil';
-import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
-import '../styles/tabs.css';
 import Panel from '../components/panel';
 import ContainerControls from '../components/containerControls';
 import Containers from '../components/containers';

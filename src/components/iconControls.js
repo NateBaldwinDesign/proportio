@@ -3,32 +3,19 @@ import { useRecoilState } from 'recoil';
 import capitalize from '../utilities/capitalize';
 import scaleMethodOptions from '../utilities/scaleFormulas';
 import {
-  iconScaleState,
-  iconSmallQuantityState,
-  iconLargeQuantityState,
   iconScaleFormulaState,
-  iconPaddingState,
   iconState,
   iconStrokeState,
 } from '../states/iconography';
 import Dropdown from 'react-dropdown';
 import Slider from './slider';
-// import 'react-dropdown/style.css';
 
 const feather = require('feather-icons');
 
 const IconControls = (props) => {
-  const [iconScale, setIconScale] = useRecoilState(iconScaleState);
-  const [iconSmallQuantity, setIconSmallQuantity] = useRecoilState(
-    iconSmallQuantityState,
-  );
-  const [iconLargeQuantity, setIconLargeQuantity] = useRecoilState(
-    iconLargeQuantityState,
-  );
   const [iconScaleFormula, setIconScaleFormula] = useRecoilState(
     iconScaleFormulaState,
   );
-  const [iconPadding, setIconPadding] = useRecoilState(iconPaddingState);
   const [iconStroke, setIconStroke] = useRecoilState(iconStrokeState);
 
   const availableIcons = Object.keys(feather.icons);
@@ -61,7 +48,6 @@ const IconControls = (props) => {
           </a>
         </cite>
       </legend>
-      {/* <div className="segmentedControl">{inputs}</div> */}
       <div className="column">
         <div className="formGroup">
           <label>Icon</label>
@@ -70,23 +56,12 @@ const IconControls = (props) => {
               options={availableIcons}
               onChange={(e) => {
                 setIcon(e.value);
-                // console.log(e)
               }}
               value={icon}
               placeholder={icon}
             />
           </span>
         </div>
-        {/* <div className="formGroup">
-          <label htmlFor="">Scale factor</label>
-          <input
-            type="number"
-            onInput={(e) => setIconScale(Number(e.target.value))}
-            step={iconScaleFormula === "power" ? "0.001" : "1"}
-            min="0"
-            defaultValue={iconScale}
-          />
-        </div> */}
         <div className="formGroup">
           <label htmlFor="">Stroke</label>
           <Slider
@@ -99,27 +74,6 @@ const IconControls = (props) => {
             defaultValue={iconStroke}
           />
         </div>
-        {/* <div className="formGroup">
-          <label htmlFor="">Small sizes</label>
-          <input
-            type="number"
-            onInput={(e) => setIconSmallQuantity(Number(e.target.value))}
-            step="1"
-            min="0"
-            defaultValue={iconSmallQuantity}
-          />
-        </div>
-
-        <div className="formGroup">
-          <label htmlFor="">Large sizes</label>
-          <input
-            type="number"
-            onInput={(e) => setIconLargeQuantity(Number(e.target.value))}
-            step="1"
-            min="0"
-            defaultValue={iconLargeQuantity}
-          />
-        </div> */}
       </div>
     </fieldset>
   );

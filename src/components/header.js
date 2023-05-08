@@ -1,10 +1,6 @@
 import React from 'react';
 import { useRecoilState } from 'recoil';
-import {
-  baseSizeState,
-  baseMobileScaleFactorState,
-  baseScaleUnitState,
-} from '../states/base';
+import { baseSizeState, baseScaleUnitState } from '../states/base';
 import scaleUnits from '../utilities/scaleUnits';
 import Logo from './logo';
 import GitHubLogo from '../icons/github.js';
@@ -14,9 +10,7 @@ import Dropdown from 'react-dropdown';
 import '../styles/header.css';
 
 const Header = (props) => {
-  const showModal = props.showModal;
   const setShowModal = props.setShowModal;
-  const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
   const [baseScaleUnit, setBaseScaleUnit] = useRecoilState(baseScaleUnitState);
 
   const inputs = scaleUnits.map((unit) => {

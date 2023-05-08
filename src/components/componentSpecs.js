@@ -5,7 +5,6 @@ import buildArray from '../utilities/buildArray';
 import buildShiftedArray from '../utilities/buildShiftedArray';
 import calculateScale from '../utilities/calculateScale';
 import capitalize from '../utilities/capitalize';
-import ComponentElement from './componentElement';
 import ComponentSizeColumn from './componentSizeColumn';
 import {
   sizeNamesIncrement,
@@ -24,7 +23,6 @@ import {
   componentSmallQuantityState,
   componentLargeQuantityState,
   baseComponentTextSizeIndexState,
-  baseIconSizeIndexState,
   baseComponentSizeIndexState,
   scaleComponentRadiusState,
   baseComponentRadiusState,
@@ -41,11 +39,7 @@ import {
   radiusScaleFormulaState,
   radiusScaleFactorState,
 } from '../states/radius';
-import {
-  iconScaleState,
-  iconScaleFormulaState,
-  iconPaddingState,
-} from '../states/iconography';
+import { iconScaleFormulaState, iconPaddingState } from '../states/iconography';
 import {
   textIconGapIndexState,
   textIconIconSizeIndexState,
@@ -136,7 +130,6 @@ const Sizes = (props) => {
 };
 
 const ComponentSpecs = (props) => {
-  const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
   const [componentPaddingMethodOption, setComponentPaddingMethodOption] =
     useRecoilState(componentPaddingMethodOptionState);
   const [typeScale, setTypeScale] = useRecoilState(typeScaleState);

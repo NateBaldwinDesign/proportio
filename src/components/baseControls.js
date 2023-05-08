@@ -1,43 +1,36 @@
 import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
-import {
-  baseSizeState,
-  baseMobileScaleFactorState,
-  baseScaleUnitState,
-} from '../states/base';
-import scaleUnits from '../utilities/scaleUnits';
-import capitalize from '../utilities/capitalize';
+import { baseSizeState } from '../states/base';
+
 import {
   typeScaleFormulaState,
   typeScaleState,
   typeSmallQuantityState,
   typeLargeQuantityState,
 } from '../states/typography';
-import {
-  iconScaleState,
-  iconSmallQuantityState,
-  iconLargeQuantityState,
-} from '../states/iconography';
+
 import Dropdown from 'react-dropdown';
 import typeScaleOptions from '../utilities/typeScaleOptions';
+import {
+  iconLargeQuantityState,
+  iconScaleState,
+  iconSmallQuantityState,
+} from '../states/iconography';
 
 const BaseControls = (props) => {
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
-  const [baseMobileScaleFactor, setBaseMobileScaleFactor] = useRecoilState(
-    baseMobileScaleFactorState,
-  );
-  const [baseScaleUnit, setBaseScaleUnit] = useRecoilState(baseScaleUnitState);
+
   const [typeScale, setTypeScale] = useRecoilState(typeScaleState);
   const [typeScaleFormula, setTypeScaleFormula] = useRecoilState(
     typeScaleFormulaState,
   );
-  const [iconScale, setIconScale] = useRecoilState(iconScaleState);
   const [typeSmallQuantity, setTypeSmallQuantity] = useRecoilState(
     typeSmallQuantityState,
   );
   const [typeLargeQuantity, setTypeLargeQuantity] = useRecoilState(
     typeLargeQuantityState,
   );
+  const [iconScale, setIconScale] = useRecoilState(iconScaleState);
   const [iconSmallQuantity, setIconSmallQuantity] = useRecoilState(
     iconSmallQuantityState,
   );
@@ -46,32 +39,10 @@ const BaseControls = (props) => {
   );
   const [scaleInput, setScaleInput] = useState(typeScale);
 
-  // const inputs = scaleUnits.map((unit) => {
-  //   return (
-  //     <div className="radioGroup" key={`${unit}`}>
-  //       <input
-  //         type="radio"
-  //         id={`scale${unit}`}
-  //         name="scale_unit"
-  //         value={unit}
-  //         onClick={(e) => setBaseScaleUnit(e.target.value)}
-  //         defaultChecked={unit === baseScaleUnit ? true : false}
-  //       />
-  //       <label htmlFor={`scale${unit}`}>{capitalize(unit)}</label>
-  //     </div>
-  //   );
-  // });
-
   return (
     <fieldset>
       <legend>Common values</legend>
       <div className="column">
-        {/* <div className="formGroup">
-        <div className="segmentedControl">
-          {inputs}
-        </div>
-        </div> */}
-
         <div className="formGroup">
           <label htmlFor="">Base size (px)</label>
           <input
@@ -109,7 +80,6 @@ const BaseControls = (props) => {
             key={scaleInput}
             type="number"
             onChange={(e) => {
-              // console.log(e.target.value)
               setTypeScale(Number(e.target.value));
               setIconScale(Number(e.target.value));
             }}
@@ -145,16 +115,6 @@ const BaseControls = (props) => {
             defaultValue={typeLargeQuantity}
           />
         </div>
-        {/* <div className="formGroup">
-          <label htmlFor="">Touch scale factor</label>
-          <input
-            type="number"
-            onInput={(e) => setBaseMobileScaleFactor(Number(e.target.value))}
-            step="0.01"
-            min="1"
-            defaultValue={baseMobileScaleFactor}
-          />
-        </div> */}
       </div>
     </fieldset>
   );

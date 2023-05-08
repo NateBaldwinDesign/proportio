@@ -1,25 +1,9 @@
 import React from 'react';
-import {
-  containerSmallSizesState,
-  containerLargeSizesState,
-  containerBaseRadiusIndexState,
-  containerBaseElevationIndexState,
-  containerRadiusScaleFactorState,
-} from '../states/containers';
-import {
-  baseElevationSizeState,
-  elevationScaleFactorState,
-  elevationSmallQuantityState,
-  elevationLargeQuantityState,
-  elevationScaleFormulaState,
-  elevationOffsetYState,
-} from '../states/elevation';
+
 import { useRecoilState } from 'recoil';
 import { baseScaleUnitState, baseSizeState } from '../states/base';
 import round from '../utilities/round';
 import '../styles/container.css';
-import ComponentElement from './componentElement';
-import demoComponents from '../utilities/demoComponents';
 import capitalize from '../utilities/capitalize';
 
 const ContainerElement = (props) => {
@@ -31,29 +15,10 @@ const ContainerElement = (props) => {
   const containerElevation = props.containerElevation;
   const [baseScaleUnit, setBaseScaleUnit] = useRecoilState(baseScaleUnitState);
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
-  const [containerBaseRadiusIndex, setContainerBaseRadiusIndex] =
-    useRecoilState(containerBaseRadiusIndexState);
-  const [containerRadiusScaleFactor, setContainerRadiusScaleFactor] =
-    useRecoilState(containerRadiusScaleFactorState);
 
   const paddingY = props.paddingY;
   const paddingX = props.paddingX;
   const margin = elevation > 0 ? elevation : 4;
-
-  const defaultComponent = demoComponents.filter(
-    (item) => item.name === 'component-comfortable (default)-medium (default)',
-  );
-
-  // const gapSpecAnnotation =
-  //     <div
-  //       className="specGap specs"
-  //       style={{ marginLeft: `${paddingX}px` }}
-  //     >
-  //       {`Gap: ${
-  //         baseScaleUnit === 'px' ? round(gapSize) : round(gapSize / baseSize, 3)
-  //       }${baseScaleUnit}`}
-  //     </div>
-  //   ;
 
   const elevationSpec = (
     <div className="containerspecElevation specs">
@@ -80,7 +45,6 @@ const ContainerElement = (props) => {
         {' '}
         {`Pad-Y: ${paddingY}${baseScaleUnit}`}{' '}
       </div>
-      {/* {gapSpecAnnotation} */}
       <div className="containerspecRadius specs">
         {' '}
         {`R: ${radius}${baseScaleUnit}`}{' '}
@@ -97,7 +61,6 @@ const ContainerElement = (props) => {
     >
       <h5> {capitalize(sizeName)} </h5>
       <div className={spec ? 'containerSpecWrapper' : 'containerWrapper'}>
-        {/* <span className="specs"> {value}{baseScaleUnit} </span> */}
         <div
           className="containerElement apply-font-main"
           style={{
@@ -150,14 +113,6 @@ const ContainerElement = (props) => {
               fringilla risus. Vestibulum a tortor euismod, fermentum tortor
               sed, euismod turpis.
             </p>
-            {/* <div
-              // className={spec ? 'paddingUnit innerGap' : 'innerGap'}
-              style={{
-                height: `${gapSize}px`,
-                width: `${gapSize / 2}px`,
-              }}
-            ></div> */}
-            {/* {defaultComponent[0].value} */}
           </div>
         </div>
         {showSpecs}
