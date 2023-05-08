@@ -18,23 +18,24 @@ Making systematic design faster and easier by use of generative, parametric desi
 ## MLP todo list
 
 (Minimum loveable product)
-
-- [ ] Add “round to even numbers” option
 - [x] Modularize states & clean up props
 - [x] Add Feather icons for choosing sample icon: https://github.com/feathericons/feather
 - [x] Add variable stroke scale input
 - [x] Add google fonts picker for text
 - [x] Add density columns
+- [x] Add export/ save data or CSS, which compiles options into organized code styles
+- [x] Add example UI? Cards, tables, controls
+- [x] Add contribution guidelines
+- [x] Documentation
+
+Future additions:
+- [ ] Clean up code
+- [ ] Add “round to even numbers” option
 - [ ] Add mobile scale factor
 - [ ] Add mobile or responsive type & icon scales
-- [ ] Add export/ save data or CSS, which compiles options into organized code styles
-- [x] Add example UI? Cards, tables, controls
 - [ ] Enhanced typography controls (fluid type, long-form type demos)
-- [ ] Figure out url issues
-- [ ] Add contribution guidelines
-- [ ] Clean up code
-- [ ] Documentation
-- [ ] iconography for menus and mobile friendly design (maybe use these: https://css.gg/)
+- [ ] URL sharing option
+- [ ] Mobile friendly design
 
 ## Development
 
