@@ -191,6 +191,7 @@ const TypeIconPairing = (props) => {
           <IconElement
             key={`typeIcon-icon-${iconScale}-${i}`}
             size={iconSize}
+            textSize={textSize}
             i={iconIncrement}
           />
           <span

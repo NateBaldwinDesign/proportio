@@ -19,7 +19,8 @@ const IconElement = (props) => {
   const size = round(props.size);
 
   /* Just to align icon examples with typography */
-  const iconLineHeight = 1.375;
+  const iconLineHeight = 1.35;
+  const textLineHeight = 1.25;
 
   const value = baseScaleUnit === 'px' ? size : round(size / baseSize, 3);
 
@@ -33,6 +34,7 @@ const IconElement = (props) => {
     ''
   );
   const margin = props.showValue ? `${size * iconLineHeight - size}px` : '0px';
+  const minHeight = props.textSize ? props.textSize * textLineHeight : size;
 
   return (
     <div
@@ -47,6 +49,7 @@ const IconElement = (props) => {
         style={{
           width: `${size}px`,
           height: `${size}px`,
+          minHeight: `${minHeight}px`,
         }}
       >
         {createSvgIcon(size, size, iconPadding, `${icon}`, iconStroke)}

@@ -7,6 +7,7 @@
   display: grid;
   grid-template-columns: 64px max-content;
   align-items: center;
+  line-height: 1.25; /* Same value used in iconElement to calculate min height of icon in pairing */
 }
 
 .specs {
