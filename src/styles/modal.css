@@ -20,6 +20,11 @@
   margin: 0 auto;
 }
 
+.ReactModal__Content .react-tabs {
+  height: calc(100% - 64px);
+  overflow: hidden;
+}
+
 .Modal__Header {
   display: flex;
   width: 100%;

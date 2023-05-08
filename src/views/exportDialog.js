@@ -8,7 +8,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import '../styles/modal.css';
 
 const myTheme = {
-  main: 'line-height:1.3;color:var(--Gray400);background:transparent;overflow:auto;',
+  main: 'line-height:1.3;color:var(--Gray400);background:var(--Gray100);overflow:auto;padding:16px;border-radius:8px',
   error: 'line-height:1.3;color:#66d9ef;background:#272822;overflow:auto;',
   key: 'color:#0896A3;',
   string: 'color:#4C3EAB;',
@@ -50,7 +50,14 @@ const ExportDialog = (props) => {
           <Tab>CSS variables</Tab>
         </TabList>
         <TabPanel className="codeOutput">
-          <div style={{ overflow: 'auto' }}>
+          <div
+            style={{
+              width: '490px',
+              overflow: 'auto',
+              position: 'relative',
+              maxHeight: 'calc(100vh - 340px)',
+            }}
+          >
             <JSONPretty data={tokens} theme={myTheme} />
           </div>
           <CopyToClipboard
@@ -66,7 +73,14 @@ const ExportDialog = (props) => {
           </CopyToClipboard>
         </TabPanel>
         <TabPanel className="codeOutput">
-          <div style={{ overflow: 'auto' }}>
+          <div
+            style={{
+              width: '490px',
+              overflow: 'auto',
+              position: 'relative',
+              maxHeight: 'calc(100vh - 340px)',
+            }}
+          >
             <pre class="__json-pretty__">{CssTokens}</pre>
           </div>
           <CopyToClipboard

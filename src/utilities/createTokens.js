@@ -274,10 +274,12 @@ const createTokens = () => {
     );
     const name = `text-size-${100 + increment * 10}`;
     const value =
-      baseScaleUnit === '${baseScaleUnit}' ? size : round(size / baseSize, 3);
+      baseScaleUnit === 'px'
+        ? `${size}${baseScaleUnit}`
+        : `${round(size / baseSize, 3)}${baseScaleUnit}`;
     typographyArray.push({
       [name]: {
-        value: `${value}${baseScaleUnit}`,
+        value: `${value}`,
         type: 'dimension',
       },
     });
@@ -288,10 +290,12 @@ const createTokens = () => {
     );
     const name = `text-size-${100 * (i + 1)}`;
     const value =
-      baseScaleUnit === '${baseScaleUnit}' ? size : round(size / baseSize, 3);
+      baseScaleUnit === 'px'
+        ? `${size}${baseScaleUnit}`
+        : `${round(size / baseSize, 3)}${baseScaleUnit}`;
     typographyArray.push({
       [name]: {
-        value: `${value}${baseScaleUnit}`,
+        value: `${value}`,
         type: 'dimension',
       },
     });
@@ -309,11 +313,13 @@ const createTokens = () => {
     );
     const name = `icon-size-${100 + increment * 10}`;
     const value =
-      baseScaleUnit === '${baseScaleUnit}' ? size : round(size / baseSize, 3);
+      baseScaleUnit === 'px'
+        ? `${size}${baseScaleUnit}`
+        : `${round(size / baseSize, 3)}${baseScaleUnit}`;
 
     iconsArray.push({
       [name]: {
-        value: `${value}${baseScaleUnit}`,
+        value: `${value}`,
         type: 'dimension',
       },
     });
@@ -324,11 +330,13 @@ const createTokens = () => {
     );
     const name = `icon-size-${100 * (i + 1)}`;
     const value =
-      baseScaleUnit === '${baseScaleUnit}' ? size : round(size / baseSize, 3);
+      baseScaleUnit === 'px'
+        ? `${size}${baseScaleUnit}`
+        : `${round(size / baseSize, 3)}${baseScaleUnit}`;
 
     iconsArray.push({
       [name]: {
-        value: `${value}${baseScaleUnit}`,
+        value: `${value}`,
         type: 'dimension',
       },
     });
@@ -346,11 +354,13 @@ const createTokens = () => {
     );
     const name = `spacing-${100 + increment * 10}`;
     const value =
-      baseScaleUnit === '${baseScaleUnit}' ? size : round(size / baseSize, 3);
+      baseScaleUnit === 'px'
+        ? `${size}${baseScaleUnit}`
+        : `${round(size / baseSize, 3)}${baseScaleUnit}`;
 
     spacingArray.push({
       [name]: {
-        value: `${value}${baseScaleUnit}`,
+        value: `${value}`,
         type: 'dimension',
       },
     });
@@ -361,11 +371,13 @@ const createTokens = () => {
     );
     const name = `spacing-${100 * (i + 1)}`;
     const value =
-      baseScaleUnit === '${baseScaleUnit}' ? size : round(size / baseSize, 3);
+      baseScaleUnit === 'px'
+        ? `${size}${baseScaleUnit}`
+        : `${round(size / baseSize, 3)}${baseScaleUnit}`;
 
     spacingArray.push({
       [name]: {
-        value: `${value}${baseScaleUnit}`,
+        value: `${value}`,
         type: 'dimension',
       },
     });
@@ -385,10 +397,12 @@ const createTokens = () => {
   radiusSizes.map((size, i) => {
     const name = `radius-${100 * (i + 1)}`;
     const value =
-      baseScaleUnit === '${baseScaleUnit}' ? size : round(size / baseSize, 3);
+      baseScaleUnit === 'px'
+        ? `${size}${baseScaleUnit}`
+        : `${round(size / baseSize, 3)}${baseScaleUnit}`;
     radiusArray.push({
       [name]: {
-        value: `${value}${baseScaleUnit}`,
+        value: `${value}`,
         type: 'dimension',
       },
     });
@@ -415,21 +429,23 @@ const createTokens = () => {
     const nameX = `elevation-${100 * (i + 1)}-offsetY`;
     const nameY = `elevation-${100 * (i + 1)}-blur`;
     const valueX =
-      baseScaleUnit === '${baseScaleUnit}'
-        ? offsets[i]
-        : round(offsets[i] / baseSize, 3);
+      baseScaleUnit === 'px'
+        ? `${offsets[i]}${baseScaleUnit}`
+        : `${round(offsets[i] / baseSize, 3)}${baseScaleUnit}`;
     const valueY =
-      baseScaleUnit === '${baseScaleUnit}' ? size : round(size / baseSize, 3);
+      baseScaleUnit === 'px'
+        ? `${size}${baseScaleUnit}`
+        : `${round(size / baseSize, 3)}${baseScaleUnit}`;
 
     elevationArray.push({
       [nameX]: {
-        value: `${valueX}${baseScaleUnit}`,
+        value: `${valueX}`,
         type: 'dimension',
       },
     });
     elevationArray.push({
       [nameY]: {
-        value: `${valueY}${baseScaleUnit}`,
+        value: `${valueY}`,
         type: 'dimension',
       },
     });
@@ -463,17 +479,8 @@ const createTokens = () => {
 
   smallTextIconSizes.map((e, i) => {
     const increment = (1 + i) * -1 + textIconGapIndex;
-    const iconIncrement = (i + 1) * -1 + textIconIconSizeIndex;
     const gapSize = Math.round(
       calculateScale(baseSize, gapScale, increment, gapMethod),
-    );
-    // icon size
-    const textIncrement = (i + 1) * -1;
-    const iconSize = Math.round(
-      calculateScale(baseSize, iconScale, iconIncrement, iconScaleFormula),
-    );
-    const textSize = Math.round(
-      calculateScale(baseSize, typeScale, textIncrement, typeScaleFormula),
     );
 
     const gapValue =
@@ -492,15 +499,8 @@ const createTokens = () => {
 
   largeTextIconSizes.map((e, i) => {
     const increment = i + textIconGapIndex;
-    const iconIncrement = i + textIconIconSizeIndex;
     const gapSize = Math.round(
       calculateScale(baseSize, gapScale, increment, gapMethod),
-    );
-    const iconSize = Math.round(
-      calculateScale(baseSize, iconScale, iconIncrement, iconScaleFormula),
-    );
-    const textSize = Math.round(
-      calculateScale(baseSize, typeScale, i, typeScaleFormula),
     );
 
     const gapValue =
