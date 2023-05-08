@@ -12,6 +12,7 @@
 .typeIconPair {
   display: flex;
   flex-direction: row;
+  align-items: start;
 }
 
 .typeIconPair .iconItem,
