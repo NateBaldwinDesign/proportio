@@ -1,50 +1,14 @@
 import React from 'react';
 import { useRecoilState } from 'recoil';
 import capitalize from '../utilities/capitalize';
-import { baseSizeState } from '../states/base';
-import {
-  spacingScaleFactorState,
-  spacingFormulaState,
-} from '../states/spacing';
-import {
-  typeScaleState,
-  typeSmallQuantityState,
-  typeLargeQuantityState,
-  typeScaleFormulaState,
-} from '../states/typography';
 import {
   textIconGapIndexState,
   textIconIconSizeIndexState,
   textIconGapScaleFormulaState,
 } from '../states/textIconPair';
-import {
-  iconScaleState,
-  iconSmallQuantityState,
-  iconLargeQuantityState,
-  iconScaleFormulaState,
-  iconPaddingState,
-} from '../states/iconography';
 import scaleMethodOptions from '../utilities/scaleMethodOptions';
 
 const TypeIconPairingControls = (props) => {
-  const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
-  const [spacingScaleFactor, setSpacingScaleFactor] = useRecoilState(
-    spacingScaleFactorState,
-  );
-  const [spacingFormula, setSpacingFormula] =
-    useRecoilState(spacingFormulaState);
-
-  const [typeScale, setTypeScale] = useRecoilState(typeScaleState);
-  const [typeSmallQuantity, setTypeSmallQuantity] = useRecoilState(
-    typeSmallQuantityState,
-  );
-  const [typeLargeQuantity, setTypeLargeQuantity] = useRecoilState(
-    typeLargeQuantityState,
-  );
-  const [typeScaleFormula, setTypeScaleFormula] = useRecoilState(
-    typeScaleFormulaState,
-  );
-
   const [textIconGapIndex, setTextIconGapIndex] = useRecoilState(
     textIconGapIndexState,
   );
@@ -53,11 +17,6 @@ const TypeIconPairingControls = (props) => {
   );
   const [textIconGapScaleFormula, setTextIconGapScaleFormula] = useRecoilState(
     textIconGapScaleFormulaState,
-  );
-
-  const [iconScale, setIconScale] = useRecoilState(iconScaleState);
-  const [iconScaleFormula, setIconScaleFormula] = useRecoilState(
-    iconScaleFormulaState,
   );
 
   const inputs = scaleMethodOptions.map((method) => {

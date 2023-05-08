@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { useRecoilState } from 'recoil';
 import ComponentControls from '../components/componentControls';
-import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import ComponentSpecs from '../components/componentSpecs';
 import '../styles/tabs.css';
 import Panel from '../components/panel';
@@ -24,10 +22,6 @@ const Components = (props) => {
         </Panel>
 
         <main className="demoRow apply-font-main">
-          {/* <Tabs>
-            <TabList>
-              <Tab>Desktop</Tab>
-              <Tab>Mobile</Tab> */}
           <div className="tabs_action">
             <fieldset>
               <div className="checkboxGroup">
@@ -62,19 +56,12 @@ const Components = (props) => {
               </div>
             </fieldset>
           </div>
-          {/* </TabList> */}
 
-          {/* <TabPanel> */}
           <ComponentSpecs
             showSpecs={showSpecs}
             showComponentIcon={showComponentIcon}
             showComponentText={showComponentText}
           />
-          {/* </TabPanel>
-            <TabPanel>
-              <p>Component examples</p>
-            </TabPanel>
-          </Tabs> */}
         </main>
       </div>
     </>

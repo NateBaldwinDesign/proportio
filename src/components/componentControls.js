@@ -1,9 +1,7 @@
 import React from 'react';
 import { useRecoilState } from 'recoil';
 import capitalize from '../utilities/capitalize';
-import { baseSizeState } from '../states/base';
 import scaleMethodOptions from '../utilities/scaleMethodOptions';
-import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import {
   baseComponentSizeIndexState,
   componentLineHeightState,
@@ -22,8 +20,6 @@ import {
 } from '../states/components';
 
 const ComponentControls = (props) => {
-  const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
-
   const [baseComponentSizeIndex, setBaseComponentSizeIndex] = useRecoilState(
     baseComponentSizeIndexState,
   );
@@ -40,8 +36,6 @@ const ComponentControls = (props) => {
     useRecoilState(componentMinHeightMethodOptionState);
   const [componentPaddingMethodOption, setComponentPaddingMethodOption] =
     useRecoilState(componentPaddingMethodOptionState);
-  const [baseComponentTextSizeIndex, setBaseComponentTextSizeIndex] =
-    useRecoilState(baseComponentTextSizeIndexState);
   const [baseComponentPaddingXIndex, setBaseComponentPaddingXIndex] =
     useRecoilState(baseComponentPaddingXIndexState);
   const [baseComponentPaddingYIndex, setBaseComponentPaddingYIndex] =
@@ -58,11 +52,6 @@ const ComponentControls = (props) => {
     useRecoilState(componentDensityLargeQuantityState);
   const [componentDensityScaleFactor, setComponentDensityScaleFactor] =
     useRecoilState(componentDensityScaleFactorState);
-
-  const showComponentIcon = props.showComponentIcon;
-  const setShowComponentIcon = props.setShowComponentIcon;
-  const showComponentText = props.showComponentText;
-  const setShowComponentText = props.setShowComponentText;
 
   const componentScalingMethodInputs = scaleMethodOptions.map((method) => {
     return (
@@ -103,13 +92,6 @@ const ComponentControls = (props) => {
 
   return (
     <>
-      {/* <Tabs>
-        <TabList>
-          <Tab> Sizes </Tab>
-          <Tab> Density </Tab>
-          <Tab> Radius </Tab>
-        </TabList>
-        <TabPanel> */}
       <fieldset>
         <legend>Default size</legend>
         <div className="segmentedControl">{componentScalingMethodInputs}</div>
@@ -170,8 +152,7 @@ const ComponentControls = (props) => {
           </div>
         </div>
       </fieldset>
-      {/* </TabPanel>
-        <TabPanel> */}
+
       <fieldset>
         <legend>Default density (padding)</legend>
         <div className="segmentedControl">{componentPaddingMethodInputs}</div>
@@ -204,7 +185,6 @@ const ComponentControls = (props) => {
 
       <fieldset>
         <legend>Additional densities</legend>
-        {/* {componentPaddingMethodInputs} */}
         <div className="column">
           <div className="formGroup">
             <label>Scale factor</label>
@@ -244,8 +224,7 @@ const ComponentControls = (props) => {
           </div>
         </div>
       </fieldset>
-      {/* </TabPanel>
-        <TabPanel> */}
+
       <fieldset>
         <legend>Radius</legend>
         <div className="column">
@@ -271,14 +250,9 @@ const ComponentControls = (props) => {
                 setBaseComponentRadius(e.target.value);
               }}
             />
-            {/* <span className="computedValue" id="componentComputedSize">
-                  {baseComponentSize}
-                </span> */}
           </div>
         </div>
       </fieldset>
-      {/* </TabPanel>
-      </Tabs> */}
     </>
   );
 };

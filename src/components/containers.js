@@ -8,12 +8,7 @@ import {
   spacingFormulaState,
   spacingScaleFactorState,
 } from '../states/spacing';
-import {
-  sizeNamesIncrement,
-  sizeNamesDecrement,
-  densityNamesIncrement,
-  densityNamesDecrement,
-} from '../utilities/names';
+import { sizeNamesIncrement, sizeNamesDecrement } from '../utilities/names';
 import { typeScaleFormulaState, typeScaleState } from '../states/typography';
 import {
   baseElevationSizeState,
@@ -51,12 +46,6 @@ const Containers = (props) => {
   );
   const [elevationScaleFactor, setElevationScaleFactor] = useRecoilState(
     elevationScaleFactorState,
-  );
-  const [elevationSmallQuantity, setElevationSmallQuantity] = useRecoilState(
-    elevationSmallQuantityState,
-  );
-  const [elevationLargeQuantity, setElevationLargeQuantity] = useRecoilState(
-    elevationLargeQuantityState,
   );
   const [elevationScaleFormula, setElevationScaleFormula] = useRecoilState(
     elevationScaleFormulaState,
@@ -114,12 +103,7 @@ const Containers = (props) => {
     containerLargeSizes,
     containerBaseElevationIndex,
   );
-  // const elevations = elevationsArray.map((i) => {
-  //     return calculateScale(baseElevationSize, elevationScaleFactor, i, elevationScaleFormula);
-  // })
-  // const offsets = elevations.map((elevation) => {
-  //     return elevation * (elevationOffsetY / 100)
-  // })
+
   const radiusArray = buildShiftedArray(
     containerSmallSizes,
     containerLargeSizes,
@@ -147,8 +131,6 @@ const Containers = (props) => {
       ? spacingFormula
       : undefined;
 
-  // console.log(containerBasePaddingXIndex, containerPaddingScaleFactor, paddingXIndexArray)
-  // console.log(radiusArray)
   const containerElements = sizeArray.map((size, i) => {
     const decrementIndex = size * -1 - 1;
     const sizeName =
@@ -164,12 +146,6 @@ const Containers = (props) => {
       : undefined;
     const offset = elevation * (elevationOffsetY / 100);
 
-    const nameX = `elevation-${100 * (i + 1)}-offsetY`;
-    const nameY = `elevation-${100 * (i + 1)}-blur`;
-    const valueX =
-      baseScaleUnit === 'px' ? offset : round(offset / baseSize, 3);
-    const valueY =
-      baseScaleUnit === 'px' ? elevation : round(elevation / baseSize, 3);
     const paddingXvalue = calculateScale(
       baseSize,
       containerPaddingMethod,
@@ -216,11 +192,7 @@ const Containers = (props) => {
   });
 
   return (
-    <div
-      className="column"
-      // style={{flexGrow: '1'}}
-    >
-      {/* <h3>Containers</h3> */}
+    <div className="column">
       <div id="containerWrapper">{containerElements}</div>
     </div>
   );

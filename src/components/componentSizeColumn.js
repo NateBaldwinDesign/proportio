@@ -4,34 +4,18 @@ import capitalize from '../utilities/capitalize';
 import ComponentElement from './componentElement';
 import { useRecoilState } from 'recoil';
 import { baseSizeState } from '../states/base';
-import { componentPaddingMethodOptionState } from '../states/components';
 import { typeScaleFormulaState, typeScaleState } from '../states/typography';
 import { iconScaleState } from '../states/iconography';
-import {
-  textIconGapIndexState,
-  textIconIconSizeIndexState,
-  textIconGapScaleFormulaState,
-} from '../states/textIconPair';
+
 import demoComponents from '../utilities/demoComponents';
 
 const ComponentSizeColumn = (props) => {
   const [baseSize, setBaseSize] = useRecoilState(baseSizeState);
-  const [componentPaddingMethodOption, setComponentPaddingMethodOption] =
-    useRecoilState(componentPaddingMethodOptionState);
   const [typeScaleFormula, setTypeScaleFormula] = useRecoilState(
     typeScaleFormulaState,
   );
   const [typeScale, setTypeScale] = useRecoilState(typeScaleState);
   const [iconScale, setIconScale] = useRecoilState(iconScaleState);
-  const [textIconGapIndex, setTextIconGapIndex] = useRecoilState(
-    textIconGapIndexState,
-  );
-  const [textIconIconSizeIndex, setTextIconIconSizeIndex] = useRecoilState(
-    textIconIconSizeIndexState,
-  );
-  const [textIconGapScaleFormula, setTextIconGapScaleFormula] = useRecoilState(
-    textIconGapScaleFormulaState,
-  );
 
   const density = props.density;
   const sizeName = props.sizeName;
@@ -111,9 +95,6 @@ const ComponentSizeColumn = (props) => {
     componentRadiusIndexArray[increment],
     radiusScaleFormula,
   );
-
-  // const computedHeight =
-  //   paddingY * 2 + Number(componentLineHeight) * typeSize;
 
   const radius = scaleComponentRadius
     ? scaledComponentRadius

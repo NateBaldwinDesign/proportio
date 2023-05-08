@@ -63,7 +63,6 @@ const ContainerControls = (props) => {
     <>
       <fieldset>
         <legend>Sizes</legend>
-        {/* <div className="segmentedControl">{inputs}</div> */}
         <div className="column">
           <div className="formGroup">
             <label htmlFor="">Small sizes</label>

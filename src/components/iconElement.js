@@ -1,6 +1,5 @@
 import React from 'react';
 import { useRecoilState } from 'recoil';
-import calculateScale from '../utilities/calculateScale';
 import createSvgIcon from '../utilities/createSvgIcon';
 import { baseScaleUnitState, baseSizeState } from '../states/base';
 import {
@@ -18,6 +17,7 @@ const IconElement = (props) => {
   const [baseScaleUnit, setBaseScaleUnit] = useRecoilState(baseScaleUnitState);
 
   const size = round(props.size);
+
   /* Just to align icon examples with typography */
   const iconLineHeight = 1.375;
 
