@@ -6,7 +6,7 @@ _**Tool for creating proportional scales for typography, iconography, spacing, a
 
 ## Purpose
 
-Making systematic design faster and easier by use of generative, parametric design. Midas enables designers to use proportional scales to create:
+Making systematic design faster and easier by use of generative, parametric design. Proportio enables designers to use proportional scales to create:
 
 - Type scales
 - Icon scales

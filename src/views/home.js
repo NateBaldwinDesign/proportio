@@ -16,7 +16,7 @@ const Home = (props) => {
         <article>
           <h2>Proportional, generative design</h2>
           <p>
-            Midas provides you with methods to experiment with proportional
+            Proportio provides you with methods to experiment with proportional
             scaling. The same approach used for creating{' '}
             <strong>modular type scales</strong> is applied to every aspect of
             user interface design:
@@ -35,7 +35,7 @@ const Home = (props) => {
         <article>
           <h2>Open-source</h2>
           <p>
-            Midas is an open-source tool, created by design systems
+            Proportio is an open-source tool, created by design systems
             practitioners looking for better design tools.
           </p>
           <p>Contributions welcome!</p>
