@@ -16,6 +16,7 @@
     overflow-y: auto;
     flex-direction: column;
     min-width: fit-content;
+    width: calc(var(--panelWidth) - (var(--appFrameMargin) * 2));
     gap: 0;
     height: calc(100% - 32px);
   }

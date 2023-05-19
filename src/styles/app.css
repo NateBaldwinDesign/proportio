@@ -112,6 +112,7 @@
   --textColor: var(--Gray600);
   --textColorTertiary: var(--Gray500);
   --panelBorderRadius: 24px;
+  --panelWidth: 418px;
   --panelShadow: 0 4px 8px 0 var(--shadowColor);
   --menuShadow: 0 4px 8px 0 var(--shadowColor);
   --appFrameMargin: 24px;
@@ -228,7 +229,7 @@ article + article {
 @media screen and (min-width: 900px) {
   .splitView {
     grid-template-areas: 'panel main';
-    grid-template-columns: 320px auto;
+    grid-template-columns: var(--panelWidth) auto;
     padding: var(--appFrameMargin) var(--appFrameMargin) 0 0;
     height: calc(100% - var(--appFrameMargin));
   }
@@ -271,7 +272,7 @@ main.demoRow .column {
 }
 @media screen and (min-width: 900px) {
   .splitView main {
-    max-width: calc(100vw - 442px - var(--appFrameMargin));
+    max-width: calc(100vw - 538px - var(--appFrameMargin));
     height: calc(100vh - 200px);
     margin: 0;
     row-gap: 56px;
