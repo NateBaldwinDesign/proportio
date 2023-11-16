@@ -115,6 +115,7 @@
   --panelWidth: 418px;
   --panelShadow: 0 4px 8px 0 var(--shadowColor);
   --menuShadow: 0 4px 8px 0 var(--shadowColor);
+  --fabShadow: 0 8px 12px 0 var(--shadowColor);
   --appFrameMargin: 24px;
   --headerHeight: 56px;
   --fontStack: 'Inter', sans-serif;

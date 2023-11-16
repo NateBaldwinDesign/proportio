@@ -11,6 +11,7 @@ import Components from './views/components';
 import Header from './components/header';
 import ExportDialog from './views/exportDialog';
 import ContainerView from './views/containerView';
+import BuyMeCoffee from './components/buyMeCoffee';
 
 function App() {
   const iconLineHeight = 1.375; /* Just to align icon examples with typography */
@@ -44,6 +45,9 @@ function App() {
           <TabPanel className="App_tabPanel">
             <ContainerView />
           </TabPanel>
+
+          <BuyMeCoffee/>
+
         </Tabs>
       </div>
     </RecoilRoot>
