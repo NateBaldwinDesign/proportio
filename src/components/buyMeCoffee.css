@@ -1,7 +1,6 @@
 .buymecoffee {
     position:absolute;
     z-index: 20;
-    background-color: var(--Gold200);
     bottom: 16px;
     right: 16px;
     border-radius: 32px;
@@ -15,9 +14,19 @@
     -webkit-transform: scale(1);
     transform: scale(1);
     box-shadow: var(--fabShadow);
-        /* overflow: clip; */
 }
 
+@media (prefers-color-scheme: light) {
+    .buymecoffee {
+        background-color: var(--Gold200);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .buymecoffee {
+        background-color: var(--selectionIndicatorColor);
+    }
+}
 
 
 .buymecoffee img {
