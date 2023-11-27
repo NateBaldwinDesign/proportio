@@ -18,6 +18,7 @@ Making systematic design faster and easier by use of generative, parametric desi
 ## MLP todo list
 
 (Minimum loveable product)
+
 - [x] Modularize states & clean up props
 - [x] Add Feather icons for choosing sample icon: https://github.com/feathericons/feather
 - [x] Add variable stroke scale input
@@ -29,6 +30,7 @@ Making systematic design faster and easier by use of generative, parametric desi
 - [x] Documentation
 
 Future additions:
+
 - [ ] Clean up code
 - [ ] Add “round to even numbers” option
 - [ ] Add mobile scale factor

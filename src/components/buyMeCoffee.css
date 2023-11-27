@@ -1,46 +1,44 @@
 .buymecoffee {
-    position:absolute;
-    z-index: 20;
-    bottom: 16px;
-    right: 16px;
-    border-radius: 32px;
-    /* padding: 0 16px; */
-    width: 56px;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    transition: all .2s ease-in-out;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    box-shadow: var(--fabShadow);
+  position: absolute;
+  z-index: 20;
+  bottom: 16px;
+  right: 16px;
+  border-radius: 32px;
+  /* padding: 0 16px; */
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  transition: all 0.2s ease-in-out;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  box-shadow: var(--fabShadow);
 }
 
 @media (prefers-color-scheme: light) {
-    .buymecoffee {
-        background-color: var(--Gold200);
-    }
+  .buymecoffee {
+    background-color: var(--Gold200);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
-    .buymecoffee {
-        background-color: var(--selectionIndicatorColor);
-    }
+  .buymecoffee {
+    background-color: var(--selectionIndicatorColor);
+  }
 }
-
 
 .buymecoffee img {
-    height: 32px;
-    width: 32px;
-    margin-inline-start: 12px;
+  height: 32px;
+  width: 32px;
+  margin-inline-start: 12px;
 }
-
 
 .buymecoffee:hover,
 .buymecoffee:focus,
 .buymecoffee:active {
-    box-shadow: var(--menuShadow);
-    transition: all .2s ease-in-out;
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
+  box-shadow: var(--menuShadow);
+  transition: all 0.2s ease-in-out;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }

@@ -63,10 +63,14 @@ const BaseControls = (props) => {
           <Dropdown
             options={typeScaleOptions}
             onChange={(e) => {
-              setScaleInput(e.value);
-              if (e.value !== typeScale) {
-                setTypeScale(Number(e.value));
-                setIconScale(Number(e.value));
+              if (e.value === 'Custom') {
+                // do nothing
+              } else {
+                setScaleInput(e.value);
+                if (e.value !== typeScale) {
+                  setTypeScale(Number(e.value));
+                  setIconScale(Number(e.value));
+                }
               }
             }}
             value={

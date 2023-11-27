@@ -46,8 +46,7 @@ function App() {
             <ContainerView />
           </TabPanel>
 
-          <BuyMeCoffee/>
-
+          <BuyMeCoffee />
         </Tabs>
       </div>
     </RecoilRoot>
