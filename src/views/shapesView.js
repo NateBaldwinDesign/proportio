@@ -15,16 +15,8 @@ const ShapesView = (props) => {
   return (
     <>
       <div className="splitView">
-        <Panel direction="column">
-          <SpacingControls />
-          <RadiusControls />
-          <ElevationControls />
-        </Panel>
-        <main className="demoRow apply-font-main">
-          <Spacing spacerLineHeight={spacerLineHeight} />
-          <Radius />
-          <Elevation />
-        </main>
+        <Panel direction="column"></Panel>
+        <main className="demoRow apply-font-main"></main>
       </div>
     </>
   );

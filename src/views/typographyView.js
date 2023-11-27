@@ -11,23 +11,11 @@ import Panel from '../components/panel';
 import '../styles/toolbar.css';
 
 const TypographyView = (props) => {
-  const [sampleText, setSampleText] = useState('Proportio');
-
   return (
     <>
       <div className="splitView">
-        <Panel direction="column">
-          <BaseControls />
-
-          <TypeControls sampleText={sampleText} setSampleText={setSampleText} />
-          <IconControls />
-          <TypeIconPairingControls />
-        </Panel>
-        <main className="demoRow apply-font-main">
-          <Typography sampleText={sampleText} />
-          <Iconography />
-          <TypeIconPairing sampleText={sampleText} />
-        </main>
+        <Panel direction="column"></Panel>
+        <main className="demoRow apply-font-main"></main>
       </div>
     </>
   );

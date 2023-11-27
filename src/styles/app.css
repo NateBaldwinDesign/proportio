@@ -229,8 +229,8 @@ article + article {
 @media screen and (min-width: 900px) {
   .splitView {
     grid-template-areas: 'panel main';
-    grid-template-columns: var(--panelWidth) auto;
-    padding: var(--appFrameMargin) var(--appFrameMargin) 0 0;
+    grid-template-columns: calc(var(--panelWidth) + 48px) auto;
+    padding: 0 var(--appFrameMargin) 0 0;
     height: calc(100% - var(--appFrameMargin));
   }
 }
@@ -238,6 +238,7 @@ article + article {
 main {
   grid-area: main;
   display: flex;
+  flex-direction: column;
   padding: 24px 48px 48px 48px;
   border-radius: var(--panelBorderRadius);
   background-color: var(--appBackground);
@@ -246,7 +247,8 @@ main {
   box-shadow: var(--panelShadow);
 }
 
-main.demoRow {
+.demoRow {
+  display: flex;
   flex-direction: row;
   column-gap: calc(var(--appFrameMargin) * 5);
   row-gap: var(--appFrameMargin);
@@ -254,11 +256,11 @@ main.demoRow {
   padding-top: 48px;
   align-content: flex-start;
 }
-main.demoRow .tabs_action {
+.demoRow .tabs_action {
   width: 100%;
   margin: 0;
 }
-main.demoRow .column {
+.demoRow .column {
   flex-grow: 0;
 }
 
@@ -267,14 +269,15 @@ main.demoRow .column {
   width: 100%;
   height: auto;
   overflow-x: scroll;
-  margin: var(--appFrameMargin);
+  margin: 0;
   max-width: calc(100vw - 144px);
+  padding: 0;
 }
 @media screen and (min-width: 900px) {
   .splitView main {
-    max-width: calc(100vw - 538px - var(--appFrameMargin));
-    height: calc(100vh - 200px);
-    margin: 0;
+    max-width: calc(100vw - var(--panelWidth));
+    height: calc(100vh - var(--appFrameMargin) - var(--appFrameMargin));
+    margin: var(--appFrameMargin);
     row-gap: 56px;
   }
   .splitView main.demoRow--compact {

@@ -8,7 +8,7 @@ header {
   padding: 8px 24px;
   justify-content: space-between;
   gap: 36px;
-  box-shadow: var(--panelShadow);
+  /* box-shadow: var(--panelShadow); */
   z-index: 20;
 }
 
