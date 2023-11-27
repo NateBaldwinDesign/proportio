@@ -41,9 +41,10 @@ const Header = (props) => {
 
       <div className="header--right">
         <div className="formGroup">
-          <label htmlFor="scale_unit">Unit</label>
+          <label id="scale_unitLabel">Unit</label>
           <span id="unitPicker">
             <Dropdown
+              ariaLabelledBy="scale_unitLabel"
               options={scaleUnits}
               onChange={(e) => {
                 setBaseScaleUnit(e.value);

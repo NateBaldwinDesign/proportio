@@ -65,8 +65,9 @@ const ContainerControls = (props) => {
         <legend>Sizes</legend>
         <div className="column">
           <div className="formGroup">
-            <label htmlFor="">Small sizes</label>
+            <label htmlFor="containerSmallSizes">Small sizes</label>
             <input
+              id="containerSmallSizes"
               type="number"
               onInput={(e) => setContainerSmallSizes(Number(e.target.value))}
               step="1"
@@ -75,8 +76,9 @@ const ContainerControls = (props) => {
             />
           </div>
           <div className="formGroup">
-            <label htmlFor="">Large sizes</label>
+            <label htmlFor="containerLargeSizes">Large sizes</label>
             <input
+              id="containerLargeSizes"
               type="number"
               onInput={(e) => setContainerLargeSizes(Number(e.target.value))}
               step="1"
@@ -91,7 +93,9 @@ const ContainerControls = (props) => {
         <div className="segmentedControl">{containerPaddingMethodInputs}</div>
         <div className="column">
           <div className="formGroup">
-            <label>Top/bottom padding index</label>
+            <label htmlFor="containerXPaddingScale">
+              Top/bottom padding index
+            </label>
             <input
               type="number"
               id="containerXPaddingScale"
@@ -103,7 +107,9 @@ const ContainerControls = (props) => {
             />
           </div>
           <div className="formGroup">
-            <label>Left/right padding index</label>
+            <label htmlFor="containerYPaddingScale">
+              Left/right padding index
+            </label>
             <input
               type="number"
               id="containerYPaddingScale"
@@ -115,8 +121,9 @@ const ContainerControls = (props) => {
             />
           </div>
           <div className="formGroup">
-            <label>Scale factor</label>
+            <label htmlFor="containerScaleFactor">Scale factor</label>
             <input
+              id="containerScaleFactor"
               type="number"
               defaultValue={containerPaddingScaleFactor}
               step="1"
@@ -132,8 +139,9 @@ const ContainerControls = (props) => {
         <legend>Radius</legend>
         <div className="column">
           <div className="formGroup">
-            <label htmlFor="">Base radius index</label>
+            <label htmlFor="baseRadius">Base radius index</label>
             <input
+              id="baseRadius"
               type="number"
               onInput={(e) =>
                 setContainerBaseRadiusIndex(Number(e.target.value))
@@ -144,8 +152,9 @@ const ContainerControls = (props) => {
           </div>
 
           <div className="formGroup">
-            <label htmlFor="">Radius scale factor</label>
+            <label htmlFor="radiusScaleFactor">Radius scale factor</label>
             <input
+              id="radiusScaleFactor"
               type="number"
               onInput={(e) =>
                 setContainerRadiusScaleFactor(Number(e.target.value))
@@ -171,8 +180,9 @@ const ContainerControls = (props) => {
             <label htmlFor="componentElevation">Apply elevations</label>
           </div>
           <div className="formGroup">
-            <label htmlFor="">Elevation index</label>
+            <label htmlFor="elevationIndex">Elevation index</label>
             <input
+              id="elevationIndex"
               type="number"
               onInput={(e) =>
                 setContainerBaseElevationIndex(Number(e.target.value))

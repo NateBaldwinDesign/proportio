@@ -63,8 +63,9 @@ const IconControls = (props) => {
           </span>
         </div>
         <div className="formGroup">
-          <label htmlFor="">Stroke</label>
+          <label htmlFor="iconStroke">Stroke</label>
           <Slider
+            id="iconStroke"
             type="range"
             onInput={setIconStroke}
             step="0.25"

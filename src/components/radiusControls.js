@@ -49,8 +49,9 @@ const RadiusControls = (props) => {
       <div className="segmentedControl">{inputs}</div>
       <div className="column">
         <div className="formGroup">
-          <label htmlFor="">Base radius size</label>
+          <label htmlFor="baseRadius">Base radius size</label>
           <input
+            id="baseRadius"
             type="number"
             onInput={(e) => setBaseRadiusSize(Number(e.target.value))}
             step="1"
@@ -59,8 +60,9 @@ const RadiusControls = (props) => {
           />
         </div>
         <div className="formGroup">
-          <label htmlFor="">Radius scale</label>
+          <label htmlFor="radiusScale">Radius scale</label>
           <input
+            id="radiusScale"
             type="number"
             onInput={(e) => setRadiusScaleFactor(Number(e.target.value))}
             step={radiusScaleFormula === 'power' ? '0.1' : '1'}
@@ -69,8 +71,9 @@ const RadiusControls = (props) => {
           />
         </div>
         <div className="formGroup">
-          <label htmlFor="">Small sizes</label>
+          <label htmlFor="smallRadii">Small sizes</label>
           <input
+            id="smallRadii"
             type="number"
             onInput={(e) => setRadiusSmallQuantity(Number(e.target.value))}
             step="1"
@@ -80,8 +83,9 @@ const RadiusControls = (props) => {
         </div>
 
         <div className="formGroup">
-          <label htmlFor="">Large sizes</label>
+          <label htmlFor="largeRadii">Large sizes</label>
           <input
+            id="largeRadii"
             type="number"
             onInput={(e) => setRadiusLargeQuantity(Number(e.target.value))}
             step="1"

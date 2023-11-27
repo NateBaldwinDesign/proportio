@@ -29,7 +29,7 @@ const SpacingControls = (props) => {
       <legend>Spacing</legend>
       <div className="column">
         <div className="formGroup">
-          <label htmlFor="">Scale</label>
+          <label htmlFor="spacingScale">Scale</label>
 
           <Dropdown
             options={typeScaleOptions}
@@ -52,6 +52,7 @@ const SpacingControls = (props) => {
           />
 
           <input
+            id="spacingScale"
             key={scaleInput}
             type="number"
             onChange={(e) => {
@@ -63,8 +64,9 @@ const SpacingControls = (props) => {
           />
         </div>
         <div className="formGroup">
-          <label htmlFor="">Small sizes</label>
+          <label htmlFor="smallSpacings">Small sizes</label>
           <input
+            id="smallSpacings"
             type="number"
             onInput={(e) => setSpacingSmallQuantity(Number(e.target.value))}
             step="1"
@@ -74,8 +76,9 @@ const SpacingControls = (props) => {
         </div>
 
         <div className="formGroup">
-          <label htmlFor="">Large sizes</label>
+          <label htmlFor="largeSpacings">Large sizes</label>
           <input
+            id="largeSpacings"
             type="number"
             onInput={(e) => setSpacingLargeQuantity(Number(e.target.value))}
             step="1"

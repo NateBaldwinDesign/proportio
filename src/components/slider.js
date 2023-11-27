@@ -5,10 +5,12 @@ const Slider = (props) => {
   const defaultValue = props.defaultValue;
   const onInput = props.onInput;
   const unit = props.unit;
+  const id = props.id ? props.id : '';
 
   return (
     <div className="slider">
       <input
+        id={id}
         className="slider_input"
         type="range"
         onInput={(e) => {

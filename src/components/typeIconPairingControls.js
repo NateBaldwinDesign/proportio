@@ -45,8 +45,9 @@ const TypeIconPairingControls = (props) => {
       <div className="segmentedControl">{inputs}</div>
       <div className="column">
         <div className="formGroup">
-          <label htmlFor="">{fieldLabel}</label>
+          <label htmlFor="textIconGapIndex">{fieldLabel}</label>
           <input
+            id="textIconGapIndex"
             type="number"
             onInput={(e) => setTextIconGapIndex(Number(e.target.value))}
             step="1"
@@ -56,8 +57,9 @@ const TypeIconPairingControls = (props) => {
           />
         </div>
         <div className="formGroup">
-          <label htmlFor="">Icon size index</label>
+          <label htmlFor="iconSizeIndex">Icon size index</label>
           <input
+            id="iconSizeIndex"
             type="number"
             onInput={(e) => setTextIconIconSizeIndex(Number(e.target.value))}
             step="1"

@@ -44,8 +44,9 @@ const BaseControls = (props) => {
       <legend>Common values</legend>
       <div className="column">
         <div className="formGroup">
-          <label htmlFor="">Base size (px)</label>
+          <label htmlFor="baseSize">Base size (px)</label>
           <input
+            id="baseSize"
             type="number"
             onInput={(e) => {
               setBaseSize(Number(e.target.value));
@@ -57,7 +58,7 @@ const BaseControls = (props) => {
         </div>
 
         <div className="formGroup">
-          <label htmlFor="">Scale</label>
+          <label htmlFor="baseScale">Scale</label>
 
           <Dropdown
             options={typeScaleOptions}
@@ -77,6 +78,7 @@ const BaseControls = (props) => {
           />
 
           <input
+            id="baseScale"
             key={scaleInput}
             type="number"
             onChange={(e) => {
@@ -89,8 +91,9 @@ const BaseControls = (props) => {
           />
         </div>
         <div className="formGroup">
-          <label htmlFor="">Small sizes</label>
+          <label htmlFor="smallSizes">Small sizes</label>
           <input
+            id="smallSizes"
             type="number"
             onInput={(e) => {
               setTypeSmallQuantity(Number(e.target.value));
@@ -103,8 +106,9 @@ const BaseControls = (props) => {
         </div>
 
         <div className="formGroup">
-          <label htmlFor="">Large sizes</label>
+          <label htmlFor="largeSizes">Large sizes</label>
           <input
+            id="largeSizes"
             type="number"
             onInput={(e) => {
               setTypeLargeQuantity(Number(e.target.value));

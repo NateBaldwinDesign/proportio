@@ -54,8 +54,9 @@ const ElevationControls = (props) => {
       <div className="segmentedControl">{inputs}</div>
       <div className="column">
         <div className="formGroup">
-          <label htmlFor="">Base elevation size</label>
+          <label htmlFor="baseElevationSize">Base elevation size</label>
           <input
+            id="baseElevationSize"
             type="number"
             onInput={(e) => setBaseElevationSize(Number(e.target.value))}
             step="1"
@@ -64,8 +65,9 @@ const ElevationControls = (props) => {
           />
         </div>
         <div className="formGroup">
-          <label htmlFor="">Elevation scale</label>
+          <label htmlFor="elevationScale">Elevation scale</label>
           <input
+            id="elevationScale"
             type="number"
             onInput={(e) => setElevationScaleFactor(Number(e.target.value))}
             step={elevationScaleFormula === 'power' ? '0.1' : '1'}
@@ -74,8 +76,9 @@ const ElevationControls = (props) => {
           />
         </div>
         <div className="formGroup">
-          <label htmlFor="">Small sizes</label>
+          <label htmlFor="smallElevations">Small sizes</label>
           <input
+            id="smallElevations"
             type="number"
             onInput={(e) => setElevationSmallQuantity(Number(e.target.value))}
             step="1"
@@ -85,8 +88,9 @@ const ElevationControls = (props) => {
         </div>
 
         <div className="formGroup">
-          <label htmlFor="">Large sizes</label>
+          <label htmlFor="largeElevations">Large sizes</label>
           <input
+            id="largeElevations"
             type="number"
             onInput={(e) => setElevationLargeQuantity(Number(e.target.value))}
             step="1"
@@ -95,8 +99,9 @@ const ElevationControls = (props) => {
           />
         </div>
         <div className="formGroup">
-          <label htmlFor="">Shadow distance</label>
+          <label htmlFor="shadowDistance">Shadow distance</label>
           <Slider
+            id="shadowDistance"
             type="number"
             onInput={setElevationOffsetY}
             step="1"

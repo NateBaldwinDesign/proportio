@@ -26,12 +26,13 @@ const TypeControls = (props) => {
 
       <div className="column">
         <div className="formGroup">
-          <label htmlFor="">Font</label>
+          <label id="fontFamilyLabel">Font</label>
           <span
             className="apply-font-main"
             style={{ width: 'calc(100% - 120px)' }}
           >
             <FontPicker
+              ariaLabelledBy="fontFamilyLabel"
               pickerId="main"
               apiKey="AIzaSyC4_gemFBE-Ep1knNI5zgWnz7ZirQrqOnw"
               limit={500}
@@ -41,8 +42,9 @@ const TypeControls = (props) => {
           </span>
         </div>
         <div className="formGroup">
-          <label htmlFor="">Font weight</label>
+          <label htmlFor="fontWeight">Font weight</label>
           <input
+            id="fontWeight"
             type="number"
             onInput={(e) => {
               setTypeFontWeight(Number(e.target.value));
@@ -59,8 +61,9 @@ const TypeControls = (props) => {
         </div>
 
         <div className="formGroup">
-          <label htmlFor="">Sample text</label>
+          <label htmlFor="sampleText">Sample text</label>
           <input
+            id="sampleText"
             type="text"
             style={{ width: '140px' }}
             onInput={(e) => setSampleText(e.target.value)}
